@@ -1,3 +1,1 @@
 # Art-of-Derivation
-
-## Algebra
