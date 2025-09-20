@@ -14,4 +14,5 @@ Finally, thank you to all the people who contributed to my math journey:\
 (list will be complete after I graduate from high school)\
 This is a gift for you all.
 
-*“Pure mathematics is in its way the poetry of logical ideas.” ― Albert Einstein*
+*“Mathematics is the queen of the sciences”
+― Carl Friedrich Gauss*
