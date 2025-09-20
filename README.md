@@ -10,8 +10,8 @@ This project is inspired by the probability textbook [*Art of Chance*](https://d
 
 I am new to GitHub and haven't yet acquired the skills to transform this page into a website as a high school student. I wish to learn more, and if you have any suggestions, please contact my personal email [davidwenxuanzhang@gmail.com](mailto:davidwenxuanzhang@gmail.com)
 
-Finally, thank you to all the people who contributed to my math journey
-(list will be complete after I graduate from high school.)
+Finally, thank you to all the people who contributed to my math journey\
+(list will be complete after I graduate from high school.)\
 This is a gift for you all.
 
 *“Pure mathematics is in its way the poetry of logical ideas.” ― Albert Einstein*
