@@ -26,7 +26,7 @@ Prof. Maddie Schroth\
 Dr. Gene B. Kim\
 Ms. Farrell\
 Mr. Kline\
-This is also used for remembering your support.
+This project is also used for remembering your support.
 
 *“Mathematics is the queen of the sciences.”
 ― Carl Friedrich Gauss*
