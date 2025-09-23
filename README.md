@@ -21,12 +21,12 @@ Mr. Westfield\
 Ms. Brennan\
 Mr. Whitehouse\
 Mr. Gopen\
-Cheng Zhang\]
+Ms. Cheng Zhang\
 Prof. Maddie Schroth\
 Dr. Gene B. Kim\
 Ms. Farrell\
 Mr. Kline\
 This is also used for remembering your support.
 
-*“Mathematics is the queen of the sciences”
+*“Mathematics is the queen of the sciences.”
 ― Carl Friedrich Gauss*
