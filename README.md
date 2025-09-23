@@ -11,9 +11,22 @@ This project is inspired by the probability textbook [*Art of Chance*](https://d
 
 I am new to GitHub and haven't yet acquired the skills to transform this page into a website. I wish to learn more, and if you have any suggestions, please contact my personal email [davidwenxuanzhang@gmail.com](mailto:davidwenxuanzhang@gmail.com).
 
-Finally, thank you to all the people who contributed to my math journey:\
-(list will be complete after I graduate from high school)\
-This is a gift for you all.
+Finally, thanks to all the people who contributed to my math journey (list in chronological order):\
+Mr. Jianjiong Liu(刘建炯)\
+Ms. Yan Liu(刘艳)\
+Mr. Julian Li\
+Ms. Rosshirt\
+Dr. Laakso\
+Mr. Westfield\
+Ms. Brennan\
+Mr. Whitehouse\
+Mr. Gopen\
+Cheng Zhang\]
+Prof. Maddie Schroth\
+Dr. Gene B. Kim\
+Ms. Farrell\
+Mr. Kline\
+This is also used for remembering your support.
 
 *“Mathematics is the queen of the sciences”
 ― Carl Friedrich Gauss*
