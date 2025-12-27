@@ -85,8 +85,13 @@ const config = {
         logo: {
           alt: 'My Site Logo',
           src: 'img/icon.png',
+          srcDark: 'img/icon-dark.png',
         },
         items: [
+          { 
+          label: 'Start',     // 导航栏显示的名称
+          to: '/docs/Introduction',  // 链接到的文档页面
+        },
                   {
           type: 'dropdown',  // 下拉菜单类型
           label: 'Mathematics',     // 导航栏显示的名称
@@ -136,6 +141,14 @@ const config = {
                 label: 'Tutorial',
                 to: '/docs/intro',
               },
+              {
+                label: 'Tutorial',
+                to: '/docs/intro',
+              },
+              {
+                label: 'Tutorial',
+                to: '/docs/intro',
+              },
             ],
           },
           {
@@ -165,7 +178,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `<i>“Mathematics is the queen of the sciences.” — Carl Friedrich Gauss</i> <br/> Copyright © ${new Date().getFullYear()} <strong>Art of Derivation</strong>`,
       },
       prism: {
         theme: prismThemes.github,
