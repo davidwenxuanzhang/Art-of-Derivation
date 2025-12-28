@@ -21,3 +21,67 @@
   align-items: center;
   justify-content: center;
 }
+
+.heroBanner {
+  position: relative;
+  overflow: hidden;
+  min-height: 70vh;
+}
+
+.heroBanner :global(.container) {
+  position: relative;
+  z-index: 2;
+}
+
+/* 数学家图层 */
+.mathLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  mix-blend-mode: soft-light;
+}
+
+/* 数学家实体 */
+.mathFigure {
+  position: absolute;
+  width: 350px;
+  opacity: 0;
+  animation: 20s infinite;
+
+  filter:
+    grayscale(100%)
+    contrast(100%)
+    blur(0.6px);
+
+  mask-image: radial-gradient(circle, black 55%, transparent 70%);
+  -webkit-mask-image: radial-gradient(circle, black 55%, transparent 70%);
+}
+
+/* 伪随机位置 + 时间 */ 
+.mathFigure:nth-child(1) { top: 15%; left: 10%; animation-delay: 0s; } 
+.mathFigure:nth-child(2) { top: 50%; left: 60%; animation-delay: 6s; } 
+.mathFigure:nth-child(3) { top: 30%; left: 75%; animation-delay: 12s; }
+
+/* 不同轨道 */
+.mathFigure:nth-child(odd) {
+  animation-name: fadeFloatA;
+}
+
+.mathFigure:nth-child(even) {
+  animation-name: fadeFloatB;
+}
+
+@keyframes fadeFloatA {
+  0% { opacity: 0; transform: translate(-10px, 20px) scale(0.96); }
+  30% { opacity: 0.45; }
+  50% { transform: translate(10px, -10px) scale(1); }
+  100% { opacity: 0; }
+}
+
+@keyframes fadeFloatB {
+  0% { opacity: 0; transform: translate(20px, -10px) scale(0.96); }
+  30% { opacity: 0.45; }
+  50% { transform: translate(-10px, 10px) scale(1); }
+  100% { opacity: 0; }
+}
