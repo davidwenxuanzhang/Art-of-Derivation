@@ -8,6 +8,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 import rehypeKatex from 'rehype-katex';
 import remarkMath from 'remark-math';
 
+
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 /** @type {import('@docusaurus/types').Config} */
@@ -126,8 +127,9 @@ const config = {
           
           {
             href: 'https://github.com/davidwenxuanzhang/Art-of-Derivations',
-            label: 'GitHub',
             position: 'right',
+            className: 'header-github-link',
+            'aria-label': 'GitHub repository',
           },
         ],
       },
