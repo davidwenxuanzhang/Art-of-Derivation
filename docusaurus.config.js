@@ -79,6 +79,7 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       colorMode: {
+        disableSwitch: false,
         respectPrefersColorScheme: true,
       },
       navbar: {
@@ -93,7 +94,7 @@ const config = {
           label: 'Start',     // 导航栏显示的名称
           to: '/docs/Introduction',  // 链接到的文档页面
         },
-                  {
+          {
           type: 'dropdown',  // 下拉菜单类型
           label: 'Mathematics',     // 导航栏显示的名称
           items: [
