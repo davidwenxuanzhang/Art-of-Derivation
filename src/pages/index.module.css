@@ -25,7 +25,7 @@
 .heroBanner {
   position: relative;
   overflow: hidden;
-  min-height: 70vh;
+  min-height: 94vh;
 }
 
 .heroBanner :global(.container) {
@@ -45,13 +45,13 @@
 /* 数学家实体 */
 .mathFigure {
   position: absolute;
-  width: 350px;
+  width: 325px;
   opacity: 0;
-  animation: 20s infinite;
+  animation: 36s infinite;
 
   filter:
     grayscale(100%)
-    contrast(100%)
+    contrast(120%)
     blur(0.6px);
 
   mask-image: radial-gradient(circle, black 55%, transparent 70%);
@@ -59,9 +59,12 @@
 }
 
 /* 伪随机位置 + 时间 */ 
-.mathFigure:nth-child(1) { top: 15%; left: 10%; animation-delay: 0s; } 
-.mathFigure:nth-child(2) { top: 50%; left: 60%; animation-delay: 6s; } 
+.mathFigure:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; } 
+.mathFigure:nth-child(2) { top: 50%; left: 55%; animation-delay: 6s; } 
 .mathFigure:nth-child(3) { top: 30%; left: 75%; animation-delay: 12s; }
+.mathFigure:nth-child(4) { top: 35%; left: 15%; animation-delay: 18s; } 
+.mathFigure:nth-child(5) { top: 20%; left: 40%; animation-delay: 24s; } 
+.mathFigure:nth-child(6) { top: 5%; left: 65%; animation-delay: 30s; }
 
 /* 不同轨道 */
 .mathFigure:nth-child(odd) {

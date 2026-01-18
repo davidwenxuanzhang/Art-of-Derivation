@@ -5,16 +5,18 @@ import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import React, { useState, useEffect } from 'react';
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className={styles.mathLayer}>
-        <img src={useBaseUrl('/img/Newton.png')} className={styles.mathFigure} />
-        <img src={useBaseUrl('/img/Euler.png')} className={styles.mathFigure} />
-        <img src={useBaseUrl('/img/Gauss.png')} className={styles.mathFigure} />
+      <div className={clsx(styles.mathLayer, 'mathLayer')}>
+        <img alt="" src={useBaseUrl('/img/Newton.png')} className={clsx(styles.mathFigure, 'mathFigure')} />
+        <img alt="" src={useBaseUrl('/img/Euler.png')} className={clsx(styles.mathFigure, 'mathFigure')} />
+        <img alt="" src={useBaseUrl('/img/Gauss.png')} className={clsx(styles.mathFigure, 'mathFigure')} />
+        <img alt="" src={useBaseUrl('/img/Reimann.png')} className={clsx(styles.mathFigure, 'mathFigure')} />
+        <img alt="" src={useBaseUrl('/img/Jacob_Bernoulli.png')} className={clsx(styles.mathFigure, 'mathFigure')} />
+        <img alt="" src={useBaseUrl('/img/Weierstrass.png')} className={clsx(styles.mathFigure, 'mathFigure')} />
       </div>
       <div className="container">
         <Heading as="h1" className="hero__title">
