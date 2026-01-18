@@ -1,5 +1,5 @@
 ---
-sidebar_label: Index
+sidebar_label: Mission Statement
 sidebar_position: 1
 --- 
 
