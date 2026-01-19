@@ -107,12 +107,12 @@ const config = {
               label: 'Geometry',
             },
             {
-               to: '/docs/Mathematics/Calculus',  // 链接到微积分主页
-              label: 'Calculus',
-            },
-            {
                to: '/docs/Mathematics/Trigonometry',  // 链接到三角函数主页
               label: 'Trigonometry',
+            },
+                        {
+               to: '/docs/Mathematics/Calculus',  // 链接到微积分主页
+              label: 'Calculus',
             },
             // 可以添加更多子项
           ],
@@ -130,20 +130,6 @@ const config = {
             // 可以添加更多子项
           ],
         },
-
-          {
-          type: 'dropdown',  // 下拉菜单类型
-          label: 'Notes in Class',     // 导航栏显示的名称
-          items: [
-            {
-               to: '/docs/Notes-in-Class/Multivariable',  // 链接到主页
-              label: 'Multivariable Calculus',
-            },
-            
-            // 可以添加更多子项
-          ],
-        },
-          
           {
             href: 'https://github.com/davidwenxuanzhang/Art-of-Derivations',
             position: 'right',
