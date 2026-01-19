@@ -31,6 +31,9 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
+.admonition {
+  border-left-width: 6px; 
+}
 
 .math-keyword {
   color: var(--math-keyword-color);

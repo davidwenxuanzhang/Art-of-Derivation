@@ -92,22 +92,25 @@ $$
     &&\text{(Property 7)}\\
     =&(u_2v_3-u_3v_2)\mathbf{i}-(u_1v_3-u_3v_1)\mathbf{j}+(u_1v_2-u_2v_1)\mathbf{k}
     &&\text{(Rearrange)}
-    \\ &&&&\blacksquare
   \end{align*}
+$$
+Hence,
+$$
+\mathbf{u}\times \mathbf{v}=(u_2v_3-u_3v_2)\mathbf{i}-(u_1v_3-u_3v_1)\mathbf{j}+(u_1v_2-u_2v_1)\mathbf{k} \tag*{$\blacksquare$}
 $$
 
 </details>
 
 ## Related to Parallelogram
 
-It is obvious that according to our [original definition](#original-definition) of cross product, the magnitude of the cross product is also equal to the area of parallelogram created by $\mathbf{u}$ and $\mathbf{v}$
-
+It is obvious that according to our [original definition](#original-definition) of cross product, the magnitude of the cross product is also equal to the area of parallelogram created by $\mathbf{u}$ and $\mathbf{v}$ 
 :::note[Related to parallelogram:]
-
+<div style={{ textAlign: 'center' }}>
+  <img src={useBaseUrl('/img/cross-product-and-parallelogram.png')} width="370"/>
+</div>
 $$
 \|\mathbf{u}\times \mathbf{v}\|=\|\mathbf{u}\|\|\mathbf{v}\|\sin{\theta}=S_{\text{parallelogram}}
 $$
-
 :::
 
 Interestingly, we could <span className="math-keyword">Derive</span> this from our [alternative definition](#alternative-definition). Recall some properties:
@@ -160,7 +163,13 @@ $$
     &&\text{(Property 10)}\\
     =&\|\mathbf{u}\times \mathbf{v}\|^2
     &&\text{(Property 11 and 8)}\\
-    &&&&\blacksquare
   \end{align*}
+$$
+Hence,
+$$
+\|\mathbf{u}\|^2\|\mathbf{v}\|^2\sin^2{\theta} = \|\mathbf{u}\times \mathbf{v}\|^2
+$$
+$$
+\|\mathbf{u}\times \mathbf{v}\|=\|\mathbf{u}\|\|\mathbf{v}\|\sin{\theta}=S_{\text{parallelogram}} \tag*{$\blacksquare$}
 $$
 </details>
