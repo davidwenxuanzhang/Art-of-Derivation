@@ -5,6 +5,8 @@ import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import katex from 'katex';
+
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -17,6 +19,16 @@ function HomepageHeader() {
         <img alt="" src={useBaseUrl('/img/Reimann.png')} className={clsx(styles.mathFigure, 'mathFigure')} />
         <img alt="" src={useBaseUrl('/img/Jacob_Bernoulli.png')} className={clsx(styles.mathFigure, 'mathFigure')} />
         <img alt="" src={useBaseUrl('/img/Weierstrass.png')} className={clsx(styles.mathFigure, 'mathFigure')} />
+        <img alt="" src={useBaseUrl('/img/Leibniz.png')} className={clsx(styles.mathFigure, 'mathFigure')} />
+        <img alt="" src={useBaseUrl('/img/Lagrange.png')} className={clsx(styles.mathFigure, 'mathFigure')} />
+      </div>
+      <div className={styles.formulaLayer}>
+        <div className={styles.formulaFigure} dangerouslySetInnerHTML={{__html: katex.renderToString(String.raw`e^{i\pi}+1=0`, {
+          displayMode: true,
+          throwOnError: false,
+            }),
+          }}
+        />
       </div>
       <div className="container">
         <Heading as="h1" className="hero__title">

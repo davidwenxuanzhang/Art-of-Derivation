@@ -80,3 +80,21 @@ html[data-theme='dark'] .mathFigure {
   mask-image: radial-gradient(circle, black 45%, transparent 70%);
   -webkit-mask-image: radial-gradient(circle, black 45%, transparent 70%);
 }
+
+/* LIGHT（你这里背景偏暗）：可以更清晰、更有存在感 */
+html[data-theme='light'] .formulaFigure {
+  filter: blur(0.2px) contrast(160%);
+  color: rgba(255, 255, 255, 0.80);
+
+  /* 边缘更硬一点，减少“雾化吞字” */
+  mask-image: radial-gradient(circle, black 60%, transparent 74%);
+  -webkit-mask-image: radial-gradient(circle, black 60%, transparent 74%);
+}
+
+html[data-theme='dark'] .formulaFigure {
+  filter: blur(0px) contrast(200%);
+  color: rgba(255, 255, 255, 0.93);
+
+  mask-image: radial-gradient(circle, black 80%, transparent 90%);
+  -webkit-mask-image: radial-gradient(circle, black 80%, transparent 90%);
+}

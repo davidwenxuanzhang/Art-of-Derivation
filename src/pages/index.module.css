@@ -33,7 +33,7 @@
   z-index: 2;
 }
 
-/* 数学家图层 */
+/* 图层 */
 .mathLayer {
   position: absolute;
   inset: 0;
@@ -42,13 +42,21 @@
   mix-blend-mode: soft-light;
 }
 
-/* 数学家实体 */
+.formulaLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  mix-blend-mode: soft-light;
+}
+
+/* 实体 */
 .mathFigure {
   position: absolute;
   width: 325px;
   opacity: 0;
-  animation: 36s infinite;
-
+  animation: 30s infinite;
+  
   filter:
     grayscale(100%)
     contrast(120%)
@@ -58,22 +66,43 @@
   -webkit-mask-image: radial-gradient(circle, black 55%, transparent 70%);
 }
 
+.formulaFigure {
+  position: absolute;
+  opacity: 0;
+  animation: 6s infinite;
+
+  /* 让公式像“光的残影”，不是正文 */
+  color: rgba(255, 255, 255, 0.6);
+
+  filter:
+    blur(0px)
+    contrast(120%);
+
+  mask-image: radial-gradient(circle, black 45%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle, black 45%, transparent 100%);
+}
+
+.formulaFigure :global(.katex) {
+  font-size: 1em;
+}
+
 /* 伪随机位置 + 时间 */ 
 .mathFigure:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; } 
 .mathFigure:nth-child(2) { top: 50%; left: 55%; animation-delay: 6s; } 
+.mathFigure:nth-child(7) { top: 0%; left: 40%; animation-delay: 3s; }
 .mathFigure:nth-child(3) { top: 30%; left: 75%; animation-delay: 12s; }
 .mathFigure:nth-child(4) { top: 35%; left: 15%; animation-delay: 18s; } 
 .mathFigure:nth-child(5) { top: 20%; left: 40%; animation-delay: 24s; } 
 .mathFigure:nth-child(6) { top: 5%; left: 65%; animation-delay: 30s; }
+.mathFigure:nth-child(8) { top: 5%; left: 65%; animation-delay: -6s; }
+
+.formulaFigure:nth-child(1) { top: 60%; left: 35%; animation-delay: 0s;  font-size: 3.5rem; }
 
 /* 不同轨道 */
-.mathFigure:nth-child(odd) {
-  animation-name: fadeFloatA;
-}
-
-.mathFigure:nth-child(even) {
-  animation-name: fadeFloatB;
-}
+.mathFigure:nth-child(odd) {animation-name: fadeFloatA;}
+.mathFigure:nth-child(even) {animation-name: fadeFloatB;}
+.formulaFigure:nth-child(odd)  { animation-name: fadeFormulaA; }
+.formulaFigure:nth-child(even) { animation-name: fadeFormulaB; }
 
 @keyframes fadeFloatA {
   0% { opacity: 0; transform: translate(-10px, 20px) scale(0.96); }
@@ -87,4 +116,18 @@
   30% { opacity: 0.45; }
   50% { transform: translate(-10px, 10px) scale(1); }
   100% { opacity: 0; }
+}
+
+@keyframes fadeFormulaA {
+  0%   { opacity: 0; transform: translate(-12px, 18px) scale(0.96); }
+  30%  { opacity: 0.55; }
+  55%  { opacity: 0.9; transform: translate(8px, -10px) scale(1.02); }
+  100% { opacity: 0; transform: translate(16px, -22px) scale(1.05); }
+}
+
+@keyframes fadeFormulaB {
+  0%   { opacity: 0; transform: translate(18px, -10px) scale(0.95); }
+  30%  { opacity: 0.55; }
+  55%  { opacity: 0.9; transform: translate(-8px, 10px) scale(1.01); }
+  100% { opacity: 0; transform: translate(-18px, 18px) scale(1.04); }
 }
