@@ -123,8 +123,24 @@ const config = {
           label: 'Statistics',     // 导航栏显示的名称
           items: [
             {
-               to: '/docs/Statistics/Probability-Theory',  // 链接到主页
+               to: '/docs/Statistics/Probability-Theory',  // 链接到概率论主页
               label: 'Probability Theory',
+            },
+            
+            // 可以添加更多子项
+          ],
+        },
+            {
+          type: 'dropdown',  // 下拉菜单类型
+          label: 'Physics',     // 导航栏显示的名称
+          items: [
+            {
+               to: '/docs/Physics/Mechanics',  // 链接到力学主页
+              label: 'Mechanics',
+            },
+            {
+               to: '/docs/Physics/Electromagnetism',  // 链接到电磁学主页
+              label: 'Electromagnetism',
             },
             
             // 可以添加更多子项
