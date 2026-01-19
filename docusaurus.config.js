@@ -91,7 +91,7 @@ const config = {
         },
         items: [
           { 
-          label: 'Start',     // 导航栏显示的名称
+          label: 'About',     // 导航栏显示的名称
           to: '/docs/Introduction',  // 链接到的文档页面
         },
           {

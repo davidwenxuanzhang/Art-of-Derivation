@@ -1,6 +1,6 @@
 ---
-sidebar_label: Mission Statement
+sidebar_label: About
 sidebar_position: 1
 --- 
 
-# Index
+# Art of Derivation
