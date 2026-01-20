@@ -13,6 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          fetch-depth: 0
           token: ${{ secrets.GH_TOKEN }}  # 使用我们添加的 Secret
 
       - name: Setup Node.js
