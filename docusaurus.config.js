@@ -92,7 +92,7 @@ const config = {
         items: [
           { 
           label: 'About',     // 导航栏显示的名称
-          to: '/docs/Introduction',  // 链接到的文档页面
+          to: '/docs/About',  // 链接到的文档页面
         },
           {
           type: 'dropdown',  // 下拉菜单类型
