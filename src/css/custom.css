@@ -37,7 +37,7 @@
 
 .math-keyword {
   color: var(--math-keyword-color);
-  font-weight: 500;
+  font-weight: inherit;
 }
 
 .header-github-link:before {
