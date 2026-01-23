@@ -126,6 +126,10 @@ const config = {
                to: '/docs/Statistics/Probability-Theory',  // 链接到概率论主页
               label: 'Probability Theory',
             },
+            {
+               to: '/docs/Statistics/Regression-Analysis',  // 链接到回归分析主页
+              label: 'Regression Analysis',
+            },
             
             // 可以添加更多子项
           ],
