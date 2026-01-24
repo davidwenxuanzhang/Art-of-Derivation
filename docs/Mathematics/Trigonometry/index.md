@@ -1,7 +1,5 @@
 ---
 id: Trigonometry
-title: Intro 
+title: Trigonometry 
 sidebar_position: 1
 ---
-
-Trigonometry intro

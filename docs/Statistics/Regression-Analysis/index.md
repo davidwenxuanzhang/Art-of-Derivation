@@ -1,4 +1,4 @@
 ---
-title: Intro  
+title: Regression Analysis  
 sidebar_position: 1
 ---

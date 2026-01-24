@@ -1,6 +1,5 @@
 ---
-title: Intro  
+title: Mechanics  
 sidebar_position: 1
 ---
 
-Mechanics

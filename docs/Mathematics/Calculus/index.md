@@ -1,7 +1,5 @@
 ---
 id: Calculus
-title: Intro 
+title: Calculus 
 sidebar_position: 1
 ---
-
-Calculus

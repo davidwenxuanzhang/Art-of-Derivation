@@ -1,6 +1,6 @@
 ---
 id: Geometry
-title: Intro  
+title: Geometry  
 sidebar_position: 1
 ---
 

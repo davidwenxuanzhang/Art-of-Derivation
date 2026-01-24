@@ -1,6 +1,5 @@
 ---
 id: Algebra
-title: Intro  
+title: Algebra  
 sidebar_position: 1
 ---
-Algebra

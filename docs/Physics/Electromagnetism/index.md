@@ -1,6 +1,5 @@
 ---
-title: Intro  
+title: Electromagnetism  
 sidebar_position: 1
 ---
 
-Electromagnetism
