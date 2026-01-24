@@ -1,2 +1,4 @@
 *.md linguist-detectable
-*.mdx linguist-language=Markdown linguist-detectable
+*.mdx linguist-language=Markdown
+*.mdx linguist-detectable=true
+*.mdx linguist-documentation=false
