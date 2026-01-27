@@ -55,6 +55,7 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
+          sidebarCollapsible: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
@@ -72,7 +73,6 @@ const config = {
 	],
 ],
 
-
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -81,6 +81,12 @@ const config = {
       colorMode: {
         disableSwitch: false,
         respectPrefersColorScheme: true,
+      },
+      docs: {
+      sidebar: {
+        hideable: true,           
+        autoCollapseCategories: true,
+        },
       },
       navbar: {
         title: 'Art of Derivation',
