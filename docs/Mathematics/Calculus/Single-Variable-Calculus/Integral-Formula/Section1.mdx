@@ -229,9 +229,10 @@ $$
     &=\frac {1}{a^3} \left(ax-2b\ln{\left|ax+b\right|}-\frac{b^2}{ax+b} \right)+C \tag*{$\blacksquare$}
 \end{align*}
 $$
-
+<p align="right">
+[Integral Formula \#1](docs\Mathematics\Calculus\Single-Variable-Calculus\Integral-Formula\Section1.mdx#1)
+</p>
 </details>
-
 
 ### 9
 $$
@@ -243,8 +244,43 @@ $$
 
 $$
 \begin{align*}
-
+    I&=\int{\frac {1}{x\left(ax+b\right)^2}}\ \mathrm{d}x\\
+    &=\int{\left[\frac{A}{x}+\frac{B}{\left(ax+b\right)}+\frac{C}{\left(ax+b\right)^2}\right]}\ \mathrm{d}x &&\text{(Partial fraction decomposition)}\\
+    &=\int{\left[\frac {A\left(ax+b\right)^2+Bx\left(ax+b\right)+Cx}{x\left(ax+b\right)^2}\right]}\ \mathrm{d}x\\
+    &=\int{\left[\frac {Aa^2x^2+2Aabx+Ab^2+Bax^2+Cx}{x\left(ax+b\right)^2}\right]}\ \mathrm{d}x\\
+    &=\int{\left[\frac {\left(Aa^2+Ba\right)x^2+\left(2Aab+C\right)x+Ab^2}{x\left(ax+b\right)^2}\right]}\ \mathrm{d}x\\
 \end{align*}
 $$
-
+Comparing coefficients gives:
+$$
+\left(Aa^2+Ba\right)x^2+\left(2Aab+C\right)x+Ab^2\equiv 1 \implies
+\left\{
+\begin{align*}
+&Aa^2+Ba=0\\
+&2Aab+C=0\\
+&Ab^2=1
+\end{align*}
+\right.
+\implies
+\left\{
+\begin{align*}
+&A=\frac{1}{b^2}\\
+&B=-\frac{a}{b^2}\\
+&C=-\frac{a}{b}
+\end{align*}
+\right.
+$$
+Plug in back:
+$$
+\begin{align*}
+    I&=\int{\left[\frac{\frac{1}{b^2}}{x}+\frac{-\frac{a}{b^2}}{\left(ax+b\right)}+\frac{-\frac{a}{b}}{\left(ax+b\right)^2}\right]}\ \mathrm{d}x\\
+    &=\int{\left[\frac{1}{b^2x}-\frac{a}{b^2\left(ax+b\right)}-\frac{a}{b\left(ax+b\right)^2}\right]}\mathrm{d}x\\
+    &=\frac{\cancel{a}}{b}\int{-\frac{1}{\left(ax+b\right)^2}}\ \frac{\mathrm{d}\left(ax+b\right)}{\cancel{a}}+ \frac{1}{b^2}\left[\int{\frac{1}{x}}\ \mathrm{d}x- \int{\frac{a}{\left(ax+b\right)}}\ \mathrm{d} x\right]&&\text{(Substitution)}\\
+    &=\frac{1}{b\left(ax+b\right)}+\frac{a}{b^2}\left(\ln{\left|x \right|}-\ln{\left|ax+b \right|}+C\right) &&\text{(\#1)}\\
+    &=\frac{1}{b\left(ax+b\right)}+\frac{1}{b^2}\ln {\left|\frac{x}{ax+b} \right|}+C \tag*{$\blacksquare$}
+\end{align*}
+$$
+<p align="right">
+[Integral Formula \#1](docs\Mathematics\Calculus\Single-Variable-Calculus\Integral-Formula\Section1.mdx#1)
+</p>
 </details>
