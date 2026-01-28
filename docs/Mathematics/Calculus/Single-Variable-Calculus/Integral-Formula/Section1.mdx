@@ -15,7 +15,6 @@ $$
 <br/>
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
-
 $$
 \begin{align*}
     I&= \int {\frac{1}{ax+b}}\ \mathrm{d}x\\
@@ -33,7 +32,6 @@ $$
 <br/>
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
-
 $$
 \begin{align*}
     I&= \int{\left(ax+b\right)^{\mu}}\ \mathrm{d}x\\
@@ -43,7 +41,6 @@ $$
     &=\frac{1}{a(\mu+1)} \left(ax+b\right)^{\mu+1}+C \tag*{$\blacksquare$}
 \end{align*}
 $$
-
 </details>
 
 ### 3
@@ -65,7 +62,6 @@ $$
 <p align="right">
 [Integral Formula \#1](docs\Mathematics\Calculus\Single-Variable-Calculus\Integral-Formula\Section1.mdx#1)
 </p>
-
 </details>
 
 ### 4
@@ -91,7 +87,6 @@ $$
 </p>
 </details>
 
-
 ### 5
 $$
 \int \frac {1}{x\left(ax+b\right)}\ \mathrm{d}x=\frac {1}{b}\ln {\left|\frac {x}{ax+b}\right|}+C
@@ -103,9 +98,9 @@ $$
 $$
 \begin{align*}
     I&=\int{\frac {1}{x\left(ax+b\right)}}\ \mathrm{d}x\\
-    &=\int{\frac{A}{x}+\frac{B}{ax+b}}\ \mathrm{d}x &&\text{(Partial fraction decomposition)}\\
-    &=\int{\frac {A\left(ax+b\right)+Bx}{x\left(ax+b\right)}}\ \mathrm{d}x\\
-    &=\int{\frac {\left(Aa+B\right)x+Ab}{x\left(ax+b\right)}}\ \mathrm{d}x
+    &=\int{\left(\frac{A}{x}+\frac{B}{ax+b}\right)}\ \mathrm{d}x &&\text{(Partial fraction decomposition)}\\
+    &=\int{\left[\frac {A\left(ax+b\right)+Bx}{x\left(ax+b\right)}\right]}\ \mathrm{d}x\\
+    &=\int{\left[\frac {\left(Aa+B\right)x+Ab}{x\left(ax+b\right)}\right]}\ \mathrm{d}x
 \end{align*}
 $$
 Comparing coefficients gives:
@@ -128,7 +123,7 @@ $$
 Plug in back:
 $$
 \begin{align*}
-    I&=\int{\frac{\frac{1}{b}}{x}+\frac{-\frac{a}{b}}{ax+b}}\ \mathrm{d}x\\
+    I&=\int{\left(\frac{\frac{1}{b}}{x}+\frac{-\frac{a}{b}}{ax+b}\right)}\ \mathrm{d}x\\
     &=\int{\left[ \frac{1}{bx}-\frac{a}{b\left(ax+b\right)} \right]}\mathrm{d}x\\
     &=\frac{1}{b}\left[ \int{\frac{1}{x}}\ \mathrm{d}x- \int{\frac{a}{\left(ax+b\right)}}\ \mathrm{d} x\right]\\
     &=\frac{1}{b}\left(\ln{\left|x \right|}-\ln{\left|ax+b \right|}+C\right) &&\text{(\#1)}\\
@@ -138,9 +133,7 @@ $$
 <p align="right">
 [Integral Formula \#1](docs\Mathematics\Calculus\Single-Variable-Calculus\Integral-Formula\Section1.mdx#1)
 </p>
-
 </details>
-
 
 ### 6
 $$
@@ -152,10 +145,44 @@ $$
 
 $$
 \begin{align*}
-
+    I&=\int{\frac {1}{x^2\left(ax+b\right)}}\ \mathrm{d}x\\
+    &=\int{\left(\frac{A}{x}+\frac{B}{x^2}+\frac{C}{ax+b}\right)}\ \mathrm{d}x &&\text{(Partial fraction decomposition)}\\
+    &=\int{\left[\frac {Ax\left(ax+b\right)+B\left(ax+b\right)+Cx^2}{x^2\left(ax+b\right)}\right]}\ \mathrm{d}x\\
+    &=\int{\left[\frac {\left(Aa+C\right)x^2+\left(Ab+Ba\right)x+Bb}{x^2\left(ax+b\right)}\right]}\ \mathrm{d}x\\
 \end{align*}
 $$
-
+Comparing coefficients gives:
+$$
+\left(Aa+C\right)x^2+\left(Ab+Ba\right)x+Bb\equiv 1 \implies
+\left\{
+\begin{align*}
+&Aa+C=0\\
+&Ab+Ba=0\\
+&Bb=1
+\end{align*}
+\right.
+\implies
+\left\{
+\begin{align*}
+&A=-\frac{a}{b^2}\\
+&B=\frac{1}{b}\\
+&C=\frac{a^2}{b^2}
+\end{align*}
+\right.
+$$
+Plug in back:
+$$
+\begin{align*}
+    I&=\int{\left(\frac{-\frac{a}{b^2}}{x}+\frac{\frac{1}{b}}{x^2}+\frac{\frac{a^2}{b^2}}{ax+b}\right)}\ \mathrm{d}x\\
+    &=\int{\left[ -\frac{a}{b^2x}+\frac{1}{bx^2}+\frac{a^2}{b^2\left(ax+b\right)} \right]}\mathrm{d}x\\
+    &=\frac{1}{b}\int{\frac{1}{x^2}}\ \mathrm{d}x+ \frac{a}{b^2}\left[ -\int{\frac{1}{x}}\ \mathrm{d}x+ \int{\frac{a}{\left(ax+b\right)}}\ \mathrm{d} x\right]\\
+    &=-\frac{1}{bx}+\frac{a}{b^2}\left(-\ln{\left|x \right|}+\ln{\left|ax+b \right|}+C\right) &&\text{(\#1)}\\
+    &=-\frac{1}{bx}+\frac {a}{b^2}\ln \left|\frac {ax+b}{x}\right|+C \tag*{$\blacksquare$}
+\end{align*}
+$$
+<p align="right">
+[Integral Formula \#1](docs\Mathematics\Calculus\Single-Variable-Calculus\Integral-Formula\Section1.mdx#1)
+</p>
 </details>
 
 
@@ -169,10 +196,17 @@ $$
 
 $$
 \begin{align*}
-
+    I&=\int{\frac{x}{\left(ax+b\right)^2}}\ \mathrm{d}x\\
+    &=\int{\left(\frac{ax+b-b}{a\left(ax+b\right)^2}\right)} \ \mathrm{d}x\\
+    &=\frac{1}{a} \int{\left[\frac{ax+b}{\left(ax-b \right)^2}-\frac{b}{\left(ax+b\right)^2}\right]}\ \mathrm{d}x\\
+    &=\frac{1}{a} \left[\int{\frac{1}{\left(ax+b\right)}}\ \mathrm{d}x-\int{\frac{b}{\left(ax+b\right)^2}}\ \frac{\mathrm{d}\left(ax+b\right)}{a}\right] &&\text{(Substitution)}\\
+    &=\frac{1}{a} \left[\frac{1}{a}\ln\left|ax+b\right|+ \frac{b}{a\left(ax+b\right)}+C \right] &&\text{(\#1)}\\
+    &=\frac{1}{a^2} \left( \ln\left|ax+b\right| + \frac{b}{ax+b} \right) + C \tag*{$\blacksquare$}
 \end{align*}
 $$
-
+<p align="right">
+[Integral Formula \#1](docs\Mathematics\Calculus\Single-Variable-Calculus\Integral-Formula\Section1.mdx#1)
+</p>
 </details>
 
 
