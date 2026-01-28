@@ -16,20 +16,32 @@ $$
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
 
-
-
+$$
+\begin{align*}
+    I&= \int {\frac{1}{ax+b}}\ \mathrm{d}x\\
+    &=\int {\frac{1}{ax+b}}\ \frac{\mathrm{d}(ax+b)}{a} &&\text{(Integration by substitution)}\\
+    &=\frac{1}{a} \int {\frac{1}{ax+b}}\ \mathrm{d}(ax+b)\\
+    &=\frac{1}{a} \ln{\left|ax+b \right|}+C \tag*{$\blacksquare$}
+\end{align*}
+$$
 </details>
 
 ### 2
 $$
-\int \left(ax+b\right)^{\mu}\ \mathrm{d}x=\frac {1}{a\left(\mu+1\right)}\left(ax+b\right)^{\mu+1}+C\ \left(\mu\neq-1\right)
+\int\left(ax+b\right)^{\mu}\ \mathrm{d}x=\frac {1}{a\left(\mu+1\right)}\left(ax+b\right)^{\mu+1}+C\ \left(\mu\neq-1\right)
 $$
 <br/>
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
 
 $$
-\dd[2]{x}
+\begin{align*}
+    I&= \int{\left(ax+b\right)^{\mu}}\ \mathrm{d}x\\
+    &=\int{\left(ax+b\right)^{\mu}}\ \frac{\mathrm{d}(ax+b)}{a} &&\text{(Integration by substitution)}\\
+    &=\frac{1}{a} \int {\left(ax+b\right)^{\mu}}\ \mathrm{d}(ax+b)\\
+    &=\frac{1}{a} \frac{\left(ax+b\right)^{\mu+1}}{\left(\mu+1\right)}+C\\
+    &=\frac{1}{a(\mu+1)} \left(ax+b\right)^{\mu+1}+C \tag*{$\blacksquare$}
+\end{align*}
 $$
 
 </details>
@@ -41,7 +53,16 @@ $$
 <br/>
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
-
+$$
+\begin{align*}
+    I&=\int{\frac{x}{ax+b}}\ \mathrm{d}x\\
+    &=\int{\frac{ax+b-b}{a\left(ax+b\right)}}\ \mathrm{d}x\\
+    &=\frac{1}{a} \int{\left(1-\frac{b}{ax+b}\right)}\ \mathrm{d}x\\
+    &=\frac{1}{a} \left(x- \frac{b}{a} \left|ax+b \right|+C\right) &&\text{(\#1)}\\
+    &=\frac {1}{a^2}\left( ax-b\ln \left|{ax+b}\right|\right)+C \tag*{$\blacksquare$}
+\end{align*}
+$$
+[Integral Formula \#1](docs\Mathematics\Calculus\Single-Variable-Calculus\Integral-Formula\Section1.mdx#1)
 
 
 </details>
