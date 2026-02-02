@@ -4,18 +4,28 @@ sidebar_position: 3
 title: Format
 --- 
 
+This project is built on [Docusaurus](https://docusaurus.io) and deployed on [GitHub Pages](https://github.com/davidwenxuanzhang/Art-of-Derivations). Below are detailed format information.
+
 ## Document Format and Storage Structure
 
-- All documents are stored as Markdown files and use either with `.md` or `.mdx` extension.
-- All documents file names are capitalized and connected using hyphens (`-`).
-- 
-- All referenced images (such as `.jpg`, `.png`, `.svg`) are stored in `static/img` directory.
+- All documents are stored as Markdown files and use either the `.md` or `.mdx` extension.
+- All document file names are capitalized and connected using hyphens (`-`).
+- All documents are stored under the `docs` directory, organized by `sidebars.js`.
+- All referenced images (such as `.jpg`, `.png`, `.svg`) are stored in the `static/img` directory.
 
 ## Markdown Format
 
-- 
+- All documents start with the [front matter](https://docusaurus.io/docs/markdown-features#front-matter) to ensure the consistent format and navigation. 
+- More additional details, refer to [Markdown Features | Docusaurus](https://docusaurus.io/docs/markdown-features).
+
+## Math Format
+
+- All mathematical expressions are rendered using KaTeX with `remark-math` and follow standard $\LaTeX$ syntax. 
+- All <span className="math-keyword">Derivation</span> processes are placed in collapsible blocks, implemented using `<details>`+`<summary>`.
+- All <span className="math-keyword">Derivation</span> processes are organized using the `align*` enviornment.
+- All <span className="math-keyword">Derivation</span> processes are completed with `\blacksquare` ($\blacksquare$), indicating Q.E.D. (_quod erat demonstrandum_), meaning "that which was to be demonstrated".
 
 ## Theme Format
 
 - The theme color of this project is <span style={{ color: '#4b0082' }}>**Indigo**</span> (`#4b0082`) in light mode and <span style={{ color: '#ff61ff' }}>**Magenta**</span> (`#ff61ff`) in dark mode.  
-- 
+- The theme color is exclusively reserved for <span className="math-keyword">Derivation</span> and its related concepts, rather than decorative styling. 
