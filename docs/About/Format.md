@@ -28,4 +28,4 @@ This project is built on [Docusaurus](https://docusaurus.io) and deployed on [Gi
 ## Theme Format
 
 - The theme color of this project is <span style={{ color: '#4b0082' }}>**Indigo**</span> (`#4b0082`) in light mode and <span style={{ color: '#ff61ff' }}>**Magenta**</span> (`#ff61ff`) in dark mode.  
-- The theme color is exclusively reserved for <span className="math-keyword">Derivation</span> and its related concepts, rather than decorative styling. 
+- The theme color is exclusively reserved for <span className="math-keyword">Derivation</span> and its related concepts, rather than decorative styling.  
