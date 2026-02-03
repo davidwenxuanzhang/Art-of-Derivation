@@ -1,41 +1,83 @@
-# Website
+# Art of Derivation
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+<div
+  style={{
+    textAlign: "center",
+    fontFamily: '"Times New Roman", serif',
+    fontStyle: "italic",
+    fontWeight: 400,
+    fontSize: "1.7rem",
+    lineHeight: "2.1",
+    margin: "3.5rem auto",
+    maxWidth: "826px",
 
-## Installation
+    border: "1px solid currentColor",
+    borderRadius: "0px",
+    padding: "1.7rem 1rem",
 
-```bash
-yarn
-```
+    opacity: 0.9,
+  }}
+>
+  An online mathematical encyclopedia devoted to <span className="math-keyword">Deriving</span> and exploring mathematics beyond the classroom for high school students.
+</div>
 
-## Local Development
+<div
+  style={{
+    position: "relative",
+    maxWidth: "880px",
+    margin: "2rem auto",
+  }}
+>
+  <div
+    style={{
+      position: "absolute",
+      right: 0,
+      top: 0,
+      fontStyle: "italic",
+      fontWeight: 500,
+    }}
+  >
+  > **All Things Are <span className="math-keyword">Derivable</span>** 
+  </div>
+</div>
 
-```bash
-yarn start
-```
+<br />
+## Mission
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+<hr />
 
-## Build
+<div
+  style={{
+    textAlign: "left",
+    maxWidth: "880px",
+    margin: "2rem auto",
+  }}
+> 
+> **Our mission is to make mathematical reasoning transparent, tangible, and telling through <span className="math-keyword">**Derivation**</span> while offering additional pathways for inquisitive and motivated students to explore mathematics with greter rigor and depth.**
+</div>
 
-```bash
-yarn build
-```
+<hr />
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+## Project Aim
 
-## Deployment
+<hr />
 
-Using SSH:
+<div
+  style={{
+    textAlign: "left",
+    maxWidth: "880px",
+    margin: "2rem auto",
+  }}
+>
+> **This project aims to demystify mathematical <span className="math-keyword">**Deriving**</span> and to foster deeper curiosity through clear and careful reasoning.**
+</div>
 
-```bash
-USE_SSH=true yarn deploy
-```
+<hr />
 
-Not using SSH:
+## Why <span className="math-keyword">**Derivation**</span>
 
-```bash
-GIT_USER=<Your GitHub username> yarn deploy
-```
+Throughout this project, <span className="math-keyword">Derivation</span> is treated as a proper noun, referring to the process of obtain a result through meticulous, step-by-step calculation. 
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+As the main theme of _Art of Derivation_, all words related to <span className="math-keyword">Derivation</span> (such as <span className="math-keyword">Derive</span>, <span className="math-keyword">Deriving</span>) are highlighted in the main [theme color](/docs/About/Format#theme-format). Some closely related terms, though not strictly equivalent, including _Proof_, _Justification_, and _Logical Argument_, are of which are integral to the idea of <span className="math-keyword">Derivation</span> presented in this project. 
+
+My understanding of <span className="math-keyword">Derivation</span> was mainly developed from my AP Physics C: Mechanics course, where the Free Response Questions frequently require student to <span className="math-keyword">Derive</span> expressions from fundamental definitions or equations from the provided equations sheet. 
