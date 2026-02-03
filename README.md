@@ -8,13 +8,17 @@
 
 ## Mission
 
-> **Our mission is to make mathematical reasoning transparent, tangible, and telling through *Derivation*, while offering additional pathways for inquisitive and motivated students to explore mathematics with greater rigor and depth.**
+---
+
+**Our mission is to make mathematical reasoning transparent, tangible, and telling through *Derivation*, while offering additional pathways for inquisitive and motivated students to explore mathematics with greater rigor and depth.**
 
 ---
 
 ## Project Aim
 
-> **This project aims to demystify mathematical *Derivation* and to foster deeper curiosity through clear and careful reasoning.**
+---
+ 
+**This project aims to demystify mathematical *Derivation* and to foster deeper curiosity through clear and careful reasoning.**
 
 ---
 
