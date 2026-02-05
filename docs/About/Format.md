@@ -4,7 +4,7 @@ sidebar_position: 3
 title: Format
 --- 
 
-This project is built on [Docusaurus](https://docusaurus.io) and deployed on [GitHub Pages](https://github.com/davidwenxuanzhang/Art-of-Derivations). Below are detailed format information.
+> This project is built on [Docusaurus](https://docusaurus.io) and deployed on [GitHub Pages](https://github.com/davidwenxuanzhang/Art-of-Derivations). Below are detailed format information.
 
 ## Document Format and Storage Structure
 
