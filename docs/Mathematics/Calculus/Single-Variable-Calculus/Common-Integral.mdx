@@ -3,3 +3,38 @@ title: Common Integrals
 sidebar_label: Common Integrals
 sidebar_position: 1
 ---
+
+## Intro
+
+This page includes some common integrals and its properties. The <span className="math-keyword">Derivation</span> to those are mostly trivial, as they could get from inversing common derivatives. 
+
+## Common Integrals
+
+:::info[Common Integrals:] 
+$$
+\begin{align}
+   &\int{kf(x)\ \mathrm{d}x}=k\int{f(x)\ \mathrm{d}x} \qquad (k\neq{0})\\
+   &\int{\left[f(x)+g(x)\right]}\ \mathrm{d}x= \int{f(x)}\ \mathrm{d}x+ \int{g(x)}\ \mathrm{d}x\\
+   &\int{u^{n}}\ \mathrm{d}u=\frac{u^{n+1}}{n+1}+C \qquad (n\neq{-1})\\
+   &\int{\frac{1}{u}}\ \mathrm{d}u=\ln{\left|u\right|}+C\\
+   &\int{\cos{u}}\ \mathrm{d}u=\sin{u}+C\\
+   &\int{\sin{u}}\ \mathrm{d}u=-\cos{u}+C\\
+   &\int{\tan{u}}\ \mathrm{d}u=\ln{\left|\sec{u}\right|}+C=-\ln{\left|\cos{u}\right|}+C\\
+   &\int{\cot{u}}\ \mathrm{d}u=\ln{\left|\sin{u}\right|}+C=-\ln{\left|\csc{u}\right|}+C\\
+   &\int{\sec^2{u}}\ \mathrm{d}u=\tan{u}+C\\
+   &\int{\csc^2{u}}\ \mathrm{d}u=-\cot{u}+C\\
+   &\int{\sec{u}\tan{u}}\ \mathrm{d}u=\sec{u}+C\\
+   &\int{\csc{u}\cot{u}}\ \mathrm{d}u=-\csc{u}+C\\
+   &\int{\sec{u}}\ \mathrm{d}u=\ln{\left|\sec{u}+\tan{u}\right|}+C\\
+   &\int{\csc{u}}\ \mathrm{d}u=\ln{\left|\csc{u}-\cot{u}\right|}+C\\
+   &\int{e^u}\ \mathrm{d}u=e^u+C\\
+   &\int{a^u}\ \mathrm{d}u=\frac{a^u}{\ln{a}}+C \qquad (a>0,\ a\neq{1})\\
+   &\int{\frac{1}{\sqrt{1-u^2}}}\ \mathrm{d}u=\sin^{-1}{u}+C=\arcsin{u}+C\\
+   &\int{\frac{1}{1+u^2}}\ \mathrm{d}u=\tan^{-1}{u}+C=\arctan{u}+C\\
+   &\int{\frac{1}{u\sqrt{u^2-1}}}\ \mathrm{d}u=\sec^{-1}{\left|u\right|}+C=\operatorname{arcsec}{\left|u\right|}+C\\
+\end{align}
+$$
+
+:::tip u?
+Note that we use $u$ and $\mathrm{d}u$, instead of $x$ and $\mathrm{d}x$; this is because $u$ could represent a function, not only a single variable $x$. See more in Integral-Techniques 
+:::
