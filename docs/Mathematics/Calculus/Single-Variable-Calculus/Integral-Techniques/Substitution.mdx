@@ -2,7 +2,52 @@
 title: Substitution
 sidebar_label: Substitution
 sidebar_position: 2
+description: Substitution
 ---
 
-## U-Substitution
+Substitution is the most common integral technique in elementary calculus. Recall what we mentioned in [common integrals](docs/Mathematics/Calculus/Single-Variable-Calculus/Common-Integrals.mdx#common-integrals) that we use $u$ and $\mathrm{d}u$ instead of $x$ and $\mathrm{d}x$, and this is because $u$ may represent an entire function, not just a single variable. We will tackle with this more specifically in this section.
 
+
+## The Substitution Rule
+
+We will start with this integral question: 
+$$
+\int{3x^2\sin{x^3}}\ \mathrm{d}x=\ ?
+$$
+Note that there is an product, which is beyond all common integrals, so we need to simplify to an easier form. An example is below:
+:::info[Solution]
+Let: $u=x^3$ 
+$$
+\begin{align*}
+    \frac{\mathrm{d}u}{\mathrm{d}x}&=3x^2\\
+    \color{red}{\mathrm{d}u}&=\color{red}{3x^2\ \mathrm{d}x}\\
+\end{align*}
+$$
+Plug in back to the question:
+$$
+\begin{align*}
+    \int{\color{red}{3x^2}}\sin{x^3}\ \color{red}{\mathrm{d}x}&=\int{\sin{u}}\ \color{red}{\mathrm{d}u}\\
+    &=\int{\sin{u}}\ \mathrm{d}u\\
+    &=-\cos{u}+C\\
+    &=-\cos{x^3}+C
+\end{align*}
+$$
+Hence:
+$$
+\int{3x^2\sin{x^3}}\ \mathrm{d}x=-\cos{x^3}+C \tag*{$\blacksquare$}
+$$
+:::
+By replacing the variable $x$ into a function of $u$, we can simplify the overall question to a common integral. As you can see, this is a method we inversely use the **Chain Rule**, and generally, it is called: 
+
+:::tip[The substitution rule]
+Given a differenciable function $u=g(x)$, and $f$ is continuous on its interval, then:
+$$
+\int{f\left(g\left(x\right)\right)g'(x)}\ \mathrm{d}x=\int{f\left(u\right)}\ \mathrm{d}u
+$$
+:::warning[Definite Integral]
+In the case of Definite Integral, the bound should also changes, as:
+$$
+\int_{a}^{b}{f\left(g\left(x\right)\right)g'(x)}\ \mathrm{d}x=\int_{g(a)}^{g(b)}{f\left(u\right)}\ \mathrm{d}u
+$$
+:::
+### Direct Substitution
