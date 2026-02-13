@@ -18,12 +18,17 @@ $$
 $$
 \begin{align*}
     I&= \int {\frac{1}{ax+b}}\ \mathrm{d}x\\
-    &=\int {\frac{1}{ax+b}}\ \frac{\mathrm{d}(ax+b)}{a} &&\text{(Substitution)}\\
+    &=\int {\frac{1}{ax+b}}\ \frac{\mathrm{d}(ax+b)}{a} &&\text{(Direct Substitution)}\\
     &=\frac{1}{a} \int {\frac{1}{ax+b}}\ \mathrm{d}(ax+b)\\
     &=\frac{1}{a} \ln{\left|ax+b \right|}+C \tag*{$\blacksquare$}
 \end{align*}
 $$
+<p align="right">
+
+[Direct Substitution](docs/Mathematics/Calculus/Single-Variable-Calculus/Integral-Techniques/Substitution.mdx#direct-substitution)
+</p>
 </details>
+
 
 ### 2
 $$
@@ -35,12 +40,16 @@ $$
 $$
 \begin{align*}
     I&= \int{\left(ax+b\right)^{\mu}}\ \mathrm{d}x\\
-    &=\int{\left(ax+b\right)^{\mu}}\ \frac{\mathrm{d}(ax+b)}{a} &&\text{(Substitution)}\\
+    &=\int{\left(ax+b\right)^{\mu}}\ \frac{\mathrm{d}(ax+b)}{a} &&\text{(Direct Substitution)}\\
     &=\frac{1}{a} \int {\left(ax+b\right)^{\mu}}\ \mathrm{d}(ax+b)\\
     &=\frac{1}{a} \frac{\left(ax+b\right)^{\mu+1}}{\left(\mu+1\right)}+C\\
     &=\frac{1}{a(\mu+1)} \left(ax+b\right)^{\mu+1}+C \tag*{$\blacksquare$}
 \end{align*}
 $$
+<p align="right">
+
+[Direct Substitution](docs/Mathematics/Calculus/Single-Variable-Calculus/Integral-Techniques/Substitution.mdx#direct-substitution)
+</p>
 </details>
 
 ### 3
@@ -77,12 +86,15 @@ $$
     I&=\int{\frac{x^2}{ax+b}}\ \mathrm{d}x\\
     &=\int{\frac{a^2x^2-b^2+b^2}{a^2\left(ax+b\right)}}\ \mathrm{d}x\\
     &=\frac{1}{a^2} \int{\left(\frac{\cancel{\left(ax+b \right)}\left(ax-b \right)}{\cancel{ax+b}}+\frac{b^2}{ax+b}\right)}\ \mathrm{d}x\\
-    &=\frac{1}{a^2} \left[\int{\left(ax-b\right)}\ \frac{\mathrm{d}(ax+b)}{a}+\int{\frac{b^2}{ax+b}}\ \mathrm{d}x\right] &&\text{(Substitution)}\\
+    &=\frac{1}{a^2} \left[\int{\left(ax-b\right)}\ \frac{\mathrm{d}(ax+b)}{a}+\int{\frac{b^2}{ax+b}}\ \mathrm{d}x\right] &&\text{(Direct Substitution)}\\
     &=\frac{1}{a^2} \left[\frac{\left(ax-b\right)^2}{2a}+ \frac{b^2}{a}\ln \left|{ax+b}\right|+C \right] &&\text{(\#1)}\\
     &=\frac{1}{a^3}\left[\frac{1}{2}\left(ax-b\right)^2+b^2\ln\left|{ax+b}\right|\right]+C \tag*{$\blacksquare$}
 \end{align*}
 $$
 <p align="right">
+
+[Direct Substitution](docs/Mathematics/Calculus/Single-Variable-Calculus/Integral-Techniques/Substitution.mdx#direct-substitution)
+
 [Integral Formula \#1](docs\Mathematics\Calculus\Single-Variable-Calculus\Integral-Formulas\Section1.mdx#1)
 </p>
 </details>
@@ -98,7 +110,7 @@ $$
 $$
 \begin{align*}
     I&=\int{\frac {1}{x\left(ax+b\right)}}\ \mathrm{d}x\\
-    &=\int{\left(\frac{A}{x}+\frac{B}{ax+b}\right)}\ \mathrm{d}x &&\text{(Partial fraction decomposition)}\\
+    &=\int{\left(\frac{A}{x}+\frac{B}{ax+b}\right)}\ \mathrm{d}x &&\text{(Partial Fraction Decomposition)}\\
     &=\int{\left[\frac {A\left(ax+b\right)+Bx}{x\left(ax+b\right)}\right]}\ \mathrm{d}x\\
     &=\int{\left[\frac {\left(Aa+B\right)x+Ab}{x\left(ax+b\right)}\right]}\ \mathrm{d}x
 \end{align*}
@@ -146,7 +158,7 @@ $$
 $$
 \begin{align*}
     I&=\int{\frac {1}{x^2\left(ax+b\right)}}\ \mathrm{d}x\\
-    &=\int{\left(\frac{A}{x}+\frac{B}{x^2}+\frac{C}{ax+b}\right)}\ \mathrm{d}x &&\text{(Partial fraction decomposition)}\\
+    &=\int{\left(\frac{A}{x}+\frac{B}{x^2}+\frac{C}{ax+b}\right)}\ \mathrm{d}x &&\text{(Partial Fraction Decomposition)}\\
     &=\int{\left[\frac {Ax\left(ax+b\right)+B\left(ax+b\right)+Cx^2}{x^2\left(ax+b\right)}\right]}\ \mathrm{d}x\\
     &=\int{\left[\frac {\left(Aa+C\right)x^2+\left(Ab+Ba\right)x+Bb}{x^2\left(ax+b\right)}\right]}\ \mathrm{d}x\\
 \end{align*}
@@ -199,12 +211,15 @@ $$
     I&=\int{\frac{x}{\left(ax+b\right)^2}}\ \mathrm{d}x\\
     &=\int{\left[\frac{ax+b-b}{a\left(ax+b\right)^2}\right]} \ \mathrm{d}x\\
     &=\frac{1}{a} \int{\left[\frac{ax+b}{\left(ax+b \right)^2}-\frac{b}{\left(ax+b\right)^2}\right]}\ \mathrm{d}x\\
-    &=\frac{1}{a} \left[\int{\frac{1}{\left(ax+b\right)}}\ \mathrm{d}x-\int{\frac{b}{\left(ax+b\right)^2}}\ \frac{\mathrm{d}\left(ax+b\right)}{a}\right] &&\text{(Substitution)}\\
+    &=\frac{1}{a} \left[\int{\frac{1}{\left(ax+b\right)}}\ \mathrm{d}x-\int{\frac{b}{\left(ax+b\right)^2}}\ \frac{\mathrm{d}\left(ax+b\right)}{a}\right] &&\text{(Direct Substitution)}\\
     &=\frac{1}{a} \left[\frac{1}{a}\ln\left|ax+b\right|+ \frac{b}{a\left(ax+b\right)}+C \right] &&\text{(\#1)}\\
     &=\frac{1}{a^2} \left( \ln\left|ax+b\right| + \frac{b}{ax+b} \right) + C \tag*{$\blacksquare$}
 \end{align*}
 $$
 <p align="right">
+
+[Direct Substitution](docs/Mathematics/Calculus/Single-Variable-Calculus/Integral-Techniques/Substitution.mdx#direct-substitution)
+
 [Integral Formula \#1](docs\Mathematics\Calculus\Single-Variable-Calculus\Integral-Formulas\Section1.mdx#1)
 </p>
 </details>
@@ -224,12 +239,15 @@ $$
     &=\int{\left[\frac{a^2x^2-b^2+b^2}{a^2\left(ax+b\right)^2}\right]} \ \mathrm{d}x\\
     &=\frac{1}{a^2} \int{\left[\frac{\left(ax+b\right)\left(ax-b\right)}{\left(ax+b \right)^2}+\frac{b^2}{\left(ax+b\right)^2}\right]}\ \mathrm{d}x\\
     &=\frac{1}{a^2} \left[\int{\frac{ax+b-2b}{ax+b}}\ \mathrm{d}x+\int{\frac{b^2}{\left(ax+b\right)^2}}\ \mathrm{d}x\right]\\
-    &=\frac{1}{a^2} \left[\int{\left(1-\frac{2b}{ax+b}\right)}\ \mathrm{d}x+\int{\frac{b^2}{\left(ax+b\right)^2}}\ \frac{\mathrm{d}\left(ax+b\right)}{a}\right] &&\text{(Substitution)}\\
+    &=\frac{1}{a^2} \left[\int{\left(1-\frac{2b}{ax+b}\right)}\ \mathrm{d}x+\int{\frac{b^2}{\left(ax+b\right)^2}}\ \frac{\mathrm{d}\left(ax+b\right)}{a}\right] &&\text{(Direct Substitution)}\\
     &=\frac{1}{a^2} \left[x-\frac{2b}{a}\ln\left|ax+b\right|+ \frac{b^2}{a\left(ax+b\right)}+C \right] &&\text{(\#1)}\\
     &=\frac {1}{a^3} \left(ax-2b\ln{\left|ax+b\right|}-\frac{b^2}{ax+b} \right)+C \tag*{$\blacksquare$}
 \end{align*}
 $$
 <p align="right">
+
+[Direct Substitution](docs/Mathematics/Calculus/Single-Variable-Calculus/Integral-Techniques/Substitution.mdx#direct-substitution)
+
 [Integral Formula \#1](docs\Mathematics\Calculus\Single-Variable-Calculus\Integral-Formulas\Section1.mdx#1)
 </p>
 </details>
@@ -245,7 +263,7 @@ $$
 $$
 \begin{align*}
     I&=\int{\frac {1}{x\left(ax+b\right)^2}}\ \mathrm{d}x\\
-    &=\int{\left[\frac{A}{x}+\frac{B}{\left(ax+b\right)}+\frac{C}{\left(ax+b\right)^2}\right]}\ \mathrm{d}x &&\text{(Partial fraction decomposition)}\\
+    &=\int{\left[\frac{A}{x}+\frac{B}{\left(ax+b\right)}+\frac{C}{\left(ax+b\right)^2}\right]}\ \mathrm{d}x &&\text{(Partial Fraction Decomposition)}\\
     &=\int{\left[\frac {A\left(ax+b\right)^2+Bx\left(ax+b\right)+Cx}{x\left(ax+b\right)^2}\right]}\ \mathrm{d}x\\
     &=\int{\left[\frac {Aa^2x^2+2Aabx+Ab^2+Bax^2+Cx}{x\left(ax+b\right)^2}\right]}\ \mathrm{d}x\\
     &=\int{\left[\frac {\left(Aa^2+Ba\right)x^2+\left(2Aab+C\right)x+Ab^2}{x\left(ax+b\right)^2}\right]}\ \mathrm{d}x\\
@@ -275,12 +293,15 @@ $$
 \begin{align*}
     I&=\int{\left[\frac{\frac{1}{b^2}}{x}+\frac{-\frac{a}{b^2}}{\left(ax+b\right)}+\frac{-\frac{a}{b}}{\left(ax+b\right)^2}\right]}\ \mathrm{d}x\\
     &=\int{\left[\frac{1}{b^2x}-\frac{a}{b^2\left(ax+b\right)}-\frac{a}{b\left(ax+b\right)^2}\right]}\mathrm{d}x\\
-    &=\frac{\cancel{a}}{b}\int{-\frac{1}{\left(ax+b\right)^2}}\ \frac{\mathrm{d}\left(ax+b\right)}{\cancel{a}}+ \frac{1}{b^2}\left[\int{\frac{1}{x}}\ \mathrm{d}x- \int{\frac{a}{\left(ax+b\right)}}\ \mathrm{d} x\right]&&\text{(Substitution)}\\
+    &=\frac{\cancel{a}}{b}\int{-\frac{1}{\left(ax+b\right)^2}}\ \frac{\mathrm{d}\left(ax+b\right)}{\cancel{a}}+ \frac{1}{b^2}\left[\int{\frac{1}{x}}\ \mathrm{d}x- \int{\frac{a}{\left(ax+b\right)}}\ \mathrm{d} x\right]&&\text{(Direct Substitution)}\\
     &=\frac{1}{b\left(ax+b\right)}+\frac{1}{b^2}\left(\ln{\left|x \right|}-\ln{\left|ax+b \right|}+C\right) &&\text{(\#1)}\\
     &=\frac{1}{b\left(ax+b\right)}+\frac{1}{b^2}\ln {\left|\frac{x}{ax+b} \right|}+C \tag*{$\blacksquare$}
 \end{align*}
 $$
 <p align="right">
+
+[Direct Substitution](docs/Mathematics/Calculus/Single-Variable-Calculus/Integral-Techniques/Substitution.mdx#direct-substitution)
+
 [Integral Formula \#1](docs\Mathematics\Calculus\Single-Variable-Calculus\Integral-Formulas\Section1.mdx#1)
 </p>
 </details>
