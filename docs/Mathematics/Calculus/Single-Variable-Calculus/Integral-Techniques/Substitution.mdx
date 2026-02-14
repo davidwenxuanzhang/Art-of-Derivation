@@ -57,16 +57,23 @@ $$
 \int{3x^2\sin{x^3}}\ \mathrm{d}x=\ ?
 $$
 This time, let's try what I called Direct Substituton: 
-:::info Direct Substitution
+:::info Direct Substitution Approach
 After analyze, we want to substitute $x^3$. All we need to do is substitude $\mathrm{d}x$ to a fraction where the top is $\mathrm{d}x^3$ and the bottom is the derivative of $x^3$ based on $x$, as: 
 $$
-\int{3x^2\sin{x^3}}\ \mathrm{d}x=\int{\cancel{3x^2}\sin{x^3}}\ \frac{\mathrm{d}x^3}{\cancel{3x^2}}=\int{\sin{x^3}}\ \mathrm{d}x^3
+\int{3x^2\sin{x^3}}\ \mathrm{d}x=\int{\cancel{3x^2}\sin{x^3}}\ \frac{\mathrm{d}(x^3)}{\cancel{3x^2}}=\int{\sin{x^3}}\ \mathrm{d}(x^3)
 $$
 And all we need is to consider $x^3$ as $u$ and integrate normally:
 $$
-\implies \int{\sin{x^3}}\ \mathrm{d}x^3=-\cos{x^3}+C
+\implies \int{\sin{x^3}}\ \mathrm{d}(x^3)=-\cos{x^3}+C
 $$
 More importantly, for definite integral, it doesn't need to change bounds, as:
 $$
-\int_{a}^{b}3x^2\sin{x^3}\ \mathrm{d}x=\int_{a}^{b}{\sin{x^3}}\ \mathrm{d}x^3=\left[-\cos{x^3}\big|_{a}^{b}\right]=-\cos{b^3}+\cos{a^3}
+\int_{a}^{b}3x^2\sin{x^3}\ \mathrm{d}x=\int_{a}^{b}{\sin{x^3}}\ \mathrm{d}(x^3)=\left[-\cos{x^3}\big|_{a}^{b}\right]=-\cos{b^3}+\cos{a^3}
+$$
+:::tip[Direct Substitution]
+In general, if we want to substitude $ax+b$ or term that can cancel the other one, we may use direct substitution
+$$
+\int{{f(x)}\underbrace{g(x)}_{\text{what we want to substitude}}}\ \mathrm{d}x=\int{f(x)g(x)}\ \frac{\mathrm{d}(g(x))}{g'(x)}
+
+$$
 :::
