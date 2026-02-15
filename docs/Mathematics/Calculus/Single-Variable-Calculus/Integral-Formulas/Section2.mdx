@@ -11,43 +11,107 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ### 10
 $$
-\int \sqrt{ax+b}\ \mathrm{d}x=\frac{2}{3a}\sqrt{\left(ax+b\right)^3}+C
+\int \sqrt{ax+b}\ \mathrm{d}x=\frac{2}{3a}\sqrt{(ax+b)^3}+C
 $$
 <br/>
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
 
+Let $u=ax+b$, then $\mathrm{d}u=a\ \mathrm{d}x \implies \mathrm{d}x=\frac{\mathrm{d}u}{a}$
 
+$$
+\begin{align*}
+    I&=\int{\sqrt{ax+b}}\ \mathrm{d}x\\
+     &=\int{\frac{\sqrt{u}}{a}}\ \mathrm{d}u\\
+     &=\frac{u^{\frac{1}{2}+1}}{a(\frac{1}{2}+1)}+C\\
+     &=\frac{2\sqrt{u^3}}{3a}+C\\
+     &=\frac{2}{3a}\sqrt{(ax+b)^3}+C \tag*{$\blacksquare$}
+\end{align*}
+$$
 </details>
 
 ### 11
 $$
-\int x\sqrt {ax+b}\ \ \mathrm{d}x=\frac{2}{15a^2}\left(3ax-2b\right)\sqrt{\left(ax+b\right)^3}+C
+\int x\sqrt {ax+b}\ \ \mathrm{d}x=\frac{2}{15a^2}(3ax-2b)\sqrt{(ax+b)^3}+C
 $$
 <br/>
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
 
+Let $u=\sqrt{ax+b}$, then $x=\frac{u^2-b}{a}$, $\mathrm{d}u=\frac{a}{2\sqrt{ax+b}}\mathrm{d}x=\frac{a}{2u}{\mathrm{d}}x \implies \mathrm{d}x=\frac{2u}{a}{\mathrm{d}}u$
+
+$$
+\begin{align*}
+    I&=\int{x\sqrt{ax+b}}\ \mathrm{d}x\\
+     &=\int\frac{u^2-b}{a}\cdot u\cdot \frac{2u}{a}\ \mathrm{d}u &&\text{(Back Substitution)}\\
+     &=\frac{2}{a^2}\int{(u^4-bu^2)}\ \mathrm{d}u\\
+     &=\frac{2}{a^2}\left(\frac{1}{5}u^5-\frac{b}{3}u^3 +C\right)\\
+     &=\frac{2}{a^2}\left(\frac{3u^5-5bu^3}{15}+C\right)\\
+     &=\frac{2}{a^2}\left[\frac{(3u^2-5b)u^3}{15}+C\right]\\
+     &=\frac{2}{15a^2}\left[3(\sqrt{ax+b})^2-5b\right]\sqrt{(ax+b)^3}+C &&(u=\sqrt{ax+b})\\
+     &=\frac{2}{15a^2}(3ax-2b)\sqrt{(ax+b)^3}+C \tag*{$\blacksquare$}
+\end{align*}
+$$
+<p align="right">
+
+[Back Substitution](docs/Mathematics/Calculus/Single-Variable-Calculus/Integral-Techniques/Substitution.mdx#back-substitution)
+</p>
 </details>
 
 
 ### 12
 $$
-\int x^2\sqrt {ax+b}\ \ \mathrm{d}x= \frac{2}{105a^3}\left(15a^2x^2-12abx+8b^2\right)\sqrt{\left(ax+b\right)^3}+C
+\int x^2\sqrt {ax+b}\ \ \mathrm{d}x= \frac{2}{105a^3}(15a^2x^2-12abx+8b^2)\sqrt{(ax+b)^3}+C
 $$
 <br/>
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
 
+Let $u=\sqrt{ax+b}$, then $x=\frac{u^2-b}{a}$, $\mathrm{d}u=\frac{a}{2\sqrt{ax+b}}\mathrm{d}x=\frac{a}{2u}{\mathrm{d}}x \implies \mathrm{d}x=\frac{2u}{a}{\mathrm{d}}u$
+$$
+\begin{align*}
+    I&=\int{x^2\sqrt{ax+b}}\ \mathrm{d}x\\
+     &=\int{\left(\frac{u^2-b}{a}\right)^2\cdot u\cdot \frac{2u}{a}}\ \mathrm{d}u &&\text{(Back Substitution)}\\
+     &=\frac{2}{a^3}\int{(u^4-2bu^2+b^2)(u^2)}\ \mathrm{d}u\\
+     &=\frac{2}{a^3}\int{(u^6-2bu^4+b^2u^2)}\ \mathrm{d}u\\
+     &=\frac{2}{a^2}\left(\frac{1}{7}u^7-\frac{2b}{5}u^5+\frac{b^2}{3}u^3 +C\right)\\
+     &=\frac{2}{a^2}\left(\frac{15u^7-42bu^5+35b^2u^3}{105}+C\right)\\
+     &=\frac{2}{a^2}\left[\frac{(15u^4-42bu^2+35b^2)u^3}{105}+C\right]\\
+     &=\frac{2}{105a^3}\left[15(\sqrt{ax+b})^4-42(\sqrt{ax+b})^2+35b^2\right]\sqrt{(ax+b)^3}+C &&(u=\sqrt{ax+b})\\
+     &=\frac{2}{105a^3}(15a^2x^2-12abx+8b^2)\sqrt{(ax+b)^3}+C \tag*{$\blacksquare$}
+\end{align*}
+$$
+<p align="right">
+
+[Back Substitution](docs/Mathematics/Calculus/Single-Variable-Calculus/Integral-Techniques/Substitution.mdx#back-substitution)
+</p>
 </details>
 
 ### 13
 $$
-\int \frac{x}{\sqrt{ax+b}}\ \mathrm{d}x=\frac{2}{3a^2}\left(ax-2b \right)\sqrt{ax+b}+C
+\int \frac{x}{\sqrt{ax+b}}\ \mathrm{d}x=\frac{2}{3a^2}(ax-2b)\sqrt{ax+b}+C
 $$
 <br/>
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
+
+Let $u=\sqrt{ax+b}$, then $x=\frac{u^2-b}{a}$, $\mathrm{d}u=\frac{a}{2\sqrt{ax+b}}\mathrm{d}x=\frac{a}{2u}{\mathrm{d}}x \implies \mathrm{d}x=\frac{2u}{a}{\mathrm{d}}u$
+$$
+\begin{align*}
+    I&=\int{\frac{x}{\sqrt{ax+b}}}\ \mathrm{d}x\\
+     &=\int{\frac{\frac{u^2-b}{a}}{u}}\frac{2u}{a}\ \mathrm{d}u &&\text{(Back Substitution)}\\
+     &=\int{\frac{2(u^2-b)}{a^2}}\ \mathrm{d}u\\
+     &=\frac{2}{a^2}\int{(u^2-b)}\ \mathrm{d}u\\
+     &=\frac{2}{a^2}\left(\frac{1}{3}u^3-bu+C\right)\\
+     &=\frac{2}{3a^2}\cdot (u^2-3b)\cdot u+C\\
+     &=\frac{2}{3a^2}\cdot(ax+b-3b)\cdot \sqrt{ax+b}+C &&(u=\sqrt{ax+b})\\
+     &=\frac{2}{3a^2}(ax-2b)\sqrt{ax+b}+C \tag*{$\blacksquare$}
+\end{align*}
+$$
+<p align="right">
+
+[Back Substitution](docs/Mathematics/Calculus/Single-Variable-Calculus/Integral-Techniques/Substitution.mdx#back-substitution)
+</p>
 
 </details>
 
