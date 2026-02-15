@@ -204,17 +204,31 @@ $$
 
 ### 16
 $$
-\int\frac{x^2}{\sqrt{ax+b}}\ \mathrm{d}x=\frac{2}{15a^3}\left(3a^2x^2-4abx+8b^2\right)\sqrt{ax+b}+C
+\int{\frac{\sqrt{ax+b}}{x^2}}\ \mathrm{d}x=-\frac{\sqrt{ax+b}}{x}+\frac{a}{2}\int{\frac{1}{x\sqrt{ax+b}}}\ \mathrm{d}x
 $$
 <br/>
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
 
+$$
+\begin{align*}
+    I&=\int{\frac{\sqrt{ax+b}}{x^2}}\ \mathrm{d}x\\
+     &=\int{\sqrt{ax+b}}\cdot \frac{1}{x^2}\ \mathrm{d}x\\ 
+     &=\int{\sqrt{ax+b}}\ \mathrm{d}\left(-\frac{1}{x}\right)\\
+     &=-\frac{\sqrt{ax+b}}{x}-\int{-\frac{1}{x}\ \mathrm{d}(\sqrt{ax+b})} &&(\text{Integral By Parts})\\
+     &=-\frac{\sqrt{ax+b}}{x}+\frac{a}{2}\int{\frac{1}{x\sqrt{ax+b}}}\ \mathrm{d}x \tag*{$\blacksquare$}
+\end{align*}
+$$
+<p align="right">
+
+[Integral By Parts](link tbd)
+</p>
+
 </details>
 
 ### 17
 $$
-\int\frac{\sqrt{ax+b}}{x^2}\ \mathrm{d}x=-\frac{\sqrt{ax+b}}{x}+\frac{a}{2}\int\frac{1}{x\sqrt{ax+b}}\ \mathrm{d}x
+\int\frac{\sqrt{ax+b}}{x}\ \mathrm{d}x=2\sqrt{ax+b}+b\int{\frac{1}{x\sqrt{ax+b}}}\ \mathrm{d}x
 $$
 <br/>
 <details>
