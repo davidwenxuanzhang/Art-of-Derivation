@@ -123,6 +123,24 @@ $$
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
 
+Let $u=\sqrt{ax+b}$, then $x=\frac{u^2-b}{a}$, $\mathrm{d}u=\frac{a}{2\sqrt{ax+b}}\mathrm{d}x=\frac{a}{2u}{\mathrm{d}}x \implies \mathrm{d}x=\frac{2u}{a}{\mathrm{d}}u$
+$$
+\begin{align*}
+    I&=\int\frac{x^2}{\sqrt{ax+b}}\ \mathrm{d}x\\
+     &=\int\frac{\left(\frac{u^2-b}{a} \right)^2}{u}\frac{2u}{a}\ \mathrm{d}u &&\text{(Back Substitution)}\\
+     &=\frac{2}{a^3}\int{(u^2-b)^2}\ \mathrm{d}u\\
+     &=\frac{2}{a^3}\int(u^4-2bu^2+b^2)\ \mathrm{d}u\\
+     &=\frac{2}{a^3}\left(\frac{1}{5}u^5-\frac{2b}{3}u^3+b^2u+C\right)\\
+     &=\frac{2}{a^3}\cdot\left(\frac{3u^4-10bu^2+15b^2}{15}\right)\cdot u\\
+     &=\frac{2}{15a^3}\cdot \left[3(ax+b)^2-10b(ax+b)+15b^2\right]\cdot \sqrt{ax+b}+C &&(u=\sqrt{ax+b})\\
+     &=\frac{2}{15a^3}(3a^2x^2-4abx+8b^2)\sqrt{ax+b}+C \tag*{$\blacksquare$}
+\end{align*}
+$$
+<p align="right">
+
+[Back Substitution](docs/Mathematics/Calculus/Single-Variable-Calculus/Integral-Techniques/Substitution.mdx#back-substitution)
+</p>
+
 </details>
 
 
