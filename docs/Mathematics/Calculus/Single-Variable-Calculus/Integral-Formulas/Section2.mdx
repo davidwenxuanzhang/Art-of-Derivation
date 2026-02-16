@@ -234,6 +234,25 @@ $$
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
 
+Let $u=\sqrt{ax+b}$, then $x=\frac{u^2-b}{a}$, $\mathrm{d}u=\frac{a}{2\sqrt{ax+b}}\mathrm{d}x=\frac{a}{2u}{\mathrm{d}}x \implies \mathrm{d}x=\frac{2u}{a}{\mathrm{d}}u$
+$$
+\begin{align*}
+    I&=\int{\frac{\sqrt{ax+b}}{x}}\ \mathrm{d}x\\
+     &=\int{\frac{u}{\frac{u^2-b}{a}}\cdot \frac{2u}{a}}\ \mathrm{d}u &&(\text{Back Substitution})\\
+     &=\int{\frac{2u^2}{u^2-b}}\ \mathrm{d}u\\
+     &=2\int{\frac{u^2-b+b}{u^2-b}}\ \mathrm{d}u\\
+     &=2\int{\left(1+\frac{b}{u^2-b} \right)}\ \mathrm{d}u\\
+     &=2u+2\int{\frac{b}{u^2-b}}\ \mathrm{d}u\\
+     &=2\sqrt{ax+b}+2\int{\frac{b}{ax+b-b}}\ \mathrm{d}(\sqrt{ax+b}) &&(\text{plug in }u=\sqrt{ax+b})\\
+     &=2\sqrt{ax+b}+2\int{\frac{b}{ax}}\cdot \frac{a}{2\sqrt{ax+b}}\ \mathrm{d}x\\
+     &=2\sqrt{ax+b}+b\int{\frac{1}{x\sqrt{ax+b}}}\ \mathrm{d}x \tag*{$\blacksquare$}
+\end{align*}
+$$
+<p align="right">
+
+[Back Substitution](docs/Mathematics/Calculus/Single-Variable-Calculus/Integral-Techniques/Substitution.mdx#back-substitution)
+</p>
+
 </details>
 
 ### 18
