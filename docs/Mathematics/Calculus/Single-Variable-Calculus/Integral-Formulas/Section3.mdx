@@ -49,4 +49,15 @@ $$
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
 
+$$
+\begin{align*}
+    I&=\int{\frac{1}{x^2-a^2}}\ \mathrm{d}x\\
+     &=\int{\frac{x+a-(x-a)}{2a(x^2-a^2)}}\ \mathrm{d}x\\
+     &=\frac{1}{2a}\left[\int{\frac{(x+a)-(x-a)}{(x+a)(x-a)}}\ \mathrm{d}x \right]\\
+     &=\frac{1}{2a}\left(\int{\frac{1}{x-a}}\ \mathrm{d}x-\int{\frac{1}{x+a}}\ \mathrm{d}x\right)\\
+     &=\frac{1}{2a}\left(\ln{\left|x-a\right|}-\ln{\left|x+a\right|}+C\right)\\
+     &=\frac{1}{2a}\ln{\left| \frac{x-a}{x+a}\right|}+C \tag*{$\blacksquare$}
+\end{align*}
+$$
+
 </details>
