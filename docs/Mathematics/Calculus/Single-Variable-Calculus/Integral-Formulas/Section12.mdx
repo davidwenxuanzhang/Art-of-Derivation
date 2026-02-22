@@ -5,3 +5,205 @@ sidebar_position: 12
 description: Formula 83-112
 ---
 
+### 83
+$$
+\int{\sin{x}}\ \mathrm{d}x=-\cos{x}+C
+$$
+<br/>
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+### 84
+$$
+\int{\cos{x}}\ \mathrm{d}x=\sin{x}+C
+$$
+<br/>
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+### 85
+$$
+\int{\tan{x}}\ \mathrm{d}x=-\ln{\left|\cos{x} \right|}+C
+$$
+<br/>
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+### 86
+$$
+\int{\cot{x}}\ \mathrm{d}x=\ln{\left|\sin{x} \right|}+C
+$$
+<br/>
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+### 87
+$$
+\int{\sec{x}}\ \mathrm{d}x=\ln{\left|\tan{\left(\frac{\pi}{4}+\frac{x}{2} \right)} \right|}+C=\ln{\left|\sec{x}+\tan{x} \right|}+C  
+$$
+<br/>
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+### 88
+$$
+\int{\csc{x}}\ \mathrm{d}x=\ln{\left|\tan{\frac{x}{2}} \right|}+C=\ln{\left|\csc{x}-\cot{x} \right|}+C  
+$$
+<br/>
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+### 89
+$$
+\int{\sec^2{x}}\ \mathrm{d}x=\tan{x}+C
+$$
+<br/>
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+### 90
+$$
+\int{\csc^2{x}}\ \mathrm{d}x=-\cot{x}+C
+$$
+<br/>
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+### 91
+$$
+\int{\sec{x}\tan{x}}\ \mathrm{d}x=\sec{x}+C
+$$
+<br/>
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+### 92
+$$
+\int{\csc{x}\cot{x}}\ \mathrm{d}x=-\csc{x}+C
+$$
+<br/>
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+### 93
+$$
+\int{\sin^2{x}}\ \mathrm{d}x=\frac{x}{2}-\frac{1}{4}\sin{2x}+C
+$$
+<br/>
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+### 94
+$$
+\int{\cos^2{x}}\ \mathrm{d}x=\frac{x}{2}+\frac{1}{4}\sin{2x}+C
+$$
+<br/>
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+### 95
+$$
+\int{\sin^n{x}}\ \mathrm{d}x=-\frac{1}{n}\sin^{n-1}{x}\cos{x}+\frac{n-1}{n}\int{\sin^{n-2}{x}}\ \mathrm{d}x
+$$
+<br/>
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+### 96
+$$
+\int{\cos^n{x}}\ \mathrm{d}x=\frac{1}{n}\cos^{n-1}{x}\sin{x}+\frac{n-1}{n}\int{\cos^{n-2}{x}}\ \mathrm{d}x
+$$
+<br/>
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+### 97
+$$
+\int{\frac{1}{\sin^n{x}}}\ \mathrm{d}x=-\frac{1}{n-1}\cdot \frac{\cos{x}}{\sin^{n-1}{x}}+\frac{n-2}{n-1}\int{\frac{1}{\sin^{n-2}{x}}}\ \mathrm{d}x
+$$
+<br/>
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+### 98
+$$
+\int{\frac{1}{\cos^n{x}}}\ \mathrm{d}x=\frac{1}{n-1}\cdot \frac{\sin{x}}{\cos^{n-1}{x}}+\frac{n-2}{n-1}\int{\frac{1}{\cos^{n-2}{x}}}\ \mathrm{d}x
+$$
+<br/>
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+### 99
+$$
+\begin{align*}
+    \int{\cos^{m}{x}\sin^{n}{x}}\ \mathrm{d}x&=\frac{1}{m+n}\cos^{m-1}{x}\sin^{n+1}{x}+\frac{m-1}{m+n}\int{\cos^{m-2}{x}\sin^{n}{x}}\ \mathrm{d}x\\
+                                             &=-\frac{1}{m+n}\cos^{m+1}{x}\sin^{n-1}{x}+\frac{n-1}{m+n}\int{\cos^{m}{x}\sin^{n-2}{x}}\ \mathrm{d}x
+\end{align*}
+$$
+<br/>
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+### 100
+$$
+\int{\sin{ax}\cos{bx}}\ \mathrm{d}x=-\frac{1}{2(a+b)}\cos{(a+b)x}-\frac{1}{2(a-b)}\cos{(a-b)x}+C
+$$
+<br/>
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+### 101
+$$
+\int{\sin{ax}\sin{bx}}\ \mathrm{d}x=-\frac{1}{2(a+b)}\sin{(a+b)x}+\frac{1}{2(a-b)}\sin{(a-b)x}+C
+$$
+<br/>
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+### 102
+$$
+\int{\cos{ax}\cos{bx}}\ \mathrm{d}x=\frac{1}{2(a+b)}\sin{(a+b)x}+\frac{1}{2(a-b)}\sin{(a-b)x}+C
+$$
+<br/>
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
