@@ -37,7 +37,7 @@ $$
 
 ### 125
 $$
-\int{xa^{x}}\ \mathrm{d}x= \frac{x}{\ln{a}}a^x-\frac{1}{(\ln{a})^2}a^{x}+C
+\int{x^{n}e^{ax}}\ \mathrm{d}x=\frac{1}{a}x^{n}e^{ax}-\frac{n}{a}\int{x^{n-1}e^{ax}}\ \mathrm{d}x
 $$
 <br/>
 <details>
@@ -47,7 +47,7 @@ $$
 
 ### 126
 $$
-\int{x^{n}a^{x}}\ \mathrm{d}x=\frac{1}{\ln{a}}x^{n}a^{x}-\frac{n}{\ln{a}}\int{x^{n-1}a^{x}}\ \mathrm{d}x
+\int{xa^{x}}\ \mathrm{d}x= \frac{x}{\ln{a}}a^x-\frac{1}{(\ln{a})^2}a^{x}+C
 $$
 <br/>
 <details>
@@ -58,6 +58,46 @@ $$
 ### 127
 $$
 \int{x^{n}a^{x}}\ \mathrm{d}x=\frac{1}{\ln{a}}x^{n}a^{x}-\frac{n}{\ln{a}}\int{x^{n-1}a^{x}}\ \mathrm{d}x
+$$
+<br/>
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+### 128
+$$
+\int{e^{ax}\sin{bx}}\ \mathrm{d}x=\frac{1}{a^2+b^2}e^{ax}(a\sin{bx}-b\cos{bx})+C
+$$
+<br/>
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+### 129
+$$
+\int{e^{ax}\cos{bx}}\ \mathrm{d}x=\frac{1}{a^2+b^2}e^{ax}(a\cos{bx}+b\sin{bx})+C
+$$
+<br/>
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+### 130
+$$
+\int{e^{ax}\sin^n{bx}}\ \mathrm{d}x=\frac{1}{a^2+b^2n^2}e^{ax}\sin^{n-1}{bx}(a\sin{bx}-nb\cos{bx})+\frac{n(n-1)b^2}{a^2+b^2n^2}\int{e^{ax}\sin^{n-2}{bx}}\ \mathrm{d}x
+$$
+<br/>
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+### 131
+$$
+\int{e^{ax}\cos^n{bx}}\ \mathrm{d}x=\frac{1}{a^2+b^2n^2}e^{ax}\cos^{n-1}{bx}(a\cos{bx}+nb\sin{bx})+\frac{n(n-1)b^2}{a^2+b^2n^2}\int{e^{ax}\cos^{n-2}{bx}}\ \mathrm{d}x
 $$
 <br/>
 <details>
