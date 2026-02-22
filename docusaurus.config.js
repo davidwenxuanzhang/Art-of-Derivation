@@ -72,6 +72,14 @@ const config = {
 		}),
 	],
 ],
+  plugins: [
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      {
+        hashed: true,
+      },
+    ],
+  ],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -157,6 +165,7 @@ const config = {
             // 可以添加更多子项
           ],
         },
+          { type: 'search', position: 'right' },
           {
             href: 'https://github.com/davidwenxuanzhang/Art-of-Derivations',
             position: 'right',
