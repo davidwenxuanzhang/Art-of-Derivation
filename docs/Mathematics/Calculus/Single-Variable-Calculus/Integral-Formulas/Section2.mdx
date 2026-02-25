@@ -169,7 +169,7 @@ When $b>0$ :
 $$
 \begin{align*}
     2\int{\frac{1}{u^2-b}}\ \mathrm{d}u&=2\int{\frac{1}{u^2-(\sqrt{b})^2}}\ \mathrm{d}u\\
-                             &=\frac{1}{\sqrt{b}}\ln{\left|\frac{u-\sqrt{b}}{u+\sqrt{b}}\right|}+C &&(\#21)\\
+                             &=\frac{1}{\sqrt{b}}\ln{\left|\frac{u-\sqrt{b}}{u+\sqrt{b}}\right|}+C &&(\text{Integral Formula \#21})\\
                              &=\frac{1}{\sqrt{b}}\ln{\left|\frac{\sqrt{ax+b}-\sqrt{b}}{\sqrt{ax+b}+\sqrt{b}}\right|}+C &&(\text{plug in }u=\sqrt{ax+b})
 \end{align*}
 $$
@@ -177,7 +177,7 @@ When $b<0$ :
 $$
 \begin{align*}
     2\int{\frac{1}{u^2-b}}\ \mathrm{d}u&=2\int{\frac{1}{u^2+(\sqrt{-b})^2}}\ \mathrm{d}u\\
-                                       &=2\left[\frac{1}{\sqrt{-b}}\arctan{\left(\frac{u}{\sqrt{-b}}\right)}+C\right] &&(\#19)\\
+                                       &=2\left[\frac{1}{\sqrt{-b}}\arctan{\left(\frac{u}{\sqrt{-b}}\right)}+C\right] &&(\text{Integral Formula \#19})\\
                                        &=\frac{2}{\sqrt{-b}}\arctan{\sqrt{\frac{ax+b}{-b}}}+C &&(\text{plug in }u=\sqrt{ax+b})
 \end{align*}
 $$
@@ -215,13 +215,13 @@ $$
     I&=\int{\frac{\sqrt{ax+b}}{x^2}}\ \mathrm{d}x\\
      &=\int{\sqrt{ax+b}}\cdot \frac{1}{x^2}\ \mathrm{d}x\\ 
      &=\int{\sqrt{ax+b}}\ \mathrm{d}\left(-\frac{1}{x}\right)\\
-     &=-\frac{\sqrt{ax+b}}{x}-\int{-\frac{1}{x}\ \mathrm{d}(\sqrt{ax+b})} &&(\text{Integral By Parts})\\
+     &=-\frac{\sqrt{ax+b}}{x}-\int{-\frac{1}{x}\ \mathrm{d}(\sqrt{ax+b})} &&(\text{Integration by Parts})\\
      &=-\frac{\sqrt{ax+b}}{x}+\frac{a}{2}\int{\frac{1}{x\sqrt{ax+b}}}\ \mathrm{d}x \tag*{$\blacksquare$}
 \end{align*}
 $$
 <p align="right">
 
-[Integral By Parts](link tbd)
+[Integration by Parts](link tbd)
 </p>
 
 </details>
@@ -293,7 +293,7 @@ $$
 \begin{align*}
     I&=\int{\left(\frac{-\frac{a}{b}}{x\sqrt{ax+b}}+\frac{\frac{1}{b}\sqrt{ax+b}}{x^2}\right)}\ \mathrm{d}x\\
      &=-\frac{a}{b}\int{\frac{1}{x\sqrt{ax+b}}}\ \mathrm{d}x+\frac{1}{b}\int{\frac{\sqrt{ax+b}}{x^2}}\ \mathrm{d}x\\
-     &=-\frac{a}{b}\int{\frac{1}{x\sqrt{ax+b}}}\ \mathrm{d}x+\frac{1}{b}\left(-\frac{\sqrt{ax+b}}{x}+\frac{a}{2}\int{\frac{1}{x\sqrt{ax+b}}}\ \mathrm{d}x\right) &&(\#16)\\
+     &=-\frac{a}{b}\int{\frac{1}{x\sqrt{ax+b}}}\ \mathrm{d}x+\frac{1}{b}\left(-\frac{\sqrt{ax+b}}{x}+\frac{a}{2}\int{\frac{1}{x\sqrt{ax+b}}}\ \mathrm{d}x\right) &&(\text{Integral Formula \#16})\\
      &=-\frac{\sqrt{ax+b}}{bx}+\left(-\frac{a}{b}+\frac{a}{2b}\right)\int{\frac{1}{x\sqrt{ax+b}}}\ \mathrm{d}x\\
      &=-\frac{\sqrt{ax+b}}{bx}-\frac{a}{2b}\int\frac{1}{x\sqrt{ax+b}}\ \mathrm{d}x \tag*{$\blacksquare$}
 \end{align*}
