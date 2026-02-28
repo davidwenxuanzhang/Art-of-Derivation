@@ -3,6 +3,9 @@ title: Trigonometry Identities
 sidebar_label: Trigonometry Identities
 sidebar_position: 2
 ---
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+
 
 This page will include all common trigonometry identites that the author know; with <span className="math-keyword">Derivations</span>. Those are really important, and the author highly recommende to memorize all of those. 
 
@@ -47,6 +50,33 @@ $$
 <br/>
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
+
+<div className="deriv2col">
+
+  <div>
+    <img src={useBaseUrl('/img/sines_sum.png')} width="400" />
+  </div>
+
+  <div>
+    $$
+        \begin{align*}
+            \blue{\sin{\beta}}=\frac{BC}{AB}=\frac{BC}{1}\implies BC&=\blue{\sin{\beta}}\\
+            \blue{\cos{\beta}}=\frac{AC}{AB}=\frac{AC}{1}\implies AC&=\blue{\cos{\beta}}\\
+            \green{\sin{\alpha}}=\frac{CD}{AC}=\frac{CD}{\blue{\cos{\beta}}}\implies CD&=\green{\sin{\alpha}}\blue{\cos{\beta}}\\
+            \green{\cos{\alpha}}=\frac{CF}{BC}=\frac{CF}{\blue{\sin{\beta}}}\implies CF&=\green{\cos{\alpha}}\blue{\sin{\beta}}\\
+        \end{align*}
+    $$
+    $$
+        \begin{align*}
+                \sin{(\green{\alpha}+\blue{\beta})}&=\frac{BE}{AB}\\
+                                                   &=\frac{BE}{1}\\
+                                                   &=CD+CF\\
+                                                   &=\green{\sin{\alpha}}\blue{\cos{\beta}}+\green{\cos{\alpha}}\blue{\sin{\beta}} \tag*{$\blacksquare$}
+        \end{align*}
+    $$
+  </div>
+
+</div>
 
 </details>
 
