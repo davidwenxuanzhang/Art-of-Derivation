@@ -56,3 +56,7 @@ The Orange Adomination provides information that is important to know.
 
 - The theme color of this project is <span style={{ color: '#4b0082' }}>**Indigo**</span> (`#4b0082`) in light mode and <span style={{ color: '#ff61ff' }}>**Magenta**</span> (`#ff61ff`) in dark mode.  
 - The theme color is exclusively reserved for <span className="math-keyword">Derivation</span> and its related concepts, rather than decorative styling.  
+
+## Favicon
+
+The idea of the favicon came from $\because$ (`$\because$`) and $\therefore$ (`$\therefore$`). I used 
