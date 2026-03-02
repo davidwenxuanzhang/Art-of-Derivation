@@ -301,7 +301,7 @@ $$
                  &=\cos{\green{\alpha}}\cos{\blue{\alpha}}-\sin{\green{\alpha}}\sin{\blue{\alpha}} &&({\text{Trig Identity \#6}})\\
                  &=\cos^2{\alpha}-\sin^2{\alpha}\\
                  &=\cos^2{\alpha}-(1-\cos^2{\alpha})=2\cos^2{\alpha}-1 &&({\text{Trig Identity \#1}})\\
-                 &=(1-\sin^2{\alpha})-\sin^2{\alpha}=1-2\sin^2{\alpha}&&({\text{Trig Identity \#1}}) && \tag*{$\blacksquare$}
+                 &=(1-\sin^2{\alpha})-\sin^2{\alpha}=1-2\sin^2{\alpha}&&({\text{Trig Identity \#1}})  \tag*{$\blacksquare$}
 \end{align*}
 $$
 
@@ -322,6 +322,26 @@ $$
 <br/>
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
+
+$$
+\begin{align*}
+    \sin{3\alpha}&=\sin{(\green{2\alpha}+\blue{\alpha})}\\
+                 &=\sin{\green{2\alpha}}\cos{\blue{\alpha}}+\cos{\green{2\alpha}}\sin{\blue{\alpha}} &&({\text{Trig Identity \#4}})\\
+                 &=2\sin{\alpha}\cos{\alpha}\cos{\alpha}+\cos{\green{2\alpha}}\sin{\blue{\alpha}} &&({\text{Trig Identity \#10}})\\
+                 &=2\sin{\alpha}(\cos^2{\alpha})+(1-2\sin^2{\alpha})\sin{\blue{\alpha}}  &&({\text{Trig Identity \#11}})\\
+                 &=2\sin{\alpha}(1-\sin^2{\alpha})+(1-2\sin^2{\alpha})\sin{\blue{\alpha}}  &&({\text{Trig Identity \#1}})\\
+                 &=2\sin{\alpha}-2\sin^3{\alpha}+\sin{\alpha}-2\sin^3{\alpha}\\
+                 &=-4\sin^3{\alpha}+3\sin{\alpha} \tag*{$\blacksquare$}
+\end{align*}
+$$
+
+<p align="right">
+
+[Trig Identity \#4](docs/Mathematics/Trigonometry/Trigonometry-Identities.mdx#4)  $\quad$ [Trig Identity \#10](docs/Mathematics/Trigonometry/Trigonometry-Identities.mdx#10)
+
+[Trig Identity \#11](docs/Mathematics/Trigonometry/Trigonometry-Identities.mdx#11) $\quad$  [Trig Identity \#1](docs/Mathematics/Trigonometry/Trigonometry-Identities.mdx#1)
+
+</p>
 
 </details>
 
