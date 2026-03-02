@@ -161,6 +161,32 @@ $$
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
 
+<div className="deriv2col">
+
+  <div>
+    <img src={useBaseUrl('/img/Cosines-Diff.png')} width="375" />
+  </div>
+
+  <div>
+    $$
+        \begin{align*}
+            \blue{\sin{\beta}}=\frac{BC}{AB}=\frac{BC}{1}\implies BC&=\blue{\sin{\beta}}\\
+            \blue{\cos{\beta}}=\frac{AC}{AB}=\frac{AC}{1}\implies AC&=\blue{\cos{\beta}}\\
+            \green{\sin{\alpha}}=\frac{CF}{BC}=\frac{CF}{\blue{\sin{\beta}}}\implies CF&=\green{\sin{\alpha}}\blue{\sin{\beta}}\\
+            \green{\cos{\alpha}}=\frac{CD}{AC}=\frac{CD}{\blue{\cos{\beta}}}\implies CD&=\green{\cos{\alpha}}\blue{\cos{\beta}}\\
+        \end{align*}
+    $$
+    $$
+        \begin{align*}
+                \cos{(\green{\alpha}-\blue{\beta})}&=\frac{AG}{AB}=\frac{AG}{1}=DF\\
+                                                   &=CD+CF\\
+                                                   &=\green{\cos{\alpha}}\blue{\cos{\beta}}+\green{\sin{\alpha}}\blue{\sin{\beta}} \tag*{$\blacksquare$}
+        \end{align*}
+    $$
+  </div>
+
+</div>
+
 </details>
 
 ### 8
