@@ -54,7 +54,7 @@ $$
 <div className="deriv2col">
 
   <div>
-    <img src={useBaseUrl('/img/sines_sum.png')} width="400" />
+    <img src={useBaseUrl('/img/sines_sum.png')} width="375" />
   </div>
 
   <div>
@@ -86,6 +86,33 @@ $$
 <br/>
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
+
+<div className="deriv2col">
+
+  <div>
+    <img src={useBaseUrl('/img/Sines-Diff.png')} width="375" />
+  </div>
+
+  <div>
+    $$
+        \begin{align*}
+            \blue{\sin{\beta}}=\frac{BC}{AB}=\frac{BC}{1}\implies BC&=\blue{\sin{\beta}}\\
+            \blue{\cos{\beta}}=\frac{AC}{AB}=\frac{AC}{1}\implies AC&=\blue{\cos{\beta}}\\
+            \green{\sin{\alpha}}=\frac{AD}{AC}=\frac{AD}{\blue{\cos{\beta}}}\implies AD&=\green{\sin{\alpha}}\blue{\cos{\beta}}\\
+            \green{\cos{\alpha}}=\frac{BF}{BC}=\frac{BF}{\blue{\sin{\beta}}}\implies BF&=\green{\cos{\alpha}}\blue{\sin{\beta}}\\
+        \end{align*}
+    $$
+    $$
+        \begin{align*}
+                \sin{(\green{\alpha}-\blue{\beta})}&=\frac{BG}{AB}=\frac{BG}{1}=AE\\
+                                                   &=AD-ED\\
+                                                   &=AD-BF\\
+                                                   &=\green{\sin{\alpha}}\blue{\cos{\beta}}-\green{\cos{\alpha}}\blue{\sin{\beta}} \tag*{$\blacksquare$}
+        \end{align*}
+    $$
+  </div>
+
+</div>
 
 </details>
 
