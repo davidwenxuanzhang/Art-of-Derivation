@@ -233,6 +233,32 @@ $$
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
 
+<div className="deriv2col">
+
+  <div>
+    <img src={useBaseUrl('/img/Tangents-Diff.png')} width="375" />
+  </div>
+
+  <div>
+    $$
+        \begin{align*}
+            \green{\tan{\alpha}}=\frac{AD}{CD}=\frac{AD}{1}\implies AD&=\green{\tan{\alpha}}\\
+            \green{\sec{\alpha}}=\frac{AC}{CD}=\frac{AC}{1}\implies AC&=\green{\sec{\alpha}}\\
+            \blue{\tan{\beta}}=\frac{BC}{AC}=\frac{BC}{\green{\sec{\alpha}}}\implies BC&=\green{\sec{\alpha}}\blue{\tan{\beta}}\\
+            \green{\sec{\alpha}}=\frac{BC}{BF}=\frac{\green{\sec{\alpha}}\blue{\tan{\beta}}}{BF}\implies BF&=\blue{\tan{\beta}}\\
+            \green{\tan{\alpha}}=\frac{CF}{BF}=\frac{CF}{\blue{\tan{\beta}}}\implies CF&=\green{\tan{\alpha}}\blue{\tan{\beta}}
+        \end{align*}
+    $$
+    $$
+        \begin{align*}
+                \tan{(\green{\alpha}-\blue{\beta})}&=\frac{BG}{AG}=\frac{AE}{DF}=\frac{AD-BF}{CD+CF}\\
+                                                   &=\frac{\green{\tan{\alpha}}-\blue{\tan{\beta}}}{1+\green{\tan{\alpha}}\blue{\tan{\beta}}} \tag*{$\blacksquare$}
+        \end{align*}
+    $$
+  </div>
+
+</div>
+
 </details>
 
 ## Multiple Angle Formulas
