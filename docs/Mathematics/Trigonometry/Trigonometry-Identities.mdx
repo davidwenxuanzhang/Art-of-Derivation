@@ -144,6 +144,32 @@ $$
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
 
+<div className="deriv2col">
+
+  <div>
+    <img src={useBaseUrl('/img/Tangents-Sum.png')} width="375" />
+  </div>
+
+  <div>
+    $$
+        \begin{align*}
+            \green{\tan{\alpha}}=\frac{CD}{AD}=\frac{CD}{1}\implies CD&=\green{\tan{\alpha}}\\
+            \green{\sec{\alpha}}=\frac{AC}{AD}=\frac{AC}{1}\implies AC&=\green{\sec{\alpha}}\\
+            \blue{\tan{\beta}}=\frac{BC}{AC}=\frac{BC}{\green{\sec{\alpha}}}\implies BC&=\green{\sec{\alpha}}\blue{\tan{\beta}}\\
+            \green{\sec{\alpha}}=\frac{BC}{CF}=\frac{\green{\sec{\alpha}}\blue{\tan{\beta}}}{CF}\implies CF&=\blue{\tan{\beta}}\\
+            \green{\tan{\alpha}}=\frac{BF}{CF}=\frac{BF}{\blue{\tan{\beta}}}\implies BF&=\green{\tan{\alpha}}\blue{\tan{\beta}}
+        \end{align*}
+    $$
+    $$
+        \begin{align*}
+                \tan{(\green{\alpha}+\blue{\beta})}&=\frac{BE}{AE}=\frac{DF}{AE}=\frac{CD+CF}{AD-BF}\\
+                                                   &=\frac{\green{\tan{\alpha}}+\blue{\tan{\beta}}}{1-\green{\tan{\alpha}}\blue{\tan{\beta}}} \tag*{$\blacksquare$}
+        \end{align*}
+    $$
+  </div>
+
+</div>
+
 </details>
 
 ### 9
