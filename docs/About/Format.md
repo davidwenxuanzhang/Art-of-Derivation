@@ -59,4 +59,4 @@ The Orange Adomination provides information that is important to know.
 
 ## Favicon
 
-The idea of the favicon came from $\because$ (`$\because$`) and $\therefore$ (`$\therefore$`). I used 
+The idea of the favicon came from $\because$ (`$\because$`) and $\therefore$ (`$\therefore$`).
