@@ -91,3 +91,5 @@ $$
 
 </details>
 :::
+
+## Examples
