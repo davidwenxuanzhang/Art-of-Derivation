@@ -17,15 +17,14 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
   </div>
 
   <div>
-    Given a $\triangle ABC$, if Cevians $AD$, $BE$, $CF$ all pass through pint $O$, according to Italian mathematician **Giovanni Ceva**, we have Ceva's Theorem says: 
-
+    Menelaus's theorem is named for Greek Mathematician **Menelaus of Alexandria** that said: given a line and a $\triangle ABC$, if the line cross through the sides of $\triangle ABC$ $AB$, $AC$, and $BC$ or their extension at point $L$, $M$, and $N$ as shown in graph, then: 
 
 $$
-    \frac{\overline{AD}}{\overline{DB}}\cdot \frac{\overline{BE}}{\overline{EC}} \cdot  \frac{\overline{CF}}{\overline{FA}}=1
+    \frac{\overline{AM}}{\overline{MB}}\cdot \frac{\overline{BL}}{\overline{LC}} \cdot  \frac{\overline{CN}}{\overline{NA}}=1
 $$
 
 
-    Where $\overline{AD}$ represents the length of segment $AD$
+    where $\overline{AM}$ represents the length of segment $AM$
   </div>
 
 </div>
