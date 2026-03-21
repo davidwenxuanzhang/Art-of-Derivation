@@ -3,9 +3,53 @@ title: Ceva's Theorem
 sidebar_label: Ceva's Theorem
 sidebar_position: 1
 ---
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 
 # Ceva's Theorem
 
 :::tip Ceva's Theorem
 
+<div className="deriv2col">
+
+  <div>
+    <img src={useBaseUrl('/img/Ceva-Theorem.png')} width="375" />
+  </div>
+
+  <div>
+    Given a $\triangle ABC$, if Cevians $AD$, $BE$, $CF$ all pass through pint $O$, according to Italian mathematician **Giovanni Ceva**, we have Ceva's Theorem says: 
+
+
+$$
+    \frac{\overline{AD}}{\overline{DB}}\cdot \frac{\overline{BE}}{\overline{EC}} \cdot  \frac{\overline{CF}}{\overline{FA}}=1
+$$
+
+
+    Where $\overline{AD}$ represents the length of segment $AD$
+  </div>
+
+</div>
+<br/>
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+Notice that the segment ${AD}$ and segment ${DB}$ share a same base $AB$.
+     $$
+        \begin{align*}
+            \implies \frac{\overline{AD}}{\overline{DB}}&=\frac{[\triangle AOD]}{[\triangle BOD]}=\frac{[\triangle ACD]}{[\triangle BCD]}\\
+            \therefore \frac{\overline{AD}}{\overline{DB}}&=\frac{[\triangle ACD]-[\triangle AOD]}{[\triangle BCD]-[\triangle BOD]}= \frac{[\triangle ACO]}{[\triangle BCO]}
+        \end{align*}
+    $$
+Similarly, we may also et: 
+    $$
+        \frac{\overline{BE}}{\overline{EC}}=\frac{[\triangle BAO]}{[\triangle CAO]}, \ \frac{\overline{CF}}{\overline{FA}}=\frac{[\triangle CBO]}{[\triangle ABO]}
+    $$
+Hence: 
+    $$
+        \frac{\overline{AD}}{\overline{DB}}\cdot \frac{\overline{BE}}{\overline{EC}} \cdot  \frac{\overline{CF}}{\overline{FA}}= \frac{[\triangle ACO]}{[\triangle BCO]}\cdot \frac{[\triangle ABO]}{[\triangle ACO]}\cdot \frac{[\triangle BCO]}{[\triangle ABO]}=1 \tag*{$\blacksquare$}
+    $$
+<p align="right">
+*Note: $[\triangle AOD]$ represents the area of $\triangle AOD$*
+</p>
+</details>
 :::
