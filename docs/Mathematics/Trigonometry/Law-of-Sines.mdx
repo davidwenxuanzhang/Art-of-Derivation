@@ -3,7 +3,66 @@ title: Law of Sines
 sidebar_label: Law of Sines
 sidebar_position: 4
 ---
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 
 :::tip Law of Sines
+<div className="deriv2col">
 
+  <div>
+    <img src={useBaseUrl('/img/Law-of-Sines.png')} width="375" />
+  </div>
+
+  <div>
+   For a random $\triangle ABC$, $a$, $b$, and $c$ are the length of the sides of the triangle, and seperately, $\angle A$, $\angle B$, and $\angle C$ are the opposite angles, then the Law of Sines points out: 
+
+
+$$
+    \frac{a}{\sin{\angle A}}=\frac{b}{\sin{\angle B}}=\frac{c}{\sin{\angle C}}= 2R
+$$
+
+
+    where $R$ is the length of the radius of the circumscribed circle of $\triangle ABC$.
+  </div>
+
+</div>
+<br/>
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+<div className="deriv2col">
+
+  <div>
+    <img src={useBaseUrl('/img/Law-of-Sines-Derivation.png')} width="375" />
+  </div>
+
+  <div>
+   
+  $\odot O$ is the circumscribed circle of $\triangle ABC$; connect $OB$ and $OC$; draw a prependicular line from $O$ to side $BC$ and intersect with it at point $D$.
+
+  Note that $\angle A$ is an inscribed angle, while $\angle BOC$ is the central angle subtending $\overset{\frown}{BC}$, which means: 
+
+$$
+\angle A=\frac{1}{2}\angle BOC
+$$
+
+$$
+ \begin{align*}
+    &\because OB=OC=R, \ OD\perp BC \\
+    &\therefore \angle BOD=\angle COD= \frac{1}{2}\angle BOC=\angle A\\
+    &\therefore \sin{\angle A}=\sin{\angle COD}=\frac{CD}{OC}=\frac{\frac{1}{2}a}{R}\\
+    &\implies \frac{a}{\sin {\angle A}}= 2R
+ \end{align*}
+$$
+  </div>
+</div>
+Similarly, from other directions, we may also get:
+$$
+\frac{b}{\sin {\angle B}}= 2R,\  \frac{c}{\sin {\angle C}}= 2R
+$$
+Hence: 
+$$
+    \frac{a}{\sin{\angle A}}=\frac{b}{\sin{\angle B}}=\frac{c}{\sin{\angle C}}= 2R \tag*{$\blacksquare$}
+$$
+</details>
 :::
