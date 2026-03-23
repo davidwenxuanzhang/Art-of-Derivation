@@ -48,29 +48,31 @@ const config = {
       type: 'text/css',
     },
   ],
-  presets: [
-    [
-      'classic',
-      /** @type {import('@docusaurus/preset-classic').Options} */
-      ({
-        docs: {
-          sidebarPath: './sidebars.js',
-          sidebarCollapsible: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/davidwenxuanzhang/Art-of-Derivation/blob/main/',
-          remarkPlugins: [remarkMath],
-          rehypePlugins: [rehypeKatex],
-          showLastUpdateAuthor: true,
-				  showLastUpdateTime: true,
-        },
-        blog: false,
-			theme: {
-				customCss: './src/css/custom.css',
-			},
-		}),
-	],
+ presets: [
+  [
+    'classic',
+    /** @type {import('@docusaurus/preset-classic').Options} */
+    ({
+      docs: {
+        sidebarPath: './sidebars.js',
+        sidebarCollapsible: true,
+        editUrl:
+          'https://github.com/davidwenxuanzhang/Art-of-Derivation/blob/main/',
+        remarkPlugins: [remarkMath],
+        rehypePlugins: [rehypeKatex],
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: true,
+      },
+      blog: false,
+      theme: {
+        customCss: './src/css/custom.css',
+      },
+      sitemap: {
+        changefreq: 'weekly',
+        priority: 0.5,
+      },
+    }),
+  ],
 ],
   plugins: [
     [
