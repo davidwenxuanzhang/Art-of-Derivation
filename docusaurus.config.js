@@ -84,6 +84,12 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      metadata: [
+  {
+    name: 'google-site-verification',
+    content: '_vwebILJo8zQCRt8T4zUHWGDMvo1uIfPCnszN3hbFXY',
+  },
+],
       favicon: 'img/icon.ico',
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
