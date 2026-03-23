@@ -59,7 +59,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/davidwenxuanzhang/Art-of-Derivations/blob/main/',
+            'https://github.com/davidwenxuanzhang/Art-of-Derivation/blob/main/',
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
           showLastUpdateAuthor: true,
@@ -167,7 +167,7 @@ const config = {
         },
           { type: 'search', position: 'right' },
           {
-            href: 'https://github.com/davidwenxuanzhang/Art-of-Derivations',
+            href: 'https://github.com/davidwenxuanzhang/Art-of-Derivation',
             position: 'right',
             className: 'header-github-link',
             'aria-label': 'GitHub repository',
