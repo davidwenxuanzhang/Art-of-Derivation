@@ -34,7 +34,7 @@ $$
 
 <span className="math-keyword">Derivation 1</span>: *Areas*
 
-<div className="deriv2col" style={{ gridTemplateColumns: "300px 1fr", gap: "3rem" }}>
+<div className="deriv2col" style={{ gridTemplateColumns: "300px 1fr", gap: "1.5rem" }}>
 
   <div>
     <img src={useBaseUrl('/img/Menelaus-Theorem-Derivation1.png')} width="300" />
@@ -64,7 +64,7 @@ $$
 <hr />
 
 <span className="math-keyword">Derivation 2</span>: *Trigonometry*
-<div className="deriv2col" style={{ gridTemplateColumns: "300px 1fr", gap: "3rem" }}>
+<div className="deriv2col" style={{ gridTemplateColumns: "300px 1fr", gap: "1.5rem" }}>
 
   <div>
     <img src={useBaseUrl('/img/Menelaus-Theorem-Derivation2.png')} width="300" />
