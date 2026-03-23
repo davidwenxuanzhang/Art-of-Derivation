@@ -15,7 +15,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
   </div>
 
   <div>
-   For a random $\triangle ABC$, $a$, $b$, and $c$ are the length of the sides of the triangle, and seperately, $\angle A$, $\angle B$, and $\angle C$ are the opposite angles, then the Law of Cosines points out:
+   For a random $\triangle ABC$, $a$, $b$, and $c$ are the length of the sides of the triangle, and respectively, $\angle A$, $\angle B$, and $\angle C$ are the opposite angles, then the Law of Cosines points out:
 
 $$
     c^2=a^2+b^2-2ab\cos{\angle C}  
@@ -32,3 +32,51 @@ $$
   </div>
 
 </div>
+<br/>
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+<div className="deriv2col">
+
+  <div>
+    <img src={useBaseUrl('/img/Law-of-Cosines-Derivation1.png')} width="375" />
+  </div>
+
+  <div>
+    Draw a prependicular line from point C to side $AB$ and intersect with it at point D, and we have: 
+
+$$
+    c=\overline{BD}+\overline{AD}=a\cos{\angle B}+b\cos{\angle A}
+$$
+    Times $c$ on both side:
+
+$$
+    c^2=ac\cos{\angle B}+bc\cos{\angle A}
+$$
+    By the same reasoning: 
+$$
+    a^2=ab\cos{\angle C}+ac\cos{\angle B}
+$$
+$$
+    b^2=ab\cos{\angle C}+bc\cos{\angle A}
+$$
+  </div>
+</div>
+$$
+\therefore ac\cos{\angle B}= a^2-ab\cos{\angle C}, \ bc\cos{\angle A}= b^2-ab\cos{\angle C}
+$$
+
+$$
+\therefore c^2=ac\cos{\angle B}+bc\cos{\angle A}= (a^2-ab\cos{\angle C})+(b^2-ab\cos{\angle C})=a^2+b^2-2ab\cos{\angle C} 
+$$
+By draw the perpendicular line from different direction, similarly: 
+
+$$
+    a^2=b^2+c^2-2bc\cos{\angle A}
+$$
+
+$$
+    b^2=a^2+c^2-2ac\cos{\angle B} \tag*{$\blacksquare$}
+$$
+</details>
+:::
