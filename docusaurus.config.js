@@ -134,9 +134,13 @@ const config = {
                to: '/docs/Mathematics/Trigonometry',  // 链接到三角函数主页
               label: 'Trigonometry',
             },
-                        {
+            {
                to: '/docs/Mathematics/Calculus',  // 链接到微积分主页
               label: 'Calculus',
+            },
+            {
+               to: '/docs/Mathematics/Proof',  // 链接到证明主页
+              label: 'Proof',
             },
             // 可以添加更多子项
           ],
