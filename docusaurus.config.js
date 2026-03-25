@@ -14,7 +14,7 @@ import remarkMath from 'remark-math';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Art of Derivation',
-  tagline: 'All Things Are Derivable',
+  tagline: 'An online mathematical encyclipedia focused on step-by-step derivations',
   favicon: 'img/icon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
