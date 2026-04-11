@@ -30,7 +30,7 @@ $$
 <Admonition type="note" title="Qin Jiushao's formula">
   Alternatively, here is an equivalent form of Heron's formula
 $$
-   S_{\triangle{ABC}}=\sqrt{\frac{1}{4}\left[a^2b^2-\left(\frac{a^2+b^2-c^2}{2}\right)^2 \right]}
+   S_{\triangle{ABC}}=\sqrt{\frac{1}{4}\left[a^2c^2-\left(\frac{a^2-b^2+c^2}{2}\right)^2 \right]}
 $$
 </Admonition>
   </div>
@@ -38,6 +38,48 @@ $$
 <br/>
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
+
+<div className="deriv2col" style={{ gridTemplateColumns: "300px 1fr", gap: "1.5rem" }}>
+
+  <div>
+    <img src={useBaseUrl('/img/Heron-Formula-Derivation.png')} width="320" height="230" />
+  </div>
+
+  <div>
+
+Let $BH \perp AC$; $H$ is a point on $AC$. 
+
+From the Pythagorean Theorem, we get: 
+
+$$
+\begin{align*}
+    a^2-x^2&=b^2-(c-x)^2\\
+    a^2-x^2&=b^2-c^2+2cx-x^2\\
+    2cx&=a^2-b^2+c^2\\
+    x&=\frac{a^2-b^2+c^2}{2c}
+\end{align*}
+$$
+  </div>
+</div>
+$$
+  \begin{align*}
+      S_{\triangle{ABC}}&=\frac{1}{2}AC\cdot BH \\
+                        &=\frac{1}{2}a\cdot \sqrt{c^2-\left(\frac{a^2-b^2+c^2}{2c}\right)^2}\\
+                        &=\sqrt{\frac{1}{4}\left[a^2c^2-\left(\frac{a^2-b^2+c^2}{2}\right)^2 \right]} &&\text{(Qin Jiushao's formula)}\\
+                        &=\sqrt{\frac{1}{16}[4a^2c^2-(a^2-b^2+c^2)^2]}\\
+                        &=\sqrt{\frac{(2ac)^2-(a^2-b^2+c^2)^2}{16}}\\
+                        &=\sqrt{\frac{(2ac+a^2-b^2+c^2)(2ac-a^2+b^2-c^2)}{16}}\\
+                        &=\sqrt{\frac{[(a+c)^2-b^2][b^2-(a-c)^2]}{16}}\\
+                        &=\sqrt{\frac{(a+c+b)(a+c-b)(b+a-c)(b-a+c)}{16}}\\
+                        &=\sqrt{\frac{a+b+c}{2}\frac{-a+b+c}{2}\frac{a-b+c}{2}\frac{a+b-c}{2}}\\
+                        &=\sqrt{\frac{a+b+c}{2}\left(\frac{a+b+c}{2}-a\right)\left(\frac{a+b+c}{2}-b\right)\left(\frac{a+b+c}{2}-c\right)}\\
+  \end{align*}
+$$
+Now, let $p=\frac{a+b+c}{2}$, then: 
+
+$$
+   S_{\triangle{ABC}}=\sqrt{p(p-a)(p-b)(p-c)} \tag*{$\blacksquare$}
+$$
 
 </details>
 :::
