@@ -3,6 +3,7 @@ title: Heron's Formula
 sidebar_label: Heron's Formula
 sidebar_position: 3
 ---
+import Admonition from '@theme/Admonition';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 # Heron's Formula
@@ -12,19 +13,27 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 <div className="deriv2col">
 
   <div>
-    <img src={useBaseUrl('/img/Heron-Formula.png')} width="375" />
+    <img src={useBaseUrl('/img/Heron-Formula.png')} width="375" height="320" />
   </div>
 
   <div>
-    Given a $\triangle ABC$ with the : 
+    Given a $\triangle ABC$ with the side length $a$, $b$, and $c$, then, the area is: 
 
 
 $$
-    \frac{\overline{AD}}{\overline{DB}}\cdot \frac{\overline{BE}}{\overline{EC}} \cdot  \frac{\overline{CF}}{\overline{FA}}=1
+   S_{\triangle{ABC}}=\sqrt{p(p-a)(p-b)(p-c)}
 $$
 
 
-    Where $\overline{AD}$ represents the length of segment $AD$
+    where $p=\frac{a+b+c}{2}$, as half of the semiperimeter of $\triangle ABC$ 
+
+<Admonition type="note" title="Qin Jiushao's formula">
+  Alternatively, here is an equivalent form of Heron's formula
+$$
+   S_{\triangle{ABC}}=\sqrt{\frac{1}{4}\left[a^2b^2-\left(\frac{a^2+b^2-c^2}{2}\right)^2 \right]}
+$$
+</Admonition>
   </div>
 
 </div>
+:::
