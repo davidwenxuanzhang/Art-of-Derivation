@@ -3,3 +3,24 @@ title: Cauchy–Schwarz Inequality
 sidebar_label: Cauchy–Schwarz Inequality
 sidebar_position: 2
 ---
+import Admonition from '@theme/Admonition';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+:::tip Cauchy–Schwarz Inequality
+
+<Admonition type="note" title="Real Number Case">
+The following version of the Cauchy–Schwarz inequality is for real numbers only; more general forms exist in complex and vector settings.
+</Admonition>
+
+Given two finite number sequence in the real number $\{x_1,x_2,\cdots,x_n\}$ and $\{y_1,y_2,\cdots,y_n\}$, the Cauchy–Schwarz inequality states: 
+
+$$
+\left(\sum_{i=1}^{n}x_iy_i \right)^2\leq \left(\sum_{i=1}^{n}x_i^2 \right)\left(\sum_{i=1}^{n}y_i^2 \right)
+$$
+in which 
+$$
+(x_1y_1+x_2y_2+\cdots +x_n y_n)^2\leq (x_1^2+x_2^2+\cdots+x_n^2)(y_1^2+y_2^2+\cdots+y_n^2)
+$$
+
+This inequality equal when there exists a real number $\lambda$ such that $x_i=\lambda b_i$
+:::
