@@ -215,6 +215,53 @@ $$
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
 
+$$
+\begin{align*}
+ I&=\int{\frac{1}{x^3(ax^2+b)}}\ \mathrm{d}x\\
+     &=\int{\frac{x}{x^4(ax^2+b)}}\ \mathrm{d}x\\
+     &=\int{\frac{1}{x^4(ax^2+b)}}\ \mathrm{d}\left(\frac{x^2}{2}\right) &&(x\ \mathrm{d}x=\mathrm{d}\left(\frac{x^2}{2}\right))\\
+     &=\frac{1}{2}\int{\frac{1}{x^4(ax^2+b)}}\ \mathrm{d}(x^2)\\
+     &=\frac{1}{2}\int{\left(\frac{A}{x^2}+\frac{B}{x^4}+\frac{C}{ax^2+b} \right)}\mathrm{d}(x^2) &&\text{(Partial Fraction Decomposition)}\\
+     &=\frac{1}{2}\int{\frac{Ax^2(ax^2+b)+B(ax^2+b)+Cx^4}{x^4(ax^2+b)}}\ \mathrm{d}(x^2)\\ 
+     &=\frac{1}{2}\int{\frac{(Aa+c)x^4+(Ab+Ba)x^2+Bb}{x^4(ax^2+b)}}\ \mathrm{d}(x^2)
+\end{align*}
+$$
+Comparing coefficient gives: 
+$$
+(Aa+c)x^4+(Ab+Ba)x^2+Bb\equiv 1 \implies
+\left\{
+\begin{align*}
+&Bb=1\\
+&Ab+Ba=0\\
+&Aa+C=0
+\end{align*}
+\right.
+\implies
+\left\{
+\begin{align*}
+&A=-\frac{a}{b^2}\\
+&B=\frac{1}{b}\\
+&C=\frac{a^2}{b^2}
+\end{align*}
+\right.
+$$
+Plug in back: 
+$$
+\begin{align*}
+    I&=\frac{1}{2}\int{\left(\frac{-\frac{a}{b^2}}{x^2}+\frac{\frac{1}{b}}{x^4}+\frac{\frac{a^2}{b^2}}{ax^2+b} \right)}\mathrm{d}(x^2)\\
+     &=\frac{1}{2}\left[-\frac{a}{b^2}\int{\frac{1}{x^2}}\ \mathrm{d}(x^2)+\frac{1}{b}\int{\frac{1}{(x^2)^2}}\ \mathrm{d}(x^2)+\frac{a^2}{b^2}\int{\frac{1}{ax^2+b}}\ 
+     \frac{\mathrm{d}(ax^2+b)}{a} \right] &&\text{(Direct Substitution)}\\
+     &=\frac{1}{2}\left(-\frac{a}{b^2}\ln{\left|x^2 \right|}-\frac{1}{bx^2}+\frac{a}{b^2}\ln{\left|ax^2+b \right|} +C\right)\\
+     &=\frac{a}{2b^2}\ln{\frac{\left|ax^2+b\right|}{x^2}}-\frac{1}{2bx^2}+C \tag*{$\blacksquare$}
+\end{align*}
+$$
+<p align="right">
+
+[Partial Fraction Decomposition](docs\Mathematics\Calculus\Single-Variable-Calculus\Integral-Techniques\Partial-Fraction-Decomposition.mdx)
+
+[Direct Substitution](docs/Mathematics/Calculus/Single-Variable-Calculus/Integral-Techniques/Substitution.mdx#direct-substitution)
+
+</p>
 </details>
 
 ### 28
