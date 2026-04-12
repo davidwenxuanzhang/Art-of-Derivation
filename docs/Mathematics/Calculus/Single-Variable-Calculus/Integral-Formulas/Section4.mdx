@@ -116,8 +116,8 @@ $$
      &=\int{\frac{x}{x^2(ax^2+b)}}\ \mathrm{d}x\\
      &=\int{\frac{1}{x^2(ax^2+b)}}\ \mathrm{d}\left(\frac{x^2}{2}\right) &&(x\ \mathrm{d}x=\mathrm{d}\left(\frac{x^2}{2}\right))\\
      &=\frac{1}{2}\int{\frac{1}{x^2(ax^2+b)}}\ \mathrm{d}(x^2)\\ 
-     &=\frac{1}{2}\int{\left(\frac{A}{x^2}+\frac{B}{ax^2+b} \right)}\ \mathrm{d}(x^2)\\
-     &=\frac{1}{2}\int{\frac{A(ax^2+b)+Bx^2}{x^2(ax^2+b)}}\ \mathrm{d}(x^2) &&\text{(Partial Fraction Decomposition)}\\
+     &=\frac{1}{2}\int{\left(\frac{A}{x^2}+\frac{B}{ax^2+b} \right)}\ \mathrm{d}(x^2) &&\text{(Partial Fraction Decomposition)}\\
+     &=\frac{1}{2}\int{\frac{A(ax^2+b)+Bx^2}{x^2(ax^2+b)}}\ \mathrm{d}(x^2)\\
      &=\frac{1}{2}\int{\frac{(Aa+B)x^2+Ab}{x^2(ax^2+b)}}\ \mathrm{d}(x^2)
 \end{align*}
 $$
@@ -165,6 +165,46 @@ $$
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
 
+$$
+\begin{align*}
+    I&=\int{ \frac{1}{x^2\left(ax^2+b\right)}}\ \mathrm{d}x\\
+     &=\int{\left(\frac{A}{x^2}+\frac{B}{ax^2+b} \right)}\ \mathrm{d}x &&\text{(Partial Fraction Decomposition)}\\
+     &=\int{\frac{A(ax^2+b)+Bx^2}{x^2(ax^2+b)}}\ \mathrm{d}x\\
+     &=\int{\frac{(Aa+B)x^2+Ab}{x^2(ax^2+b)}}\ \mathrm{d}x\\
+\end{align*}
+$$
+Comparing coefficient gives: 
+$$
+(Aa+B)x^2+Ab\equiv 1 \implies
+\left\{
+\begin{align*}
+&Ab=1\\
+&Aa+B=0
+\end{align*}
+\right.
+\implies
+\left\{
+\begin{align*}
+&A=\frac{1}{b}\\
+&B=-\frac{a}{b}
+\end{align*}
+\right.
+$$
+Plug in back: 
+$$
+\begin{align*}
+    I&=\int{\left(\frac{\frac{1}{b}}{x^2}+\frac{-\frac{a}{b}}{ax^2+b} \right)}\ \mathrm{d}x\\
+     &=\frac{1}{b}\int{\frac{1}{x^2}}\ \mathrm{d}x -\frac{a}{b} \int{\frac{1}{ax^2+b}}\ \mathrm{d}x &&\text{(Direct Substitution)}\\
+     &=-\frac{1}{bx}-\frac{a}{b}\int \frac{1}{ax^2+b}\ \mathrm{d}x  \tag*{$\blacksquare$}
+\end{align*}
+$$
+<p align="right">
+
+[Partial Fraction Decomposition](docs\Mathematics\Calculus\Single-Variable-Calculus\Integral-Techniques\Partial-Fraction-Decomposition.mdx)
+
+[Direct Substitution](docs/Mathematics/Calculus/Single-Variable-Calculus/Integral-Techniques/Substitution.mdx#direct-substitution)
+
+</p>
 </details>
 
 ### 27
