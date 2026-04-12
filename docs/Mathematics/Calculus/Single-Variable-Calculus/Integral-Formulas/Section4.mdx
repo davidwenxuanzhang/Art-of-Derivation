@@ -272,4 +272,26 @@ $$
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
 
+$$
+\begin{align*}
+    I&=\int{\frac{1}{(ax^2+b)^2}}\ \mathrm{d}x\\
+     &=\int{\frac{1}{(ax^2+b)^2}}\ \frac{\mathrm{d}(ax^2+b)}{2ax} &&\text{(Direct Substitution)}\\
+     &=\int{\frac{1}{2ax}}\ \left(-\frac{1}{ax^2+b} \right)\\
+     &=-\frac{1}{2ax(ax^2+b)}-\int{-\frac{1}{ax^2+b}}\ \mathrm{d}\left(\frac{1}{2ax} \right) &&\text{(Integral by Parts)}\\
+     &=-\frac{1}{2ax(ax^2+b)}-\frac{1}{2a}\int{\frac{1}{x^2(ax^2+b)}}\ \mathrm{d}x &&(\mathrm{d}\left(\frac{1}{2ax}\right)=-\frac{1}{2ax^2}\ \mathrm{d}x)\\
+     &=-\frac{1}{2ax(ax^2+b)}-\frac{1}{2a}\left[-\frac{1}{bx}-\frac{a}{b}\int \frac{1}{ax^2+b}\ \mathrm{d}x\right] &&(\text{Integral Formula \#26})\\
+     &=-\frac{1}{2ax(ax^2+b)}-\left(-\frac{1}{2abx}-\frac{1}{2b}\int{\frac{1}{x^2(ax^2+b)}}\ \mathrm{d}x  \right)\\
+     &=-\frac{b}{2abx(ax^2+b)}+\frac{ax^2+b}{2abx(ax^2+b)}+\frac{1}{2b}\int{\frac{1}{x^2(ax^2+b)}}\ \mathrm{d}x\\
+     &=\frac{ax^2}{2abx(ax^2+b)}+\frac{1}{2b}\int{\frac{1}{x^2(ax^2+b)}}\ \mathrm{d}x\\
+     &=\frac{x}{2b\left(ax^2+b\right)}+\frac{1}{2b}\int \frac{1}{ax^2+b}\ \mathrm{d}x \tag*{$\blacksquare$}
+\end{align*}
+$$
+<p align="right">
+
+[Direct Substitution](docs/Mathematics/Calculus/Single-Variable-Calculus/Integral-Techniques/Substitution.mdx#direct-substitution)
+
+[Integral by Parts](docs\Mathematics\Calculus\Single-Variable-Calculus\Integral-Techniques\Integration-By-Parts.mdx)
+
+[Integral Formula \#26](docs\Mathematics\Calculus\Single-Variable-Calculus\Integral-Formulas\Section4.mdx#26)
+</p>
 </details>
