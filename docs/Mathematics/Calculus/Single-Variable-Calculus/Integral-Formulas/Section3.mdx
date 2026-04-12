@@ -39,6 +39,33 @@ $$
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
 
+$$
+\begin{align*}
+    I&=\int{\frac{1}{(x^2+a^2)^n}}\ \mathrm{d}x\\
+     &=\frac{x}{(x^2+a^2)^n}-\int{x}\ \mathrm{d}\left(\frac{1}{(x^2+a^2)^n} \right)   &&\text{(Integral by Parts)}\\
+     &=\frac{x}{(x^2+a^2)^n}-\int{x\cdot \frac{-n\cdot 2x}{(x^2+a^2)^{n+1}}}\ \mathrm{d}x\\ 
+     &=\frac{x}{(x^2+a^2)^n}+2n\int{\frac{x^2}{(x^2+a^2)^{n+1}}}\ \mathrm{d}x\\ 
+     &=\frac{x}{(x^2+a^2)^n}+2n\int{\frac{x^2+a^2-a^2}{(x^2+a^2)^{n+1}}}\ \mathrm{d}x\\ 
+     &=\frac{x}{(x^2+a^2)^n}+2n\int{\frac{1}{(x^2+a^2)^{n}}}\ \mathrm{d}x-2na^2\int{\frac{1}{(x^2+a^2)^{n+1}}}\ \mathrm{d}x\\ 
+\end{align*}
+$$
+$$
+\begin{align*}
+    \implies \int{\frac{1}{(x^2+a^2)^n}}\ \mathrm{d}x&= \frac{x}{(x^2+a^2)^n}+2n\int{\frac{1}{(x^2+a^2)^{n}}}\ \mathrm{d}x-2na^2\int{\frac{1}{(x^2+a^2)^{n+1}}}\ \mathrm{d}x\\
+    2na^2\int{\frac{1}{(x^2+a^2)^{n+1}}}\ \mathrm{d}x&= \frac{x}{(x^2+a^2)^n}+(2n-1)\int{\frac{1}{(x^2+a^2)^{n}}}\ \mathrm{d}x
+\end{align*}
+$$
+Replace $n+1$ to $n$ and $n$ to $n-1$:
+$$
+\begin{align*}
+    2(n-1)a^2\int{\frac{1}{(x^2+a^2)^{n}}}\ \mathrm{d}x&= \frac{x}{(x^2+a^2)^{n-1}}+[2(n-1)-1]\int{\frac{1}{(x^2+a^2)^{n-1}}}\ \mathrm{d}x\\
+    \int \frac{1}{\left(x^2+a^2\right)^n}\ \mathrm{d}x&=\frac{x}{2\left(n-1\right)a^2\left(x^2+a^2\right)^{n-1}}+\frac{2n-3}{2\left(n-1\right)a^2}\int \frac{1}{\left(x^2+a^2\right)^{n-1}}\ \mathrm{d}x  \tag*{$\blacksquare$}
+\end{align*}
+$$
+<p align="right">
+
+[Integral by Parts](docs\Mathematics\Calculus\Single-Variable-Calculus\Integral-Techniques\Integration-By-Parts.mdx)
+</p>
 </details>
 
 ### 21
