@@ -21,6 +21,45 @@ $$
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
 
+$$
+I=\int \frac{1}{ax^2+b} \ \mathrm{d}x =\int{\frac{1}{(\sqrt{a}x)^2+b}}\ \mathrm{d}x
+$$
+When $b>0$ :
+$$
+\begin{align*}
+    \int{\frac{1}{(\sqrt{a}x)^2+b}}\ \mathrm{d}x&=\int{\frac{1}{(\sqrt{a}x)^2+(\sqrt{b})^2}}\ \mathrm{d}x\\
+                                                &=\int{\frac{1}{(\sqrt{a}x)^2+(\sqrt{b})^2}}\ \frac{\mathrm{d}(\sqrt{a}x)}{\sqrt{a}} &&\text{(Direct Substitution)}\\
+                                                &=\frac{1}{\sqrt{a}}\int{\frac{1}{(\sqrt{a}x)^2+(\sqrt{b})^2}}\ \mathrm{d}x\\
+                                                &=\frac{1}{\sqrt{ab}}\arctan\sqrt{\frac{a}{b}}x+C &&(\text{Integral Formula \#19})
+\end{align*}
+$$
+When $b<0$ :
+$$
+\begin{align*}
+    \int{\frac{1}{(\sqrt{a}x)^2+b}}\ \mathrm{d}x&=\int{\frac{1}{(\sqrt{a}x)^2-(\sqrt{-b})^2}}\ \mathrm{d}x\\
+                                                &=\int{\frac{1}{(\sqrt{a}x)^2-(\sqrt{-b})^2}}\ \frac{\mathrm{d}(\sqrt{a}x)}{\sqrt{a}} &&\text{(Direct Substitution)}\\
+                                                &=\frac{1}{\sqrt{a}}\int{\frac{1}{(\sqrt{a}x)^2-(\sqrt{-b})^2}}\ \mathrm{d}x\\
+                                                &\frac{1}{2\sqrt{-ab}}\ln\left|\frac{\sqrt{a}x-\sqrt{-b}}{\sqrt{a}x+\sqrt{-b}}\right|+C &&(\text{Integral Formula \#21})
+\end{align*}
+$$
+Hence: 
+$$
+\int \frac{1}{ax^2+b} \ \mathrm{d}x = 
+\left\{\begin{aligned}
+&\frac{1}{\sqrt{ab}}\arctan\sqrt{\frac{a}{b}}x+C \quad (b>0)\\
+&\frac{1}{2\sqrt{-ab}}\ln\left|\frac{\sqrt{a}x-\sqrt{-b}}{\sqrt{a}x+\sqrt{-b}}\right|+C \quad (b<0)
+\end{aligned}
+\right.
+\tag*{$\blacksquare$}
+$$
+<p align="right">
+
+[Direct Substitution](docs/Mathematics/Calculus/Single-Variable-Calculus/Integral-Techniques/Substitution.mdx#direct-substitution)
+
+[Integral Formula \#19](docs\Mathematics\Calculus\Single-Variable-Calculus\Integral-Formulas\Section3.mdx#19)
+
+[Integral Formula \#21](docs\Mathematics\Calculus\Single-Variable-Calculus\Integral-Formulas\Section3.mdx#21)
+</p>
 </details>
 
 ### 23
