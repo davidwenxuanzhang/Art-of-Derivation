@@ -28,28 +28,28 @@ title: Format
 - All <span className="math-keyword">Derivation</span> processes are organized using the `align*` enviornment.
 - All <span className="math-keyword">Derivation</span> processes are completed with `\blacksquare` ($\blacksquare$), indicating Q.E.D. (_quod erat demonstrandum_), meaning "that which was to be demonstrated".
 
-### Adomination Format
+### Admonition Format
 
 :::note Note
-The Gray Adomination provides extra and unnecessary notes and information.
+The Gray Admonition provides extra and unnecessary notes and information.
 :::
 
 :::tip Definition
-The Green Adomination provides definition about the given topic.  
+The Green Admonition provides definition about the given topic.  
 :::
 
 :::info Property, Identity, Solution...
-The Blue Adomination provides Properties, Identities, Solutions, and so on that is **NOT** designed to show the collapsable <span className="math-keyword">Derivation</span> process.
+The Blue Admonition provides Properties, Identities, Solutions, and so on that is **NOT** designed to show the collapsable <span className="math-keyword">Derivation</span> process.
 :::
 
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
 
-The collapsable Adomination provides detailed process for <span className="math-keyword">Derivation</span>
+The collapsable Admonition provides detailed process for <span className="math-keyword">Derivation</span>
 </details>
 
 :::warning Warning
-The Orange Adomination provides information that is important to know. 
+The Orange Admonition provides information that is important to know. 
 :::
 
 ## Theme Format
