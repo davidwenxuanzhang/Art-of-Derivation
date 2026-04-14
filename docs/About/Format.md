@@ -28,7 +28,7 @@ title: Format
 - All <span className="math-keyword">Derivation</span> processes are organized using the `align*` enviornment.
 - All <span className="math-keyword">Derivation</span> processes are completed with `\blacksquare` ($\blacksquare$), indicating Q.E.D. (_quod erat demonstrandum_), meaning "that which was to be demonstrated".
 
-### Abomination Format
+### Adomination Format
 
 :::note Note
 The Gray Adomination provides extra and unnecessary notes and information.
