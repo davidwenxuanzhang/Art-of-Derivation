@@ -48,8 +48,12 @@ The Blue Admonition provides Properties, Identities, Solutions, and so on that i
 The collapsable Admonition provides detailed process for <span className="math-keyword">Derivation</span>
 </details>
 
-:::warning Warning
-The Orange Admonition provides information that is important to know. 
+:::warning Question
+The Orange Admonition highlights the question for examples. 
+:::
+
+:::danger Warning
+The Red Admonition provides information that is important to know. 
 :::
 
 ## Theme Format
