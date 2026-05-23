@@ -1,19 +1,13 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
-
 .heroBanner {
   padding: 4rem 0;
   text-align: center;
   position: relative;
   overflow: hidden;
+  min-height: 94vh;
 }
 
 @media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
+  .heroBanner { padding: 2rem; }
 }
 
 .buttons {
@@ -22,112 +16,73 @@
   justify-content: center;
 }
 
-.heroBanner {
-  position: relative;
-  overflow: hidden;
-  min-height: 94vh;
-}
-
 .heroBanner :global(.container) {
   position: relative;
   z-index: 2;
 }
 
-/* 图层 */
-.mathLayer {
+.ghostLayer {
   position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  mix-blend-mode: soft-light;
+  overflow: hidden;
 }
 
-.formulaLayer {
+.ghost {
   position: absolute;
-  inset: 0;
-  z-index: 0;
+  opacity: 0;
   pointer-events: none;
+  transition: opacity 1.8s ease-in-out, transform 5s ease-in-out;
+  user-select: none;
+}
+
+/* ── FIGURES: radial mask so portrait fades at edges, blend into bg ── */
+.ghostFigure {
+  width: 260px;
+  mask-image: radial-gradient(circle, black 45%, transparent 70%);
+  -webkit-mask-image: radial-gradient(circle, black 45%, transparent 70%);
+}
+
+:global([data-theme='light']) .ghostFigure {
+  filter: grayscale(100%) contrast(140%) blur(0.6px);
   mix-blend-mode: soft-light;
 }
 
-/* 实体 */
-.mathFigure {
-  position: absolute;
-  width: 325px;
-  opacity: 0;
-  animation: 30s infinite;
-  
-  filter:
-    grayscale(100%)
-    contrast(120%)
-    blur(0.6px);
-
-  mask-image: radial-gradient(circle, black 55%, transparent 70%);
-  -webkit-mask-image: radial-gradient(circle, black 55%, transparent 70%);
+:global([data-theme='dark']) .ghostFigure {
+  filter: grayscale(100%) contrast(115%) blur(0.9px);
+  mix-blend-mode: multiply;
 }
 
-.formulaFigure {
-  position: absolute;
-  opacity: 0;
-  animation: 6s infinite;
-
-  /* 让公式像“光的残影”，不是正文 */
-  color: rgba(255, 255, 255, 0.6);
-
-  filter:
-    blur(0px)
-    contrast(120%);
-
-  mask-image: radial-gradient(circle, black 45%, transparent 100%);
-  -webkit-mask-image: radial-gradient(circle, black 45%, transparent 100%);
+/* ── FORMULAS: no mask, no blur — keep them sharp and readable ── */
+.ghostFormula {
+  white-space: nowrap;
+  /* no mask-image so nothing gets eaten */
 }
 
-.formulaFigure :global(.katex) {
-  font-size: 1em;
+:global([data-theme='light']) .ghostFormula {
+  color: rgba(255, 255, 255, 0.75);
+  filter: contrast(120%);
 }
 
-/* 伪随机位置 + 时间 */ 
-.mathFigure:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; } 
-.mathFigure:nth-child(2) { top: 50%; left: 55%; animation-delay: 6s; } 
-.mathFigure:nth-child(7) { top: 0%; left: 40%; animation-delay: 3s; }
-.mathFigure:nth-child(3) { top: 30%; left: 75%; animation-delay: 12s; }
-.mathFigure:nth-child(4) { top: 35%; left: 15%; animation-delay: 18s; } 
-.mathFigure:nth-child(5) { top: 20%; left: 40%; animation-delay: 24s; } 
-.mathFigure:nth-child(6) { top: 5%; left: 65%; animation-delay: 30s; }
-.mathFigure:nth-child(8) { top: 5%; left: 65%; animation-delay: -6s; }
-
-.formulaFigure:nth-child(1) { top: 60%; left: 35%; animation-delay: 0s;  font-size: 3.5rem; }
-
-/* 不同轨道 */
-.mathFigure:nth-child(odd) {animation-name: fadeFloatA;}
-.mathFigure:nth-child(even) {animation-name: fadeFloatB;}
-.formulaFigure:nth-child(odd)  { animation-name: fadeFormulaA; }
-.formulaFigure:nth-child(even) { animation-name: fadeFormulaB; }
-
-@keyframes fadeFloatA {
-  0% { opacity: 0; transform: translate(-10px, 20px) scale(0.96); }
-  30% { opacity: 0.45; }
-  50% { transform: translate(10px, -10px) scale(1); }
-  100% { opacity: 0; }
+:global([data-theme='dark']) .ghostFormula {
+  color: rgba(255, 255, 255, 0.90);
+  filter: contrast(150%);
 }
 
-@keyframes fadeFloatB {
-  0% { opacity: 0; transform: translate(20px, -10px) scale(0.96); }
-  30% { opacity: 0.45; }
-  50% { transform: translate(-10px, 10px) scale(1); }
-  100% { opacity: 0; }
+/* ── SVG FIGURES: subtle linear fade only at outer rim, stays crisp ── */
+.ghostSvg {
+  /* very gentle edge fade — doesn't eat into the actual drawing */
+  mask-image: radial-gradient(circle, black 70%, transparent 92%);
+  -webkit-mask-image: radial-gradient(circle, black 70%, transparent 92%);
 }
 
-@keyframes fadeFormulaA {
-  0%   { opacity: 0; transform: translate(-12px, 18px) scale(0.96); }
-  30%  { opacity: 0.55; }
-  55%  { opacity: 0.9; transform: translate(8px, -10px) scale(1.02); }
-  100% { opacity: 0; transform: translate(16px, -22px) scale(1.05); }
+:global([data-theme='light']) .ghostSvg {
+  color: rgba(255, 255, 255, 0.70);
+  filter: contrast(120%);
 }
 
-@keyframes fadeFormulaB {
-  0%   { opacity: 0; transform: translate(18px, -10px) scale(0.95); }
-  30%  { opacity: 0.55; }
-  55%  { opacity: 0.9; transform: translate(-8px, 10px) scale(1.01); }
-  100% { opacity: 0; transform: translate(-18px, 18px) scale(1.04); }
+:global([data-theme='dark']) .ghostSvg {
+  color: rgba(255, 255, 255, 0.88);
+  filter: contrast(140%);
 }
