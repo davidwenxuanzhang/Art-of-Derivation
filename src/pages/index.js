@@ -26,7 +26,7 @@ function buildPool(base) {
     { type: 'figure', src: `${base}img/Lagrange.png`,        label: 'Lagrange' },
 
     { type: 'formula', html: k(String.raw`e^{i\pi} + 1 = 0`) },
-    { type: 'formula', html: k(String.raw`\int_{-\infty}^{\infty} e^{-x^2}\,dx = \sqrt{\pi}`) },
+    { type: 'formula', html: k(String.raw`\int_{-\infty}^{\infty} e^{-x^2}\ \mathrm{d}x = \sqrt{\pi}`) },
     { type: 'formula', html: k(String.raw`\zeta(s) = \sum_{n=1}^{\infty} \frac{1}{n^s}`) },
     { type: 'formula', html: k(String.raw`\nabla^2 \varphi = 0`) },
     { type: 'formula', html: k(String.raw`ds^2 = -c^2 dt^2 + dx^2`) },
@@ -61,7 +61,6 @@ const ZONES = [
   { top: '50%', left: '12%' },
   { top: '55%', left: '72%' },
   { top: '12%', left: '44%' },
-  { top: '50%', left: '44%' },
   { top: '28%', left: '62%' },
   { top: '65%', left: '28%' },
   { top: '35%', left: '78%' },
@@ -77,7 +76,11 @@ const MAX_GAP_MS  = 2000;   // faster: was 3500
 const FADE_MS     = 1800;   // must match CSS transition duration
 
 // ─── FORMULA SIZE — change this one value to scale all formulas
-const FORMULA_FONT_SIZE = '2.4rem';  // bigger: was effectively ~1rem
+const FORMULA_FONT_SIZE = '2.3rem';  // bigger: was effectively ~1rem
+const FIGURE_WIDTH      = '313px';  // ← add this
+const SVG_SCALE         = 1.9;      // ← add this
+
+
 
 function useGhostLayer(layerRef, pool) {
   useEffect(() => {
@@ -94,13 +97,14 @@ function useGhostLayer(layerRef, pool) {
       el.className = styles.ghost;
 
       if (item.type === 'figure') {
-        el.classList.add(styles.ghostFigure);
-        const img = document.createElement('img');
-        img.src   = item.src;
-        img.alt   = item.label;
-        img.style.width   = '100%';
-        img.style.display = 'block';
-        el.appendChild(img);
+  el.classList.add(styles.ghostFigure);
+  const img = document.createElement('img');
+  img.src   = item.src;
+  img.alt   = item.label;
+  img.style.width   = '100%';
+  img.style.display = 'block';
+  el.style.width = FIGURE_WIDTH;   // ← add this line
+  el.appendChild(img);
 
       } else if (item.type === 'formula') {
         el.classList.add(styles.ghostFormula);
@@ -108,9 +112,16 @@ function useGhostLayer(layerRef, pool) {
         el.innerHTML = item.html;
 
       } else if (item.type === 'svg') {
-        el.classList.add(styles.ghostSvg);
-        el.innerHTML = item.svg;
-      }
+  el.classList.add(styles.ghostSvg);
+  el.innerHTML = item.svg;
+  const svg = el.querySelector('svg');       // ← add from here
+  if (svg) {
+    const w = parseFloat(svg.getAttribute('width')  || 100);
+    const h = parseFloat(svg.getAttribute('height') || 100);
+    svg.setAttribute('width',  String(w * SVG_SCALE));
+    svg.setAttribute('height', String(h * SVG_SCALE));
+  }                                          // ← to here
+}
 
       return el;
     }
