@@ -1,0 +1,147 @@
+---
+title: Counting Techniques
+sidebar_label: Counting Techniques
+sidebar_position: 2
+---
+
+## Fundamental Principle of Counting
+
+:::tip Fundamental Principle of Counting
+Suppose $n$ decisions are made in sequence, where at the $i$th step there are $k_i$ available options. If each decision is made **independently** (meaning the outcome of one will not influence or be influenced by any other), then the total number of unique ways to perform all $n$ decisions is
+
+$$
+\prod_{i=1}^{n}k_{i}=k_1\times k_2\times \cdots \times k_n
+$$
+:::
+
+## Ways of Counting
+
+There are four counting methods, depending on two questions: does order matter? And can choices repeat? 
+
+When order matters, we call it **Permutations**; on the contrary, when order does not matters, we call it **Combinations**.
+
+When choice repeat, we call it **with Replacement**; on the contrary, when choice does not repeat, we call it **without Replacement**.
+
+### Permutations with Replacement
+
+:::tip Permutations with replacement 
+
+If there are $n$ unique items, then the number of *Permutations* to select $k$ items with replacement is:
+
+$$
+n^k 
+$$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+By the Fundamental Principle of Counting, this is just $k$ independent steps, where at each step there are $n$ choices avaliable (since replacement means there is nothing moved from the pool). Therefore, the number of Permutations is :
+
+$$
+\underbrace{n\times n\times \cdots \times n}_{k\text{times}}=n^k \tag*{$\blacksquare$}
+$$
+
+</details>
+::: 
+
+### Permutations without Replacement
+
+:::tip Permutations without Replacement
+If there are $n$ unique items, then the number of *Permutations* to select $k$ items without replacement is:
+
+$$
+\frac{n!}{(n-k)!}
+$$
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+By the Fundamental Principle of Counting, this is just $k$ independent steps, but since items are not replaced, the pool shrinks by one at each step: $n$ choice in step 1, $n-1$ choice in step two, and so on down to $n-k+1$ in step $k$. Therefore, the number of Permutations is :
+
+$$
+n\times (n-1)\times (n-2)\times \cdots\times (n-k+1) =\frac{n!}{(n-k)!} \tag*{$\blacksquare$}
+$$
+
+</details>
+:::
+
+### Combinations without Replacement
+
+:::tip Combinations without Replacement
+If there are $n$ unique items, then the number of *Combinations* to select $k$ items without replacement is denoted $\binom{n}{k}$, read as "**n choose k**", and defined as:
+
+$$
+\binom{n}{k}\overset{\text{def}}{=}\frac{n!}{k!(n-k)!}
+$$
+This could also be found in [Binomial Theorem]
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+Start with permutation without Replacement, and the number of *Permutations* to select $k$ items from $n$ without replacement is:
+
+$$
+\frac{n!}{(n-k)!}
+$$
+
+But since order doesn't matter, every group of $k$ items gets counted $k!$ times, so we divide out the overcounting and get:
+
+$$
+\frac{n!}{(n-k)!}\div {k!}=\frac{n!}{k!(n-k)!}=\binom{n}{k} \tag*{$\blacksquare$}
+$$
+
+</details>
+:::
+
+### Combinations with Replacement
+
+::::tip Combinations with Replacement
+If there are $n$ unique items, then the number of *Combinations* to select $k$ items with replacement is:
+
+$$
+\binom{n+k-1}{n-1}=\binom{n+k-1}{k}
+$$
+
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+This scenario is a little tricky, so we will follow an example: 
+
+:::warning Pirates split coins
+
+3 pirates are picking 10 identical coins, where each pirate can receive zero or more coins. How many ways can this be done?
+
+:::
+
+:::info Solution
+This is a Combinations with Replacement problem because the coins are identical so order doesn't matter (*Combination*), and each pirate can receive more than one coin (*with Replacement*). Instead of directly counting distributions among pirates, we can transform 3 pirates into 2 partitions that split the coins, shown as:
+
+$$
+\star\star\star \underbrace{|}_{\text{partition}} \star\star\star\star \star \underbrace{|}_{\text{partition}} \star\star
+$$
+
+Then, the problem just became Combinations without Replacement that choose 2 positions for partitions among all 12 positions (or choose 10 positions for coins among all 12 positions), which is:
+$$
+\binom{12}{2}=\binom{12}{10}=66
+$$
+Correspondingly, when $n$ pirates pick $k$ identical coins, the number of *Combinations* with replacement is: 
+
+$$
+\binom{n+k-1}{n-1}=\binom{n+k-1}{k} \tag*{$\blacksquare$}
+$$
+:::
+
+</details>
+
+::::
+
+### Summary 
+
+<div style={{display: 'flex', justifyContent: 'center'}}>
+
+|  | Order Matters | Order Doesn't Matter |
+|:---:|:---:|:---:|
+| **With Replacement** | $n^k$ | $\dbinom{n+k-1}{n-1}=\dbinom{n+k-1}{k}$ |  
+| **Without Replacement** | $\dfrac{n!}{(n-k)!}$ | $\dbinom{n}{k} = \dfrac{n!}{k!(n-k)!}$ |
+
+</div>
