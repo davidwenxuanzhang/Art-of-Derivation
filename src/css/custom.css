@@ -35,12 +35,7 @@
   border-left-width: 6px; 
 }
 
-.alert--secondary svg {display: none;}
-.alert--success svg {display: none;}
-.alert--info svg {display: none;}
-.alert--warning svg {display: none;}
-.alert--danger svg {display: none;}
-
+.admonitionHeading_Gvgb svg {display: none;}
 
 .alert--secondary .admonitionHeading_Gvgb::before{content:"📝"; font-size: 1rem;}
 .alert--success .admonitionHeading_Gvgb::before{content:"📚"; font-size: 1rem;}
