@@ -3,6 +3,7 @@ title: Probability Basics
 sidebar_label: Probability Basics
 sidebar_position: 3
 ---
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Classical Definition of Probability
 
@@ -25,7 +26,33 @@ Assume the sample space $\Omega$ consists all equally likely outcomes, then the 
 $$
 P(A)\overset{\text{def}}{=}\frac{\text{numbers of outcomes in }A}{\text{numbers of possible outcomes in }\Omega}=\frac{|A|}{|\Omega|}
 $$
+:::
+
+To use the classical definition of probability, we usually follow three steps: first identify the sample space $\Omega$, then describe the event $A$, and finally count the number of outcomes in each set.
+
+The following example shows how these definitions work together.
+
+
+::::warning Rolling a Die
+
+<div className="deriv2col" style={{ gridTemplateColumns: "270px 1fr"}}>
+
+  <div>
+    <img src={useBaseUrl('/img/Dice.png')} width="250" />
+  </div>
+
+  <div>
+A fair six-sided die is rolled once; what is the probability of rolling an even number?
+
+:::info
 
 :::
+
+  </div>
+
+</div>
+
+::::
+
 
 ## Axiomatic Definition of Probability
