@@ -37,11 +37,34 @@
 
 .admonitionHeading_Gvgb svg {display: none;}
 
-.alert--secondary .admonitionHeading_Gvgb::before{content:"📝"; font-size: 1rem;}
-.alert--success .admonitionHeading_Gvgb::before{content:"📚"; font-size: 1rem;}
-.alert--info .admonitionHeading_Gvgb::before{content:"🔍"; font-size: 1rem;}
-.alert--warning .admonitionHeading_Gvgb::before{content:"❓"; font-size: 1rem;}
-.alert--danger .admonitionHeading_Gvgb::before{content:"🚨"; font-size: 1rem;}
+[class*="admonitionHeading"] svg {
+  display: none;
+}
+
+.alert--secondary > [class*="admonitionHeading"]::before {
+  content: "📝";
+  font-size: 1rem;
+}
+
+.alert--success > [class*="admonitionHeading"]::before {
+  content: "📚";
+  font-size: 1rem;
+}
+
+.alert--info > [class*="admonitionHeading"]::before {
+  content: "🔍";
+  font-size: 1rem;
+}
+
+.alert--warning > [class*="admonitionHeading"]::before {
+  content: "❓";
+  font-size: 1rem;
+}
+
+.alert--danger > [class*="admonitionHeading"]::before {
+  content: "🚨";
+  font-size: 1rem;
+}
 
 .math-keyword {
   color: var(--math-keyword-color);
