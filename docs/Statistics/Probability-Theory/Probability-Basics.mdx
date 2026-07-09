@@ -19,14 +19,18 @@ An **event** $A$ is the subset of sample space $\Omega$, denoted as $A\subseteq 
 
 :::
 
-:::tip Classical Definition of Probability
+::::tip Classical Definition of Probability
 
 Assume the sample space $\Omega$ consists all equally likely outcomes, then the probability of an event $A$ is: 
 
 $$
 P(A)\overset{\text{def}}{=}\frac{\text{numbers of outcomes in }A}{\text{numbers of possible outcomes in }\Omega}=\frac{|A|}{|\Omega|}
 $$
+:::danger WARNING
+The classical definition of probability only applies when the sample space is **finite** and all outcomes are **equally likely**.
 :::
+
+::::
 
 To use the classical definition of probability, we usually follow three steps: first identify the sample space $\Omega$, then describe the event $A$, and finally count the number of outcomes in each set.
 
@@ -38,14 +42,36 @@ The following example shows how these definitions work together.
 <div className="deriv2col" style={{ gridTemplateColumns: "270px 1fr"}}>
 
   <div>
-    <img src={useBaseUrl('/img/Dice.png')} width="250" />
+    <img src={useBaseUrl('/img/Die.png')} width="260" style={{ transform: "translateY(150px)" }}/>
   </div>
 
   <div>
 A fair six-sided die is rolled once; what is the probability of rolling an even number?
 
-:::info
+:::info Solution
 
+Since it is a six-sided die, the sample sapce is: 
+
+$$
+\Omega=\{1,2,3,4,5,6\}
+$$
+
+Let $A$ be the event of rolling an even number:
+
+$$
+A=\{2,4,6\}
+$$
+
+Then:
+$$
+|A|=3, \qquad |\Omega|=6
+$$
+
+Since all outcomes are equally likely, by the classical definition of probability:
+
+$$
+P(A)=\frac{|A|}{|\Omega|}=\frac{3}{6}=\frac{1}{2}
+$$
 :::
 
   </div>
@@ -56,3 +82,123 @@ A fair six-sided die is rolled once; what is the probability of rolling an even 
 
 
 ## Axiomatic Definition of Probability
+
+As we warned before, the classical definition of probability only applies when the sample space is **finite** and all outcomes are **equally likely**, and here is a counter example.
+::::warning Circle in a Square
+<div className="deriv2col" style={{ gridTemplateColumns: "270px 1fr"}}>
+
+  <div>
+    <img src={useBaseUrl('/img/Square-Circle.png')} width="260" style={{ transform: "translateY(100px)" }}/>
+  </div>
+ 
+  <div>
+A circle is inscribed in a square with side length 1. If a point is chosen uniformly at random inside the square, what is the probability that the point lies inside the circle?
+:::danger False Attempt
+When attempt the classical definition of probability:
+$$
+P(A)=\frac{|A|}{|\Omega|}
+$$
+where $A$ is the set of points inside the circle and $\Omega$ is the set of all points inside the square.
+
+However, both $A$ and $\Omega$ contain infinitely many points, so we cannot compute the probability by counting outcomes, as: 
+
+$$
+P(A)=\frac{|A|}{|\Omega|}=\frac{\infty}{\infty}={❌}
+$$
+:::
+  </div>
+</div>
+
+::::
+
+This example shows why probability needs a more general definition. Instead of counting equally likely outcomes, we want probability to assign a consistent “size” to events, whether those events are finite sets or infinite sets.
+
+### Set Theory for Probability
+
+#### Sample Space and Event
+
+:::tip Events as Sets
+
+In probability, an event is a set of outcomes. If $\Omega$ is the sample sapce, then every event $A$ satisfy:
+
+$$
+A \subseteq \Omega
+$$
+
+Hence, instead of only counting individual outcomes, we can study how events relate to each other as sets.
+:::
+
+#### Union
+
+:::tip Union
+
+The **union** of two events $A$ and $B$, denoted by $A\cup B$, is the event either $A$ or $B$ happens，also refered to "$A$ or $B$".
+
+<div style={{ display: "flex", justifyContent: "center" }}>
+  <img src={useBaseUrl('/img/Union.png')} width="300" />
+</div>
+:::
+
+#### Intersection
+
+:::tip Intersection
+The **intersection** of two events $A$ and $B$, denoted by $A\cap B$, is the event both $A$ and $B$ happens, also refered to "$A$ and $B$".
+<div style={{ display: "flex", justifyContent: "center" }}>
+  <img src={useBaseUrl('/img/Intersection.png')} width="300" />
+</div>
+:::
+
+#### Complement
+
+:::tip Complement
+The **complement** of an event $A$, denoted by $A^{c}$, is the event that $A$ does not happen，also refered to "not $A$".
+<div style={{ display: "flex", justifyContent: "center" }}>
+  <img src={useBaseUrl('/img/Complement.png')} width="310" />
+</div>
+:::
+
+#### Disjoint/Mutually Exclusive
+
+
+:::tip Disjoint/Mutually Exclusive
+We call a collection of events as **disjoint** when their intersection is empty. It is also refered as **mutually exclusive** because they cannot happen simultaneously.
+<div style={{ display: "flex", justifyContent: "center" }}>
+  <img src={useBaseUrl('/img/Disjoint.png')} width="310" />
+</div>
+:::
+
+### The Axioms of Probability
+
+<div className="deriv2col" style={{ gridTemplateColumns: "270px 1fr"}}>
+
+  <div>
+    <img src={useBaseUrl('/img/Kolmogorov.png')} width="200" style={{ marginLeft: '30px' }}/>
+  </div>
+ 
+  <div>
+In 1933, Russian mathematician Andrey Kolmogorov published Foundations of the Theory of Probability, which laid the modern axiomatic foundations of probability theory.
+  </div>
+</div>
+
+
+:::tip Axiomatic Definition of Probability
+
+According to Kolmogorov’s axioms, a probability function $P$ assigns a number to each event and satisfies three basic rules:
+
+1. **Non-negativity**: For every event $A$, probabilities are never negative
+$$
+P(A)\geq 0
+$$
+
+2. **Normalization**: The probability of the entire sample space is one
+$$
+P(\Omega)=1
+$$
+
+3. **Countable Additivity**: If events $A_1,A_2,A_3,\dots$ are pairwise disjoint (or mutually exclusive), then
+
+$$
+P\left(\bigcup_{i=1}^{\infty} A_i\right)=\sum_{i=1}^{\infty}P(A_i)
+$$
+
+:::
