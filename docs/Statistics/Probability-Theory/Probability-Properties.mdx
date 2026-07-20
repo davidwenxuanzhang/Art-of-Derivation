@@ -165,7 +165,7 @@ $$
 
 :::tip Addition Rule
 
-For any event $A$ and $B$:
+For any two events $A$ and $B$:
 
 $$
 P(A\cup B)=P(A)+P(B)-P(A\cap B)
@@ -217,9 +217,33 @@ $$
 
 :::tip Union Bound
 
-:::
+For any two events $A$ and $B$:
 
+$$
+P(A\cup B)\le P(A)+P(B)
+$$
+
+Generally, for a collection of events $A_1, \cdots, A_n$: 
+
+$$
+P\left(\bigcup_{i=1}^{n}A_i\right)\le \sum_{i=1}^{n}P(A_i)
+$$
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
 
 </details>
+:::
+
+### Inclusion-Exclusion Principle 
+
+:::tip Inclusion-Exclusion Principle 
+
+For a collection of events $A_1, \cdots, A_n$:
+$$
+P\left(\bigcup_{i=1}^{n}A_i\right)=\sum_{i=1}^{n}P(A_i)-\sum_{1\le i\le j\le n} P(A_i\cap A_j)+\sum_{1\le i\le j\le k \le n} P(A_i\cap A_j\cap A_k)+\cdots + (-1)^{n+1}P(A_1\cap \cdots \cap\ A_n)
+$$
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+:::
