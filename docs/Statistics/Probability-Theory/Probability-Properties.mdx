@@ -4,3 +4,73 @@ sidebar_label: Probability Properties
 sidebar_position: 4
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
+
+### De Morgan's Law
+
+:::tip De Morgan's Law 
+For two events $A$ and $B$, then
+$$
+(A\cup B)^{c}=A^{c}\cap B^{c}
+$$
+$$
+(A\cap B)^{c}=A^{c}\cup B^{c}
+$$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+:::
+
+### Complement Rule {#Complement-Rule}
+
+:::tip Complement Rule
+
+For any event $A$:
+$$
+P(A^{c})=1-P(A)
+$$
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+From the definition of Complement, we know that $A$ and $A^{c}$ are mutually exclusive, and they form the entire sample space, as:
+$$
+A\cup A^{c}=\Omega
+$$
+By [Countable Additivity](docs\Statistics\Probability-Theory\Probability-Basics.mdx#Probability-Axioms):
+$$
+P(A\cup A^{c})=P(A)+P(A^{c})=P(\Omega) \overset{\text{Normalization}}{=} 1
+$$
+Hence:
+$$
+P(A^{c})=1-P(A)  \tag*{$\blacksquare$}
+$$
+</details>
+:::
+
+
+### Probability of the Empty Set
+:::tip Probability of the Empty Set
+
+The empty event has probability zero, as:
+
+$$
+P(\varnothing)=0
+$$
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+Aa $\Omega$ represent all possible outcome, the complement of it according to definition is $\varnothing$, as:
+
+$$
+\Omega^{c}=\varnothing
+$$
+
+By [Complement Rule](#Complement-Rule)：
+$$
+P(\varnothing)=1-P(\Omega)\overset{\text{Normalization}}{=}1-1=0 \tag*{$\blacksquare$}
+$$
+
+</details>
+:::
