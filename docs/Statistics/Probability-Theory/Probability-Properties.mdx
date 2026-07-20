@@ -127,7 +127,7 @@ $$
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
 
-If $A$ $\subseteq$ $B$, then event $B$ could split to two mutually exclusive parts, one with event $A$ and one without, as:
+If $A$ $\subseteq$ $B$, then event $B$ could split into two mutually exclusive parts, one with event $A$ and one without, as:
 
 $$
 B=A\cup (B\cap A^{c} )
@@ -174,9 +174,51 @@ $$
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
 
+For the event $A\cup B$, it could split into two mutually exclusive parts, one with event $A$ and one with event $B$ but not with $A$, as: 
+
+$$
+A\cup B= A\cup (B\cap A^{c})
+$$
+
+where
+
+$$
+A\cap (B\cap A^{c} )=\varnothing
+$$
+
+By [Countable Additivity](docs\Statistics\Probability-Theory\Probability-Basics.mdx#Probability-Axioms):
+$$
+P(A\cup B)= P(A)+P(B\cap A^{c}) \tag ①
+$$
+
+For the event $B$, it could also split into two mutually exclusive parts, one with event $A$ and one without, as: 
+$$
+B=(A\cap B)\cup ( B\cap  A^{c})
+$$
+
+And because these two parts are also mutually exclusive, again, by [Countable Additivity](docs\Statistics\Probability-Theory\Probability-Basics.mdx#Probability-Axioms):
+$$
+P(B)=P(A\cap B)+P( B\cap  A^{c})
+$$
+$$
+P( B\cap  A^{c})=P(B)-P(A\cap B)
+$$
+
+Plug in back to ①:
+
+$$
+A\cup B= P(A)+P(B\cap A^{c})=  P(A)+P(B)-P(A\cap B)  \tag*{$\blacksquare$}
+$$
 </details>
 
 :::
+
+### Union Bound
+
+:::tip Union Bound
+
+:::
+
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
 
