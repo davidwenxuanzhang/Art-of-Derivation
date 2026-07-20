@@ -124,5 +124,60 @@ For any event that $A$ $\subseteq$ $B$:
 $$
 P(A)\le P(B)
 $$
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+If $A$ $\subseteq$ $B$, then event $B$ could split to two mutually exclusive parts, one with event $A$ and one without, as:
+
+$$
+B=A\cup (B\cap A^{c} )
+$$
+where
+
+$$
+A\cap (B\cap A^{c} )=\varnothing
+$$
+
+By [Countable Additivity](docs\Statistics\Probability-Theory\Probability-Basics.mdx#Probability-Axioms):
+$$
+P(B)=P(A\cup (B\cap A^{c}) )=P(A)+P(B\cap A^{c} )
+$$
+
+Also, by the [Non-negativity Axiom](docs\Statistics\Probability-Theory\Probability-Basics.mdx#Probability-Axioms):
+
+$$
+P(B\cap A^{c} ) \ge 0
+$$
+
+Therefore: 
+$$
+P(B)=P(A)+P(B\cap A^{c}) \ge P(A)
+$$
+
+Hence:
+$$
+P(A)\le P(B) \tag*{$\blacksquare$}
+$$
+</details>
+:::
+
+### Addition Rule
+
+:::tip Addition Rule
+
+For any event $A$ and $B$:
+
+$$
+P(A\cup B)=P(A)+P(B)-P(A\cap B)
+$$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
 
 :::
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
