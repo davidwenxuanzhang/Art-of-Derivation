@@ -9,7 +9,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 :::tip Conditional Probability
 
-For two events $A$ and $B$ with $P(B)>0$, the **Conditional Probabilty** of event $A$ happens given that event $B$ happened is defined as:
+For two events $A$ and $B$ with $P(B)>0$, the **Conditional Probabilty** of event $A$ happens given that event $B$ has happened is defined as:
 
 $$
 P(A\mid B)\overset{\text{def}}{=}\frac{P(A\cap B)}{P(B)}
@@ -25,8 +25,8 @@ If $A$ and $B$ are two events with $P(A)>0$ and $P(B)>0$, then the multiplcation
 
 $$
 \begin{align*}
-P(A\cap B)&=P(A)\cdot P(B\mid A)\\
-          &= P(B)\cdot P(A\mid B)
+P(A\cap B)&=P(A) P(B\mid A)\\
+          &= P(B) P(A\mid B)
 \end{align*}
 $$
 
@@ -42,22 +42,63 @@ $$
 Multiplying both sides by $P(B)$ we get:
 
 $$
-P(A\cap B)=P(A)\cdot P(B\mid A)
+P(A\cap B)=P(A) P(B\mid A)
 $$
 
 Similarly from $P(B\mid A)$ we may also get: 
 
 $$
-P(A\cap B)=P(B)\cdot P(A\mid B)
+P(A\cap B)=P(B) P(A\mid B)
 $$
 
 Hence: 
 
 $$
 \begin{align*}
-P(A\cap B)&=P(A)\cdot P(B\mid A)\\
-          &= P(B)\cdot P(A\mid B)   \tag*{$\blacksquare$}
+P(A\cap B)&=P(A) P(B\mid A)\\
+          &= P(B) P(A\mid B)   \tag*{$\blacksquare$}
 \end{align*}
 $$
+</details>
+:::
+
+We can generalize this multiplcation rule to more events; first, we can simplify the notation of intersection as :
+
+$$
+P(A_1\cap A_2 \cap \cdots \cap A_n)\overset{\text{def}}{=}P(A_1,A_2,\cdots, A_n)
+$$
+
+where comma inside could read as "and", as:
+
+- $P(A_1,A_2,\cdots, A_n)$ read as "the probability of events $A_1$ and $A_2$ and ... and $A_n$ all happen."
+- $P(A\mid B_1, B_2, \cdots , B_n)$ read as "the conditional probability of event $A$ happens given events $B_1$ and $B_2$ and ... and $B_n$ all have happened."
+
+:::tip Multiplication Rule
+
+If events $A_1,A_2,\cdots , A_n$ all have positive probability, then:
+
+$$
+P(A_1, A_2, \cdots, A_n)=P(A_1) P(A_2\mid a_1) P(A_3\mid A_1, A_2)\cdots P(A_n\mid A_1,\cdots, A_{n-1})
+$$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+:::
+
+## Conditional Probability as Probability Function
+
+:::tip Conditional Probability as Probability Function
+
+Conditional Probability could be considered as a probability function as it fits all three [probability axioms](docs\Statistics\Probability-Theory\Probability-Basics.mdx#Probability-Axioms), and we define it as:
+$$
+\widetilde{P}(A)\overset{\text{def}}{=} P(A \mid B).
+$$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
 </details>
 :::
