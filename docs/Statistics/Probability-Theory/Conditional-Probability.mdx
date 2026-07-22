@@ -100,5 +100,35 @@ $$
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
 
+1. Non-negativity: Because $O(A\cap B) \ge 0$, therefore: 
+
+$$
+\widetilde{P}(A)=P(A \mid B)=\frac{P(A\cap B)}{P(B)}\ge 0
+$$
+
+2. Normalization: Because $B\subset \Omega$ we know that $B \cap \Omega =B$, therefore:
+
+$$
+\widetilde{P}(\Omega)=P(\Omega\mid B)=\frac{P(\Omega\cap B)}{P(B)}=\frac{P(B)}{P(B)}=1
+$$
+
+3. Countable Additivity: Let $A_1,A_2,\cdots $ be disjoint sets. Because $A_i\cap B \subseteq A_i$, the countable collection of sets $A_1\cap B$, $A_2\cap B$, \cdots must also be disjoint, therefore: 
+
+$$
+\begin{align*}
+    \widetilde{P}\left(\bigcup_{i=1}^{\infty} A_i\right)&=P\left(\bigcup_{i=1}^{\infty}\mid B \right) &&\text{(Definition of Conditional Probability)}\\
+                                                        &=\frac{P((\cup_{i=1}^{\infty}A_i)\cap B)}{P(B)} &&\text{(Distributive Property)}\\
+                                                        &=\frac{\sum_{i=1}^{\infty}P(A_1\cap B)}{P(B)} &&\text{($P$ Satisfies Axiom 3)}\\
+                                                        &=\sum_{i=1}^{\infty}\frac{P(A_i\cap  B)}{P(B)} &&\text{(Distribute)}\\
+                                                        &=\sum_{i=1}^{\infty}P(A_i\mid B) &&\text{(Definition of Conditional Probability)}\\
+                                                        &=\sum_{i=1}^{\infty}\widetilde{P}(A_i)
+\end{align*}
+$$
+
+As $\widetilde{P}(A)$ satisfies all three probability axioms. Hence, we can say that Conditional Probability could be considered as a probability function. 
+
+$$\blacksquare$$
+
 </details>
 :::
+
