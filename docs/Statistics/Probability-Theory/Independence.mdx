@@ -15,9 +15,70 @@ Two events $A$ and $B$ with positive probability are independence if either:
 $$
 P(A\mid B)=P(A)
 $$
-or 
+        or 
 $$
 P(B\mid A)=P(B)
 $$
 :::
 
+With this, we can simplify the  [multiplication rule](docs\Statistics\Probability-Theory\Conditional-Probability.mdx#multiplication-rule):
+
+:::tip Independence 
+
+Two events $A$ and $B$ with positive probability are independence if and only if::
+
+$$
+P(A\cap B)=P(A) P(B)
+$$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+According to the [multiplication rule](docs\Statistics\Probability-Theory\Conditional-Probability.mdx#multiplication-rule) that says: 
+
+$$
+P(A\cap B)=P(A) P(B\mid A)
+$$
+
+- "Only if": Suppose $A$ and $B$ are independence, we have: $P(B\mid A)=P(B)$; substituting the result of [multiplication rule](docs\Statistics\Probability-Theory\Conditional-Probability.mdx#multiplication-rule), we have:
+
+
+$$
+P(A\cap B)=P(A) P(B\mid A)=P(A) P(B)
+$$
+
+- "If": Suppose $P(A\cap B)=P(A) P(B)$; substituting the result of [multiplication rule](docs\Statistics\Probability-Theory\Conditional-Probability.mdx#multiplication-rule), we have:
+
+$$
+P(A) P(B)=P(A)P(B\mid A)
+$$
+Dividing both side by $P(A)$:
+
+$$
+P(B)=P(B\mid A) 
+
+$$
+<div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+And we get the result showing $A$ and $B$ are independence.
+
+$\blacksquare$
+</div>
+</details>
+
+:::
+
+## Conditional Independence
+
+:::tip Conditional Independence
+
+A collection of positive probability events $A_1, A_2,\dots, A_n$ is conditional independent to the event $B$ (where $P(B)>0$) given $\widetilde{P}(A)=P(A\mid B)$
+
+$$
+\widetilde{P}(A_{i1}\cap A_{i2}\cap \cdots \cap A_{in})=\widetilde{P}(A_{i1})\widetilde{P}(A_{i2})\cdots \widetilde{P}(A_{in})
+$$
+or
+
+$$
+P(A_{i1}\cap A_{i2}\cap \cdots \cap A_{in} \mid B)= \widetilde{P}(A_{i1}\mid B)\widetilde{P}(A_{i2}\mid B)\cdots \widetilde{P}(A_{in}\mid B)
+$$
+:::
