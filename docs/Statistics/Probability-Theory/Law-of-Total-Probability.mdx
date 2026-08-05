@@ -4,3 +4,57 @@ sidebar_label: Law of Total Probability
 sidebar_position: 7
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
+
+## Law of Total Probability (LoTP)
+
+Before getting into the Law of Total Probability, we need to understand the following definition：
+
+:::tip Partition
+
+In the set theory, a partition is the disjoint event $B_1, B_2, \dots $ that cover the entire sample space $\Omega$:
+
+- Disjoint 
+
+$$
+B_i\cap B_j=\varnothing
+$$
+
+- Collectively Exaustive (cover the entire sample space $\Omega$)
+
+$$
+\bigcup_{i=1}^{n}A_i=\Omega
+$$
+
+:::
+
+:::tip Law of Total Probability (LoTP)
+
+Consider a collection of events $B_1, B_2,\dots$ with positive probability that partition the sample space $\Omega$. For any event $A$, the Law of Total Probability says:
+
+$$
+P(A)=\sum_{i}P(B_i)P(A\mid B_i)
+$$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+Because the sets $A\cap B_i$ are mutually exclusive, and their union is $A$; therefore, by [Countable Additivity](docs\Statistics\Probability-Theory\Probability-Basics.mdx#Probability-Axioms): 
+
+$$
+P(A)=\sum_{i}P(A\cap B_i)
+$$
+By the [Multiplication Rule](docs\Statistics\Probability-Theory\Conditional-Probability.mdx#multiplication-rule), the part inside the sum could simplify to:
+
+$$
+P(A\cap B_i)=P(A)P(A\mid B_i)
+$$
+Substituting back to the sum above: 
+
+$$
+P(A)=\sum_{i}P(A)P(A\mid B_i) \tag*{$\blacksquare$}
+
+$$
+
+</details>
+
+:::
