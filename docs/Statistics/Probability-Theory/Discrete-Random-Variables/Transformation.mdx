@@ -4,3 +4,37 @@ sidebar_label: Transformation
 sidebar_position: 3
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl'
+
+:::tip Transformation
+
+Let $X$ be a discrete random variable and let $g$ be a function defined on the possible value of $X$. A new random variable $Y$ defined by:
+
+$$
+Y=g(X)
+$$
+
+is called the **Transformation** of $X$.
+
+:::
+
+::::info PMF under Transformation
+
+If $Y=g(X)$, then the probability mass function of $Y$ is
+
+$$
+p_Y(y)=\sum_{x:y=g(x)}p_X(x)
+$$
+
+where the sum is taken over all possible values $x$ satisfying $g(x)=y$
+
+:::warning One to One Case
+
+If $Y=g(X)$ is a one to one function, then the probability mass function of $Y$ is:
+
+$$
+p_Y(y)=p_X(g^{-1}(y))
+$$
+
+:::
+
+::::
