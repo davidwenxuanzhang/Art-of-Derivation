@@ -21,29 +21,29 @@ A random variable is **Discrete** when there is a countable set $\{x_1, x_2, \cd
 
 :::
 
-## Probability Mass Function 
+## Probability Mass Function {#PMF}
 
 ::::tip Probability Mass Function (PMF)
 
 The **Probability Mass Function** (**PMF**) of a discrete random variable $X$ is the function $f_x$ defined as:
 
 $$
-f_X(x)\overset{\text{def}}{=}P(X=x)
+p_X(x)\overset{\text{def}}{=}P(X=x)
 $$
 :::note Properties of PMF
 
-In order for a function to become a valid PMF, it has to satisfy these properties:
+In order for a function $f(x)$ to become a valid PMF, it has to satisfy these properties:
 1. $f(x)\ge 0$ for any $x$
 2. Exist value $x_1, x_2, \cdots $ such $\displaystyle \sum_{i}{f(x_i)}=1$
 
 :::
 ::::
 
-## CUmulative Distribution Function 
+## Cumulative Distribution Function 
 
 ::::tip Cumulative Distribution Function (CDF)
 
-The **Cumulative Distribution Function** (**CDF**) of a random variable $X$ with PMF $f$ is the function $F_x$ defined as:
+The **Cumulative Distribution Function** (**CDF**) of a random variable $X$ with PMF $p$ is the function $F_x$ defined as:
 
 $$
 F_X{(x)}\overset{\text{def}}{=}P(X\leq x)=\sum_{x_i\leq x}f(x_i)

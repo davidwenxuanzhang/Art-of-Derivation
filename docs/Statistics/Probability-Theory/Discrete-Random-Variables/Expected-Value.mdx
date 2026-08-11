@@ -1,0 +1,56 @@
+---
+title: Expected Value
+sidebar_label: Expected Value
+sidebar_position: 2
+---
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
+Expect Value, by its name, means the value you expect to have in an experiment, which means it could also refer to the average value or mean value.
+
+::::tip Expected Value For Discrete Random Variables
+
+Let $X$ be an discrete random variable with PMF $p_X(x)$; then, the **Expected Value** of $X$ is defined as: 
+
+$$
+\mathbb{E}[X]\overset{\text{def}}{=}\sum_{x}xf_X{(x)}=\sum_{x}x\mathbb{P}(X=x)
+$$
+
+:::note Center of Mass
+If one is familiar with physics, the expect value could interpreted as the weighted average, which is the center of mass.
+:::
+
+::::
+
+## Tail Sum Formula
+
+:::tip Tail Sum Formula for Expectation
+
+For the discrete random variable $X$ taking values in the non-negative integers $\mathbb{N}=\{0, 1, 2, \dots \}$, then:
+
+$$
+\mathbb{E}[X]=\sum_{x=0}^{\infty}\mathbb{P}(X> x)=\sum_{x=0}^{\infty}(1-F_X{(x)})=\sum_{x=0}^{\infty}(1-\mathbb{P}(X\leq x))
+$$
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+From the [probability mass function](docs/Statistics/Probability-Theory/Discrete-Random-Variables/Random-Variables.mdx#PMF), let:
+
+$$
+\mathbb{P}(x=1)=p_1, \  \mathbb{P}(x=2)=p_2, \  \mathbb{P}(x=3)=p_3, \dots
+$$
+
+The expected value according to the definition is:
+
+$$
+\begin{align*}
+    \mathbb{E}[X]&=p_1+2p_2+3p_3+\cdots\\
+                 &=p_1+(p_2+p_2)+(p_3+p_3+p_3)+\cdots\\
+                 &=(p_1+p_2+p_3+\cdots)+(p_2+p_3+\cdots)+(p_3+\cdots)+\cdots\\
+                 &=\mathbb{P}(x\ge 1)+\mathbb{P}(x\ge 2)+\mathbb{P}(x\ge 3)+\cdots\\
+                 &=\sum_{x=1}^{\infty}\mathbb{P}(X\ge x)\\
+                 &=\sum_{x=0}^{\infty}\mathbb{P}(X> x) \tag*{$\blacksquare$}
+\end{align*}
+$$
+
+</details>
+:::
