@@ -14,7 +14,7 @@ Sometimes, after transformation, the PMF might be trenuous to found; then how do
 Let $X$ be discrete random variable with PMF $p_X(x)$, then:
 
 $$
-\mathbb{E}[g(X)]=\sum_{x}g(x)p_X{（x）}
+\mathbb{E}[g(X)]=\sum_{x}g(x)p_X{(x)}
 $$
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
@@ -25,3 +25,104 @@ Heresay, this is called Law of the Unconscious Statistician is because initially
 :::
 
 ::::
+
+
+
+## Variance 
+
+:::tip Variance For Discrete Random Variables
+
+Let $X$ be a discrete random variable; then, the **variance** of $X$ is:
+
+$$
+\operatorname{Var}(X)\overset{\text{def}}= \mathbb{E}\left[(X-\mathbb{E}[X])^2\right]
+$$
+
+:::
+
+However, this form is not neat, so we have a shortcut for variance.
+
+:::tip Shortcut Formula for Variance
+
+$$
+\operatorname{Var}(X)=\mathbb{E}[X^2]-\left(\mathbb{E}[X]\right)^2
+$$
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+Let $\mu=\mathbb{E}[X]$ as they both stands for the mean, which $\mu$ is also a constant, and $X$ is a discrete random variable:
+
+$$
+\begin{align*}
+    \operatorname{Var}(X)&=\mathbb{E}[(X-\mu)^2]\\
+                         &=\mathbb{E}[X^2-2X\mu+\mu^2]\\
+                         &=\mathbb{E}{X^2}-\mathbb{E}[2X\mu]+\mathbb{E}[\mu^2]\\
+                         &=\mathbb{E}[X^2]-2\mu\mathbb{E}[X]+\mu^2\\
+                         &=\mathbb{E}[X^2]-2\mu^2+\mu^2\\
+                         &=\mathbb{E}[X^2]-\left(\mathbb{E}[X]\right)^2 \tag*{$\blacksquare$}
+\end{align*}
+$$
+</details>
+:::
+
+
+:::tip Standard Deviation of a Discrete Random Variable
+
+Let $X$ be a discrete random variable; then, the **standard deviation** of $X$ is:
+
+$$
+\operatorname{SD}(X)\overset{\text{def}}= \sqrt{\operatorname{Var}(X)}
+$$
+:::
+
+## Additional Transformation
+
+With LotUS, we can have a shortcut of finding expect value and variance while facing some basic transformation.
+
+:::tip Expected Value of a Linear Transformation
+
+Let $X$ be a random variable and $a$ and $b$ be constants, then:
+
+$$
+\mathbb{E}[aX+b]=a\mathbb{E}[X]+b
+$$
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+Applying LotUS directly:
+$$
+\begin{align*}
+    \mathbb{E}[aX+b]&=\sum_{x}(ax+b)p_X(x)\\
+                    &=\sum_{x}ax p_X(x)+\sum_{x}(b)p_X(x)\\
+                    &=a\sum_{x}x p_X(x)+b\sum_{x}p_X(x)\\
+                    &=a\mathbb{E}[X]+b \tag*{$\blacksquare$}
+\end{align*}
+$$
+
+</details>
+:::
+
+:::tip Variance of a Linear Transformation
+
+Let $X$ be a random variable and $a$ and $b$ be constants, then:
+
+$$
+\operatorname{Var}[aX+b]=a^2\operatorname{Var}[X]
+$$
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+Applying the Shortcut Formula for Variance directly:
+$$
+\begin{align*}
+    \operatorname{Var}[aX+b]&=\mathbb{E}[(aX+b)^2]-\left(\mathbb{E}[aX+b] \right)^2\\
+                    &=\mathbb{E}[a^2X^2+2abX+b^2]-\left(a\mathbb{E}[X]+b\right)^2 \\
+                    &=\mathbb{E}[a^2X^2]+\mathbb{E}[2abX]+\mathbb{E}[b^2]-\left(a\mathbb{E}[X]\right)^2-2ab\mathbb{E}[X]-b^2 \\
+                    &=a^2\mathbb{E}[X^2]+2ab\mathbb{E}[X]+b^2-a^2\left(\mathbb{E}[X]\right)^2-2ab\mathbb{E}[X]-b^2\\
+                    &=a^2\mathbb{E}[X^2]-a^2\left(\mathbb{E}[X]\right)^2\\
+                    &=a^2\operatorname{Var}[X] \tag*{$\blacksquare$}
+\end{align*}
+$$
+
+</details>
+:::
