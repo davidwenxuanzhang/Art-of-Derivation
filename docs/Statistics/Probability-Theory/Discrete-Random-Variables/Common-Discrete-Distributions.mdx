@@ -275,10 +275,10 @@ $$
 <summary><span className="math-keyword">Derivation</span></summary>
 
 
-Given a Binomial random variable $X\sim \operatorname{Binomial}(p) $, we have the PMF: 
+Given a Geometric random variable $X\sim \operatorname{Geometric}(p) $, we have the PMF: 
 
 $$
-p_X(x)=\mathbb{P}(x=k)=\binom{n}{k}p^k(1-p)^{n-k} 
+p_X(x)=(1-p)^{n-1}p
 $$
 <hr />
  
@@ -286,54 +286,55 @@ $$
 
 Use the definition of Expected Value:
 
+
+
 $$
 \begin{align*}
-    \mathbb{E}[X]&=\sum_{k}k\cdot p_X(k)\\
-                 &=\sum_{k}k\binom{n}{k}p^k(1-p)^{n-k} \\
-                 &=\sum_{k}n\binom{n-1}{k-1}p^k(1-p)^{n-k} &&(\text{“Choose a Captain” identity})\\
-                 &=np\sum_{k}\binom{n-1}{k-1}p^{k-1}(1-p)^{n-k}\\
+    \mathbb{E}[X]&=\sum_{x}x\cdot p_X(x)\\
+                 &=\sum_{x=1}^{\infty}x(1-p)^{x-1}p \\
 \end{align*}
 $$
 
-Let $j=k-1 \implies k=j+1,\ n-k=n-(j+1)=n-1-j$
+Let $q=1-p, \ p=1-q$
+
 $$
 \begin{align*}
-    \implies \mathbb{E}[X]&=np\sum_{j}\underbrace{\binom{n-1}{j}p^j(1-p)^{n-1-j}}_{\text{PMF of }Y \sim \operatorname{Binomial}(n-1,p)} &&\text{(PMF sum up to 1)}\\
-                          &=np
+    \implies \mathbb{E}[X]&=p\sum_{x=1}^{\infty}xq^{x-1}\\
+                          &=p\sum_{x=1}^{\infty}\frac{\mathrm{d}}{\mathrm{d}q}(q^x) &&(xq^{x-1}=\frac{\mathrm{d}}{\mathrm{d}q}q^x) \\
+                          &=p\frac{\mathrm{d}}{\mathrm{d}q}\sum_{x=1}^{\infty}q^x\\
+                          &=p\frac{\mathrm{d}}{\mathrm{d}q}\left(\frac{q}{1-q}\right)\\
+                          &=p\frac{1-q+q}{(1-q)^2}=\frac{p}{(1-q)^2}\\
+                          &=\frac{p}{p^2}=\frac{1}{p} &&(\text{Plug in }p=1-q)
 \end{align*}
 $$
+
 <hr />
 - Variance:
 
 Use the definition of Variance:
 
 
-$$
-\operatorname{Var}[X]=\mathbb{E}[X^2]-\left(\mathbb{E}[X] \right)^2=\mathbb{E}[X^2]-(np)^2
-$$
 Let $g(x)=x^2$, using LotUS:
 
 $$
 \begin{align*}
-    \implies \mathbb{E}[X^2]&= \sum_{k}g(k)\cdot p_X(k)\\
-                            &= \sum_{k}k^2\binom{n}{k}p^{k}(1-p)^{n-k}\\
-                            &= \sum_{k}kn\binom{n-1}{k-1}p^{k}(1-p)^{n-k} &&(\text{“Choose a Captain” identity})\\
-                            &=np\sum_{k=1}k\binom{n-1}{k-1}p^{k-1}(1-p)^{n-k}
+    \operatorname{Var}[X]&=\mathbb{E}[X^2]-\left(\mathbb{E}[X] \right)^2\\
+                         &=\sum_{x=1}^{\infty}x^2(1-p)^{x-1}p-\left(\frac{1}{p}\right)^2 &&(\text{LotUS})\\                
 \end{align*}
 $$
-Let $j=k-1 \implies k=j+1,\ n-k=n-(j+1)=n-1-j$
+
+Let $q=1-p, \ p=1-q$
+
 $$
 \begin{align*}
-    \implies \mathbb{E}[X^2]&=np\sum_{j=0}(j+1)\underbrace{\binom{n-1}{j}p^{j}(1-p)^{n-1-j}}_{\text{PMF of }Y\sim \operatorname {Binomial}(n-1,p)}\\
-                            &=np\left(\underbrace{\sum_{j=0}j\binom{n-1}{j}p^{j}(1-p)^{n-1-j}}_{\mathbb{E}[Y]} + \underbrace{\sum_{j=0}\binom{n-1}{j}p^{j}(1-p)^{n-1-j}}_{1} \right)\\
-                            &=np\left[(n-1)p\right+1]\\
-                            &=(np)^2-np^2+np
+    \implies \operatorname{Var}[X]&=p\sum_{x=1}^{\infty}x^2q^{x-1}-\left(\frac{1}{p}\right)^2\\
+                                  &=p\sum_{x=1}^{\infty}\frac{\mathrm{d}^2}{\mathrm{d}q^2}(q^{x+1})-xq^{x-1}-\frac{1}{p^2}  &&(x^2q^{x-1}=\frac{\mathrm{d}^2}{\mathrm{d}q^2}(q^{x+1})-xq^{x-1}) \\                
+                                  &=p\frac{\mathrm{d}^2}{\mathrm{d}q^2}\sum_{x=1}^{\infty}q^{x+1}-\underbrace{p\sum_{x=1}^{\infty}xq^{x-1}}_{\mathbb{E}[X]} -\frac{1}{p^2}\\
+                                  &=p\frac{\mathrm{d}^2}{\mathrm{d}q^2}\left(\frac{q^2}{1-q}\right)-\frac{1}{p}-\left(\frac{1}{p}\right)^2\\
+                                  &=p\left( \frac{2}{(1-q)^3}\right)-\frac{1}{p}-\left(\frac{1}{p}\right)^2\\
+                                  &=\frac{2}{p^2}-\frac{1}{p}-\frac{1}{p^2} &&(\text{Plug in }p=1-q)\\
+                                  &=\frac{1-p}{p^2} \tag*{$\blacksquare$}
 \end{align*}
-$$
-Plug in back to Variance:
-$$
-\operatorname{Var}[X]=\mathbb{E}[X^2]-(np)^2= (np)^2-np^2+np-(np)^2=np-np^2=np(1-p) \tag*{$\blacksquare$}
-
 $$
 </details>
 :::
