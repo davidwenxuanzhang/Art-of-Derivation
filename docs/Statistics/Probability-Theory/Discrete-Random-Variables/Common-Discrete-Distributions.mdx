@@ -21,7 +21,7 @@ p_X(x) =
 \right.
 $$
 
-for some $0\le p\le 1$, $X$ is said to be a **Bernoulli random variable with parameter $p$**, written as $X\sim \operatorname{Bernoulli}(p)$
+for some $0\le p\le 1$, then $X$ is said to be a **Bernoulli random variable with parameter $p$**, written as $X\sim \operatorname{Bernoulli}(p)$
 :::info Example
 The Bernoulli distribution models a single trial with two possible outcomes, such as success or fail, true or false, yes or no.
 :::
@@ -55,7 +55,7 @@ $$
 p_X(x)=\binom{n}{x}p^x(1-p)^{n-x}; \qquad x=0,1,\dots ,n
 $$
 
-for some $n$ and $0\le p\le 1$, $X$ is said to be a **Binomial random variable with parameters $n$ and $p$**, written as  $X\sim \operatorname{Binomial}(n, p)$
+for some $n$ and $0\le p\le 1$, then $X$ is said to be a **Binomial random variable with parameters $n$ and $p$**, written as  $X\sim \operatorname{Binomial}(n, p)$
 :::info Example
 The Binomial distribution models 
 :::
@@ -137,5 +137,110 @@ $$
 \operatorname{Var}[X]=\mathbb{E}[X^2]-(np)^2= (np)^2-np^2+np-(np)^2=np-np^2=np(1-p) \tag*{$\blacksquare$}
 
 $$
+</details>
+:::
+
+## Hypergeometric Distribution
+
+::::tip Hypergeometric Distribution
+
+If $X$ is a random variable with the PMF
+
+$$
+p_X(x)=\frac{\binom{M}{x}\binom{N-M}{n-x}}{\binom{N}{n}}; \qquad x=0,1,\dots ,\mathrm{min}(n,m)
+$$
+
+for positive integer $n$ and $M<N$, then $X$ is said to be a **hypergeometric random variable with parameters $n$, $M$, and $N$**, written as  $X\sim \operatorname{Binomial}(n, M, N)$
+:::info Example
+$M$ products defect in $N$ total, let $X$ be the random variable of defect in $n$ that pull $n$ from $N$ and $x$ are defect, without replacement.
+:::
+
+::::
+
+:::tip Hypergeometric Expectation and Variance
+
+Let $X\sim \operatorname{Hypergeometric}(n,M,N) $, then:
+$$
+\mathbb{E}[X]=n\frac{M}{N}
+$$
+and 
+$$
+\operatorname{Var}[X]=n\frac{M}{N}\left(1-\frac{M}{N}\right )\frac{N-n}{N-1}
+$$
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+
+Given a Binomial random variable $X\sim \operatorname{Hypergeometric}(n,M,N) $, we have the PMF: 
+
+$$
+p_X(x)=\frac{\binom{M}{x}\binom{N-M}{n-x}}{\binom{N}{n}}
+$$
+
+
+Since calculating expectation and variance requires $\mathbb{E}[X]$ and $\mathbb{E}[X^2]$, we can directly <span className="math-keyword">Derive</span> a general formula for the **$k$th moment** $\mathbb{E}[X^k]$ for $k\ge 1$
+
+$$
+\begin{align*}
+    \mathbb{E}[X^k]&=\sum_{x=1}^{n}x^k \frac{\binom{M}{x}\binom{N-M}{n-x}}{\binom{N}{n}} &&(\text{LotUS})\\
+                   &=\sum_{x=1}^{n}x^{k-1}\frac{x\binom{M}{x}\binom{N-M}{n-x}}{\binom{N}{n}}\\
+                   &=\sum_{x=1}^{n}x^{k-1}M\frac{n\binom{M-1}{x-1}\binom{N-M}{n-x}}{n\binom{N}{n}}  &&(x\binom{M}{X}=M\binom{M-1}{x-1})\\
+                   &=\sum_{x=1}^{n}x^{k-1}M\frac{n\binom{M-1}{x-1}\binom{N-M}{n-x}}{N\binom{N-1}{n-1}} &&(n\binom{N}{n}=N\binom{N-1}{n-1})\\
+                   &=\sum_{x=1}^{n}x^{k-1}\frac{Mn}{N}\underbrace{\frac{\binom{M-1}{x-1}\binom{N-M}{n-x}}{N\binom{N-1}{n-1}}}_{Y\sim \operatorname{Hypergeometric}(n-1,M-1,N-1)}
+\end{align*}
+$$
+Let $i=x-1 \implies x=i+1,\ n-x=n-i-1$
+
+$$
+\begin{align*}
+    \implies \mathbb{E}[X^k]&=\frac{Mn}{N}\sum_{i=0}^{n}(i+1)^{k-1}\frac{\binom{M-1}{i}\binom{N-M}{n-i-1}}{N\binom{N-1}{n-1}}\\
+                            &=n\frac{M}{N}\mathbb{E}[(Y+1)^{k-1}]  &&(\text{Inverse LotUS})
+\end{align*}
+$$ 
+where  $Y\sim \operatorname{Hypergeometric}(n-1,M-1,N-1)$
+<hr />
+ 
+- Expected Value:
+
+When $k=1$:
+
+$$
+\begin{align*}
+    \mathbb{E}[X]&=n\frac{M}{N}\mathbb{E}[(Y+1)^{1-1}]\\
+                 &=n\frac{M}{N}\\
+\end{align*}
+$$
+
+<hr />
+- Variance:
+
+When $k=2$:
+
+$$
+\begin{align*}
+    \mathbb{E}[X^2]&=n\frac{M}{N}\mathbb{E}[(Y+1)^{2-1}]\\
+                   &=n\frac{M}{N}\mathbb{E}[Y+1] \\
+                   &=n\frac{M}{N}(\mathbb{E}[Y]+1) \\ 
+                   &=n\frac{M}{N}\left[(n-1)\frac{M-1}{N-1}+1\right]
+\end{align*}
+$$
+
+Use the definition of Variance:
+
+$$
+\begin{align*}
+    \operatorname[Var][X]&=\mathbb{E}[X^2]-\left(\mathbb{E}[X] \right)^2\\
+                         &=n\frac{M}{N}\left[(n-1)\frac{M-1}{N-1}+1\right]- \left(n\frac{M}{N}\right)^2\\
+                         &=n\frac{M}{N}\left[(n-1)\frac{M-1}{N-1}+1-n\frac{M}{N} \right]\\
+                         &=n\frac{M}{N}\left\{\frac{[(M-1)(n-1)+N-1]N-nM(N-1)}{N(N-1)} \right\}\\
+                         &=n\frac{M}{N}\left[\frac{(Mn-M-n+N)N-nM(N-1)}{N(N-1)} \right]\\
+                         &=n\frac{M}{N}\frac{MNn-MN-Nn+N^2-Mnn+Mn}{N(N-1)}\\
+                         &=n\frac{M}{N}\frac{N^2-MN-Nn+Mn}{N(N-1)}\\
+                         &=n\frac{M}{N}\frac{(N-M)(N-n)}{N(N-1)}\\
+                         &=n\frac{M}{N}\frac{N-M}{N}\frac{N-n}{N-1}= n\frac{M}{N}\left(1-\frac{M}{N}\right )\frac{N-n}{N-1} \tag*{$\blacksquare$}
+\end{align*}
+$$
+
+
 </details>
 :::
