@@ -128,7 +128,7 @@ $$
 \begin{align*}
     \implies \mathbb{E}[X^2]&=np\sum_{j=0}(j+1)\underbrace{\binom{n-1}{j}p^{j}(1-p)^{n-1-j}}_{\text{PMF of }Y\sim \operatorname {Binomial}(n-1,p)}\\
                             &=np\left(\underbrace{\sum_{j=0}j\binom{n-1}{j}p^{j}(1-p)^{n-1-j}}_{\mathbb{E}[Y]} + \underbrace{\sum_{j=0}\binom{n-1}{j}p^{j}(1-p)^{n-1-j}}_{1} \right)\\
-                            &=np\left[(n-1)p\right]+1\\
+                            &=np\left[(n-1)p\right+1]\\
                             &=(np)^2-np^2+np
 \end{align*}
 $$
@@ -150,7 +150,7 @@ $$
 p_X(x)=\frac{\binom{M}{x}\binom{N-M}{n-x}}{\binom{N}{n}}; \qquad x=0,1,\dots ,\mathrm{min}(n,m)
 $$
 
-for positive integer $n$ and $M<N$, then $X$ is said to be a **hypergeometric random variable with parameters $n$, $M$, and $N$**, written as  $X\sim \operatorname{Binomial}(n, M, N)$
+for positive integer $n$ and $M<N$, then $X$ is said to be a **hypergeometric random variable with parameters $n$, $M$, and $N$**, written as  $X\sim \operatorname{Hypergeometric}(n, M, N)$
 :::info Example
 $M$ products defect in $N$ total, let $X$ be the random variable of defect in $n$ that pull $n$ from $N$ and $x$ are defect, without replacement.
 :::
@@ -242,5 +242,98 @@ $$
 $$
 
 
+</details>
+:::
+
+## Geometric Distribution
+
+::::tip Geometric Distribution
+
+If $X$ is a random variable with the PMF
+
+$$
+p_X(x)=(1-p)^{n-1}p; \qquad n=0,1,\dots 
+$$
+
+for some $0\le p\le 1$, then $X$ is said to be a **Geometric random variable with parameters $p$**, written as  $X\sim \operatorname{Geometric}(p)$
+:::info Example
+The Geometric distribution models 
+:::
+::::
+
+:::tip Geometric Expectation and Variance
+
+Let $X\sim \operatorname{Geometric}(p) $, then:
+$$
+\mathbb{E}[X]=\frac{1}{p}
+$$
+and 
+$$
+\operatorname{Var}[X]=\frac{1-p}{p^2}
+$$
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+
+Given a Binomial random variable $X\sim \operatorname{Binomial}(p) $, we have the PMF: 
+
+$$
+p_X(x)=\mathbb{P}(x=k)=\binom{n}{k}p^k(1-p)^{n-k} 
+$$
+<hr />
+ 
+- Expected Value:
+
+Use the definition of Expected Value:
+
+$$
+\begin{align*}
+    \mathbb{E}[X]&=\sum_{k}k\cdot p_X(k)\\
+                 &=\sum_{k}k\binom{n}{k}p^k(1-p)^{n-k} \\
+                 &=\sum_{k}n\binom{n-1}{k-1}p^k(1-p)^{n-k} &&(\text{“Choose a Captain” identity})\\
+                 &=np\sum_{k}\binom{n-1}{k-1}p^{k-1}(1-p)^{n-k}\\
+\end{align*}
+$$
+
+Let $j=k-1 \implies k=j+1,\ n-k=n-(j+1)=n-1-j$
+$$
+\begin{align*}
+    \implies \mathbb{E}[X]&=np\sum_{j}\underbrace{\binom{n-1}{j}p^j(1-p)^{n-1-j}}_{\text{PMF of }Y \sim \operatorname{Binomial}(n-1,p)} &&\text{(PMF sum up to 1)}\\
+                          &=np
+\end{align*}
+$$
+<hr />
+- Variance:
+
+Use the definition of Variance:
+
+
+$$
+\operatorname{Var}[X]=\mathbb{E}[X^2]-\left(\mathbb{E}[X] \right)^2=\mathbb{E}[X^2]-(np)^2
+$$
+Let $g(x)=x^2$, using LotUS:
+
+$$
+\begin{align*}
+    \implies \mathbb{E}[X^2]&= \sum_{k}g(k)\cdot p_X(k)\\
+                            &= \sum_{k}k^2\binom{n}{k}p^{k}(1-p)^{n-k}\\
+                            &= \sum_{k}kn\binom{n-1}{k-1}p^{k}(1-p)^{n-k} &&(\text{“Choose a Captain” identity})\\
+                            &=np\sum_{k=1}k\binom{n-1}{k-1}p^{k-1}(1-p)^{n-k}
+\end{align*}
+$$
+Let $j=k-1 \implies k=j+1,\ n-k=n-(j+1)=n-1-j$
+$$
+\begin{align*}
+    \implies \mathbb{E}[X^2]&=np\sum_{j=0}(j+1)\underbrace{\binom{n-1}{j}p^{j}(1-p)^{n-1-j}}_{\text{PMF of }Y\sim \operatorname {Binomial}(n-1,p)}\\
+                            &=np\left(\underbrace{\sum_{j=0}j\binom{n-1}{j}p^{j}(1-p)^{n-1-j}}_{\mathbb{E}[Y]} + \underbrace{\sum_{j=0}\binom{n-1}{j}p^{j}(1-p)^{n-1-j}}_{1} \right)\\
+                            &=np\left[(n-1)p\right+1]\\
+                            &=(np)^2-np^2+np
+\end{align*}
+$$
+Plug in back to Variance:
+$$
+\operatorname{Var}[X]=\mathbb{E}[X^2]-(np)^2= (np)^2-np^2+np-(np)^2=np-np^2=np(1-p) \tag*{$\blacksquare$}
+
+$$
 </details>
 :::
