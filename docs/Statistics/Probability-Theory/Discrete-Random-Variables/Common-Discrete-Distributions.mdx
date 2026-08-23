@@ -7,7 +7,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 ##  Bernoulli Distribution
 
-:::tip Bernoulli Distribution
+::::tip Bernoulli Distribution
 
 If $X$ is a random variable with the PMF
 
@@ -21,6 +21,121 @@ p_X(x) =
 \right.
 $$
 
-for some $0\le x\le 1$, $X$ is said to be a **Bernoulli random variable with parameter $p$**, written as $X\sim \operatorname{Bernoulli}(p)$
+for some $0\le p\le 1$, $X$ is said to be a **Bernoulli random variable with parameter $p$**, written as $X\sim \operatorname{Bernoulli}(p)$
+:::info Example
+The Bernoulli distribution models a single trial with two possible outcomes, such as success or fail, true or false, yes or no.
+:::
 
+
+::::
+
+:::tip Bernoulli Expectation and Variance
+
+Let $X\sim \operatorname{Bernoulli}(p) $, then:
+$$
+\mathbb{E}[X]=p
+$$
+and 
+$$
+\operatorname{Var}[X]=p(1-p)
+$$
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+:::
+
+## Binomial Distribution
+::::tip Binomial Distribution
+
+If $X$ is a random variable with the PMF
+
+
+$$
+p_X(x)=\binom{n}{x}p^x(1-p)^{n-x}; \qquad x=0,1,\dots ,n
+$$
+
+for some $n$ and $0\le p\le 1$, $X$ is said to be a **Binomial random variable with parameters $n$ and $p$**, written as  $X\sim \operatorname{Binomial}(n, p)$
+:::info Example
+The Binomial distribution models 
+:::
+
+
+::::
+
+:::tip Binomial Expectation and Variance
+
+Let $X\sim \operatorname{Binomial}(p) $, then:
+$$
+\mathbb{E}[X]=np
+$$
+and 
+$$
+\operatorname{Var}[X]=np(1-p)
+$$
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+
+Given a Binomial random variable $X\sim \operatorname{Binomial}(p) $, we have the PMF: 
+
+$$
+p_X(x)=\mathbb{P}(x=k)=\binom{n}{k}p^k(1-p)^{n-k} 
+$$
+<hr />
+ 
+- Expected Value:
+
+Use the definition of Expected Value:
+
+$$
+\begin{align*}
+    \mathbb{E}[X]&=\sum_{k}k\cdot p_X(k)\\
+                 &=\sum_{k}k\binom{n}{k}p^k(1-p)^{n-k} \\
+                 &=\sum_{k}n\binom{n-1}{k-1}p^k(1-p)^{n-k} &&(\text{“Choose a Captain” identity})\\
+                 &=np\sum_{k}\binom{n-1}{k-1}p^{k-1}(1-p)^{n-k}\\
+\end{align*}
+$$
+
+Let $j=k-1 \implies k=j+1,\ n-k=n-(j+1)=n-1-j$
+$$
+\begin{align*}
+    \implies \mathbb{E}[X]&=np\sum_{j}\underbrace{\binom{n-1}{j}p^j(1-p)^{n-1-j}}_{\text{PMF of }Y \sim \operatorname{Binomial}(n-1,p)} &&\text{(PMF sum up to 1)}\\
+                          &=np
+\end{align*}
+$$
+<hr />
+- Variance:
+
+Use the definition of Variance:
+
+
+$$
+\operatorname{Var}[X]=\mathbb{E}[X^2]-\left(\mathbb{E}[X] \right)^2=\mathbb{E}[X^2]-(np)^2
+$$
+Let $g(x)=x^2$, using LotUS:
+
+$$
+\begin{align*}
+    \implies \mathbb{E}[X^2]&= \sum_{k}g(k)\cdot p_X(k)\\
+                            &= \sum_{k}k^2\binom{n}{k}p^{k}(1-p)^{n-k}\\
+                            &= \sum_{k}kn\binom{n-1}{k-1}p^{k}(1-p)^{n-k} &&(\text{“Choose a Captain” identity})\\
+                            &=np\sum_{k=1}k\binom{n-1}{k-1}p^{k-1}(1-p)^{n-k}
+\end{align*}
+$$
+Let $j=k-1 \implies k=j+1,\ n-k=n-(j+1)=n-1-j$
+$$
+\begin{align*}
+    \implies \mathbb{E}[X^2]&=np\sum_{j=0}(j+1)\underbrace{\binom{n-1}{j}p^{j}(1-p)^{n-1-j}}_{\text{PMF of }Y\sim \operatorname {Binomial}(n-1,p)}\\
+                            &=np\left(\underbrace{\sum_{j=0}j\binom{n-1}{j}p^{j}(1-p)^{n-1-j}}_{\mathbb{E}[Y]} + \underbrace{\sum_{j=0}\binom{n-1}{j}p^{j}(1-p)^{n-1-j}}_{1} \right)\\
+                            &=np\left[(n-1)p\right]+1\\
+                            &=(np)^2-np^2+np
+\end{align*}
+$$
+Plug in back to Variance:
+$$
+\operatorname{Var}[X]=\mathbb{E}[X^2]-(np)^2= (np)^2-np^2+np-(np)^2=np-np^2=np(1-p) \tag*{$\blacksquare$}
+
+$$
+</details>
 :::
