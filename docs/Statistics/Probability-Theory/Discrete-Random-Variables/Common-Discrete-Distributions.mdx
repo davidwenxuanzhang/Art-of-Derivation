@@ -229,7 +229,7 @@ Use the definition of Variance:
 
 $$
 \begin{align*}
-    \operatorname[Var][X]&=\mathbb{E}[X^2]-\left(\mathbb{E}[X] \right)^2\\
+    \operatorname{Var}[X]&=\mathbb{E}[X^2]-\left(\mathbb{E}[X] \right)^2\\
                          &=n\frac{M}{N}\left[(n-1)\frac{M-1}{N-1}+1\right]- \left(n\frac{M}{N}\right)^2\\
                          &=n\frac{M}{N}\left[(n-1)\frac{M-1}{N-1}+1-n\frac{M}{N} \right]\\
                          &=n\frac{M}{N}\left\{\frac{[(M-1)(n-1)+N-1]N-nM(N-1)}{N(N-1)} \right\}\\
@@ -334,6 +334,100 @@ $$
                                   &=p\left( \frac{2}{(1-q)^3}\right)-\frac{1}{p}-\left(\frac{1}{p}\right)^2\\
                                   &=\frac{2}{p^2}-\frac{1}{p}-\frac{1}{p^2} &&(\text{Plug in }p=1-q)\\
                                   &=\frac{1-p}{p^2} \tag*{$\blacksquare$}
+\end{align*}
+$$
+</details>
+:::
+
+## Negative Binomiao Distribution
+
+::::tip Negative Binomial Distribution
+
+If $X$ is a random variable with the PMF
+
+$$
+p_X(x)=\binom{x-1}{r-1}p^{r}(1-p)^{x-r}; \qquad x=r,r+1,\dots 
+$$
+
+for some positive integer $r$ and $0<p<1$ then $X$ is said to be a **Negative Binomial random variable with parameters $r$ and $p$**, written as  $X\sim \operatorname{NegativeBinomial}(r,p)$
+:::info Example
+$X$ is the trail for $r$th success
+:::
+::::
+
+:::tip Negative Binomial Expectation and Variances
+
+Let $X\sim \operatorname{NegativeBinomial}(r,p) $, then:
+$$
+\mathbb{E}[X]=\frac{r}{p}
+$$
+and 
+$$
+\operatorname{Var}[X]=\frac{r(1-p)}{p^2}
+$$
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+
+Given a Negative Binomial random variable $X\sim \operatorname{NegativeBinomial}(p) $, we have the PMF: 
+
+$$
+p_X(x)=\binom{x-1}{r-1}p^{r}(1-p)^{x-r}
+$$
+
+Since calculating expectation and variance requires $\mathbb{E}[X]$ and $\mathbb{E}[X^2]$, we can directly <span className="math-keyword">Derive</span> a general formula for the **$k$th moment** $\mathbb{E}[X^k]$
+
+$$
+\begin{align*}
+    \mathbb{E}[X^k]&=\sum_{x=r}^{\infty}x^k\binom{x-1}{r-1}p^{r}(1-p)^{x-r} &&(\text{LotUS})\\
+                   &=\sum_{x=r}^{\infty}x^{k-1}r\binom{x}{r}p^{r}(1-p)^{x-r} &&(x\binom{x-1}{r-1}=r\binom{x}{r})\\
+\end{align*}
+$$
+Let $i=x+1 \implies x=i-1$
+
+$$
+\begin{align*}
+    \implies \mathbb{E}[X^k]&=\sum_{i=r+1}^{\infty}(i-1)^{k-1}\binom{i-1}{r}p^{r}(1-p)^{x-r}\\
+                            &=\frac{r}{p}\sum_{i=r+1}^{\infty}(i-1)^{k-1}\underbrace{\binom{i-1}{(r+1)-1}p^{r+1}(1-p)^{i-(r+1)}}_{\text{PMF of }Y \sim\operatorname{NegativeBinomial} (r+1,p)}\\
+                            &=\frac{r}{p}\mathrm{E}[(Y-1)^{k-1}] &&(\text{Inverse LotUS})
+\end{align*}
+$$
+
+<hr />
+ 
+- Expected Value:
+
+When $k=1$:
+
+$$
+\begin{align*}
+    \mathbb{E}[X]&=\frac{r}{p}\mathrm{E}[(Y-1)^{1-1}]\\
+                 &=\frac{r}{p}\\
+\end{align*}
+$$
+
+<hr />
+- Variance:
+
+When $k=2$:
+
+$$
+\begin{align*}
+    \mathbb{E}[X^2]&=\frac{r}{p}\mathrm{E}[(Y-1)^{2-1}]\\
+                   &=\frac{r}{p}\mathrm{E}[Y-1]\\
+                   &=\frac{r}{p}(\mathrm{E}[Y]-1)\\
+                   &=\frac{r}{p}\left(\frac{r+1}{p}-1\right)\\
+\end{align*}
+$$
+Use the definition of Variance:
+
+$$
+\begin{align*}
+    \operatorname{Var}[X]&=\mathbb{E}[X^2]-\left(\mathbb{E}[X]\right)^2\\
+                         &=\frac{r}{p}\left(\frac{r+1}{p}-1\right)-\left(\frac{r}{p}\right)^2\\
+                         &=\frac{r}{p}\left(\frac{r+1}{p}-1-\frac{r}{p}\right)\\
+                         &=\frac{r}{p}\left(\frac{1-p}{p}\right)\\
+                         &=\frac{r(1-p)}{p^2} \tag*{$\blacksquare$}
 \end{align*}
 $$
 </details>
