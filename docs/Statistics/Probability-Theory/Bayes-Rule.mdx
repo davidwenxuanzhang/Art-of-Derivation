@@ -14,13 +14,13 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 Let event $A$ and $B$ with positive probability, then: 
 
 $$
-P(B\mid A)=\frac{P(B)P(A\mid B)}{P(A)}
+\mathbb{P}(B\mid A)=\frac{\mathbb{P}(B)\mathbb{P}(A\mid B)}{\mathbb{P}(A)}
 $$
 
 Applying the [Law of Total Probability](docs/Statistics/Probability-Theory/Law-of-Total-Probability.mdx#LoTP):
 
 $$
-P(B\mid A)=\frac{P(B)P(A\mid B)}{P(B)P(A\mid B)+P(B^{c})P(A\mid B^{c})}
+\mathbb{P}(B\mid A)=\frac{\mathbb{P}(B)\mathbb{P}(A\mid B)}{\mathbb{P}(B)\mathbb{P}(A\mid B)+\mathbb{P}(B^{c})\mathbb{P}(A\mid B^{c})}
 $$
 
 <details>
@@ -29,13 +29,13 @@ $$
 From the [multiplication rule](docs\Statistics\Probability-Theory\Conditional-Probability.mdx#multiplication-rule): 
 
 $$
-P(A\cap B)=P(A)P(B\mid A)
+\mathbb{P}(A\cap B)=\mathbb{P}(A)\mathbb{P}(B\mid A)
 $$
 
-Divide $P(A)$ on both side:
+Divide $\mathbb{P}(A)$ on both side:
 
 $$
-P(B\mid A)=\frac{P(B)P(A\mid B)}{P(A)} \tag*{$\blacksquare$}
+\mathbb{P}(B\mid A)=\frac{\mathbb{P}(B)\mathbb{P}(A\mid B)}{\mathbb{P}(A)} \tag*{$\blacksquare$}
 $$
 </details>
 

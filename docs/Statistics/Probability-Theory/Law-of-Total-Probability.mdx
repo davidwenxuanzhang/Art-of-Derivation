@@ -32,7 +32,7 @@ $$
 Consider a collection of events $B_1, B_2,\dots$ with positive probability that partition the sample space $\Omega$. For any event $A$, the Law of Total Probability says:
 
 $$
-P(A)=\sum_{i}P(B_i)P(A\mid B_i)
+\mathbb{P}(A)=\sum_{i}\mathbb{P}(B_i)\mathbb{P}(A\mid B_i)
 $$
 
 <details>
@@ -41,17 +41,17 @@ $$
 Because the sets $A\cap B_i$ are mutually exclusive, and their union is $A$; therefore, by [Countable Additivity](docs\Statistics\Probability-Theory\Probability-Basics.mdx#Probability-Axioms): 
 
 $$
-P(A)=\sum_{i}P(A\cap B_i)
+\mathbb{P}(A)=\sum_{i}\mathbb{P}(A\cap B_i)
 $$
 By the [Multiplication Rule](docs\Statistics\Probability-Theory\Conditional-Probability.mdx#multiplication-rule), the part inside the sum could simplify to:
 
 $$
-P(A\cap B_i)=P(A)P(A\mid B_i)
+\mathbb{P}(A\cap B_i)=\mathbb{P}(A)\mathbb{P}(A\mid B_i)
 $$
 Substituting back to the sum above: 
 
 $$
-P(A)=\sum_{i}P(A)P(A\mid B_i) \tag*{$\blacksquare$}
+\mathbb{P}(A)=\sum_{i}\mathbb{P}(A)\mathbb{P}(A\mid B_i) \tag*{$\blacksquare$}
 
 $$
 

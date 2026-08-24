@@ -13,11 +13,11 @@ Literally, when say that two events are independence means the result of one wil
 
 Two events $A$ and $B$ with positive probability are independence if either:
 $$
-P(A\mid B)=P(A)
+\mathbb{P}(A\mid B)=\mathbb{P}(A)
 $$
         or 
 $$
-P(B\mid A)=P(B)
+\mathbb{P}(B\mid A)=\mathbb{P}(B)
 $$
 :::
 
@@ -28,7 +28,7 @@ With this, we can simplify the  [multiplication rule](docs\Statistics\Probabilit
 Two events $A$ and $B$ with positive probability are independence if and only if::
 
 $$
-P(A\cap B)=P(A) P(B)
+\mathbb{P}(A\cap B)=\mathbb{P}(A) \mathbb{P}(B)
 $$
 
 <details>
@@ -37,25 +37,25 @@ $$
 According to the [multiplication rule](docs\Statistics\Probability-Theory\Conditional-Probability.mdx#multiplication-rule) that says: 
 
 $$
-P(A\cap B)=P(A) P(B\mid A)
+\mathbb{P}(A\cap B)=\mathbb{P}(A) \mathbb{P}(B\mid A)
 $$
 
-- "Only if": Suppose $A$ and $B$ are independence, we have: $P(B\mid A)=P(B)$; substituting the result of [multiplication rule](docs\Statistics\Probability-Theory\Conditional-Probability.mdx#multiplication-rule), we have:
+- "Only if": Suppose $A$ and $B$ are independence, we have: $\mathbb{P}(B\mid A)=\mathbb{P}(B)$; substituting the result of [multiplication rule](docs\Statistics\Probability-Theory\Conditional-Probability.mdx#multiplication-rule), we have:
 
 
 $$
-P(A\cap B)=P(A) P(B\mid A)=P(A) P(B)
+\mathbb{P}(A\cap B)=\mathbb{P}(A) \mathbb{P}(B\mid A)=\mathbb{P}(A) \mathbb{P}(B)
 $$
 
-- "If": Suppose $P(A\cap B)=P(A) P(B)$; substituting the result of [multiplication rule](docs\Statistics\Probability-Theory\Conditional-Probability.mdx#multiplication-rule), we have:
+- "If": Suppose $\mathbb{P}(A\cap B)=\mathbb{P}(A) \mathbb{P}(B)$; substituting the result of [multiplication rule](docs\Statistics\Probability-Theory\Conditional-Probability.mdx#multiplication-rule), we have:
 
 $$
-P(A) P(B)=P(A)P(B\mid A)
+\mathbb{P}(A) \mathbb{P}(B)=\mathbb{P}(A)\mathbb{P}(B\mid A)
 $$
-Dividing both side by $P(A)$:
+Dividing both side by $\mathbb{P}(A)$:
 
 $$
-P(B)=P(B\mid A) 
+\mathbb{P}(B)=\mathbb{P}(B\mid A) 
 
 $$
 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
@@ -71,7 +71,7 @@ $\blacksquare$
 
 :::tip Conditional Independence
 
-A collection of positive probability events $A_1, A_2,\dots, A_n$ is conditional independent to the event $B$ (where $P(B)>0$) given $\widetilde{P}(A)=P(A\mid B)$
+A collection of positive probability events $A_1, A_2,\dots, A_n$ is conditional independent to the event $B$ (where $\mathbb{P}(B)>0$) given $\widetilde{P}(A)=\mathbb{P}(A\mid B)$
 
 $$
 \widetilde{P}(A_{i1}\cap A_{i2}\cap \cdots \cap A_{in})=\widetilde{P}(A_{i1})\widetilde{P}(A_{i2})\cdots \widetilde{P}(A_{in})
@@ -79,6 +79,6 @@ $$
 or
 
 $$
-P(A_{i1}\cap A_{i2}\cap \cdots \cap A_{in} \mid B)= \widetilde{P}(A_{i1}\mid B)\widetilde{P}(A_{i2}\mid B)\cdots \widetilde{P}(A_{in}\mid B)
+\mathbb{P}(A_{i1}\cap A_{i2}\cap \cdots \cap A_{in} \mid B)= \widetilde{P}(A_{i1}\mid B)\widetilde{P}(A_{i2}\mid B)\cdots \widetilde{P}(A_{in}\mid B)
 $$
 :::

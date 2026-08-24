@@ -29,7 +29,7 @@ $$
 
 For any event $A$:
 $$
-P(A^{c})=1-P(A)
+\mathbb{P}(A^{c})=1-\mathbb{P}(A)
 $$
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
@@ -40,11 +40,11 @@ A\cup A^{c}=\Omega
 $$
 By [Countable Additivity](docs\Statistics\Probability-Theory\Probability-Basics.mdx#Probability-Axioms):
 $$
-P(A\cup A^{c})=P(A)+P(A^{c})=P(\Omega) \overset{\text{Normalization}}{=} 1
+\mathbb{P}(A\cup A^{c})=\mathbb{P}(A)+\mathbb{P}(A^{c})=\mathbb{P}(\Omega) \overset{\text{Normalization}}{=} 1
 $$
 Hence:
 $$
-P(A^{c})=1-P(A)  \tag*{$\blacksquare$}
+\mathbb{P}(A^{c})=1-\mathbb{P}(A)  \tag*{$\blacksquare$}
 $$
 </details>
 :::
@@ -56,7 +56,7 @@ $$
 The empty event has probability zero, as:
 
 $$
-P(\varnothing)=0
+\mathbb{P}(\varnothing)=0
 $$
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
@@ -69,7 +69,7 @@ $$
 
 By [Complement Rule](#Complement-Rule)：
 $$
-P(\varnothing)=1-P(\Omega)\overset{\text{Normalization}}{=}1-1=0 \tag*{$\blacksquare$}
+\mathbb{P}(\varnothing)=1-\mathbb{P}(\Omega)\overset{\text{Normalization}}{=}1-1=0 \tag*{$\blacksquare$}
 $$
 
 </details>
@@ -82,7 +82,7 @@ $$
 For any event $A$, probability is between 0 and 1, as:
 
 $$
-0\le P(A) \le 1
+0\le \mathbb{P}(A) \le 1
 $$
 
 <details>
@@ -91,26 +91,26 @@ $$
 By the [Non-negativity Axiom](docs\Statistics\Probability-Theory\Probability-Basics.mdx#Probability-Axioms):
 
 $$
-0\le P(A)
+0\le \mathbb{P}(A)
 $$
 Also, by the [Complement Rule](#Complement-Rule):
 
 $$
-P(A^{c})=1-P(A)
+\mathbb{P}(A^{c})=1-\mathbb{P}(A)
 $$
 
 Since probabilities are non-negative:
 $$
-P(A^{c})\ge 0
+\mathbb{P}(A^{c})\ge 0
 $$
 Therefore: 
 $$
-1-P(A)\ge 0 \implies P(A) \le 1
+1-\mathbb{P}(A)\ge 0 \implies \mathbb{P}(A) \le 1
 $$
 
 Hence: 
 $$
-0\le P(A) \le 1  \tag*{$\blacksquare$}
+0\le \mathbb{P}(A) \le 1  \tag*{$\blacksquare$}
 $$
 </details>
 :::
@@ -122,7 +122,7 @@ $$
 For any event that $A$ $\subseteq$ $B$: 
 
 $$
-P(A)\le P(B)
+\mathbb{P}(A)\le \mathbb{P}(B)
 $$
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
@@ -140,23 +140,23 @@ $$
 
 By [Countable Additivity](docs\Statistics\Probability-Theory\Probability-Basics.mdx#Probability-Axioms):
 $$
-P(B)=P(A\cup (B\cap A^{c}) )=P(A)+P(B\cap A^{c} )
+\mathbb{P}(B)=\mathbb{P}(A\cup (B\cap A^{c}) )=\mathbb{P}(A)+\mathbb{P}(B\cap A^{c} )
 $$
 
 Also, by the [Non-negativity Axiom](docs\Statistics\Probability-Theory\Probability-Basics.mdx#Probability-Axioms):
 
 $$
-P(B\cap A^{c} ) \ge 0
+\mathbb{P}(B\cap A^{c} ) \ge 0
 $$
 
 Therefore: 
 $$
-P(B)=P(A)+P(B\cap A^{c}) \ge P(A)
+\mathbb{P}(B)=\mathbb{P}(A)+\mathbb{P}(B\cap A^{c}) \ge \mathbb{P}(A)
 $$
 
 Hence:
 $$
-P(A)\le P(B) \tag*{$\blacksquare$}
+\mathbb{P}(A)\le \mathbb{P}(B) \tag*{$\blacksquare$}
 $$
 </details>
 :::
@@ -168,7 +168,7 @@ $$
 For any two events $A$ and $B$:
 
 $$
-P(A\cup B)=P(A)+P(B)-P(A\cap B)
+\mathbb{P}(A\cup B)=\mathbb{P}(A)+\mathbb{P}(B)-\mathbb{P}(A\cap B)
 $$
 
 <details>
@@ -188,7 +188,7 @@ $$
 
 By [Countable Additivity](docs\Statistics\Probability-Theory\Probability-Basics.mdx#Probability-Axioms):
 $$
-P(A\cup B)= P(A)+P(B\cap A^{c}) \tag ①
+\mathbb{P}(A\cup B)= \mathbb{P}(A)+\mathbb{P}(B\cap A^{c}) \tag ①
 $$
 
 For the event $B$, it could also split into two mutually exclusive parts, one with event $A$ and one without, as: 
@@ -198,16 +198,16 @@ $$
 
 And because these two parts are also mutually exclusive, again, by [Countable Additivity](docs\Statistics\Probability-Theory\Probability-Basics.mdx#Probability-Axioms):
 $$
-P(B)=P(A\cap B)+P( B\cap  A^{c})
+\mathbb{P}(B)=\mathbb{P}(A\cap B)+\mathbb{P}( B\cap  A^{c})
 $$
 $$
-P( B\cap  A^{c})=P(B)-P(A\cap B)
+\mathbb{P}( B\cap  A^{c})=\mathbb{P}(B)-\mathbb{P}(A\cap B)
 $$
 
 Plug in back to ①:
 
 $$
-A\cup B= P(A)+P(B\cap A^{c})=  P(A)+P(B)-P(A\cap B)  \tag*{$\blacksquare$}
+A\cup B= \mathbb{P}(A)+\mathbb{P}(B\cap A^{c})=  \mathbb{P}(A)+\mathbb{P}(B)-\mathbb{P}(A\cap B)  \tag*{$\blacksquare$}
 $$
 </details>
 
@@ -220,13 +220,13 @@ $$
 For any two events $A$ and $B$:
 
 $$
-P(A\cup B)\le P(A)+P(B)
+\mathbb{P}(A\cup B)\le \mathbb{P}(A)+\mathbb{P}(B)
 $$
 
 Generally, for a collection of events $A_1, \cdots, A_n$: 
 
 $$
-P\left(\bigcup_{i=1}^{n}A_i\right)\le \sum_{i=1}^{n}P(A_i)
+\mathbb{P}\left(\bigcup_{i=1}^{n}A_i\right)\le \sum_{i=1}^{n}\mathbb{P}(A_i)
 $$
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
@@ -240,7 +240,7 @@ $$
 
 For a collection of events $A_1, \cdots, A_n$:
 $$
-P\left(\bigcup_{i=1}^{n}A_i\right)=\sum_{i=1}^{n}P(A_i)-\sum_{1\le i\le j\le n} P(A_i\cap A_j)+\sum_{1\le i\le j\le k \le n} P(A_i\cap A_j\cap A_k)-\cdots + (-1)^{n+1}P(A_1\cap \cdots \cap\ A_n)
+\mathbb{P}\left(\bigcup_{i=1}^{n}A_i\right)=\sum_{i=1}^{n}\mathbb{P}(A_i)-\sum_{1\le i\le j\le n} \mathbb{P}(A_i\cap A_j)+\sum_{1\le i\le j\le k \le n} \mathbb{P}(A_i\cap A_j\cap A_k)-\cdots + (-1)^{n+1}\mathbb{P}(A_1\cap \cdots \cap\ A_n)
 $$
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>

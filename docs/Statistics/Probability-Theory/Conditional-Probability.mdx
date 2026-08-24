@@ -9,10 +9,10 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 :::tip Conditional Probability
 
-For two events $A$ and $B$ with $P(B)>0$, the **Conditional Probabilty** of event $A$ happens given that event $B$ has happened is defined as:
+For two events $A$ and $B$ with $\mathbb{P}(B)>0$, the **Conditional Probabilty** of event $A$ happens given that event $B$ has happened is defined as:
 
 $$
-P(A\mid B)\overset{\text{def}}{=}\frac{P(A\cap B)}{P(B)}
+\mathbb{P}(A\mid B)\overset{\text{def}}{=}\frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)}
 $$
 
 :::
@@ -21,12 +21,12 @@ $$
 
 :::tip Multiplication Rule for Two Event
 
-If $A$ and $B$ are two events with $P(A)>0$ and $P(B)>0$, then the multiplcation rule says: 
+If $A$ and $B$ are two events with $\mathbb{P}(A)>0$ and $\mathbb{P}(B)>0$, then the multiplcation rule says: 
 
 $$
 \begin{align*}
-P(A\cap B)&=P(A) P(B\mid A)\\
-          &= P(B) P(A\mid B)
+\mathbb{P}(A\cap B)&=\mathbb{P}(A) \mathbb{P}(B\mid A)\\
+          &= \mathbb{P}(B) \mathbb{P}(A\mid B)
 \end{align*}
 $$
 
@@ -36,27 +36,27 @@ $$
 According to the definition of [conditional probability](docs\Statistics\Probability-Theory\Conditional-Probability.mdx#conditional-probability):
 
 $$
-P(A\mid B)\overset{\text{def}}{=}\frac{P(A\cap B)}{P(B)}
+\mathbb{P}(A\mid B)\overset{\text{def}}{=}\frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)}
 $$
 
-Multiplying both sides by $P(B)$ we get:
+Multiplying both sides by $\mathbb{P}(B)$ we get:
 
 $$
-P(A\cap B)=P(A) P(B\mid A)
+\mathbb{P}(A\cap B)=\mathbb{P}(A) \mathbb{P}(B\mid A)
 $$
 
-Similarly from $P(B\mid A)$ we may also get: 
+Similarly from $\mathbb{P}(B\mid A)$ we may also get: 
 
 $$
-P(A\cap B)=P(B) P(A\mid B)
+\mathbb{P}(A\cap B)=\mathbb{P}(B) \mathbb{P}(A\mid B)
 $$
 
 Hence: 
 
 $$
 \begin{align*}
-P(A\cap B)&=P(A) P(B\mid A)\\
-          &= P(B) P(A\mid B)   \tag*{$\blacksquare$}
+\mathbb{P}(A\cap B)&=\mathbb{P}(A) \mathbb{P}(B\mid A)\\
+          &= \mathbb{P}(B) \mathbb{P}(A\mid B)   \tag*{$\blacksquare$}
 \end{align*}
 $$
 </details>
@@ -65,20 +65,20 @@ $$
 We can generalize this multiplcation rule to more events; first, we can simplify the notation of intersection as :
 
 $$
-P(A_1\cap A_2 \cap \cdots \cap A_n)\overset{\text{def}}{=}P(A_1,A_2,\cdots, A_n)
+\mathbb{P}(A_1\cap A_2 \cap \cdots \cap A_n)\overset{\text{def}}{=}\mathbb{P}(A_1,A_2,\cdots, A_n)
 $$
 
 where comma inside could read as "and", as:
 
-- $P(A_1,A_2,\cdots, A_n)$ read as "the probability of events $A_1$ and $A_2$ and ... and $A_n$ all happen."
-- $P(A\mid B_1, B_2, \cdots , B_n)$ read as "the conditional probability of event $A$ happens given events $B_1$ and $B_2$ and ... and $B_n$ all have happened."
+- $\mathbb{P}(A_1,A_2,\cdots, A_n)$ read as "the probability of events $A_1$ and $A_2$ and ... and $A_n$ all happen."
+- $\mathbb{P}(A\mid B_1, B_2, \cdots , B_n)$ read as "the conditional probability of event $A$ happens given events $B_1$ and $B_2$ and ... and $B_n$ all have happened."
 
 :::tip Multiplication Rule
 
 If events $A_1,A_2,\cdots , A_n$ all have positive probability, then:
 
 $$
-P(A_1, A_2, \cdots, A_n)=P(A_1) P(A_2\mid a_1) P(A_3\mid A_1, A_2)\cdots P(A_n\mid A_1,\cdots, A_{n-1})
+\mathbb{P}(A_1, A_2, \cdots, A_n)=\mathbb{P}(A_1) \mathbb{P}(A_2\mid a_1) \mathbb{P}(A_3\mid A_1, A_2)\cdots \mathbb{P}(A_n\mid A_1,\cdots, A_{n-1})
 $$
 
 <details>
@@ -94,7 +94,7 @@ $$
 
 Conditional Probability could be considered as a probability function as it fits all three [probability axioms](docs\Statistics\Probability-Theory\Probability-Basics.mdx#Probability-Axioms), and we define it as:
 $$
-\widetilde{P}(A)\overset{\text{def}}{=} P(A \mid B).
+\widetilde{P}(A)\overset{\text{def}}{=} \mathbb{P}(A \mid B).
 $$
 
 <details>
@@ -103,24 +103,24 @@ $$
 1. Non-negativity: Because $O(A\cap B) \ge 0$, therefore: 
 
 $$
-\widetilde{P}(A)=P(A \mid B)=\frac{P(A\cap B)}{P(B)}\ge 0
+\widetilde{P}(A)=\mathbb{P}(A \mid B)=\frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)}\ge 0
 $$
 
 2. Normalization: Because $B\subset \Omega$ we know that $B \cap \Omega =B$, therefore:
 
 $$
-\widetilde{P}(\Omega)=P(\Omega\mid B)=\frac{P(\Omega\cap B)}{P(B)}=\frac{P(B)}{P(B)}=1
+\widetilde{P}(\Omega)=\mathbb{P}(\Omega\mid B)=\frac{\mathbb{P}(\Omega\cap B)}{\mathbb{P}(B)}=\frac{\mathbb{P}(B)}{\mathbb{P}(B)}=1
 $$
 
 3. Countable Additivity: Let $A_1,A_2,\cdots $ be disjoint sets. Because $A_i\cap B \subseteq A_i$, the countable collection of sets $A_1\cap B$, $A_2\cap B$, \cdots must also be disjoint, therefore: 
 
 $$
 \begin{align*}
-    \widetilde{P}\left(\bigcup_{i=1}^{\infty} A_i\right)&=P\left(\bigcup_{i=1}^{\infty}\mid B \right) &&\text{(Definition of Conditional Probability)}\\
-                                                        &=\frac{P((\cup_{i=1}^{\infty}A_i)\cap B)}{P(B)} &&\text{(Distributive Property)}\\
-                                                        &=\frac{\sum_{i=1}^{\infty}P(A_1\cap B)}{P(B)} &&\text{($P$ Satisfies Axiom 3)}\\
-                                                        &=\sum_{i=1}^{\infty}\frac{P(A_i\cap  B)}{P(B)} &&\text{(Distribute)}\\
-                                                        &=\sum_{i=1}^{\infty}P(A_i\mid B) &&\text{(Definition of Conditional Probability)}\\
+    \widetilde{P}\left(\bigcup_{i=1}^{\infty} A_i\right)&=\mathbb{P}\left(\bigcup_{i=1}^{\infty}\mid B \right) &&\text{(Definition of Conditional Probability)}\\
+                                                        &=\frac{\mathbb{P}((\cup_{i=1}^{\infty}A_i)\cap B)}{\mathbb{P}(B)} &&\text{(Distributive Property)}\\
+                                                        &=\frac{\sum_{i=1}^{\infty}\mathbb{P}(A_1\cap B)}{\mathbb{P}(B)} &&\text{($P$ Satisfies Axiom 3)}\\
+                                                        &=\sum_{i=1}^{\infty}\frac{\mathbb{P}(A_i\cap  B)}{\mathbb{P}(B)} &&\text{(Distribute)}\\
+                                                        &=\sum_{i=1}^{\infty}\mathbb{P}(A_i\mid B) &&\text{(Definition of Conditional Probability)}\\
                                                         &=\sum_{i=1}^{\infty}\widetilde{P}(A_i)
 \end{align*}
 $$
