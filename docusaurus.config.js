@@ -178,6 +178,18 @@ const config = {
             // 可以添加更多子项
           ],
         },
+            {
+          type: 'dropdown',  // 下拉菜单类型
+          label: 'Notes',     // 导航栏显示的名称
+          items: [
+            {
+               to: '/docs/Notes/Stony-Brook',  // 链接到石溪分校笔记主页
+              label: 'Stony Brook',
+            },
+            
+            // 可以添加更多子项
+          ],
+        },
           { type: 'search', position: 'right' },
           {
             href: 'https://github.com/davidwenxuanzhang/Art-of-Derivation',
