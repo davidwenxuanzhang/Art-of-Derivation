@@ -443,7 +443,7 @@ $$
 p_X(x)=e^{-\mu}\frac{\mu^x}{x!}; \qquad x=0,1,2,\dots
 $$
 
-for some $\mu>0$ then $X$ is said to be a **Negative Binomial random variable with parameters $\mu$**, written as  $X\sim \operatorname{Poisson}(\mu)$
+for some $\mu>0$ then $X$ is said to be a **Poisson random variable with parameters $\mu$**, written as  $X\sim \operatorname{Poisson}(\mu)$
 :::info Example
 The Poisson distribution models the number of times an event occurs in a fixed interval when events occur independently at a constant average rate.
 :::
@@ -459,5 +459,71 @@ and
 $$
 \operatorname{Var}[X]=\mu
 $$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+
+Given a Negative Binomial random variable $X\sim \operatorname{Poisson}(\mu) $, we have the PMF: 
+
+$$
+p_X(x)=e^{-\mu}\frac{\mu^x}{x!}
+$$
+
+Since calculating expectation and variance requires $\mathbb{E}[X]$ and $\mathbb{E}[X^2]$, we can directly <span className="math-keyword">Derive</span> a general formula for the **$k$th moment** $\mathbb{E}[X^k]$
+
+$$
+\begin{align*}
+    \mathbb{E}[X^k]&=\sum_{x=0}^{\infty}x^ke^{-\mu}\frac{\mu^x}{x!} &&(\text{LotUS})\\
+                   &=\sum_{x=1}^{\infty}x^ke^{-\mu}\frac{\mu^x}{x!} \\
+                   &=\mu \sum_{x=1}^{\infty}x^{k-1}e^{-\mu}\frac{\mu^{x-1}}{(x-1)!}
+\end{align*}
+$$
+
+Let $i=x-1 \implies x=i+1$
+
+$$
+\begin{align*}
+    \implies \mathbb{E}[X^k]&=\mu \sum_{x=1}^{\infty}{(i+1)}^{k-1}\underbrace{e^{-\mu}\frac{\mu^{i}}{i!}}_{Y\sim \operatorname{Poisson}(\mu)}\\
+                            &=\mu\mathbb{E}[(Y+1)^{k-1}] &&(\text{Inverse LotUS})
+\end{align*}
+$$
+
+<hr />
+ 
+- Expected Value:
+
+When $k=1$:
+
+$$
+\begin{align*}
+    \mathbb{E}[X]&=\mu\mathbb{E}[(Y+1)^{k-1}]\\
+                 &=\mu\\
+\end{align*}
+$$
+
+<hr />
+- Variance:
+
+When $k=2$:
+
+$$
+\begin{align*}
+    \mathbb{E}[X^2]&=\mu\mathbb{E}[(Y+1)^{2-1}]\\
+                   &=\mu\mathrm{E}[Y-1]\\
+                   &=\mu(\mathrm{E}[Y]-1)\\
+                   &=\mu(\mu-1)\\
+\end{align*}
+$$
+Use the definition of Variance:
+
+$$
+\begin{align*}
+    \operatorname{Var}[X]&=\mathbb{E}[X^2]-\left(\mathbb{E}[X]\right)^2\\
+                         &=\mu(\mu-1)-\mu^2\\
+                         &=\mu \tag*{$\blacksquare$}
+\end{align*}
+$$
+</details>
 
 :::
