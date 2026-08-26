@@ -1,0 +1,198 @@
+---
+title: 8/25/2026
+sidebar_label: 8/25/2026
+sidebar_position: 2
+---
+
+## Terminologies
+
+### Proposition
+
+::::tip Proposition
+
+Proposition is a statement that is eith exclusively true or exclusively false, which means it cannot be both.
+
+:::info Example
+
+1. New York City is west of Stony Brook  
+    → A **True Proposition**
+
+2. New York City is east of Stony Brook  
+    → A **False Proposition**
+
+3. $\pi = 3$  
+    → A **False Proposition**
+
+4. $n$ is a prime number   
+    → **Not yet a Proposition**, need domain
+
+5. $n^2-2n>0$   
+    → **Not a Proposition**, need domain
+
+6. $n^2 \ge 0$   
+    → **Not a Proposition**, need domain
+
+:::
+
+::::
+
+### Predicate
+
+::::tip Predicate
+
+Predicate is a sentence containing one or more variables that become proposition once a value has assigned to the variables. These unassigned variables are called free variables.
+
+:::info Example: Distinguish Predicate and Proposition
+
+1. $x+1=5$   
+    → **Predicate**, where $x$ is a free variable
+
+2. $2+1=5$    
+    → A **False Proposition**
+
+3. For a real number $x$, $x^2\ge 0$  
+    → A **True Proposition**, because it has domain, and it is always true
+
+:::
+
+::::
+
+### Disjunction
+
+::::tip Disjunction
+
+For two propositions $P$ and $Q$, their disjunction, denoted by $P \lor Q$, read as $P$ **OR** $Q$, is true if at least one of $P$ and $Q$ is true.
+<div style={{ width: 'fit-content', margin: '0 auto' }}>
+
+| $P$ | $Q$ | $P \lor Q$ ($P$ **OR** $Q$) |
+|:---:|:---:|:-----------:|
+| T | T | T |
+| T | F | T |
+| F | T | T |
+| F | F | F |
+</div>
+:::info Example
+
+The predicate $x\le 1$ can be written as the disjunction of two predicates, $P(x):x<1 $ and $Q(x):x=1$.
+
+:::
+
+::::
+
+### Conjunction
+
+::::tip Conjunction
+
+For two propositions $P$ and $Q$, their conjunction, denoted by $P \land Q$, read as $P$ **AND** $Q$, is true if both $P$ and $Q$ are true.
+<div style={{ width: 'fit-content', margin: '0 auto' }}>
+
+| $P$ | $Q$ | $P \land Q$ ($P$ **AND** $Q$) |
+|:---:|:---:|:-----------:|
+| T | T | T |
+| T | F | F |
+| F | T | F |
+| F | F | F |
+</div>
+:::info Example
+
+The predicate $2 <x\le 4$ can be written as the conjunction of two predicates, $P(x):2<x $ and $Q(x):x\le 4$.
+
+:::
+::::
+
+### Negation
+::::tip Negation
+
+The negation of a statement $P$, denoted by $\neg P$, read as **NOT** $P$, is the statement that reverses the truth value of $P$.
+:::info Example
+<div style={{ width: 'fit-content', margin: '0 auto' }}>
+
+| Statement | Negation |
+|:---------:|:--------:|
+| $x>3$ | $x\le 3$ |
+| $x\ge 5$ | $x<5$ |
+| $x$ is even | $x$ is not even |
+| Every student come to class | At least one student not come to class |
+</div>
+:::
+::::
+
+### Tautology
+
+::::tip Tautology
+
+A Tautology is a statement that is true for every assignment, denoted by $\top P$
+:::info Example
+
+1. Let $P$ be a statement, then $P\lor \neg P \equiv \top$, means $P\lor \neg P$ is always true.
+<div style={{ width: 'fit-content', margin: '0 auto' }}>
+
+| $P$ | $Q$ | $P \lor \neg Q$ ($P$ **OR** (NOT $Q$)) |
+|:---:|:---:|:-----------:|
+| T | F | T |
+| F | T | T |
+
+</div>
+:::
+
+::::
+
+### Contradiction
+
+::::tip Contradiction
+
+A Contradiction is a statement that is false for every assignment, denoted by $\bot P$
+:::info Example
+
+1. Let $P$ be a statement, then $P\land \neg P \equiv \bot$, means $P\land \neg P$ is always false.
+<div style={{ width: 'fit-content', margin: '0 auto' }}>
+
+| $P$ | $Q$ | $P \land \neg Q$ ($P$ **OR** (NOT $Q$)) |
+|:---:|:---:|:-----------:|
+| T | F | F |
+| F | T | F |
+</div>
+
+:::
+
+::::
+
+## De Morgan's Law
+
+:::tip De Morgan's First Law
+Let $P$ and $Q$ be two statements, then De Morgan's Second Law says:
+$$
+\neg(P\land Q)\equiv  \neg P\lor \neg Q
+$$
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+<div style={{ width: 'fit-content', margin: '0 auto' }}>
+
+| $P$ | $Q$ | $P \land Q$  | $\neg (P \land Q)$ | $\neg P$ | $\neg Q$ | $\neg P\lor \neg Q$ |
+|:---:|:---:|:-----------:|:-----------:|:---:|:---:|:-----------:|
+| T | T | T | F | F | F | F |
+| T | F | F | T | F | T | T |
+| F | T | F | T | T | F | T |
+| F | F | F | T | T | T | T |
+</div>
+
+</details>
+:::
+
+:::tip De Morgan's Second Law
+Let $P$ and $Q$ be two statements, then De Morgan's Second Law says:
+$$
+\neg(P\lor Q) \equiv \neg P\land \neg Q
+$$
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+<div style={{ width: 'fit-content', margin: '0 auto' }}>
+| $P$ | $Q$ | $P \lor Q$  | $\neg (P \lor Q)$ | $\neg P$ | $\neg Q$ | $\neg P\land \neg Q$ |
+|:---:|:---:|:-----------:|:-----------:|:---:|:---:|:-----------:|
+| T | T | T | F | F | F | F |
+| T | F | T | F | F | T | F |
+| F | T | T | F | T | F | F |
+| F | F | F | T | T | T | T |
+</div>
+</details>
+:::
