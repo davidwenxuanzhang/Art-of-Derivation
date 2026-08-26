@@ -175,7 +175,9 @@ $$
 | F | T | F | T | T | F | T |
 | F | F | F | T | T | T | T |
 </div>
-
+<div style={{ textAlign: 'right' }}>
+  $\blacksquare$
+</div>
 </details>
 :::
 
@@ -194,5 +196,94 @@ $$
 | F | T | T | F | T | F | F |
 | F | F | F | T | T | T | T |
 </div>
+<div style={{ textAlign: 'right' }}>
+  $\blacksquare$
+</div>
 </details>
 :::
+
+## Practice Questions
+
+:::warning Question 1
+
+Simplify $\neg \big( (x>2) \land (x<5)\big)$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+By De Morgan's First Law:
+
+$$
+\neg \big( (x>2) \land (x<5)\big)\equiv \neg (x>2) \lor \neg (x<5) \tag*{$\blacksquare$}
+$$
+
+</details>
+
+:::
+
+:::warning Question 2
+
+Cibstryct tge Truth Table for $(P\lor Q )\land (\neg Q)$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+<div style={{ width: 'fit-content', margin: '0 auto' }}>
+| $P$ | $Q$ | $P \lor Q$  | $\neg Q$ | $(P\lor Q)\land (\neg Q)$ | 
+|:---:|:---:|:-----------:|:-----------:|:---:|
+| T | T | T | F | F | 
+| T | F | T | T | T | 
+| F | T | T | F | F | 
+| F | F | F | T | F | 
+
+</div>
+<div style={{ textAlign: 'right' }}>
+  $\blacksquare$
+</div>
+</details>
+
+:::
+
+:::warning Question 3
+
+Simplify $\neg (P\land Q\land R)\lor \neg(P\land Q)$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+$$
+\begin{align*}
+    \neg (P\land Q\land R)\lor \neg(P\land Q)&\equiv \neg\big(\underbrace{(P\land Q\land R)\land (P\land \neg Q)}_{\text{Contradiction}}\big)&&(\text{De Morgan's Second Law})\\
+                                             &\equiv \text{Taugology}  \tag*{$\blacksquare$}
+\end{align*}
+$$
+</details>
+
+:::
+
+::::warning Question 4
+
+Prove the following law:
+:::tip Distributive Law
+$$
+(P\lor Q)\land R\equiv (P\land R) \lor (Q\land R)
+$$
+:::
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+<div style={{ width: 'fit-content', margin: '0 auto' }}>
+| $P$ | $Q$ | $R$  | $P\lor Q$ | $(P\lor Q)\land R$ | $P\land R$ | $Q\land R$ |$(P\land R)\lor (Q\land R)$ |
+|:---:|:---:|:---:|:-----------:|:-----------:|:---:|:---:|:---:|
+| T | T | T | T | T | T | T | T |
+| T | T | F | T | F | F | F | F |
+| T | F | T | T | T | T | F | T |
+| T | F | F | T | F | F | F | F |
+| F | T | T | T | T | F | T | T |
+| F | T | F | T | F | F | F | F |
+| F | F | T | F | F | F | F | F |
+| F | F | F | F | F | F | F | F |
+</div>
+<div style={{ textAlign: 'right' }}>
+  $\blacksquare$
+</div>
+</details>
+::::
