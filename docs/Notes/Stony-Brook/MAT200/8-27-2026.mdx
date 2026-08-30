@@ -1,0 +1,172 @@
+---
+title: 8/27/2026
+sidebar_label: 8/27/2026
+sidebar_position: 3
+---
+
+## Terminologies
+
+### Implication 
+
+::::tip Implication
+
+Implication is a statement of the form $P \implies Q$, meaning that "if $P$, then $Q$" or "$P$ **implies** $Q$", where $P$ is used as hypothesis and $Q$ follows as a conclusion.
+<div style={{ width: 'fit-content', margin: '0 auto' }}>
+
+| $P$ | $Q$ | $P \implies Q$ |
+|:---:|:---:|:-----------:|
+| T | T | T |
+| T | F | F |
+| F | T | T |
+| F | F | T |
+</div>
+:::danger Remark
+If $P\implies Q$, this does not give $P\implies Q$.
+:::
+
+:::info Example 
+
+1. Let $P(x)>3$ and $Q(x)>0$, then $P\implies Q$  
+    → **True**, because if $x>3$ then indeed $x>0$
+
+2. For real $x$, $x^2=4 \implies x=2$   
+    → **False**, because $x=-2$ also satisfies $x^2=4$, but $-2\ne 2$
+
+3. Over the real $x$, $x=2\implies x^2=4$  
+    → **True**
+:::
+:::note Alternative Expressions
+There are many other alternative expressions for $P\implies Q$
+- If $P$, then $Q$
+- $P$ implies $Q$
+- $Q$ if $P$
+- $P$ only if $Q$
+- $Q$ whenever $P$
+- $P$ is sufficient for $Q$
+- $Q$ is necessary for $P$
+:::
+
+::::
+
+### Converse 
+
+:::tip Converse
+
+The **Converse** of $P\implies Q$ is  $Q\implies P$
+
+:::
+
+
+### Inverse 
+
+:::tip Inverse
+
+The **Inverse** of $P\implies Q$ is  $\neg P\implies \neg Q$
+
+:::
+
+### Contrapositive 
+
+:::tip Contrapositive
+
+The **Contrapositive** of $P\implies Q$ is  $\neg Q\implies \neg P$
+
+:::
+
+### Equivalent 
+
+:::tip Equivalent 
+
+$P$ is **Equivalent** to $Q$ if $P\iff Q$, meaning $P\implies Q$ and $Q\implies P$, read as "$P$ if and only if $Q$" (iff)
+
+:::
+
+## Lemma
+
+:::tip Lemma 1
+$$
+P \implies Q \equiv \neg P \lor Q
+$$
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+<div style={{ width: 'fit-content', margin: '0 auto' }}>
+
+| $P$ | $Q$ | $P \implies Q$ | $\neg P$ | $\neg P\lor Q$ |
+|:---:|:---:|:-----------:|:---:|:---:|
+| T | T | T | F | T |
+| T | F | F | F | F |
+| F | T | T | T | T |
+| F | F | T | T | T |
+</div>
+<div style={{ textAlign: 'right' }}>
+  $\blacksquare$
+</div>
+</details>
+:::
+
+:::tip Lemma 2
+
+$$
+P\implies Q \equiv \neg Q \implies\neg P
+$$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+- $P\implies Q$ says that  if $P$ is true then $Q$ is true.
+- Assume $\neg Q$ is true, $P$ cannot be true because that would imply $Q$ is true
+- Hence $\neg P$ is true
+<div style={{ textAlign: 'right' }}>
+  $\blacksquare$
+</div>
+</details>
+:::
+
+## Practice Question
+
+:::warning Question 1
+Construct the truth tables of $P\land Q \implies R$ and  $R\implies P\land Q$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+<div style={{ width: 'fit-content', margin: '0 auto' }}>
+| $P$ | $Q$ | $R$  | $P\land Q$ | $P\land Q \implies R$ | $R\implies P\land Q$ |
+|:---:|:---:|:---:|:-----------:|:-----------:|:---:|
+| T | T | T | T | T | T | 
+| T | T | F | T | F | T | 
+| T | F | T | F | T | F | 
+| T | F | F | F | T | T | 
+| F | T | T | F | T | F | 
+| F | T | F | F | T | T | 
+| F | F | T | F | T | F | 
+| F | F | F | F | T | T | 
+</div>
+<div style={{ textAlign: 'right' }}>
+  $\blacksquare$
+</div>
+</details>
+:::
+
+:::warning Question 2
+Construct the truth tables of $P\lor Q \implies R$ and  $R\implies P\lor Q$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+<div style={{ width: 'fit-content', margin: '0 auto' }}>
+| $P$ | $Q$ | $R$  | $P\lor Q$ | $P\lor Q \implies R$ | $R\implies P\lor Q$ |
+|:---:|:---:|:---:|:-----------:|:-----------:|:---:|
+| T | T | T | T | T | T | 
+| T | T | F | T | F | T | 
+| T | F | T | T | T | T | 
+| T | F | F | T | F | T | 
+| F | T | T | T | T | T | 
+| F | T | F | T | F | T | 
+| F | F | T | F | T | F | 
+| F | F | F | F | T | T | 
+</div>
+<div style={{ textAlign: 'right' }}>
+  $\blacksquare$
+</div>
+</details>
+:::
