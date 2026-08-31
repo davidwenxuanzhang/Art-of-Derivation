@@ -72,3 +72,67 @@ $$
 </div>
 </details>
 :::
+
+### Implication
+
+::::tip Implication
+
+Implication denoted as $P\rightarrow Q$, which means if $P$ then $Q$, or $Q$ is necessary for $P$, $Q$ whenever $P$, where $P$ is the antecedent and $Q$ is the consequant
+<div style={{ width: 'fit-content', margin: '0 auto' }}>
+
+| $P$ | $Q$ | $P \rightarrow Q$ |
+|:---:|:---:|:-----------:|
+| T | T | T |
+| T | F | F |
+| F | T | T |
+| F | F | T |
+</div>
+:::info Example
+If Earth is bigger than Jupiter, then $2+3=6$. This is a valid implication.
+:::
+
+::::
+
+:::tip Auxiliaries to Implication
+Suppose $P \rightarrow Q$ is an implication, then 
+- $Q\rightarrow P$ is its **Converse**
+- $\neg P\rightarrow \neg Q$ is its **Inverse**
+- $\neg Q\rightarrow \neg P$ is its **Contrapositive**, and $P\rightarrow Q\equiv \neg Q\rightarrow \neg P$
+:::
+
+### Rules of Inference
+
+We should not confuse iplication with inference, because inference is how we draw conclusion, and it needs follow from certain rules.
+
+::::tip Modus Ponens
+If $P$ istrue, and $P\rightarrow Q$ is true, then we infer that $Q$ is true, as: 
+$$
+\big(P\land (P\rightarrow Q) \big)\implies Q
+$$
+:::note Notation
+Note that we use $\implies$ (\implies) only when we draw inference in this class, which is equivalent to "therefore"
+:::
+::::
+
+:::tip Modus Tollens
+If $\neg P$ is true, and $P\rightarrow Q$ is true, then weinfer that $\neg P$ is true, as:
+$$
+\big((\neg Q)\land (P\rightarrow Q)\big)\implies \neg P
+$$
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+From Modus Ponens:
+
+$$
+\big(\neg Q\land (\neg Q\rightarrow \neg P) \big)\implies \neg P
+$$
+According to $P\rightarrow Q\equiv \neg Q\rightarrow \neg P$:
+
+$$
+\big((\neg Q)\land (P\rightarrow Q)\big)\implies \neg P  \tag*{$\blacksquare$}
+$$
+
+
+</details>
+:::
