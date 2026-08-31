@@ -6,8 +6,8 @@ sidebar_position: 4
 
 Prerequisite Material Review (All can be found in Appendix A):
 
-- Optimization/series/numerical Integration 
-- Set Theory/Combinatorics (supplemental crashcourse video)
+- Optimization/Series/Numerical Integration 
+- Set Theory/Combinatorics (supplemental crash course video)
 - Logic (focus of today's lecture) 
 
 ## Logic
@@ -17,10 +17,10 @@ Logic is the study of truth.
 
 ::::tip Proposition
 
-Proposition is a statement that is either true or false but not both
+A proposition is a statement that is either true or false but not both
 
 :::info Example
-1. Albany is the capital of New York 
+1. Albany is the capital of New York  
     → A **True Proposition**
 
 2. Today (8/28/2026) is Saturday  
@@ -39,18 +39,18 @@ Proposition is a statement that is either true or false but not both
 Propositional Calculus gives operations and relations on propositions:
 
 <div style={{ width: 'fit-content', margin: '0 auto' }}>
-| Name | Notation | Notion |
+| Name | Notation | Meaning |
 |:---|:---|:-----------|
 | Not/Negation | $\neg P$ | True if $P$ is false, and false if $P$ is true |
 | And | $P\land Q$ | True if both $P$ and $Q$ are true, and false otherwise |
-| Or | $P\lor Q$ | True if either $P$ or $Q$ is true, and false otherwise |
+| Or | $P\lor Q$ | True if at least one of $P$ and $Q$ is true, and false otherwise |
 </div>
 
 :::
 
-### De Morgan's Law
+### De Morgan's Laws
 
-:::tip De Morgan's Law
+:::tip De Morgan's Laws
 $$
 \neg (P\land Q)\equiv \neg P \lor \neg Q \qquad \text{and}\qquad \neg (P\lor Q)\equiv \neg P \land \neg Q
 $$
@@ -77,7 +77,7 @@ $$
 
 ::::tip Implication
 
-Implication denoted as $P\rightarrow Q$, which means if $P$ then $Q$, or $Q$ is necessary for $P$, $Q$ whenever $P$, where $P$ is the antecedent and $Q$ is the consequant
+Implication denoted as $P\rightarrow Q$, which means if $P$ then $Q$, or $Q$ is necessary for $P$, or $Q$ whenever $P$, where $P$ is the antecedent and $Q$ is the consequent
 <div style={{ width: 'fit-content', margin: '0 auto' }}>
 
 | $P$ | $Q$ | $P \rightarrow Q$ |
@@ -87,13 +87,16 @@ Implication denoted as $P\rightarrow Q$, which means if $P$ then $Q$, or $Q$ is 
 | F | T | T |
 | F | F | T |
 </div>
+
 :::info Example
+
 If Earth is bigger than Jupiter, then $2+3=6$. This is a valid implication.
+
 :::
 
 ::::
 
-:::tip Auxiliaries to Implication
+:::tip Related Conditionals
 Suppose $P \rightarrow Q$ is an implication, then 
 - $Q\rightarrow P$ is its **Converse**
 - $\neg P\rightarrow \neg Q$ is its **Inverse**
@@ -102,10 +105,10 @@ Suppose $P \rightarrow Q$ is an implication, then
 
 ### Rules of Inference
 
-We should not confuse iplication with inference, because inference is how we draw conclusion, and it needs follow from certain rules.
+We should not confuse implication with inference, because inference is how we draw conclusions, and it needs to follow from certain rules.
 
 ::::tip Modus Ponens
-If $P$ istrue, and $P\rightarrow Q$ is true, then we infer that $Q$ is true, as: 
+If $P$ is true, and $P\rightarrow Q$ is true, then we infer that $Q$ is true, as: 
 $$
 \big(P\land (P\rightarrow Q) \big)\implies Q
 $$
@@ -115,7 +118,7 @@ Note that we use $\implies$ (\implies) only when we draw inference in this class
 ::::
 
 :::tip Modus Tollens
-If $\neg P$ is true, and $P\rightarrow Q$ is true, then weinfer that $\neg P$ is true, as:
+If $\neg Q$ is true, and $P\rightarrow Q$ is true, then we infer that $\neg P$ is true, as:
 $$
 \big((\neg Q)\land (P\rightarrow Q)\big)\implies \neg P
 $$
