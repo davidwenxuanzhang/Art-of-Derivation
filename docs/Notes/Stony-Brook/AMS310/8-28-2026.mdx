@@ -1,0 +1,74 @@
+---
+title: 8/28/2026 - Lecture 3
+sidebar_label: 8/28/2026
+sidebar_position: 4
+---
+
+Prerequisite Material Review (All can be found in Appendix A):
+
+- Optimization/series/numerical Integration 
+- Set Theory/Combinatorics (supplemental crashcourse video)
+- Logic (focus of today's lecture) 
+
+## Logic
+Logic is the study of truth.
+
+### Proposition
+
+::::tip Proposition
+
+Proposition is a statement that is either true or false but not both
+
+:::info Example
+1. Albany is the capital of New York 
+    → A **True Proposition**
+
+2. Today (8/28/2026) is Saturday  
+    → A **False Proposition**
+
+3. $2+3=5$  
+    → A **True Proposition**
+:::
+
+::::
+
+### Propositional Calculus
+
+:::tip Propositional Calculus
+
+Propositional Calculus gives operations and relations on propositions:
+
+<div style={{ width: 'fit-content', margin: '0 auto' }}>
+| Name | Notation | Notion |
+|:---|:---|:-----------|
+| Not/Negation | $\neg P$ | True if $P$ is false, and false if $P$ is true |
+| And | $P\land Q$ | True if both $P$ and $Q$ are true, and false otherwise |
+| Or | $P\lor Q$ | True if either $P$ or $Q$ is true, and false otherwise |
+</div>
+
+:::
+
+### De Morgan's Law
+
+:::tip De Morgan's Law
+$$
+\neg (P\land Q)\equiv \neg P \lor \neg Q \qquad \text{and}\qquad \neg (P\lor Q)\equiv \neg P \land \neg Q
+$$
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+<div style={{ width: 'fit-content', margin: '0 auto', overflowX: 'auto' }}>
+
+| $P$ | $Q$ | $P\land Q$ | $\neg (P\land Q)$ | $P\lor Q$ | $\neg (P\lor Q)$ | $\neg P$ | $\neg Q$ | $\neg P\lor \neg Q$ | $\neg P\land \neg Q$ |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| T | T | T | <span style={{color:'#2563eb'}}>F</span> | T | <span style={{color:'#ea580c'}}>F</span> | F | F | <span style={{color:'#2563eb'}}>F</span> | <span style={{color:'#ea580c'}}>F</span> |
+| T | F | F | <span style={{color:'#2563eb'}}>T</span> | T | <span style={{color:'#ea580c'}}>F</span> | F | T | <span style={{color:'#2563eb'}}>T</span> | <span style={{color:'#ea580c'}}>F</span> |
+| F | T | F | <span style={{color:'#2563eb'}}>T</span> | T | <span style={{color:'#ea580c'}}>F</span> | T | F | <span style={{color:'#2563eb'}}>T</span> | <span style={{color:'#ea580c'}}>F</span> |
+| F | F | F | <span style={{color:'#2563eb'}}>T</span> | F | <span style={{color:'#ea580c'}}>T</span> | T | T | <span style={{color:'#2563eb'}}>T</span> | <span style={{color:'#ea580c'}}>T</span> |
+</div>
+
+<div style={{ textAlign: 'right' }}>
+  $\blacksquare$
+</div>
+</details>
+:::
