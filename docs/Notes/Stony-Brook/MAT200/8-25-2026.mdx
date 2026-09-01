@@ -170,10 +170,10 @@ $$
 
 | $P$ | $Q$ | $P \land Q$  | $\neg (P \land Q)$ | $\neg P$ | $\neg Q$ | $\neg P\lor \neg Q$ |
 |:---:|:---:|:-----------:|:-----------:|:---:|:---:|:-----------:|
-| T | T | T | F | F | F | F |
-| T | F | F | T | F | T | T |
-| F | T | F | T | T | F | T |
-| F | F | F | T | T | T | T |
+| T | T | T | <span style={{color:'#2563eb'}}>F</span> | F | F | <span style={{color:'#2563eb'}}>F</span> |
+| T | F | F | <span style={{color:'#2563eb'}}>T</span> | F | T | <span style={{color:'#2563eb'}}>T</span> |
+| F | T | F | <span style={{color:'#2563eb'}}>T</span> | T | F | <span style={{color:'#2563eb'}}>T</span> |
+| F | F | F | <span style={{color:'#2563eb'}}>T</span> | T | T | <span style={{color:'#2563eb'}}>T</span> |
 </div>
 <div style={{ textAlign: 'right' }}>
   $\blacksquare$
@@ -191,10 +191,10 @@ $$
 <div style={{ width: 'fit-content', margin: '0 auto' }}>
 | $P$ | $Q$ | $P \lor Q$  | $\neg (P \lor Q)$ | $\neg P$ | $\neg Q$ | $\neg P\land \neg Q$ |
 |:---:|:---:|:-----------:|:-----------:|:---:|:---:|:-----------:|
-| T | T | T | F | F | F | F |
-| T | F | T | F | F | T | F |
-| F | T | T | F | T | F | F |
-| F | F | F | T | T | T | T |
+| T | T | T | <span style={{color:'#ea580c'}}>F</span> | F | F | <span style={{color:'#ea580c'}}>F</span> |
+| T | F | T | <span style={{color:'#ea580c'}}>F</span> | F | T | <span style={{color:'#ea580c'}}>F</span> |
+| F | T | T | <span style={{color:'#ea580c'}}>F</span> | T | F | <span style={{color:'#ea580c'}}>F</span> |
+| F | F | F | <span style={{color:'#ea580c'}}>T</span> | T | T | <span style={{color:'#ea580c'}}>T</span> |
 </div>
 <div style={{ textAlign: 'right' }}>
   $\blacksquare$
@@ -279,14 +279,14 @@ $$
 <div style={{ width: 'fit-content', margin: '0 auto' }}>
 | $P$ | $Q$ | $R$  | $P\lor Q$ | $(P\lor Q)\land R$ | $P\land R$ | $Q\land R$ |$(P\land R)\lor (Q\land R)$ |
 |:---:|:---:|:---:|:-----------:|:-----------:|:---:|:---:|:---:|
-| T | T | T | T | T | T | T | T |
-| T | T | F | T | F | F | F | F |
-| T | F | T | T | T | T | F | T |
-| T | F | F | T | F | F | F | F |
-| F | T | T | T | T | F | T | T |
-| F | T | F | T | F | F | F | F |
-| F | F | T | F | F | F | F | F |
-| F | F | F | F | F | F | F | F |
+| T | T | T | T | <span style={{color:'#2563eb'}}>T</span> | T | T | <span style={{color:'#2563eb'}}>T</span> |
+| T | T | F | T | <span style={{color:'#2563eb'}}>F</span> | F | F | <span style={{color:'#2563eb'}}>F</span> |
+| T | F | T | T | <span style={{color:'#2563eb'}}>T</span> | T | F | <span style={{color:'#2563eb'}}>T</span> |
+| T | F | F | T | <span style={{color:'#2563eb'}}>F</span> | F | F | <span style={{color:'#2563eb'}}>F</span> |
+| F | T | T | T | <span style={{color:'#2563eb'}}>T</span> | F | T | <span style={{color:'#2563eb'}}>T</span> |
+| F | T | F | T | <span style={{color:'#2563eb'}}>F</span> | F | F | <span style={{color:'#2563eb'}}>F</span> |
+| F | F | T | F | <span style={{color:'#2563eb'}}>F</span> | F | F | <span style={{color:'#2563eb'}}>F</span> |
+| F | F | F | F | <span style={{color:'#2563eb'}}>F</span> | F | F | <span style={{color:'#2563eb'}}>F</span> |
 </div>
 <div style={{ textAlign: 'right' }}>
   $\blacksquare$
