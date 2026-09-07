@@ -1,0 +1,133 @@
+---
+title: 9/1/2026 - Lecture 3
+sidebar_label: 9/1/2026
+sidebar_position: 4
+---
+
+## Statements
+
+::::tip Statement
+
+- Original Statement: $A \implies B$
+- Converse Statement: $B \implies A$
+- Inverse Statement: $\neg A \implies \neg B$
+- Contrapositive:  $\neg B \implies \neg A$
+:::info Example 
+
+Let $A:x>5$, $B:x>2$,
+
+- Implication: If $x>5$, then $x>2$
+- Converse: If $x>2$, then $x>5$
+- Inverse: If $x\le 5$, then $x\le 2$
+- Contrapositive: If $x\le 2$, then $x\le 5$
+:::
+::::
+
+## Predicate/Proposition
+
+:::info Example
+
+- $P(x):x^2>4$, and $x$ is a free variable; thus, this is a **Predicate**
+- $P(3):3^2>4$, this is a True Proposition
+
+:::
+
+## Quantified Statement
+
+::::tip Universal Statement
+
+**Universal Statement** is of the form $\forall x\  P(x)$, read as "for all $x$, $P(x)$ is true", and $\forall$ is called **Universal Quantifier**
+
+::::
+
+:::tip Existential Statement
+
+**Existential Statement** is of the form $\exists x\ P(x)$, read as "there exists an $x$ such that $P(x)$ holds", and $\exists$ is called **Existential Quantifier**
+
+:::
+
+:::tip Unique Existential
+
+**Unique Existential Statement** is of the form $\exists! x\ P(x)$, read as "there is a unique $x$ such that $P(x)$ holds", and $\exists !$ is called **Unique Existential Quantifier**
+
+:::
+
+::::info Examples
+- $\forall  x\in \mathbb{R},\  \ x^2 \ge 0$ → "For all real numbers $x$, $x^2$ is greater than or equal to 0" → a true proposition
+- $\exists x \in \mathbb{R}: \ x^2 < 0 $ → "There exists a real number $x$ such that $x^2$ is less than 0" → a false proposition
+- $\exists x \in \mathbb{R}: \ x^2 = 9 $ → "There exists a real number $x$ such that $x^2$ is equal to 9" → a true proposition
+- $\forall  n\in \mathbb{Z},\  \ n+1 > n$ → "For all integers $n$, $n+1$ is greater than $n$" → a true proposition
+- $\exists n \in \mathbb{Z}: \ n^2 = 2 $ → "There exists an integer $n$ such that $n^2$ is equal to 2" → a false proposition
+- $\exists! x \in \mathbb{R}: \ x+3 = 0 $ → "There exists a unique real number $x$ such that $x+3=0$" → a true proposition
+:::note Bound
+Additionally, we say $x$ is bound by those quantifiers
+:::
+::::
+
+### Negating Quantifier
+
+::::tip Negating Quantifier
+We can negate a quantified statement in two ways:
+$$
+\begin{align*}
+    \neg\big(\forall x\  P(x)\big)&\iff \exists x\ \neg P(x)\\
+    \neg\big(\exists x\  P(x)\big)&\iff \forall x\  \neg P(x)\\
+\end{align*}
+$$
+:::note Negation Review
+Some additional negation rules we saw previously: 
+- $\neg(A\land B)\equiv \neg A\lor \neg B$
+- $\neg(A\lor B)\equiv \neg A\land \neg B$
+- $\neg(\neg A)\equiv A$
+- $\neg(A\implies B)\equiv A\land \neg B$
+:::
+:::info Examples
+1. Negate: $\forall x\in \mathbb{R}\ , x^2>1$  
+    → $\exists x\in \mathbb{R}: x^2\le 1$
+2. Negate: "Everyone comes to class"  
+    → At least one student does not come to class
+3. Negate: $\forall x\in \mathbb{R}\ , x>0 \implies x+1>1$  
+    → $\exists x\in \mathbb{R}: x>0\land x+1\le 1$    
+:::
+::::
+
+### Free vs. Bound Variables
+
+:::info Example
+Distinguish the variables in each statement and check whether it is free or bound variable:
+1. $\forall x \in \mathbb{R} ,\ x<y$ → $x$ is bound, $y$ is free
+2. $\exists y\in \mathbb{R} : x+y=0$ → $x$ is free, $y$ is bound
+3. $\forall x \in \mathbb{R},\  \exists y\in \mathbb{R}: x+y=0$ → $x$ is bound, $y$ is bound
+:::
+
+### Example
+
+:::info Example
+
+Let:
+$$
+P(\epsilon): \epsilon >0 \qquad Q(n):n\in \mathbb{N}\qquad S(\epsilon, n):\frac{1}{n}<\epsilon
+$$
+Then:
+$$
+\forall \epsilon > 0,\ \exists n\in\mathbb{N}:\frac{1}{n}<\epsilon
+$$
+$$
+    \forall \epsilon \Bigl(P(\epsilon)\implies \exists n\big(Q(n)\land S(\epsilon,n) \big) \Bigr)
+$$
+However, if we change the order: 
+$$
+\exists n\in\mathbb{N}: \forall \epsilon > 0,\ \frac{1}{n}<\epsilon
+$$
+
+$$
+\exists n \Bigl(Q(n)\land \forall \epsilon\big(P(\epsilon)\implies S(\epsilon,n) \big) \Bigr)
+$$
+which shows the order of different quantifiers matters
+
+If we add a negation to our first statement: 
+
+$$
+\neg(\forall \epsilon > 0,\ \exists n\in\mathbb{N}:\frac{1}{n}<\epsilon)\equiv \exists \epsilon>0, \ \forall n\in \mathbb{N}:\frac{1}{n}\ge \epsilon
+$$
+:::
