@@ -6,7 +6,7 @@ sidebar_position: 5
 
 ## Review
 
-:::warning Excercise
+:::warning Exercise
 
 Complete the following truth table:
 
@@ -33,3 +33,165 @@ Complete the following truth table:
 </div>
 </details>
 :::
+
+### Quantified Statement 
+
+::::tip Quantified Statement 
+
+<div style={{ width: 'fit-content', margin: '0 auto' }}>
+
+| Quantifier | Symbol | Meaning |
+|:---:|:---:|:-----------:|
+| Universal | $\forall x$ | For every $x$ | 
+| Existential | $\exists x $ | There exists an $x$ | 
+| Unique Existential | $\exists! x$ | There exists exactly one $x$ | 
+</div>
+:::info Example
+
+Write the following statements in symbolic form:
+
+1. Every real number $x$ has a larger real number $y$  
+      → $\forall x \in \mathbb{R},\ \exists y \in \mathbb{R}: y>x$
+2. There exists exactly one real solution to $x+4=0$  
+      → $\exists!x\in \mathbb{R}: x+4=0 $
+3. Regardless of which real $x$ is chosen, one can find a real $y$ with $y<x$  
+      → $\forall x\in \mathbb{R}, \ \exists y \in \mathbb{R}: y<x$
+:::
+::::
+
+### Practice Questions
+
+:::warning Question 1
+
+Distinguish whether the following statement is true or false: 
+
+$$
+\big(\forall x,\ \exists y: P(x,y)\big) \iff \big(\exists y:\forall x, \ P(x,y)\big)
+$$
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+False. A counterexample:
+$$
+\exists y\in \mathbb{R}: \forall x\in \mathbb{R}, \ y<x 
+$$
+is false, where:
+$$
+\forall x \in\mathbb{R},\ \exists y \in\mathbb{R}: y<x
+$$
+is true, therefore:
+$$
+\big(\forall x,\ \exists y: P(x,y)\big) \not\iff \big(\exists y:\forall x, \ P(x,y)\big) \tag*{$\blacksquare$}
+$$
+</details>
+:::
+
+:::warning Question 2
+Is the following implication true?
+
+$$
+\big(\exists y:\forall x, \ P(x,y)\big)\implies \big(\forall x,\ \exists y: P(x,y)\big)
+$$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+:::
+
+:::warning Question 3
+
+Let $x$ and $y$ be real numbers; let $P(x,y):x^2+y>0$. Construct all possible quantified statements in which $x$ and $y$ are each quantified exactly once, and determine the truth value of each statement.
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+<div style={{ width: 'fit-content', margin: '0 auto' }}>
+
+| Quantified Sentence | Truth Value | Justify |
+|:---:|:---:|:-----------:|
+| $\forall x\in\mathbb{R}, \ \forall y \in \mathbb{R}, \ x^2+y>0$ | F |  | 
+| $\forall x\in\mathbb{R}, \ \exists y \in \mathbb{R}: x^2+y>0$ | T |  | 
+| $\exists x\in\mathbb{R}: \forall y \in \mathbb{R}, \ x^2+y>0$ | F |  | 
+| $\forall y\in\mathbb{R}, \ \exists x \in \mathbb{R}: x^2+y>0$ | T |  | 
+| $\exists y\in\mathbb{R}: \forall x \in \mathbb{R}, \ x^2+y>0$ | T |  | 
+| $\exists x\in\mathbb{R}: \exists y \in \mathbb{R}: x^2+y>0$ | T |  | 
+</div>
+<div style={{ textAlign: 'right' }}>
+  $\blacksquare$
+</div>
+</details>
+
+Negate $\forall x\in\mathbb{R}, \ \exists y \in \mathbb{R}: x^2+y>0$:
+
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+Using the [Negation Rules](./9-1-2026.mdx#Negating-Quantifier):
+
+$$
+\exists x\in\mathbb{R}: \forall y \in \mathbb{R},\  x^2+y\le 0 \tag*{$\blacksquare$}
+$$
+
+</details>
+
+:::
+
+:::warning Question 4
+
+Let $x\in \mathbb{R}, \ y\in \mathbb{R}, \ P(x,y):x^2+y^2\le 1, \ Q(x,y):x\le y$. Find: $P\land Q, \ P\lor Q, \ P\land \neg Q,\, \ \neg P\land Q $
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+The best way to do this is through graphing: 
+
+<div style={{ width: 'fit-content', margin: '0 auto' }}>
+
+ 
+| Title | Graph | Mathematical Expression |
+|:---:|:---:|:-----------:|
+| $P\land Q$ | | $\{(x,y):x\le y \text{ and }x^2+y^2\le 1 \}$ | 
+| $P\lor Q$ |  | $\{(x,y):x\le y\}\cup \{(x,y):x>y \text{ and }x^2+y^2\le 1 \}$ | 
+| $ P\land \neg Q$ |  | $\{(x,y):x> y \text{ and }x^2+y^2\le 1 \}$ |
+| $ \neg P\land Q$ |  | $\{(x,y):x\le y \text{ and }x^2+y^2> 1\}$ |
+</div> 
+ 
+<div style={{ textAlign: 'right' }}>
+  $\blacksquare$
+</div>
+
+</details>
+
+:::
+::::warning Question 5
+
+Negate: $\forall x\in \mathbb{R}, \ \exists y\in \mathbb{R}:x>0\implies y>x $
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+Using the [Negation Rules](./9-1-2026.mdx#Negating-Quantifier):
+
+$$
+\exists x\in \mathbb{R}: \forall y\in \mathbb{R}, x>0\land y\le x \tag*{$\blacksquare$}
+$$
+</details>
+
+Negate: $\forall x\in \mathbb{R},\ \exists!y\in \mathbb{R}: x+y=0$
+
+:::note Tip
+To negate a unique-existential ($\exists!$) statement, there are two cases: no solution, or more than one solution.
+:::
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+Using the [Negation Rules](./9-1-2026.mdx#Negating-Quantifier):
+
+$$
+\begin{align*}
+          &\exists x\in \mathbb{R}: \neg (\exists!y\in \mathbb{R}: x+y=0)\\
+    \equiv&\exists x\in \mathbb{R}:\big((\forall y\in \mathbb{R},\ x+y\ne 0)\lor (\exists y,\ z\in \mathbb{R}: y\ne z\land x+y=0\land x+z=0) \big) \tag*{$\blacksquare$}
+\end{align*}
+$$
+</details>
+::::
