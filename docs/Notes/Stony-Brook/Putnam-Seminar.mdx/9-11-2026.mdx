@@ -1,0 +1,367 @@
+---
+title: 9/11/2026 - Induction and Pigeonhole
+sidebar_label: 9/11/2026
+sidebar_position: 1
+---
+
+Problems in this section could be found from [Handout](https://www.math.stonybrook.edu/~rdhough/putnam_seminar/2026/induction_pigeonhole.pdf). I will rephrase each problem a little and present solutions below.
+
+## Induction
+
+::::tip Induction
+
+We will explain this with an example:
+
+:::info Example
+Prove: 
+$$
+1+2+\cdots +n=\frac{n(n+1)}{2}
+$$
+
+Let $1+2+\cdots +n=P_n$, then our Base Case :
+
+$$
+P_1=1=\frac{1(1+1)}{2}=1
+$$
+
+Induction step: Assume 
+
+$$
+1+2+\cdots +n =\frac{n(n+1)}{2}
+$$
+Then:
+$$
+\implies 1+2+\cdots +n+(n+1)=\frac{n(n+1)}{2}+(n+1)=\frac{(n+1)(n+2)}{2} \tag*{$\blacksquare$}
+$$
+
+:::
+
+::::
+
+## Pigeonhole {#Pigeonhole}
+
+
+::::tip Pigeonhole
+We will explain this with an example:
+:::info Example 
+
+Prove that when choosing 20 numbers from the arithmetic sequence $2,4,7,\dots, 100$, the sum of two numbers should be $104$
+
+All Pigeonholes: $(4,100),\ (7,97),\  (10,94),\ \dots ,\  (49,55)$
+
+:::
+
+::::
+
+
+## Problems
+
+### Problem 1
+
+:::warning Problem 1
+
+Choose 20 distinct terms from the arithmetic progression
+
+$$
+1,4,7,\ldots,100.
+$$
+
+Prove that among the selected terms, there must be two distinct numbers
+whose sum is $104$.
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+See [Pigeonhole Example](docs\Notes\Stony-Brook\Putnam-Seminar.mdx\9-11-2026.mdx#Pigeonhole)
+</details>
+
+:::
+---
+
+### Problem 2
+
+:::warning Problem 2
+
+Suppose $n$ people attend a party. Show that at least two people at the party know exactly the same number of other attendees.
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+:::
+---
+
+### Problem 3
+
+:::warning Problem 3
+
+Five points are placed inside or on the boundary of an equilateral triangle with side length $1$.
+
+Prove that some two of these points are at most
+
+$$
+\frac{1}{2}
+$$
+
+apart.
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+:::
+
+---
+
+### Problem 4
+
+:::warning Problem 4
+
+A **lattice point** is a point $(x,y)$ in the plane whose two coordinates are integers.
+
+Determine the smallest integer $n$ such that every collection of $n$ lattice points must contain two points whose midpoint is also a lattice point.
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+:::
+
+---
+
+### Problem 5
+
+:::warning Problem 5
+
+Prove that for every positive integer $n$, the quantity
+
+$$
+\frac{n^5}{5}
++\frac{n^4}{2}
++\frac{n^3}{3}
+-\frac{n}{30}
+$$
+
+is an integer.
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+:::
+
+---
+
+### Problem 6
+
+:::warning Problem 6
+
+For every positive integer $n$, prove that
+
+$$
+1+\frac{1}{\sqrt{2}}+\frac{1}{\sqrt{3}}
++\cdots+\frac{1}{\sqrt{n}}
+<2\sqrt{n}.
+$$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+Let 
+$$
+P_n=1+\frac{1}{\sqrt{2}}+\frac{1}{\sqrt{2}}+\cdots +\frac{1}{\sqrt{n}}< 2\sqrt {n}
+$$
+Base Case shows: 
+$$
+P_1=1< 2\sqrt {1}=2
+$$
+Induction Step: assume 
+$$
+P_n=1+\frac{1}{\sqrt{2}}+\frac{1}{\sqrt{2}}+\cdots +\frac{1}{\sqrt{n}}< 2\sqrt {n}
+$$
+Then: 
+$$
+P_{n+1}=\frac{1}{\sqrt{2}}+\frac{1}{\sqrt{2}}+\cdots +\frac{1}{\sqrt{n}}+\frac{1}{\sqrt{n+1}}< 2\sqrt{n}+\frac{1}{\sqrt{n+1}}
+$$
+So we are proving: 
+$$
+\begin{align*}
+    2\sqrt{n}+\frac{1}{\sqrt{n+1}}&< 2(\sqrt{n+1}) \\
+    \implies 2\sqrt{n}&< 2(\sqrt{n+1})-\frac{1}{\sqrt{n+1}}\\\\
+    2\sqrt{n}&< \frac{2(n+1)-1}{\sqrt{n+1}}\\
+    \sqrt{n}\sqrt{n+1}&< n+\frac{1}{2}\\
+    n^2+n &<n^2+n+\frac{1}{4} \qquad{(\text{square both side})}  \tag*{$\blacksquare$}
+\end{align*}
+$$
+</details>
+
+:::
+
+---
+
+### Problem 7
+
+:::warning Problem 7
+
+Take any ten distinct two-digit integers.
+
+Show that it is always possible to find two disjoint subsets of these integers such that the sum of the numbers in one subset equals the sum of the numbers in the other.
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+:::
+
+---
+
+### Problem 8
+
+:::warning Problem 8
+
+Let
+
+$$
+A_1,A_2,\ldots,A_{1066}
+$$
+
+be subsets of a finite set $X$, and suppose that each subset contains more than half of the elements of $X$:
+
+$$
+|A_i|>\frac{|X|}{2},
+\qquad
+1\le i\le1066.
+$$
+
+Prove that one can choose ten elements
+
+$$
+x_1,\ldots,x_{10}\in X
+$$
+
+so that every set $A_i$ contains at least one of these ten elements.
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+:::
+
+---
+
+### Problem 9
+
+:::warning Problem 9
+
+Consider any collection of $n+2$ integers.
+
+Prove that there are two of them for which either their sum or their difference is divisible by $2n$.
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+:::
+
+---
+
+### Problem 10
+
+:::warning Problem 10
+
+Suppose
+
+$$
+a_1<a_2<\cdots<a_n
+$$
+
+and
+
+$$
+b_1>b_2>\cdots>b_n,
+$$
+
+and assume that the numbers appearing in the two sequences together are exactly
+
+$$
+\{a_1,\dots, a_n, b_1,\dots, b_n \}=\{1,2,\ldots,2n\}.
+$$
+
+Prove that
+
+$$
+\sum_{i=1}^{n}|a_i-b_i|=n^2
+$$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+:::
+
+---
+
+### Problem 11
+
+:::warning Problem 11
+
+Let $\pi$ be a partition of
+
+$$
+\{1,2,3,4,5,6,7,8,9\}
+$$
+
+For each element $x$, define $\pi(x)$ to be the size of the part of the partition that contains $x$.
+
+Given any two partitions $\pi$ and $\pi'$, prove that there exist two distinct elements $x$ and $y$ such that
+
+$$
+\pi(x)=\pi(y)
+$$
+
+and
+
+$$
+\pi'(x)=\pi'(y).
+$$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+:::
+
+---
+
+### Problem 12
+
+:::warning Problem 12
+
+Let $\mathcal{F}$ be a collection of subsets of
+
+$$
+\{1,2,\ldots,n\}.
+$$
+
+Suppose that every two subsets in $\mathcal{F}$ have at least one element in common.
+
+Prove that
+
+$$
+|\mathcal{F}|\le 2^{n-1}.
+$$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+:::
