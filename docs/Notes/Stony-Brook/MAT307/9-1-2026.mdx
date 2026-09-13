@@ -4,4 +4,184 @@ sidebar_label: 9/1/2026
 sidebar_position: 4
 ---
 
-## Dot Product
+## Cross Product
+
+::::tip Cross Product
+
+Take two vectors $\mathbf{v}, \mathbf{w}\in \mathbb{R}^3$, and ti gives us another vector $\mathbf{v}\times \mathbf{w}$
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gap: "0",
+  }}
+>
+  <div
+    style={{
+      paddingRight: "2rem",
+      borderRight: "1px solid var(--ifm-color-emphasis-300)",
+    }}
+  >
+
+**Geometrically**
+
+Vector $\mathbf{v}\times\mathbf{w}$ is the unique vector satisfying that $\mathbf{v}\times\mathbf{w}$ is orthogonal to both $\mathbf{v}$ and $\mathbf{w}$
+
+The magnitude of $\mathbf{v}\times \mathbf{w}$ is given by:
+
+$$
+\|\mathbf{v}\times\mathbf{w}\|=\|\mathbf{v}\|\|\mathbf{w}\|\sin{\theta}
+$$
+
+The orientation is decided by the right hand rule or look at the the sign of $\sin{\theta}$ that it is up if $\sin{\theta}>0$ and down if $\sin{\theta}< 0$
+
+  </div>
+
+  <div
+    style={{
+      paddingLeft: "2rem",
+    }}
+  >
+
+**Analytically**
+
+
+For two vectors:
+
+$$
+\mathbf{v}=(v_1,v_2,v_3) \qquad \mathbf{w}=(w_1,w_2,w_3)
+$$
+
+Their cross product: 
+
+$$
+\begin{align*}
+    \mathbf{v}\times\mathbf{w}&=\begin{vmatrix}
+\mathbf{i} & \mathbf{j} & \mathbf{k} \\
+v_1 & v_2 & v_3 \\
+w_1 & w_2 & w_3
+\end{vmatrix}\\
+                              &=(v_2w_3-w_2v_3,v_3w_1-v_1w_3,v_1w_2-v_2w_1)          
+\end{align*}
+$$
+
+  </div>
+</div>
+
+Now we want to prove that the analytic and geometric definition agrees, below are some useful properties:
+
+:::info Properties
+- $\mathbf{v}\times \mathbf{w}=-\mathbf{w}\times \mathbf{v}$
+- $\mathbf{v}\times (\mathbf{w}_1+\mathbf{w}_2)=\mathbf{v}\times \mathbf{w}_1+\mathbf{v}\times \mathbf{w}_2$
+- $\mathbf{v}\times c\mathbf{w}=c(\mathbf{v}\times \mathbf{w})$
+:::
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+See [Cross Product](docs\Mathematics\Calculus\Multivariable-Calculus\Cross-Product.mdx)
+</details>
+::::
+
+:::warning Excercise
+Consider $\mathbf{a},\ \mathbf{b}\in \mathbb{R}^3$. When do the conditions $\mathbf{x}\cdot \mathbb{a}=c$ and $\mathbf{a}\times \mathbf{x}=\mathbf{b}$ determine $\mathbf{x}$ uniquely?
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+
+</details>
+:::
+
+## Curves
+
+::::tip Curves
+
+For us, a parametric curve is a vecctor function with triples of variables:
+
+$$
+\gamma: \underset{(a;b)}{\mathbb{R}}\rightarrow{\mathbb{R}^3}
+$$
+Then, a parameter $t\in (a,b)$ is send to a point in 3D:
+$$
+t\mapsto \gamma (t)=\big(x(t),y(t),z(t)\big)
+$$
+
+:::info Example 1
+
+For general form of a curve:
+
+$$
+\begin{align*}
+    \gamma (t)&=P_0+\mathbf{v}t\\
+              &=(x_0,y_0,z_0)+t(v_1,v_2,v_3)\\
+              &=(x_0+tv_1,y_0+tv_2,z_0+tv_3)\\
+\end{align*}
+$$
+For $t=1$, we have $\gamma (1)=P_0+\mathbf{v}$.
+
+As $t$ varies in $\mathbb{R}$, we describes all the points on the line.
+:::
+
+:::info Example 2
+
+Let:
+
+$$
+\gamma: [0;2\pi ]\rightarrow \mathbb{R}^2
+$$
+$$
+t\mapsto \big(\sin{(t)}, \cos{(t)} \big)
+$$
+
+Then the graph looks like:
+
+<svg viewBox="0 0 170 170" width="100%" style={{ maxWidth: '260px', height: 'auto', display: 'block', margin: '0.6rem auto' }} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" role="img" aria-label="The curve gamma of t equals sin t, cos t traces a circle, starting at the top and moving clockwise"><line x1="20" y1="85" x2="155" y2="85" strokeWidth="1.4" strokeOpacity="0.45"/><polyline points="148,80 155,85 148,90" strokeWidth="1.4" strokeOpacity="0.45"/><line x1="85" y1="150" x2="85" y2="20" strokeWidth="1.4" strokeOpacity="0.45"/><polyline points="80,27 85,20 90,27" strokeWidth="1.4" strokeOpacity="0.45"/><circle cx="85" cy="85" r="55" strokeWidth="2"/><line x1="85" y1="30" x2="115" y2="30" strokeWidth="2.2"/><polyline points="107,26 115,30 107,34" strokeWidth="2.2"/><circle cx="85" cy="30" r="2.8" fill="currentColor" stroke="none"/><text x="158" y="89" fontSize="12" fontStyle="italic" fill="currentColor" stroke="none">x</text><text x="90" y="18" fontSize="12" fontStyle="italic" fill="currentColor" stroke="none">y</text><text x="55" y="48" fontSize="13" fontStyle="italic" fill="currentColor" stroke="none">γ</text><text x="46" y="27" fontSize="11.5" fontStyle="italic" fill="currentColor" stroke="none">γ(0)</text></svg>
+
+:::
+
+:::info Example 3
+
+The graph of
+
+$$
+\gamma{(t)}=\big(\sin{(t)}, \cos{(t)}, t \big)
+$$
+
+looks like:
+
+<svg viewBox="0 0 170 190" width="100%" style={{ maxWidth: '220px', height: 'auto', display: 'block', margin: '0.6rem auto' }} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" role="img" aria-label="The curve gamma of t equals sin t, cos t, t winds around the z axis like a helix as t increases"><line x1="85" y1="178" x2="85" y2="15" strokeWidth="1.3" strokeOpacity="0.35" strokeDasharray="4 3"/><polyline points="80,22 85,15 90,22" strokeWidth="1.3" strokeOpacity="0.5"/><path d="M85,170 Q60,155 85,145 Q110,135 85,120 Q60,110 85,95 Q110,85 85,70 Q60,60 85,45 Q110,35 85,20"/><circle cx="85" cy="170" r="2.8" fill="currentColor" stroke="none"/><text x="92" y="16" fontSize="12" fontStyle="italic" fill="currentColor" stroke="none">z</text><text x="118" y="130" fontSize="13" fontStyle="italic" fill="currentColor" stroke="none">γ</text><text x="48" y="182" fontSize="11.5" fontStyle="italic" fill="currentColor" stroke="none">γ(0)</text></svg>
+
+:::
+
+::::
+
+### Differentiation
+
+::::tip Differentiation
+
+We say that a curve $\gamma(t)=\big(x(t),y(t),z(t) \big) $ is differentiable if  $x(t)$, $y(t)$, and $z(t)$ are differentiable. 
+
+Then, we define  $\gamma^{\prime}(t)=\big(x(t)^{\prime},y(t)^{\prime},z(t)^{\prime} \big)$
+
+:::info Example
+
+<div className="deriv2col">
+
+  <div>
+    <svg viewBox="0 0 220 140" width="100%" style={{ maxWidth: '340px', height: 'auto', display: 'block', margin: '0.5rem auto' }} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" role="img" aria-label="A curve gamma with the point gamma of t0 and the tangent vector gamma prime of t0 at that point"><path d="M15,120 C45,30 60,105 100,70 C130,20 160,90 205,40"/><line x1="123" y1="48" x2="185" y2="66" strokeWidth="2.2"/><polyline points="174,67 185,66 176,59" strokeWidth="2.2"/><circle cx="142" cy="53" r="2.8" fill="currentColor" stroke="none"/><text x="8" y="108" fontSize="14" fontStyle="italic" fill="currentColor" stroke="none">γ</text><text x="100" y="93" fontSize="12.5" fontStyle="italic" fill="currentColor" stroke="none">γ(t₀)</text><text x="183" y="82" fontSize="12.5" fontStyle="italic" fill="currentColor" stroke="none">γ′(t₀)</text></svg>
+  </div>
+
+  <div>
+
+$\gamma^{\prime}(t_0)$ is tangent to the curve at the point $\gamma(t_0)$
+  
+  </div>
+
+</div>
+
+
+
+:::
+
+::::
+
