@@ -163,8 +163,6 @@ We say that a curve $\gamma(t)=\big(x(t),y(t),z(t) \big) $ is differentiable if 
 
 Then, we define  $\gamma^{\prime}(t)=\big(x(t)^{\prime},y(t)^{\prime},z(t)^{\prime} \big)$
 
-:::info Example
-
 <div className="deriv2col">
 
   <div>
@@ -172,14 +170,26 @@ Then, we define  $\gamma^{\prime}(t)=\big(x(t)^{\prime},y(t)^{\prime},z(t)^{\pri
   </div>
 
   <div>
+A clearer interpretation：
 
-$\gamma^{\prime}(t_0)$ is tangent to the curve at the point $\gamma(t_0)$
+$\gamma^{\prime}(t_0)$ is tangent to the curve at the point $\gamma(t_0)$ (i.e. the image of $\gamma$ in $\mathbb{R}$)
   
   </div>
 
 </div>
 
+:::info Properties 
 
+$$ 
+\begin{align*} 
+  1. &\big(\gamma_1(t)+\gamma_2{(t)} \big)^{\prime}=\gamma_1^{\prime}(t)+\gamma_2^{\prime}(t) &\qquad \text{()}\\
+  2. &\big(k\gamma{(t)} \big)^{\prime}=k\gamma^{\prime}(t) &\qquad \text{()}\\
+  3. &\big(\gamma_1(t)\cdot \gamma_2{(t)} \big)^{\prime}=\gamma_1^{\prime}(t)\cdot\gamma_2(t)+\gamma_2^{\prime}(t)\cdot\gamma_1(t) &\qquad \text{(Dot Product Rule)}\\
+  4. &\big(\gamma_1(t)\times \gamma_2{(t)} \big)^{\prime}=\gamma_1^{\prime}(t)\times\gamma_2(t)+\gamma_2^{\prime}(t)\times\gamma_1(t) &\qquad \text{(Cross Product Rule)}\\ 
+  5. &\big(k(t)\gamma{(t)} \big)^{\prime}=k^{\prime}(t)\gamma(t)+k(t)\gamma^{\prime}(t)  &\qquad \text{(Product by Scalar)}\\
+  6. &\Bigl(\gamma \big( t(s)\big)  \Bigl)^{\prime}=\gamma^{\prime} \big(t(s) \big)t^\prime(s)&\qquad \text{(Chain Rule)}
+\end{align*} 
+$$ 
 
 :::
 
