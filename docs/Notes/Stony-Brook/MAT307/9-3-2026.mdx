@@ -3,4 +3,209 @@ title: 9/3/2026 - Lecture 4
 sidebar_label: 9/3/2026
 sidebar_position: 5
 ---
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
+:::danger Disclaimer
+
+All the following definitions and examples are inexaustive in rigorous physics term. This lecture is only for the purpose of applying curves to dynamical physics problems and get familiar with those mathematical terms.
+
+:::
+
+## Dynamical Problems
+
+In physics, you often describe the motion of a particle subject to some force.
+
+::::info Notation
+
+We will write $\mathbf{r}(t)$ for the position vector of the particle, where $t$ represents the time.
+
+$\mathbf{r}(t)$ can be seen as a parametrized curve.
+
+
+<div className="deriv2col">
+
+  <div>
+
+<svg viewBox="0 0 220 175" width="100%" style={{ maxWidth: '320px', height: 'auto', display: 'block', margin: '0.5rem auto' }} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" role="img" aria-label="A particle moving along a winding curve, with position vector r of t from the origin O at the bottom left to the particle, and a force vector F of t acting on it in a clearly different direction"><path d="M75,95 C100,40 115,90 145,60 C170,25 185,80 205,45" strokeOpacity="0.85"/><line x1="20" y1="155" x2="171" y2="50"/><polyline points="165,59 171,50 161,52"/><line x1="171" y1="50" x2="161" y2="11" strokeWidth="2.2"/><polyline points="167,20 161,11 160,22" strokeWidth="2.2"/><g fill="currentColor" stroke="none"><circle cx="20" cy="155" r="2.6"/><circle cx="171" cy="50" r="2.6"/></g><text x="4" y="148" fontSize="12.5" fontStyle="italic" fill="currentColor" stroke="none">O</text><text x="74" y="137" fontSize="12" fontStyle="italic" fill="currentColor" stroke="none">r(t)</text><text x="170" y="20" fontSize="12" fontStyle="italic" fontWeight="700" fill="currentColor" stroke="none">F(t)</text></svg>
+
+  </div>
+
+  <div>
+
+The particle is subject to a force $\mathbf{F}(t)$ 
+
+:::tip Newton's Law
+
+For the force:
+$$
+\mathbf{F}(t)=m\mathbf{a}(t)
+$$
+where $m$ is the mass of the particle, and $\mathbf{a}(t)$ is the acceleration of the particle, also as:
+
+$$
+\mathbf{a}(t)=\mathbf{r}^{\prime \prime}(t)
+$$
+
+:::
+  </div>
+
+</div>
+
+::::
+
+### Circular Motion
+
+:::info Circular Motion
+
+Suppose that curve described by the particle of mass $m$ is：
+
+$$
+\begin{align*}
+    \mathbf{r}_1(t)&=\big(\cos{(t)},\sin{(t)}\big)\\
+    \mathbf{r}_2(t)&=\big(\cos{(t)},\sin{(t)},t\big)
+\end{align*}
+$$
+
+<hr />
+
+1. Compute the force acting on the particle: 
+
+By Newton's Law $\mathbf{F}(t)=m\mathbf{a}(t)$ in curve $\mathbf{r}_1$ we get:
+
+$$
+\begin{align*}
+    \mathbf{v}_1(t)&=\mathbf{r}^{\prime }(t)=\big(-\sin{(t)},\cos{(t)}\big)\\
+    \mathbf{a}_v(t)&=\mathbf{r}^{\prime \prime}=\big(-\cos{(t)},-\sin{(t)}\big)\\
+    \implies \mathbf{F}(t)&=m\mathbf{a}(t)=m\big(-\cos{(t)},-\sin{ (t)}\big)
+\end{align*}
+$$
+<hr />
+
+2. Compute $\mathbf{v}_i(t) \cdot \mathbf{F}_i(t)$ and give an explaination for the value:
+
+$$
+\begin{align*}
+    \mathbf{v}_i(t) \cdot \mathbf{F}_i(t)&=0\\
+    \implies \mathbf{v}_i(t) \cdot \mathbf{a}_i(t)&=0\\
+\end{align*}
+$$
+$$
+\implies \|\mathbf{v}(t)\| \text{ is constand}
+$$
+Below is the proof:
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+$$
+\begin{align*}
+    \left(\|\mathbf{v}(t)\|^2\right)^{\prime}&=\big(\mathbf{v}(t) \cdot \mathbf{v}(t)\big)^\prime\\
+                                             &=\big(\mathbf{v}^{\prime}(t) \cdot \mathbf{v}(t)\big)+\big(\mathbf{v}(t) \cdot \mathbf{v}^{\prime}(t)\big) &\qquad \text{(Dot Product Rule)}\\
+                                             &=\big(\mathbf{a}(t)\cdot \mathbf{v}(t) \big)+\big(\mathbf{v}(t)\cdot \mathbf{a}(t) \big)\\
+                                             &=2\big(\mathbf{v}(t)\cdot \mathbf{a}(t) \big)\\
+                                             &=0
+\end{align*}
+$$
+Therefore, $\|\mathbf{v}(t)\|$ is constand. 
+<div style={{ textAlign: 'right' }}>
+  $\blacksquare$
+</div>
+</details>
+:::
+
+### Angular Momentum
+
+::::tip Angular Momentum
+
+For a particle moving along a curve, its angular momentum $\mathbf{M}(t)$ is:
+
+$$
+\mathbf{M}(t)=m\big( \mathbf{r}(t)\times \mathbf{v}(t)\big)
+$$
+:::note Note
+The Angular Momentum measures how much one particle is rotating with aspect to the origin.
+:::
+
+In the case of $\mathbf{r}(t)=\big(\cos{(t)},\sin{(t)}，0 \big)$, both $\mathbf{r}(t)$ and $\mathbf{v}(t)$ lie on $xy$ plane; therefore, $\mathbf{M}(t)$ lies along $z$ axis. 
+$$
+\mathbf{r}(t)=\big(\cos{(t)},\sin{(t)},0 \big) \qquad \mathbf{v}(t)=\big(-\sin{(t)},\cos{(t)},0 \big)
+$$
+$$
+\mathbf{M}(t)=m\mathbf{r}(t)\times\mathbf{v}(t)=m(0,0,1)
+$$
+
+::::
+
+
+### Torque
+
+::::tip Torque
+
+When take the derivative of angular momentum, we have:
+
+$$
+\frac{\mathrm{d}}{\mathrm{d}t}\mathbf{M}(t)=\mathbf{M}^{\prime}(t)=\mathbf{r}(t)\times \mathbf{F}(t)
+$$
+where $\mathbf{r}(t)\times \mathbf{F}(t)$ is called the **Torque**
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+$$
+\begin{align*}
+    \mathbf{M}(t)&=m\mathbf{r}(t)\times \mathbf{v}(t)\\
+    \frac{\mathrm{d}}{\mathrm{d}t}\mathbf{M}(t)&=m\big(\mathbf{r}^{\prime}(t)\times \mathbf{v}(t) +\mathbf{r}(t)\times \mathbf{v}^{\prime}(t)\big) &\qquad \text{(Cross Product Rule)}\\
+                                               &=m\big(\mathbf{v}\times \mathbf{v}(t) +\mathbf{r}(t)\times \mathbf{a}(t)\big)\\
+                                               &=m\big(\mathbf{r}(t)\times \mathbf{a}(t)\big) & \qquad \big(\mathbf{v}\times \mathbf{v}(t)=0\big)\\
+                                               &=\mathbf{r}(t)\times\mathbf{F}(t) &\qquad \text{(Inverse Constant Scalar Multiple)} \tag*{$\blacksquare$}
+
+\end{align*}
+$$
+
+</details>
+
+:::note Remarkable Particular Case
+
+From the definition above, if the torque is $0$, such that $\mathbf{r}(t)\times \mathbf{F}(t)=0$, then:
+
+$$
+\mathbf{M}(t) \text{ is constant}
+$$
+
+This will lead to another remarkable consequence that we will introduce below.
+:::
+
+::::
+
+### Kepler's Law
+
+:::tip Kepler's Law
+
+If $\mathbf{M}(t)$ is constant, then $\mathbf{r}(t)$ is a planar; that is to say, $\mathbf{r}(t)$ lies on a plane.
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+Let's say that if we suspect that this is true, then $\mathbf{M}(t)=\mathbf{M}$ should be the normal direction of the plane. Therefore, our conjecture become 
+
+$$
+\mathbf{r}(t)\cdot \mathbf{M}(t)=\text{constant}
+$$
+Let's compute $\big(\mathbf{r}(t)\cdot \mathbf{M}\big)^{\prime}$:
+
+$$
+\big(\mathbf{r}(t)\cdot \mathbf{M(t)}\big)^{\prime}=\Bigr(\mathbf{r}(t)\cdot\big(\underbrace{\mathbf{r}(t)\times \mathbf{v}(t)}_{\text{is orthogonal to } \mathbf{r}(t) \text{ and } \mathbf{v}(t)} \big) \Bigr)=0
+$$
+$$
+\implies \text{the curve lies on a plane with normal direction } \mathbf{M} \tag*{$\blacksquare$}
+$$
+</details>
+:::
+
+### Purely Math Statement
+
+:::tip Purely Math Statement
+
+Consider a curve $\gamma(t)\times \gamma^{\prime}(t)$ is constant, then the trajectory is plane; that is to said, $\gamma(t)$ lies on a plane.
+
+:::
