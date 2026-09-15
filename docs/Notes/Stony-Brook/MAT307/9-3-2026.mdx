@@ -7,7 +7,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 :::danger Disclaimer
 
-All the following definitions and examples are inexaustive in rigorous physics term. This lecture is only for the purpose of applying curves to dynamical physics problems and get familiar with those mathematical terms.
+The definitions and examples below are not meant to be rigorous or complete from a physics standpoint. This lecture is only for the purpose of applying curves to dynamical physics problems and getting familiar with these mathematical terms.
 
 :::
 
@@ -57,7 +57,7 @@ $$
 
 :::info Circular Motion
 
-Suppose that curve described by the particle of mass $m$ is：
+Suppose the curve described by the particle of mass $m$ is:
 
 $$
 \begin{align*}
@@ -74,23 +74,23 @@ By Newton's Law $\mathbf{F}(t)=m\mathbf{a}(t)$ in curve $\mathbf{r}_1$ we get:
 
 $$
 \begin{align*}
-    \mathbf{v}_1(t)&=\mathbf{r}^{\prime }(t)=\big(-\sin{(t)},\cos{(t)}\big)\\
-    \mathbf{a}_v(t)&=\mathbf{r}^{\prime \prime}=\big(-\cos{(t)},-\sin{(t)}\big)\\
-    \implies \mathbf{F}(t)&=m\mathbf{a}(t)=m\big(-\cos{(t)},-\sin{ (t)}\big)
+    \mathbf{v}_1(t)&=\mathbf{r}_1^{\prime }(t)=\big(-\sin{(t)},\cos{(t)}\big)\\
+    \mathbf{a}_1(t)&=\mathbf{r}_1^{\prime \prime}(t)=\big(-\cos{(t)},-\sin{(t)}\big)\\
+    \implies \mathbf{F}(t)&=m\mathbf{a}_1(t)=m\big(-\cos{(t)},-\sin{ (t)}\big)
 \end{align*}
 $$
 <hr />
 
-2. Compute $\mathbf{v}_i(t) \cdot \mathbf{F}_i(t)$ and give an explaination for the value:
+2. Compute $\mathbf{v}(t) \cdot \mathbf{F}(t)$ and give an explanation for the value:
 
 $$
 \begin{align*}
-    \mathbf{v}_i(t) \cdot \mathbf{F}_i(t)&=0\\
-    \implies \mathbf{v}_i(t) \cdot \mathbf{a}_i(t)&=0\\
+    \mathbf{v}(t) \cdot \mathbf{F}(t)&=0\\
+    \implies \mathbf{v}(t) \cdot \mathbf{a}(t)&=0\\
 \end{align*}
 $$
 $$
-\implies \|\mathbf{v}(t)\| \text{ is constand}
+\implies \|\mathbf{v}(t)\| \text{ is constant}
 $$
 Below is the proof:
 
@@ -106,7 +106,7 @@ $$
                                              &=0
 \end{align*}
 $$
-Therefore, $\|\mathbf{v}(t)\|$ is constand. 
+Therefore, $\|\mathbf{v}(t)\|$ is constant. 
 <div style={{ textAlign: 'right' }}>
   $\blacksquare$
 </div>
@@ -123,10 +123,10 @@ $$
 \mathbf{M}(t)=m\big( \mathbf{r}(t)\times \mathbf{v}(t)\big)
 $$
 :::note Note
-The Angular Momentum measures how much one particle is rotating with aspect to the origin.
+The Angular Momentum measures how much a particle is rotating with respect to the origin.
 :::
 
-In the case of $\mathbf{r}(t)=\big(\cos{(t)},\sin{(t)}，0 \big)$, both $\mathbf{r}(t)$ and $\mathbf{v}(t)$ lie on $xy$ plane; therefore, $\mathbf{M}(t)$ lies along $z$ axis. 
+In the case of $\mathbf{r}(t)=\big(\cos{(t)},\sin{(t)},0 \big)$, both $\mathbf{r}(t)$ and $\mathbf{v}(t)$ lie on the $xy$-plane; therefore, $\mathbf{M}(t)$ lies along the $z$-axis. 
 $$
 \mathbf{r}(t)=\big(\cos{(t)},\sin{(t)},0 \big) \qquad \mathbf{v}(t)=\big(-\sin{(t)},\cos{(t)},0 \big)
 $$
@@ -141,7 +141,7 @@ $$
 
 ::::tip Torque
 
-When take the derivative of angular momentum, we have:
+When we take the derivative of angular momentum, we have:
 
 $$
 \frac{\mathrm{d}}{\mathrm{d}t}\mathbf{M}(t)=\mathbf{M}^{\prime}(t)=\mathbf{r}(t)\times \mathbf{F}(t)
@@ -155,9 +155,9 @@ $$
 \begin{align*}
     \mathbf{M}(t)&=m\mathbf{r}(t)\times \mathbf{v}(t)\\
     \frac{\mathrm{d}}{\mathrm{d}t}\mathbf{M}(t)&=m\big(\mathbf{r}^{\prime}(t)\times \mathbf{v}(t) +\mathbf{r}(t)\times \mathbf{v}^{\prime}(t)\big) &\qquad \text{(Cross Product Rule)}\\
-                                               &=m\big(\mathbf{v}\times \mathbf{v}(t) +\mathbf{r}(t)\times \mathbf{a}(t)\big)\\
-                                               &=m\big(\mathbf{r}(t)\times \mathbf{a}(t)\big) & \qquad \big(\mathbf{v}\times \mathbf{v}(t)=0\big)\\
-                                               &=\mathbf{r}(t)\times\mathbf{F}(t) &\qquad \text{(Inverse Constant Scalar Multiple)} \tag*{$\blacksquare$}
+                                               &=m\big(\mathbf{v}(t)\times \mathbf{v}(t) +\mathbf{r}(t)\times \mathbf{a}(t)\big)\\
+                                               &=m\big(\mathbf{r}(t)\times \mathbf{a}(t)\big) & \qquad \big(\mathbf{v}(t)\times \mathbf{v}(t)=0\big)\\
+                                               &=\mathbf{r}(t)\times\mathbf{F}(t) &\qquad \big(\text{Newton's Law: } \mathbf{F}=m\mathbf{a}\big) \tag*{$\blacksquare$}
 
 \end{align*}
 $$
@@ -166,7 +166,7 @@ $$
 
 :::note Remarkable Particular Case
 
-From the definition above, if the torque is $0$, such that $\mathbf{r}(t)\times \mathbf{F}(t)=0$, then:
+From the definition above, if the torque $\mathbf{r}(t)\times \mathbf{F}(t)$ is $\mathbf{0}$, then:
 
 $$
 \mathbf{M}(t) \text{ is constant}
@@ -181,12 +181,12 @@ This will lead to another remarkable consequence that we will introduce below.
 
 :::tip Kepler's Law
 
-If $\mathbf{M}(t)$ is constant, then $\mathbf{r}(t)$ is a planar; that is to say, $\mathbf{r}(t)$ lies on a plane.
+If $\mathbf{M}(t)$ is constant, then the trajectory of $\mathbf{r}(t)$ is planar; that is to say, $\mathbf{r}(t)$ lies on a plane.
 
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
 
-Let's say that if we suspect that this is true, then $\mathbf{M}(t)=\mathbf{M}$ should be the normal direction of the plane. Therefore, our conjecture become 
+Suppose this is true; then $\mathbf{M}(t)=\mathbf{M}$ (a constant vector) should be the normal direction of the plane. Therefore, our conjecture becomes
 
 $$
 \mathbf{r}(t)\cdot \mathbf{M}(t)=\text{constant}
@@ -194,7 +194,12 @@ $$
 Let's compute $\big(\mathbf{r}(t)\cdot \mathbf{M}\big)^{\prime}$:
 
 $$
-\big(\mathbf{r}(t)\cdot \mathbf{M(t)}\big)^{\prime}=\Bigr(\mathbf{r}(t)\cdot\big(\underbrace{\mathbf{r}(t)\times \mathbf{v}(t)}_{\text{is orthogonal to } \mathbf{r}(t) \text{ and } \mathbf{v}(t)} \big) \Bigr)=0
+\begin{align*}
+\big(\mathbf{r}(t)\cdot \mathbf{M}(t)\big)^{\prime}&=\mathbf{v}(t)\cdot \mathbf{M}(t)+\mathbf{r}(t)\cdot \mathbf{M}^{\prime}(t) &\qquad \text{(Dot Product Rule)}\\
+&=\mathbf{v}(t)\cdot \mathbf{M}(t) &\qquad \big(\mathbf{M}^{\prime}(t)=\mathbf{0}\big)\\
+&=\mathbf{v}(t)\cdot\Bigl(m\big(\underbrace{\mathbf{r}(t)\times \mathbf{v}(t)}_{\text{orthogonal to } \mathbf{v}(t)}\big)\Bigr)\\
+&=0
+\end{align*}
 $$
 $$
 \implies \text{the curve lies on a plane with normal direction } \mathbf{M} \tag*{$\blacksquare$}
@@ -206,6 +211,27 @@ $$
 
 :::tip Purely Math Statement
 
-Consider a curve $\gamma(t)\times \gamma^{\prime}(t)$ is constant, then the trajectory is plane; that is to said, $\gamma(t)$ lies on a plane.
+Consider a curve $\gamma(t)$ such that $\gamma(t)\times \gamma^{\prime}(t)$ is constant. Then the trajectory is planar; that is to say, $\gamma(t)$ lies on a plane.
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+Let $\mathbf{n}=\gamma(t)\times \gamma^{\prime}(t)$ be this constant vector. As with Kepler's Law, we show $\gamma(t)\cdot \mathbf{n}$ is constant:
+
+$$
+\begin{align*}
+\big(\gamma(t)\cdot \mathbf{n}\big)^{\prime}&=\gamma^{\prime}(t)\cdot \mathbf{n}+\gamma(t)\cdot \mathbf{n}^{\prime} &\qquad \text{(Dot Product Rule)}\\
+&=\gamma^{\prime}(t)\cdot \mathbf{n} &\qquad \big(\mathbf{n}^{\prime}=\mathbf{0}\big)\\
+&=\gamma^{\prime}(t)\cdot\Bigl(\underbrace{\gamma(t)\times \gamma^{\prime}(t)}_{\text{orthogonal to } \gamma^{\prime}(t)}\Bigr)\\
+&=0
+\end{align*}
+$$
+$$
+\implies \text{the curve lies on a plane with normal direction } \mathbf{n} \tag*{$\blacksquare$}
+$$
+
+</details>
+
+<svg viewBox="0 0 260 210" width="100%" style={{ maxWidth: '380px', height: 'auto', display: 'block', margin: '0.7rem auto' }} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" role="img" aria-label="A curve gamma lying entirely in a plane, with its tangent vector gamma prime also in the plane, and the constant vector gamma cross gamma prime as the plane's normal"><polygon points="30,130 210,105 240,175 60,200" fill="currentColor" fillOpacity="0.06" strokeOpacity="0.55"/><g strokeWidth="1" strokeOpacity="0.22"><line x1="40" y1="153.3" x2="220" y2="128.3"/><line x1="50" y1="176.7" x2="230" y2="151.7"/><line x1="90" y1="121.7" x2="120" y2="191.7"/><line x1="150" y1="113.3" x2="180" y2="183.3"/></g><path d="M77,172 C119,181 134,127 173,129" strokeWidth="2.2"/><line x1="115" y1="163" x2="156" y2="127"/><polyline points="151,137 156,127 146,131"/><line x1="126" y1="153" x2="110" y2="60" strokeWidth="2.5"/><polyline points="116,69 110,60 108,71" strokeWidth="2.5"/><path d="M124,140 L134,132 L136,144" strokeWidth="1.3" strokeOpacity="0.8"/><circle cx="126" cy="153" r="2.6" fill="currentColor" stroke="none"/><text x="216" y="100" fontSize="13" fontStyle="italic" fill="currentColor" stroke="none">Λ</text><text x="55" y="188" fontSize="13" fontStyle="italic" fill="currentColor" stroke="none">γ</text><text x="159" y="120" fontSize="12" fontStyle="italic" fill="currentColor" stroke="none">γ′(t)</text><text x="114" y="50" fontSize="12" fontStyle="italic" fontWeight="700" fill="currentColor" stroke="none">γ×γ′</text></svg>
 
 :::
