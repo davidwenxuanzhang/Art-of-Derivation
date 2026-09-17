@@ -4,3 +4,332 @@ sidebar_label: 9/8/2026
 sidebar_position: 6
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
+
+## Arc Length Parametrization
+
+:::tip Arc Length Parametrization
+
+For a differentible parametrized curve $\mathbf{r}(t)$:
+
+
+<div className="deriv2col">
+
+  <div>
+
+<svg viewBox="0 0 240 160" width="100%" style={{ maxWidth: '360px', height: 'auto', display: 'block', margin: '0.5rem auto' }} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" role="img" aria-label="A curve r of t above a parameter line t, with points a and b on the line connected up to r of a and r of b on the curve"><path d="M40,70 C70,15 150,15 200,60" strokeWidth="2.2"/><line x1="20" y1="140" x2="220" y2="140"/><polyline points="210,136 220,140 210,144"/><g strokeWidth="1.2" strokeOpacity="0.45" strokeDasharray="3 2"><line x1="57" y1="140" x2="57" y2="49"/><line x1="86" y1="140" x2="86" y2="32"/><line x1="140" y1="140" x2="140" y2="30"/><line x1="176" y1="140" x2="176" y2="43"/></g><g fill="currentColor" stroke="none"><circle cx="57" cy="140" r="2.6"/><circle cx="176" cy="140" r="2.6"/><circle cx="86" cy="140" r="1.8" fillOpacity="0.5"/><circle cx="140" cy="140" r="1.8" fillOpacity="0.5"/><circle cx="57" cy="49" r="2.8"/><circle cx="176" cy="43" r="2.8"/><circle cx="86" cy="32" r="1.8" fillOpacity="0.5"/><circle cx="140" cy="30" r="1.8" fillOpacity="0.5"/></g><text x="222" y="150" fontSize="12" fontStyle="italic" fill="currentColor" stroke="none">t</text><text x="53" y="154" fontSize="11" fontStyle="italic" fill="currentColor" stroke="none">a</text><text x="172" y="154" fontSize="11" fontStyle="italic" fill="currentColor" stroke="none">b</text><text x="105" y="12" fontSize="12" fontStyle="italic" fill="currentColor" stroke="none">r(t)</text><text x="30" y="46" fontSize="11" fontStyle="italic" fill="currentColor" stroke="none">r(a)</text><text x="180" y="40" fontSize="11" fontStyle="italic" fill="currentColor" stroke="none">r(b)</text></svg>
+
+  </div>
+
+  <div>
+
+$$
+\mathbf{r}(t+\epsilon)=\mathbf{r}(t)+\epsilon\mathbf{r}^{\prime}(t)+
+$$
+  
+  </div>
+
+</div>
+
+Then what is the length of the points of the curve between $\mathbf{r}(a)$ and $\mathbf{r}(b)$?
+
+Here, we will approximate the length is via small segments; that is to say, we devide the entire curve from the interval $[a,b]$ into:
+
+$$
+t_0=a,\ t_1=a+\Delta{t}, \ \dots,\  t_i=a+i\Delta{t},\  \dots, \ t_n=b,\text{ where } \Delta{t}=\frac{b-a}{n}   
+$$
+Then, the length of the curve could approximate as:
+
+$$
+\ell_n=\sum_{i=1}^{n}\underbrace{\left\|{\mathbf{r}(t_i)-\mathbf{r}(t_{i-1})}\right\|}_{\mathclap{\text{the length of }i\text{th vector}}}
+$$
+
+From linear approximation:
+
+$$
+\begin{align*}
+    \mathbf{r}(t_i)&\approx \mathbf{r}(t_{i-1})+\mathbf{r}^\prime(t_{i-1})\Delta{t}\\
+    \implies \mathbf{r}(t_i)-\mathbf{r}(t_{i-1})&\approx \mathbf{r}^\prime(t_{i-1})\Delta{t}\\
+    \implies \|{\mathbf{r}(t_i)-\mathbf{r}(t_{i-1})}\|&\approx \left\|\mathbf{r}^\prime(t_{i-1})\right\|\Delta{t}
+\end{align*}
+$$
+Therefore:
+
+$$
+\ell_n\approx \sum_{i=1}^{n}\left\|\mathbf{r}^\prime(t_{i-1})\right\|\Delta{t}
+$$
+
+Then:
+
+$$
+\begin{align*}
+    L&=\lim_{n\rightarrow \infty}\ell_n\\
+     &=\lim_{n\rightarrow \infty}\sum_{i=1}^{n}\left\|{\mathbf{r}(t_i)-\mathbf{r}(t_{i-1})}\right\|\\
+     &=\lim_{n\rightarrow \infty}\sum_{i=1}^{n}\underbrace{\left\|\mathbf{r}^\prime(t_{i-1})\right\|\Delta{t}}_{\text{left Reimann Sum of }\|\mathbf{r}^{\prime}(t)\|}\\
+     &=\int_{a}^{b}{\|\mathbf{r}^\prime (t)\|}\ \mathrm{d}t
+\end{align*}
+$$
+:::
+
+:::info Example
+
+In the remark section, might visit office hour
+
+:::
+
+## Reparametrization of a Curve
+
+::::tip Reparametrization of a Curve
+
+Formally a reparametrization is a different bijection between the $t$-line and the $s$-line
+
+:::info Example
+
+For a curve $\gamma(t)=\big( \cos{(t)},\sin{(t)}  \big) $
+
+
+<div className="deriv2col">
+
+  <div>
+
+<svg viewBox="0 0 160 170" width="100%" style={{ maxWidth: '140px', height: 'auto', display: 'block', margin: '0.5rem auto' }} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" role="img" aria-label="Unit circle with a tangent vector at the point (1,0)"><line x1="10" y1="95" x2="150" y2="95" strokeOpacity="0.4"/><polyline points="142,90 150,95 142,100" strokeOpacity="0.4"/><line x1="78" y1="160" x2="78" y2="15" strokeOpacity="0.4"/><polyline points="73,23 78,15 83,23" strokeOpacity="0.4"/><circle cx="78" cy="95" r="48" strokeWidth="2"/><line x1="126" y1="95" x2="126" y2="58" strokeWidth="2.4"/><polyline points="121,68 126,58 131,68" strokeWidth="2.4"/><circle cx="126" cy="95" r="2.8" fill="currentColor" stroke="none"/><text x="129" y="108" fontSize="11" fill="currentColor" stroke="none">(1,0)</text><text x="130" y="60" fontSize="11" fontStyle="italic" fill="currentColor" stroke="none">γ′(0)</text></svg>
+
+  </div>
+
+  <div style={{ alignSelf: 'center' }}>
+
+If I choose to reparametrize $t$ with:
+
+$$
+t=2s
+$$
+
+  </div>
+
+</div>
+
+$$
+\implies \gamma(s)=\big( \cos{(2s)},\sin{(2s)}  \big)
+$$
+
+<div className="deriv2col">
+
+  <div>
+
+<svg viewBox="0 0 160 170" width="100%" style={{ maxWidth: '140px', height: 'auto', display: 'block', margin: '0.5rem auto' }} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" role="img" aria-label="Same unit circle and point, but the tangent vector is now twice as long"><line x1="10" y1="95" x2="150" y2="95" strokeOpacity="0.4"/><polyline points="142,90 150,95 142,100" strokeOpacity="0.4"/><line x1="78" y1="160" x2="78" y2="15" strokeOpacity="0.4"/><polyline points="73,23 78,15 83,23" strokeOpacity="0.4"/><circle cx="78" cy="95" r="48" strokeWidth="2"/><line x1="126" y1="95" x2="126" y2="21" strokeWidth="2.4"/><polyline points="121,31 126,21 131,31" strokeWidth="2.4"/><circle cx="126" cy="95" r="2.8" fill="currentColor" stroke="none"/><text x="129" y="108" fontSize="11" fill="currentColor" stroke="none">(1,0)</text><text x="130" y="23" fontSize="11" fontStyle="italic" fill="currentColor" stroke="none">2γ′(0)</text></svg>
+
+  </div>
+
+  <div style={{ alignSelf: 'center' }}>
+
+With this reparametrization. I am going along the circle at twice the speed than before.
+
+  </div>
+
+</div>
+:::
+
+:::note Bijection
+
+might need to visit office hour
+
+:::
+
+::::
+
+## Arc Length Reparametrization
+
+::::tip Arc Length Reparametrization
+
+:::note Idea
+Is there a special parametrization which is going through the image of the curve at constand speed that equal to 1? 
+:::
+
+$\mathbf{r}(t)$  is parametrized by arc length if:
+
+$$
+\left\|\frac{\mathrm{d}}{\mathrm{d}s}\mathbf{r}(s) \right\|=1
+$$
+
+::::
+
+:::info Observation
+
+There is a way to define the arclength parametrization for the curve $\mathbf{r}(t)$ which is not parametrizeal
+
+We assume that $\mathbf{r}:\mathbb{R}\rightarrow \mathbb{R}^3$ is an injection, which different parameter $t$ will not correspond to the same point on the curve, and for that $\frac{\mathrm{d}}{\mathrm{d}t}\mathbf{r}(t)\ne 0$. Then, the arc length from $\mathbf{r}(t_0)$ to $\mathbf{r}(t_1)$ is:
+
+$$
+s(t)=\int_{t_0}^{t_1} \left\|\frac{\mathrm{d}}{\mathrm{d}u}\mathbf{r}(u) \right\|\mathrm{d}u
+$$
+
+that is to say, $s(t)$ is the length with a sign between $\mathbf{r}(t_0)$ and $\mathbf{r}(t_1)$
+
+<hr />
+
+$s(t)$ is bjected onto its image
+
+:::
+
+:::warning Exercise 1
+
+Compute $\left\|\frac{\mathrm{d}}{\mathrm{d}t}\mathbf{r}(s)\right\|$, and we are expecting 1
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+$$
+\begin{align*}
+    \frac{\mathrm{d}}{\mathrm{d}t}\mathbf{r}(s)&=\frac{\mathrm{d}}{\mathrm{d}t}\mathbf{r}(t(s))\\
+                                               &=\frac{\mathrm{d}}{\mathrm{d}t}{\mathbf{r\big(t(s)\big)}}\underbrace{\frac{\mathrm{d}}{\mathrm{d}s}t(s)}_{\text{we want this}}
+\end{align*}
+$$
+As $s(t)$ is the arclength, then we can plug in the observation we made previously:
+
+$$
+\begin{align*}  
+    \frac{\mathrm{d}}{\mathrm{d}t}s(t)&=\frac{\mathrm{d}}{\mathrm{d}t}\int_{t_0}^{t_1} \left\|\frac{\mathrm{d}}{\mathrm{d}u}\mathbf{r}(u) \right\|\mathrm{d}u\\
+                                      &=\left\|\frac{\mathrm{d}}{\mathrm{d}t}\mathbf{r}(s) \right\| &\qquad \text{(Fundamental Theorem of Calculus)}\\
+\implies \frac{\mathrm{d}}{\mathrm{d}s}t(s)&=\frac{1}{\left\|\frac{\mathrm{d}}{\mathrm{d}t}\mathbf{r}(s) \right\|}
+\end{align*}
+$$
+
+Plug in back:
+
+$$
+\begin{align*}
+    \frac{\mathrm{d}}{\mathrm{d}t}\mathbf{r}(s)&=\frac{\mathrm{d}}{\mathrm{d}t}{\mathbf{r\big(t(s)\big)}}\frac{\mathrm{d}}{\mathrm{d}s}t(s)\\
+                                               &=\frac{\frac{\mathrm{d}}{\mathrm{d}t}\mathbf{r}\big(t(s)\big)}{{\left\|\frac{\mathrm{d}}{\mathrm{d}t}\mathbf{r}\big(t(s)\big) \right\|}}
+\end{align*}
+$$
+This is a unit vector, which has the magnitude of $1$ 
+<div style={{ textAlign: 'right' }}>
+  $\blacksquare$
+</div>
+
+</details>
+
+:::
+
+::::warning Exercise 2
+
+Compute the arclength parametrization for $\gamma(t)=\big(\rho \cos{(t)},\rho \sin{(t)} \big)$
+:::note Tip
+
+Compute $s(t)$ via the definition and then the inverse
+
+:::
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+For $t_0=0$
+$$
+\begin{align*}
+    s(t)&=\int_{0}^{t}\left\|\gamma^{\prime}(u) \right\|\mathrm{d}u\\
+        &=\int_{0}^{t}\left \|-\rho \sin{(u)},\rho \cos{(u)}\right \| \mathrm{d}u\\
+        &=\int_{0}^{t}\sqrt{\rho^2 \sin^2{(u)}+\rho^2 \cos^2{(u)}}\ \mathrm{d}u\\
+        &=\int_{0}^{t}\rho \ \mathrm{d}u\\
+        &=\rho t\\
+        \implies t&=\frac{1}{\rho}s\\
+\end{align*}
+$$
+$$
+
+\implies \text{arc length parametrization is}: \gamma(t)=\left(\rho\cos{\left(\frac{1}{\rho}\right)},\rho\sin{\left(\frac{1}{\rho}\right)} \right)
+
+$$
+
+</details>
+
+
+::::
+
+:::tip Useful Result
+
+$$
+\int_{a}^{b}\left\|\frac{\mathrm{d}}{\mathrm{d}s}\mathbf{r}(s) \right\|\mathrm{d}s=\int_{a}^{b}1\ \mathrm{d}s=b-a
+$$
+
+:::
+
+### Curvature
+
+::::tip Unit Tangent Vector
+
+The **Unit Tangent Vector** to a arc length parametrization fo a curve $\mathbf{r}$ is:
+
+$$
+\mathbf{T}(s)\overset{\mathrm{def}}{\coloneqq} \frac{\mathrm{d}}{\mathrm{d}s} \mathbf{r}(s)
+$$
+:::info Property
+
+$$
+\mathbf{T}(s)\cdot \mathbf{T}^{\prime}(s)=0
+$$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+Because $\mathbf{T}(s)$ is the unit tangent vector:
+
+$$
+\begin{align*}
+    \|\mathbf{T}(s)\| ^2=\mathbf{T}(s)\cdot \mathbf{T}(s)&=1\\
+    \big( \mathbf{T}(s)\cdot  \mathbf{T}(s)\big)^{\prime}&=0\\
+   2\big( \mathbf{T}(s)\cdot  \mathbf{T}^{\prime}(s)\big)&=0\\
+   \big( \mathbf{T}(s)\cdot  \mathbf{T}^{\prime}(s)\big)&=0 \tag*{$\blacksquare$}
+\end{align*}
+$$
+
+</details>
+
+:::
+
+
+::::
+
+
+### Normal Vector
+
+::::tip Normal Vector
+
+The **Normal Vector** to an arc length parametrized curve is:
+
+$$
+\mathbf{N}(s)=\frac{\mathbf{T}^{\prime}(s)}{\|\mathbf{T}^{\prime}(s)\|}
+$$
+:::note
+The normal vector tells us in whic direction the curve is "curving".
+:::
+::::
+
+### Curvature 
+
+::::tip Curvature
+
+The **Curvature** of a curve at a pooint $s$ is:
+
+$$
+\kappa(s)=\|\mathbf{T}^\prime(s)\|
+$$
+:::note
+The curvature tells us how much the curve is "curving".
+:::
+:::info Geometry Perspective
+<div className="deriv2col">
+
+  <div>
+
+<svg viewBox="0 0 230 160" width="100%" style={{ maxWidth: '340px', height: 'auto', display: 'block', margin: '0.5rem auto' }} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" role="img" aria-label="A curve gamma with the osculating circle at the point gamma of s, its radius 1 over kappa of s, and the unit tangent vector T of s"><circle cx="114" cy="89" r="55" strokeWidth="1.6" strokeOpacity="0.65" strokeDasharray="4 3"/><line x1="114" y1="89" x2="107" y2="34" strokeWidth="1.2" strokeOpacity="0.5" strokeDasharray="3 2"/><path d="M15,100 C60,20 150,15 210,70" strokeWidth="2.2"/><line x1="107" y1="34" x2="137" y2="30" strokeWidth="2"/><polyline points="129,34 137,30 129,28"/><g fill="currentColor" stroke="none"><circle cx="107" cy="34" r="2.8"/><circle cx="114" cy="89" r="2"/></g><text x="72" y="26" fontSize="12" fontStyle="italic" fill="currentColor" stroke="none">γ(s)</text><text x="140" y="22" fontSize="11" fontStyle="italic" fill="currentColor" stroke="none">T(s)</text><text x="120" y="65" fontSize="10.5" fill="currentColor" stroke="none">1/κ(s)</text></svg>
+
+  </div>
+
+  <div>
+
+   $\frac{1}{\kappa{(s)}}$ is the radius of the circle best approximating the curve around te point $\gamma(s)$; this circle is also called obsculating circle.
+  
+  </div>
+
+</div>
+:::
+::::
