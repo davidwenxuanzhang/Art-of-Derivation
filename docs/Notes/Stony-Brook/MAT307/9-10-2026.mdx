@@ -3,3 +3,134 @@ title: 9/10/2026 - Lecture 6
 sidebar_label: 9/10/2026
 sidebar_position: 7
 ---
+
+## Review
+
+### Arc Length Parametrization
+
+
+
+## Continue Lecture
+
+### Binormal Vector
+
+::::tip Binormal Vector
+
+For the curve in $\mathbb{R}^3$, the **Binormal Vector** is:
+
+$$
+\mathbf{B}(s)\overset{\mathrm{def}}{\coloneqq} \mathbf{T}(s)\times \mathbf{N}(s)
+$$
+
+
+<div className="deriv2col">
+
+  <div>
+
+(for claude code: add a graph of a curve with its unit tangent vector and the normal vector and also a binormal vector shows orthogonal to both other curves)
+
+  </div>
+
+  <div>
+
+$\mathbf{B}$ give us the normal direction of the tangent plane to the curve.   
+  
+  </div>
+
+</div>
+
+:::info Observation
+
+Because $\mathbf{T}$ is the tangent unit vector, $\mathbf{N}$ is the normal unit vector, and $\mathbf{T}\perp \mathbf{N}$:
+
+$$
+\|\mathbf{B}\|=\mathbf{T}(s)\times \mathbf{N}(s)=\|\mathbf{T}(s)\|\|\mathbf{N}(s)\|\sin{90^{\circ}}=1
+$$
+
+:::
+
+:::info Propositions
+
+1. 
+
+$$
+\frac{\mathrm{d}}{\mathrm{d}s}\mathbf{B}(s)\perp \mathbf{B}(s)
+$$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+$$
+\begin{align*}
+    \frac{\mathrm{d}}{\mathrm{d}s}\big(\underbrace{\mathbf{B}(s) \cdot \mathbf{B}(s) }_{\mathclap{=1\text{ under observation}}}\big)&=0\\
+    \implies 2\left(\frac{\mathrm{d}}{\mathrm{d}s}\mathbf{B}(s)\cdot \mathbf{B}(s) \right)&=0\\
+    \frac{\mathrm{d}}{\mathrm{d}s}\mathbf{B}(s)\cdot \mathbf{B}(s)&=0 \tag*{$\blacksquare$}
+\end{align*}
+$$
+
+</details>
+
+2. 
+
+$$
+\frac{\mathrm{d}}{\mathrm{d}s}\mathbf{B}(s)\perp \mathbf{T}(s)
+$$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+$$
+\begin{align*}
+    \frac{\mathrm{d}}{\mathrm{d}s}\mathbf{B}(s)&=\frac{\mathrm{d}}{\mathrm{d}s}\big(\mathbf{T}(s)\times \mathbf{N}(s) \big)\\
+                                               &=\frac{\mathrm{d}}{\mathrm{d}s}\mathbf{T}(s)\times \mathbf{N}(s) +\frac{\mathrm{d}}{\mathrm{d}s}\mathbf{N}(s) \times \mathbf{T}(s)\\
+                                               &=\kappa(s)\underbrace{\mathbf{N}(s)\times \mathbf{N}(s)}_{0}+\mathbf{T}(s)\times \frac{\mathrm{d}}{\mathrm{d}s}\mathbf{N}(s)\\
+                                               &=\mathbf{T}(s)\times \frac{\mathrm{d}}{\mathrm{d}s}\mathbf{N}(s)\\
+\end{align*}
+$$
+As $\mathbf{T}(s)\times \frac{\mathrm{d}}{\mathrm{d}s}\mathbf{N}(s)$ is orthogonal to $\mathbf{T}(s)$, therefore:
+$$
+\frac{\mathrm{d}}{\mathrm{d}s}\mathbf{B}(s)\perp \mathbf{T}(s) \tag*{$\blacksquare$}
+$$
+
+</details>
+
+:::
+
+::::
+
+### Torsion
+
+::::tip Torsion
+
+A corollary from the binormal vector is:
+
+$$
+\frac{\mathrm{d}}{\mathrm{d}s}\mathbf{B}(s)=-\tau \mathbf{N}(s)
+$$
+
+where $\tau$ is a scalar function called the **Torsion** of the curve.
+
+:::note Geometric Intuition
+
+Torsion tells us how much the curve is "twisting".
+
+:::
+
+:::warning Exercise
+
+Prove the following criterion: A curve $\gamma (s)$ is a planar if and only if the torsion $\tau(s)=0$ for any $s$.
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+If the curve is planar, then the plane has a normal direction $\mathbf{B}(s)$, which implies that $\mathbf{B}(s)$ is constant, which implies:
+
+$$
+\frac{\mathrm{d}}{\mathrm{d}s}\mathbf{B}(s)=o \implies \tau(s)\mathbf{N}(s)=0 \implies  \tau(s)=0
+$$
+
+</details>
+
+:::
+
+::::
