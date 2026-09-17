@@ -1,0 +1,213 @@
+---
+title: 9/15/2026 - Lecture 1
+sidebar_label: 9/15/2026
+sidebar_position: 1
+---
+
+## Sum and Product
+
+::::tip Sum and Product
+
+Properties of the operation "sum" and "product" of real number
+
+$$
+\begin{align}
+    &a+b=b+a \qquad \qquad \ \ \ \ \qquad ab=ba &\qquad \text{(Communicativity)}\\
+    &(a+b)+c=a+(b+c) \qquad (ab)c=a(bc) &\qquad \text{(Associativity)}\\
+    &a(b+c)=ab+ac \qquad \qquad\ \ \ (a+b)c=(ac+bc) &\qquad \text{(Distributivity)}\\
+    & a+0=a=0+a\\
+    & a 1=a=1 a\\
+    & \forall a\in \mathbb{R}, \exists! x\in \mathbb{R}: a+x=0,\ x=-a\\
+    & a\ne 0 \implies \exists! x\in \mathbb{R}: ax=1,\ x=a^{-1}=\frac{1}{a}
+
+\end{align}
+$$
+
+Those are axioms, which means we just assume is true. 
+:::info Example
+
+Prove that if $a+x_1=a+x_2$, then $x_1=x_2$
+
+$$
+\begin{align*}
+    x_1&=x_1+0 &\qquad \text{(Property 4)}\\
+       &=x_1+\big(a+(-a) \big)  &\qquad \text{(Property 6)}\\
+       &=(x_1+a)+(-a) &\qquad \text{(Property 2)}\\
+       &=(a+x_1)+(-a) &\qquad \text{(Property 1)}\\
+       &=(a+x_2)+(-a) &\qquad \text{(Given)}\\
+       &=(x_2+a)+(-a) &\qquad \text{(Property 1)}\\
+       &=x_2+\big(a+(-a)\big) &\qquad \text{(Property 2)}\\
+       &=x_2+0 &\qquad \text{(Property 6)}\\
+       &=x_2 &\qquad \text{(Property 4)} \tag*{$\blacksquare$}
+\end{align*}
+$$
+
+:::
+:::warning Practice
+Prove that if $a\ne 0,\ ax_1=ax_2$, then $x_1=x_2$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+
+
+</details>
+
+:::
+
+::::
+
+## Difference and Quotient
+
+::::tip Difference and Quotient
+
+For $a,b \in \mathbb{R}$:
+$$
+a-b \overset{\mathrm{def}}{=} a+(-b)
+$$
+For $b\ne 0$:
+
+$$
+\frac{a}{b}\overset{\mathrm{def}}{=}a\cdot \frac{1}{b} \text{ or } ab^{-1}
+$$
+
+:::warning Question
+
+Prove the following:
+
+1. $\forall a\in \mathbb{R}, a\cdot 0=0 \cdot a=0$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+
+
+</details>
+<hr/>
+
+2. $(-a) b=-(ab)$
+
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+
+
+</details>
+<hr/>
+
+3. $a(-b)=-ab$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+
+
+</details>
+<hr/>
+
+4. $(-a)(-b)=ab $
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+
+
+</details>
+<hr/>
+
+5. $(a<b \land b<c )\implies a<c$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+
+
+</details>
+
+:::
+::::
+
+## Order Axioms
+
+::::tip Order Axioms
+:::note 
+For thsoe axioms, we are assuming they are true. In future, we can define real number and prove those axioms.
+:::
+1. Law of Trichotomy: Let $a,b\in \mathbb{R}$, the one and the only one of the following three possibilities is true:
+$$
+ a < b  \qquad a=b \qquad a>b
+$$
+
+<hr/>
+
+2. For $a,b,c \in \mathbb{R}$: 
+
+$$
+a<b \iff a+c<b+c
+$$
+<hr/>
+
+3. For $a,b,c \in \mathbb{R}$: 
+
+$$
+a<b
+\implies
+\begin{cases}
+ac<bc &\quad c>0,\\
+ac>bc &\quad c<0.
+\end{cases}
+$$
+::::
+
+## Absolute Value
+
+::::tip Absolute Value
+
+For $a\in \mathbb{R}$,
+
+$$
+|a|\overset{\mathrm{def}}{=}
+\begin{cases}
+a &\quad  \text{if }a\ge 0\\
+-a &\quad \text{if } a<0
+\end{cases}
+$$
+
+:::info Properties
+For any real number $a$, $a\le |a|$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+Case 1: if $a \ge 0$, then $|a|=a$ by the definition of absolute value of $a$.
+
+$$
+\implies a\le |a|
+$$
+
+Case 2:  if $a < 0$, then $|a|=-a$ by the definition of absolute value of $a$.
+
+$$
+\begin{align*}
+    a<0 \implies 2a&<2\cdot 0=0 &\qquad \text{(Order Axiom 3)}\\
+                2a&<0\\
+                (1+1)a&<0 \\
+                a+a&<0   &\qquad\text{(Sum and Product Property 3)}\\
+                a+a+(-a)&<0+(-a) &\qquad \text{(Order Axiom 2)}\\
+                a+a+(-a)&<-a  &\qquad\text{(Sum and Product Property 4)}\\
+                a+0&<-a  &\qquad\text{(Sum and Product Property 6)}\\
+                \implies a&<-a=|a|\\
+                \implies a&\le |a|
+\end{align*}
+$$
+Therefore by two cases: 
+
+$$
+a\le |a| \tag*{$\blacksquare$}
+$$
+</details>
+
+:::
+
+::::
