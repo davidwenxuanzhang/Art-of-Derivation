@@ -123,14 +123,190 @@ Prove the following criterion: A curve $\gamma (s)$ is a planar if and only if t
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
 
-If the curve is planar, then the plane has a normal direction $\mathbf{B}(s)$, which implies that $\mathbf{B}(s)$ is constant, which implies:
+- Only If Direction: 
+
+Given a curve $\gamma (s)$ is planar, we know it has a normal vector $\mathbf{k}$, then:
 
 $$
-\frac{\mathrm{d}}{\mathrm{d}s}\mathbf{B}(s)=o \implies \tau(s)\mathbf{N}(s)=0 \implies  \tau(s)=0
+\gamma(s)\cdot \mathbf{k}=\text{Constant}
+$$
+
+Take the derivative on both side:
+
+$$
+\frac{\mathrm{d}}{\mathrm{d}s}\big(\gamma(s)\cdot \mathbf{k}\big)=0\implies \mathbf{T}(s)\cdot \mathbf{k}=0 \implies \mathbf{k} \perp \mathbf{T}(s)
+$$
+
+Take the derivative on both side again:
+
+$$
+\frac{\mathrm{d}}{\mathrm{d}s}\big(\mathbf{T}(s)\cdot \mathbf{k}\big)=\kappa (s)\mathbf{N}(s)\cdot \mathbf{k}=0\implies \mathbf{k}\perp \mathbf{N}
+$$
+
+Since $\mathbf{B}(s)=\mathbf{T}(s) \times \mathbf{N}(s) $, meaning that $\mathbf{B}(s) \perp \mathbf{T}(s)$ and $\mathbf{B}(s) \perp \mathbf{N}(s)$. Therefore, the normal vector $\mathbf{k}$ is proportional to $\mathbf{B}(s)$ with same direction, which implies:
+
+$$
+\frac{\mathrm{d}}{\mathrm{d}s}\mathbf{B}(s)=0 \implies \tau(s)\mathbf{N}(s)=0 \implies  \tau(s)=0
+$$
+
+<hr />
+
+- If Direction: 
+
+Assume $\tau(s)=0$, then :
+
+$$
+    \frac{\mathrm{d}}{\mathrm{d}s}\mathbf{B}(s)=-\tau(s)\mathbf{N}(s)=0 \implies \mathbf{B}(s) \text{ is a constant}
+$$
+
+Then, notice the derivative:
+
+$$
+\begin{align*}
+    \frac{\mathrm{d}}{\mathrm{d}s}\big(\gamma{(s)}\cdot \mathbf{B}(s) \big)^{\prime}&=\gamma^{\prime}(s)\cdot \mathbf{B}(s)+\gamma(s)\cdot \underbrace{\mathbf{B}^{\prime}(s)}_{0} &\qquad \text{(Dot Product Rule)}\\
+            &=\mathbf{T}(s)\cdot \mathbf{B}(s)\\
+            &=0 &\qquad (\mathbf{T}(s)\perp \mathbf{B}(s))
+\end{align*}
+$$
+Hence, $\gamma(s)\cdot \mathbf{B}(s)$ is a constant, which suggests that $\gamma(s)$ is a plane with normal vector $\mathbf{B}(s)$ according to the general form of a [plane](docs/Notes/Stony-Brook/MAT307/8-27-2026.mdx#Planes).
+
+<hr />
+Therefore, 
+
+$$
+\gamma(s) \text{ is a planar } \iff \tau(s)=0 \text{ for all } s   \tag*{$\blacksquare$}
 $$
 
 </details>
 
 :::
 
+::::
+
+:::warning Analogous Exercise
+
+Criterion $\kappa(s)=0$ if and only if $\gamma(s)$ lie on a line.
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+
+
+</details>
+
+:::
+
+## Frenet–Serret Formula
+
+We start with a leading question:
+
+::::warning Question 
+
+Compute  $\frac{\mathrm{d}}{\mathrm{d}{s}}\mathbf{N}(s) $ in terms of $\kappa(s), \tau(s), \mathbf{T}(s), \text{and } \mathbf{B}(s) $
+
+:::info Solution
+
+Because $\mathbf{T}, \mathbf{N}, \mathbf{B}$ construct a orthogonal basis at any point, so any vectors in $\mathbb{R}^3$, including $\frac{\mathrm{d}}{\mathrm{d}{s}}\mathbf{N}(s)$, could be written as:
+
+$$
+\frac{\mathrm{d}}{\mathrm{d}{s}}\mathbf{N}(s)= a(s) \mathbf{T}(s)+b(s)\mathbf{N}(s)+c(s)\mathbf{B}(s)
+$$
+
+Also, because $\mathbf{T}, \mathbf{N}, \mathbf{B}$ are unit vectors and orthogonal to each other:
+
+$$
+\begin{align*}
+    a(s)&=\frac{\mathrm{d}}{\mathrm{d}{s}}\mathbf{N}(s)\cdot \mathbf{T}(s)\\
+    b(s)&=\frac{\mathrm{d}}{\mathrm{d}{s}}\mathbf{N}(s)\cdot \mathbf{N}(s)\\
+    c(s)&=\frac{\mathrm{d}}{\mathrm{d}{s}}\mathbf{N}(s)\cdot \mathbf{B}(s)
+\end{align*}
+$$
+
+As $\mathbf{N}(s)$ is a unit vector: 
+
+$$
+\begin{align*}
+    \mathbf{N}(s)\cdot \mathbf{N}(s)&=1\\
+    \frac{\mathrm{d}}{\mathrm{d}s}\big(\mathbf{N}(s)\cdot \mathbf{N}(s) \big)&=0\\
+    \frac{\mathrm{d}}{\mathrm{d}s}\mathbf{N}(s)\cdot \mathbf{N}(s)&=0 \implies b(s)=0
+\end{align*}
+$$
+Therefore: 
+
+$$
+\frac{\mathrm{d}}{\mathrm{d}{s}}\mathbf{N}(s)= a(s) \mathbf{T}(s)+c(s)\mathbf{B}(s)
+$$
+<hr />
+
+
+From $\mathbf{T}(s)\cdot \mathbf{N}(s)=0$ and :
+
+$$
+\begin{align*}
+    \frac{\mathrm{d}}{\mathrm{d}{s}}\big( \mathbf{T}(s)\cdot \mathbf{N}(s) \big)&=0\\
+                    \frac{\mathrm{d}}{\mathrm{d}{s}}\mathbf{T}(s)\cdot \mathbf{N}(s)+\frac{\mathrm{d}}{\mathrm{d}{s}}\mathbf{N}(s)\cdot \mathbf{T}(s)&=0 &\qquad \text{(Dot Product Rule)}\\
+                     a(s)=\frac{\mathrm{d}}{\mathrm{d}{s}}\mathbf{N}(s)\cdot \mathbf{T}(s)&=-\frac{\mathrm{d}}{\mathrm{d}{s}}\mathbf{T}(s)\cdot \mathbf{N}(s)\\
+\end{align*}
+$$
+
+Given the fact that $\frac{\mathrm{d}}{\mathrm{d}{s}}\mathbf{T}(s)= - \kappa(s) \mathbf{N}(s)$
+
+$$
+\begin{align*}
+   a(s)= \frac{\mathrm{d}}{\mathrm{d}{s}}\mathbf{N}(s)\cdot \mathbf{T}(s)&=-\frac{\mathrm{d}}{\mathrm{d}{s}}\mathbf{T}(s)\cdot \mathbf{N}(s)\\
+    &=- \kappa (s)\mathbf{N}(s)\cdot  \mathbf{N}(s)\\
+    &=-\kappa(s) \big(\mathbf{N}(s)\cdot {\mathbf{N}(s)} \big)\\
+    &=-\kappa(s)
+\end{align*}
+$$
+
+<hr />
+
+From $\mathbf{N}(s)\cdot \mathbf{B}(s)=0$
+
+$$
+\begin{align*}
+    \frac{\mathrm{d}}{\mathrm{d}{s}}\big( \mathbf{N}(s)\cdot \mathbf{B}(s) \big)&=0\\
+                    \frac{\mathrm{d}}{\mathrm{d}{s}}\mathbf{N}(s)\cdot \mathbf{B}(s)+\frac{\mathrm{d}}{\mathrm{d}{s}}\mathbf{B}(s)\cdot \mathbf{N}(s)&=0 &\qquad \text{(Dot Product Rule)}\\
+                     c(s)=\frac{\mathrm{d}}{\mathrm{d}{s}}\mathbf{N}(s)\cdot \mathbf{B}(s)&=-\frac{\mathrm{d}}{\mathrm{d}{s}}\mathbf{B}(s)\cdot \mathbf{N}(s)\\
+\end{align*}
+$$
+
+Given the fact that $\frac{\mathrm{d}}{\mathrm{d}{s}}\mathbf{B}(s)= - \tau (s)\mathbf{N}(s)$
+
+$$
+\begin{align*}
+   c(s)= \frac{\mathrm{d}}{\mathrm{d}{s}}\mathbf{N}(s)\cdot \mathbf{B}(s)&=-\frac{\mathrm{d}}{\mathrm{d}{s}}\mathbf{B}(s)\cdot \mathbf{N}(s)\\
+    &=- \tau (s)\mathbf{N}(s)\cdot  \mathbf{N}(s)\\
+    &=-\tau (s)\big(\mathbf{N}(s)\cdot {\mathbf{N}(s)} \big)\\
+    &=-\tau(s)
+\end{align*}
+$$
+<hr />
+
+Hence: 
+
+$$
+\frac{\mathrm{d}}{\mathrm{d}{s}}\mathbf{N}(s)= \kappa (s)\mathbf{T}(s)+\tau(s)\mathbf{B}(s)
+$$
+:::
+
+This leads to the Frenet–Serret Formula
+::::
+
+::::tip Frenet–Serret Formula
+
+Given the unit [tangent](docs/Notes/Stony-Brook/MAT307/9-8-2026.mdx#unit-tangent-vector), [normal](docs/Notes/Stony-Brook/MAT307/9-8-2026.mdx#unit-normal-vector), and [binormal](#binormal-vector) vector $\mathbf{T}(s),\mathbf{N}(s),\mathbf{B}(s)$ of a curve, we have:
+
+$$
+\begin{align*}
+    \frac{\mathrm{d}}{\mathrm{d}{s}}\mathbf{T}(s)&= \kappa (s)\mathbf{N}(s)\\
+    \frac{\mathrm{d}}{\mathrm{d}{s}}\mathbf{N}(s)&= \kappa (s)\mathbf{T}(s)+\tau(s)\mathbf{B}(s)\\
+    \frac{\mathrm{d}}{\mathrm{d}{s}}\mathbf{B}(s)&= \tau (s)\mathbf{N}(s)\\
+\end{align*}
+$$
+where $\kappa(s)$ is the curvature [curvature](docs/Notes/Stony-Brook/MAT307/9-8-2026.mdx#curvature), and $\tau (s)$ is the [torsion](#torsion).
+:::note 
+These equations determine the shape of the curve up to an isometry.
+:::
 ::::
