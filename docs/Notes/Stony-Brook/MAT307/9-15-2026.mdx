@@ -1,0 +1,444 @@
+---
+title: 9/15/2026 - Lecture 7
+sidebar_label: 9/15/2026
+sidebar_position: 8
+---
+
+## Matrix
+
+::::tip Matrix
+
+A **Matrix** is a table of numbers:
+
+$$
+A=
+\begin{bmatrix}
+a_{11}&a_{12}&\cdots&a_{1n}\\
+a_{21}&a_{22}&\cdots&a_{2n}\\
+\vdots&\vdots&\ddots&\vdots\\
+a_{m1}&a_{m2}&\cdots&a_{mn}
+\end{bmatrix}
+$$
+
+This is an $m\times n$ matrix. Furthermore, we say $A$ has an entry $a_{ij}$, where $i$ is the row and $j$ is the column.
+
+:::info Exotic Example 
+
+The adjacency matrix of a graph: 
+
+
+<div className="deriv2col">
+
+  <div>
+
+<svg viewBox="10 20 190 160" width="100%" style={{ maxWidth: '280px', height: 'auto', display: 'block', margin: '0.5rem auto' }} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" role="img" aria-label="A directed graph on vertices 1, 2, 3, 4 with a loop at vertex 1, two arrows from 1 to 2, and single arrows from 2 to 3, from 3 to 4, and from 1 to 4"><path d="M56,47 C22,38 22,72 56,63"/><polyline points="48,69 56,63 46,61"/><path d="M85,49.5 Q127.5,27 155,49.5"/><polyline points="145.5,47 155,49.5 150.5,40.5"/><path d="M85,60.5 Q127.5,83 155,60.5"/><polyline points="150.5,69.5 155,60.5 145.5,63"/><line x1="170" y1="71" x2="170" y2="129"/><polyline points="166,120 170,129 174,120"/><line x1="154" y1="145" x2="86" y2="145"/><polyline points="95,141 86,145 95,149"/><line x1="70" y1="71" x2="70" y2="129"/><polyline points="66,120 70,129 74,120"/><g fill="currentColor" fillOpacity="0.06"><circle cx="70" cy="55" r="16"/><circle cx="170" cy="55" r="16"/><circle cx="170" cy="145" r="16"/><circle cx="70" cy="145" r="16"/></g><g fill="currentColor" stroke="none" fontSize="14" textAnchor="middle"><text x="70" y="60">1</text><text x="170" y="60">2</text><text x="170" y="150">3</text><text x="70" y="150">4</text></g></svg>
+
+  </div>
+
+  <div style={{ alignSelf: 'center' }}>
+
+We define $a_{ij}\overset{\text{Def}}{=}$ the number of arrows going from vertex $i$ to vertex $j$, so the adjacency matrix of this graph is:
+
+$$
+A=
+\begin{bmatrix}
+1&2&0&1\\
+0&0&1&0\\
+0&0&0&1\\
+0&0&0&0
+\end{bmatrix}
+$$
+
+  </div>
+
+</div>
+
+:::
+
+:::danger Important
+
+Matrices are very important for studying vector spaces and transformations of vector spaces.
+
+:::
+
+::::
+
+## Vector Space
+
+::::tip Vector Space
+
+A real vector space is a set $V$ with two operations.
+
+1. Addition: For any $\mathbf{x},\mathbf{y}\in V$, there exists a unique vector $\mathbf{x}+\mathbf{y}$ 
+
+2. Scalar Multiplication: For any $\mathbf{x}\in V$ and for any $c\in \mathbb{R}$, there exists a unique vector $c\mathbf{x}$
+
+:::info Properties
+
+Furthermore, the following compatibility properties are satisfied.
+
+- Commutativity: $\mathbf{x}+\mathbf{y}=\mathbf{y}+\mathbf{x}$ for any $\mathbf{x}$ and $\mathbf{y}$
+- Associativity of Addition: $(\mathbf{x}+\mathbf{y})+\mathbf{z}=\mathbf{x}+(\mathbf{y}+\mathbf{z})$ for any $\mathbf{x},\mathbf{y},\mathbf{z}\in V$
+- Additive Identity: There exists $\mathbf{0}\in V$ such that for any $\mathbf{x}\in V$, $\mathbf{x}+\mathbf{0}=\mathbf{x}$
+- Additive inverse: For any $\mathbf{x}\in V$, there exists $-\mathbf{x}\in V$ such that $\mathbf{x}+(-\mathbf{x})=\mathbf{0}$
+- Property of $1\in \mathbb{R}$: For any $\mathbf{x}\in V$, $1\cdot \mathbf{x}=\mathbf{x}$
+- Associativity of Scalar Multiplication: $c_1(c_2\mathbf{x})=(c_1c_2)\mathbf{x}$
+- Distributivity $\mathrm{I}$: $c(\mathbf{x}+\mathbf{y})=c\mathbf{x}+c\mathbf{y}$
+- Distributivity $\mathrm{II}$: $(c_1+c_2)\mathbf{x}=c_1\mathbf{x}+c_2\mathbf{x}$
+:::
+:::info Example and Non-example
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gap: "0",
+  }}
+>
+  <div
+    style={{
+      paddingRight: "2rem",
+      borderRight: "1px solid var(--ifm-color-emphasis-300)",
+    }}
+  >
+
+**Examples**
+
+1. $\mathbb{R}^2, \ \mathbb{R}^3$ are vector spaces.
+2. $\mathbb{R}^n$; that is to say, the set of $n$-tuples of real numbers $(x_1,\dots,x_n)$ where $x_i\in\mathbb{R}$, is a vector space.
+3. A line in $\mathbb{R}^2$ is a vector space if and only if it contains the origin.
+4. A plane in $\mathbb{R}^3$ is a vector space if and only if it contains the origin.
+
+  </div>
+
+  <div
+    style={{
+      paddingLeft: "2rem",
+    }}
+  >
+
+**Non-example**
+ 
+1. $W=\{(a_1,a_2,a_3)\in \mathbb{R}^3 \text{ s.t. } a_1\ge 0\}$ is not a vector space because $\mathbf{x}=(1,0,0)\in{W}$ but $-\mathbf{x}=(-1,0,0)\notin{W}$.
+2. $W=\ell_1 \cup \ell_2$ where $\ell_1 \ne \ell_2$ are 2 lines in $\mathbb{R}^3$ through the origin is not a vector space because it is not closed under addition.
+  </div>
+</div>
+
+
+:::
+::::
+
+## Transformation of Vector Space
+
+::::tip Transformation of Vector Space
+
+Given vector spaces $V$ and $W$, a map $\varphi: V\rightarrow W$ is a **linear map** if it satisfies the following:
+
+1. $\varphi (\mathbf{x}+\mathbf{y})=\varphi( {\mathbf{x}})+\varphi ({\mathbf{y}})$ for any $\mathbf{x},\mathbf{y}\in V$
+2. $\varphi (c\mathbf{x})=c\varphi (\mathbf{x})$ for any $\mathbf{x}\in V, \  c\in \mathbb{R}$
+
+:::info Example
+
+$$
+\varphi: \mathbb{R}^2\rightarrow \mathbb{R}^2, \qquad (\mathbf{x}_1,\mathbf{x}_2)\mapsto(2\mathbf{x}_1+\mathbf{x}_2,\mathbf{x}_1)
+$$
+
+More generally, any map of the form: 
+$$
+(\mathbf{x}_1,\dots,\mathbf{x}_n)\mapsto (a_{11}\mathbf{x}_1+\dots+a_{1n}\mathbf{x}_n,\ a_{21}\mathbf{x}_1+\dots+a_{2n}\mathbf{x}_n,\ \dots,\ a_{m1}\mathbf{x}_1+\dots+a_{mn}\mathbf{x}_n)
+$$
+is a linear map.
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+
+
+</details>
+
+:::
+
+
+:::info Non-example
+
+$$
+\varphi: \mathbb{R}^2\rightarrow \mathbb{R}^2, \qquad (\mathbf{x}_1,\mathbf{x}_2)\mapsto(\mathbf{x}_1^2,\mathbf{x}_1-\mathbf{x}_2)
+$$
+
+This is not a linear map because for $\mathbf{x}=(1,0)$:
+
+$$
+\varphi( {\mathbf{x}})=(1,1)\qquad \varphi(2\mathbf{x})=(4,2)\ne 2\varphi ({\mathbf{x}})
+$$
+
+:::
+
+:::info Geometric Example
+
+- A rotation in $\mathbb{R}^2$ is a linear map:
+
+$$
+(\mathbf{x}_1,\mathbf{x}_2) \overset{\varphi}{\mapsto}\big(\cos{(\alpha)}\mathbf{x}_1+\sin{(\alpha)}\mathbf{x}_2,-\sin{(\alpha)}\mathbf{x}_1+\cos{(\alpha)}\mathbf{x}_2 \big)
+$$
+
+<svg viewBox="0 0 240 190" width="100%" style={{ maxWidth: '300px', height: 'auto', display: 'block', margin: '0.6rem auto' }} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" role="img" aria-label="A vector x and its image phi of x, obtained by rotating x through the angle alpha about the origin"><line x1="20" y1="150" x2="210" y2="150" strokeWidth="1.4" strokeOpacity="0.45"/><polyline points="202,146 210,150 202,154" strokeWidth="1.4" strokeOpacity="0.45"/><line x1="60" y1="172" x2="60" y2="20" strokeWidth="1.4" strokeOpacity="0.45"/><polyline points="56,28 60,20 64,28" strokeWidth="1.4" strokeOpacity="0.45"/><path d="M117.4,68.1 A100,100 0 0 1 156.6,124.1" strokeWidth="1.4" strokeOpacity="0.5" strokeDasharray="4 3"/><line x1="60" y1="150" x2="117.4" y2="68.1" strokeWidth="2.4"/><polyline points="115,78.6 117.4,68.1 108.4,74" strokeWidth="2.4"/><line x1="60" y1="150" x2="156.6" y2="124.1" strokeWidth="2.4"/><polyline points="147.9,130.6 156.6,124.1 145.9,122.8" strokeWidth="2.4"/><path d="M82.9,117.2 A40,40 0 0 1 98.6,139.7" strokeWidth="1.4" strokeOpacity="0.8"/><circle cx="60" cy="150" r="2.4" fill="currentColor" stroke="none"/><text x="214" y="154" fontSize="11" fontStyle="italic" fill="currentColor" stroke="none">x₁</text><text x="66" y="24" fontSize="11" fontStyle="italic" fill="currentColor" stroke="none">x₂</text><text x="100" y="64" fontSize="12" fontStyle="italic" fontWeight="700" fill="currentColor" stroke="none">x</text><text x="161" y="129" fontSize="12" fontStyle="italic" fontWeight="700" fill="currentColor" stroke="none">φ(x)</text><text x="103" y="124" fontSize="12" fontStyle="italic" fill="currentColor" stroke="none">α</text></svg>
+
+
+<hr />
+
+- A multiplication by a scalar 
+
+
+$$
+\mathbf{x}\overset{\varphi}{\mapsto}c\mathbf{x}
+$$
+
+<svg viewBox="0 0 240 170" width="100%" style={{ maxWidth: '300px', height: 'auto', display: 'block', margin: '0.6rem auto' }} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" role="img" aria-label="A vector x and its image phi of x equals c x, on the same ray from the origin and longer than x"><line x1="15" y1="130" x2="210" y2="130" strokeWidth="1.4" strokeOpacity="0.45"/><polyline points="202,126 210,130 202,134" strokeWidth="1.4" strokeOpacity="0.45"/><line x1="40" y1="152" x2="40" y2="20" strokeWidth="1.4" strokeOpacity="0.45"/><polyline points="36,28 40,20 44,28" strokeWidth="1.4" strokeOpacity="0.45"/><line x1="40" y1="130" x2="161.2" y2="60" strokeWidth="2" strokeOpacity="0.6"/><polyline points="154.5,68.5 161.2,60 150.5,61.5" strokeWidth="2" strokeOpacity="0.6"/><line x1="40" y1="130" x2="100.6" y2="95" strokeWidth="2.8"/><polyline points="93.9,103.5 100.6,95 89.9,96.5" strokeWidth="2.8"/><circle cx="40" cy="130" r="2.4" fill="currentColor" stroke="none"/><text x="214" y="134" fontSize="11" fontStyle="italic" fill="currentColor" stroke="none">x₁</text><text x="46" y="24" fontSize="11" fontStyle="italic" fill="currentColor" stroke="none">x₂</text><text x="104" y="108" fontSize="12" fontStyle="italic" fontWeight="700" fill="currentColor" stroke="none">x</text><text x="166" y="62" fontSize="12" fontStyle="italic" fontWeight="700" fill="currentColor" stroke="none">φ(x) = cx</text><text x="166" y="75" fontSize="10" fill="currentColor" fillOpacity="0.7" stroke="none">(here c &gt; 1)</text></svg>
+
+
+:::
+
+::::
+
+## Matrix Associated to a Linear Map
+
+### Standard Basis
+
+:::tip Standard Basis
+
+The **Standard Basis** for $\mathbb{R}^n$ is:
+
+$$
+\mathbf{e}_1=(1,0, \dots ,0), \mathbf{e}_2=(0,1,0,\dots,0),\dots, \mathbf{e}_n=(0,0, \dots ,1)
+$$
+
+Then we can re-write our vector:
+
+$$
+\mathbf{x}=(x_1,x_2,\dots,x_n)=x_1\mathbf{e}_1+\dots+x_n\mathbf{e}_n=\sum_{i=1}^{n}x_i\mathbf{e}_i
+$$
+
+:::
+
+### Linear Map
+
+::::tip Linear Map
+
+Now, suppose we are given a linear map $\varphi : \mathbb{R}^n\rightarrow \mathbb{R}^m$
+
+$$
+\varphi({\mathbf{x}})=\varphi\left({\sum_{i=1}^{n} x_i\mathbf{e}_i}\right)=\sum_{i=1}^{n}\varphi (x_i\mathbf{e}_i)=\sum_{i=1}^{n}x_i\varphi (\mathbf{e}_i)
+$$
+Now $\varphi(\mathbf{e}_i)$ gives us $n$ vectors in $\mathbb{R}^m$, as:
+
+$$
+\varphi({\mathbf{e}_i})=
+\begin{bmatrix}
+a_{1i}\\
+a_{2i}\\
+\vdots\\
+a_{mi}
+\end{bmatrix}
+$$
+Given the matrix associated to $\varphi$ is $A=\big(\varphi({\mathbf{e}_1}),\varphi({\mathbf{e}_2}),\dots,\varphi({\mathbf{e}_n}) \big)$, it can be written as:
+
+$$
+A=
+\begin{bmatrix}
+a_{11}&a_{12}&\cdots&a_{1n}\\
+a_{21}&a_{22}&\cdots&a_{2n}\\
+\vdots&\vdots&\ddots&\vdots\\
+a_{m1}&a_{m2}&\cdots&a_{mn}
+\end{bmatrix}
+$$
+
+
+:::note Analytic Expression
+
+The Analytic Expression is:
+
+$$
+\begin{align*}
+    (x_1,\dots,x_n)\mapsto 
+                            \begin{bmatrix}
+a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n\\
+a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n\\
+\vdots\\
+a_{m1}x_1+a_{m2}x_2+\cdots+a_{mn}x_n
+                            \end{bmatrix}
+\end{align*}
+$$
+
+:::
+That is to say, all linear maps have the matrix $A=\big(\varphi (\mathbf{e}_1),\dots ,\varphi (\mathbf{e}_n) \big)$ and can be written as above.
+
+
+:::info Example
+
+Consider the linear map:
+
+$$
+\varphi(x_1,x_2)=(3x_1+x_2,-x_2,-x_2+5x_1)
+$$
+
+The associated matrix could be found through:
+
+$$
+\varphi(\mathbf{e}_1)=\varphi(1,0)=(3,0,5) \qquad \varphi(\mathbf{e}_2)=\varphi(0,1)=(1,-1,-1) 
+$$
+
+$$
+A=\big(\varphi (\mathbf{e}_1),\varphi(\mathbf{e}_2)  \big)=
+\begin{bmatrix}
+3&1\\
+0&-1\\
+5&-1
+\end{bmatrix}
+$$
+:::
+
+
+::::
+
+## Goal of the Week
+
+::::tip Goal of the Week
+
+This week, we want to understand how to solve linear systems: 
+
+$$
+A\mathbf{x}=\mathbf{b}
+$$
+:::note 
+Given an $m\times n$ matrix associated with a linear map $\varphi$, we are solving $A\mathbf{x}=\varphi(\mathbf{x})=\mathbf{b}$
+:::
+
+that is to say, we want to find the solution to the system of equations:
+$$
+\begin{cases}
+    a_{11}x_1+\cdots +a_{1n}x_n=b_1\\
+    \qquad \vdots\\ 
+    a_{m1}x_1+\cdots +a_{mn}x_n=b_m\\   
+\end{cases}
+$$
+::::
+
+### What do we want to understand?
+
+:::tip What do we want to understand?
+
+Given $A$, or equivalently $\varphi$ and $\mathbf{b}$, we want to describe the solution set $S$ of linear system:
+
+$$
+S=\{\mathbf{x}\in \mathbb{R}^n \text{ such that } A\mathbf{x}=\mathbf{b} \}
+$$
+More importantly, what I mean by describe right here is answering: 
+- When is it non-empty?
+- Does it have a solution? (Is it a vector space?)
+- If it is non-empty, then can we quantify how big it is?
+
+:::
+
+::::info Proposition
+
+Check that the solution set $S$ is a vector space if and only if $\mathbf{b}=\mathbf{0}$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+1. $\Longleftarrow $ Direction: If $\mathbf{b}=\mathbf{0}$, then the solution set $S$ is a vector space.
+
+We want to check it is closed under addition and scalar multiplication: take $\mathbf{x}_1,\mathbf{x}_2\in S$, we want $\mathbf{x}_1+\mathbf{x}_2\in S$
+
+- $\varphi (\mathbf{x}_1+\mathbf{x}_2)=\varphi(\mathbf{x}_1)+\varphi(\mathbf{x}_2)=\mathbf{b}+\mathbf{b}=\mathbf{0}+\mathbf{0}=\mathbf{0}$
+
+- $\varphi (c\mathbf{x})=c\varphi(\mathbf{x})=c\cdot \mathbf{0}=\mathbf{0}$
+:::note 
+If you have a subset of a vector space, this is enough to check that it is a vector space.
+:::
+
+<hr />
+
+2. $\implies $ Direction: If the solution set $S$ is a vector space, then $\mathbf{b}=\mathbf{0}$.
+
+We want to check the contrapositive that if $\mathbf{b}\ne \mathbf{0}$, the solution set $S$ is not a vector space.
+
+- If $S\ne\empty$, take $\mathbf{x}_1,\mathbf{x}_2\in S$, then $\varphi(\mathbf{x}_1+\mathbf{x}_2)=2\mathbf{b}\ne \mathbf{b}$, so $\mathbf{x}_1+\mathbf{x}_2\notin S$ and $S$ is not closed under addition.
+
+- If $S=\empty$, then $S$ is not a vector space since $\mathbf{0}\notin S$
+
+<hr />
+
+Therefore:
+
+$$
+\text{The solution set } S \text{ is a vector space } \iff \mathbf{b}=\mathbf{0} \tag*{$\blacksquare$}
+$$
+
+</details>
+
+::::
+
+## Linear Dependence (and Independence)
+
+::::tip Linear Dependence
+
+Given a set of vectors $B=\{\mathbf{v}_1,\dots,\mathbf{v}_k  \} $, we say that $\mathbf{w}\in V$ is linearly dependent on $B$ if:
+
+$$
+\mathbf{w}=\sum_{i=1}^{k}\epsilon_i\mathbf{v}_i 
+$$
+
+:::info Example
+Any vector in $\mathbb{R}^n$ is linearly dependent on $\mathbf{e}_1,\dots,\mathbf{e}_n$:
+
+$$
+(x_1,\dots,x_n)=x_1\mathbf{e}_1+\dots +x_n\mathbf{e}_n
+$$
+:::
+
+<hr />
+
+A set of vectors $B=\{ \mathbf{v}_1,\dots,\mathbf{v}_k \}$ is linearly dependent if there exists $\mathbf{v}_i\in B$ such that $\mathbf{v}_i$
+is linearly dependent on $B-\{ \mathbf{v}_i\}$; that is to say:
+
+$$
+\mathbf{v}_i=c_1\mathbf{v}_1+\dots+c_{i-1}\mathbf{v}_{i-1}+c_{i+1}\mathbf{v}_{i+1}+\dots+c_{n}\mathbf{v}_{n} \text{ for some }c_j\in \mathbb{R}
+$$
+
+:::note Redundant Vector
+
+A good way to think of this is to think of these vectors as redundant vectors.
+
+:::
+::::
+
+::::tip Linear Independence
+
+A set of vectors $B=\{\mathbf{v}_1,\dots,\mathbf{v}_k \}$ is linearly independent if they are not linearly dependent.
+
+Equivalently, if:
+
+$$
+c_1\mathbf{v}_1+\dots +c_k\mathbf{v}_k=\mathbf{0} \implies c_i=0 \text{ for any }i
+$$
+
+then there is no linear relation among our vectors, or no redundant vectors
+
+:::info Explanation
+
+If $c_1\mathbf{v}_1+\dots +c_k\mathbf{v}_k=\mathbf{0}$ with at least one $c_i\ne 0$, then we take $i$ such that:
+
+$$
+c_i\mathbf{v}_i=-c_1\mathbf{v}_1-\dots-c_{i-1}\mathbf{v}_{i-1}-c_{i+1}\mathbf{v}_{i+1}-\dots-c_{k}\mathbf{v}_{k}
+$$
+As $c_i \ne 0$, divide both sides by $c_i$:
+$$
+\mathbf{v}_i=-\frac{c_1}{c_i}\mathbf{v}_1-\dots -\frac{c_{i-1}}{c_i}\mathbf{v}_{i-1}-\frac{c_{i+1}}{c_i}\mathbf{v}_{i+1}-\dots-\frac{c_k}{c_i}\mathbf{v}_k
+$$
+
+This shows that $\mathbf{v}_i$ is our redundant vector.
+
+:::
+
+::::
