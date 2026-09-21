@@ -1,0 +1,136 @@
+---
+title: 9/17/2026 - Lecture 2
+sidebar_label: 9/17/2026
+sidebar_position: 3
+---
+
+## (Check the course note)
+
+::::tip Definition (fill with the course note)
+
+Given two integers $a$ and $b$, we say that $b$ divides $a$ or $a$ is a multiple of $b$ to mean that there is an **unique** integer $q$ such that $a=bq$
+
+:::note Why Unique
+
+The reason that we say it is **unique** integer is because for the proposition "$0 \text{ divides }0$", it is true for all integers $q$, but obviously $0$ cannot divides anything; therefore, **unique** is really important.
+:::
+Notation:
+
+$$
+b \mid a : b \text{ divides } a
+$$
+
+::::
+
+### Even Number and Odd Number
+
+:::tip Even Number
+With the (definition), we define:
+
+$$
+a \text{ is even if } 2\mid a
+$$
+:::
+:::tip Odd Number
+Similarly, with the (definition), we define:
+
+$$
+a \text{ is odd (not even) if } 2\nmid a
+$$
+:::
+
+::::info Example
+
+Prove $101$ is an odd number.
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+:::danger Warning
+
+For the purpose of this class, you cannot just say $101\div 2=50.5\implies \text{not even}$. This will recieve a 0, and you have to use what we learn and prove it.
+
+:::
+
+Let $q$ be an integer
+
+- Case 1: $q < 50 \implies 2q<100$ by [Multiplication law](docs/Notes/Stony-Brook/MAT250/9-15-2026.mdx#Order-Axioms)
+- Case 2: $q = 50 \implies 2q=100 $
+- Case 4: $q > 50 \implies q \ge 51 \implies 2q \ge 102$
+
+Therefore: $101$ is not even $\implies $ $101$ is odd
+</details>
+::::
+
+## Proof by Contradiction
+
+:::::tip Proof by Contradiction
+
+If we want to prove $P$ is true:
+
+Start with assume $\neg P$ is true, then implies something always false, also known as [contradiction](docs/Notes/Stony-Brook/MAT200/8-25-2026.mdx#Contradiction) $(Q\land \neg Q)$
+
+::::info Example
+
+There do not exists integers $m,n$ such that $2m+4n=101$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+Suppose there are such integers $m$ and $n$ so that 2m+4n=101
+
+$$
+\begin{align*}
+    &\implies 2(m+2n)=101 &\qquad \text{(Distributivity)} \\
+    &\implies 2\mid 101 
+    &\implies 101 \text{ is even}
+\end{align*}
+$$
+However, from [previous example](#even-number-and-odd-number), $101$ is odd, and this gives us a **contradiction**.
+
+:::danger Warning
+You must mention the Contradiction
+:::
+
+Thus, there is no such integers. 
+</details>
+::::
+:::::
+
+:::warning Exercise
+
+Prove the following:
+
+1. There do not exist integers $m$ and $n$ such that $14m+21n=8$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+<hr/>
+
+2. Let $a,b$ be real numbers such that $a^2+b^2>2ab$, then $a\ne b$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+Assume $a=b$, then:
+
+$$
+\begin{align*}
+    a^2+b^2&=a^2+a^2 &\qquad \text{(Given)}\\
+           &=(1+1)a^2 &\qquad \text{(Distributivity)}\\
+           &=2a^2 \\
+           &=2a\times b\\
+           &=2ab &\qquad \text{(Given)}\\
+           \implies a^2+b^2&\le 2ab &\qquad  \text{(Create Contradiction)}
+\end{align*}
+$$
+As $a^2+b^2>2ab \iff \neg(a^2+b^2\le 2ab)$, this gives a contradiction.
+
+Thus $a\ne b$
+
+</details>
+
+:::
