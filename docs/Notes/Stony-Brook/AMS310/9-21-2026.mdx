@@ -3,3 +3,171 @@ title: 9/21/2026 - Lecture 13
 sidebar_label: 9/21/2026
 sidebar_position: 14
 ---
+
+## Lecture Overview
+
+missing
+
+## Random Variable
+
+::::tip Random Variable
+
+A **Random Variable** is a stochastic situation with a numertical sample space (reads: outcomes and numbers)
+
+:::info Example
+
+Consider three T/F questions with each 50% chance to guess it correctly (C is correct, W is wrong), and the value be the number of correct guess: 
+
+<div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: '0.25rem 1.25rem' }}>
+
+  <div>
+
+| Outcomes | Value | 
+|:---:|:---:|
+| CCC | 3 | 
+| CCW | 2 | 
+| CWC | 2 | 
+| CWW | 1 | 
+| WCC | 2 | 
+| WCW | 1 | 
+| WWC | 1 | 
+| WWW | 0 | 
+
+  </div>
+
+  <div>
+
+$\implies$
+
+  </div>
+
+  <div>
+
+| Values | Event | 
+|:---:|:---:|
+| 3 | \{CCC\} | 
+| 2 | \{CCW,CWC,WCC\} | 
+| 1 | \{CWW,WCW,WWC\} | 
+| 0 | \{WWW\} |
+
+  </div>
+
+  <div>
+
+$$
+\begin{align*}
+    &\mathbb{P}(\{\text{CCC} \}|\text{Context})=\frac{1}{8}\\
+    &\mathbb{P}(\{\text{Value}=0 \}|\text{Context})=\mathbb{P}(\{\text{WWW} \}|\text{Context})= \frac{1}{8}\\
+    &\mathbb{P}(\{\text{Value}=1 \}|\text{Context})=\frac{3}{8}\\
+    &\mathbb{P}(\{\text{Value}=2 \}|\text{Context})=\frac{3}{8}\\
+    &\mathbb{P}(\{\text{Value}=3 \}|\text{Context})=\frac{1}{8}
+\end{align*}
+$$
+
+  </div>
+
+</div>
+
+:::
+
+::::
+
+::::danger Takeaway
+
+A random variable quantities some aspect of the outcomes from the sample space and what precisely is being quantified.
+:::note Notation
+
+Random variable will be denoted as $\mathbb{X}$, $\mathbb{Y}$, $\mathbb{M}$ to distinguish from the independent numerical value that we will talk later.
+
+:::
+::::
+
+Back to the guessing game example:
+
+:::info Example
+
+Now we can rewrite our probability alignment in this way:
+
+<div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: '0.25rem 1.25rem' }}>
+
+  <div>
+
+$$
+\left.
+\begin{aligned}
+    &\mathbb{P}(\{\mathbb{X}=0 \}|\text{Context})= \frac{1}{8}\\
+    &\mathbb{P}(\{\mathbb{X}=1 \}|\text{Context})=\frac{3}{8}\\
+    &\mathbb{P}(\{\mathbb{X}=2 \}|\text{Context})=\frac{3}{8}\\
+    &\mathbb{P}(\{\mathbb{X}=3 \}|\text{Context})=\frac{1}{8}
+\end{aligned}
+\right\}
+$$
+
+  </div>
+
+  <div style={{ flex: '1 1 220px', maxWidth: '340px' }}>
+
+This is an example of a **discrete** random variable. There are also **continuous** random variables, which we will discuss next week.
+
+  </div>
+
+</div>
+
+:::
+
+Now, we can try something else with more fun.
+
+:::info Exotic Example
+
+Roll a fair 6-sided die twice, let $\mathbb{X}$ be the maximum of the two rolls:
+
+<div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: '0.25rem 1.25rem' }}>
+
+  <div>
+
+| $\mathbb{X}$ / Value | Events | 
+|:---:|:---:|
+| 1 | \{11\} | 
+| 2 | \{12,21,22\} | 
+| 3 | \{13,23,31,32,33\} | 
+| 4 | \{14,24,34,41,42,43,44\} | 
+| 5 | \{15,25,35,45,51,52,53,54,55\} | 
+| 6 | \{16,26,36,46,56,61,62,63,64,65,66\} | 
+
+  </div>
+
+  <div>
+
+$$
+\begin{aligned}
+    &\mathbb{P}(\mathbb{X}=1|\text{Context})=\frac{1}{36}\\
+    &\mathbb{P}(\mathbb{X}=2|\text{Context})=\frac{3}{36}\\
+    &\mathbb{P}(\mathbb{X}=3|\text{Context})=\frac{5}{36}\\
+    &\mathbb{P}(\mathbb{X}=4|\text{Context})=\frac{7}{36}\\
+    &\mathbb{P}(\mathbb{X}=5|\text{Context})=\frac{9}{36}\\
+    &\mathbb{P}(\mathbb{X}=6|\text{Context})=\frac{11}{36}
+\end{aligned}
+$$
+
+
+
+
+  </div>
+
+</div>
+
+:::
+
+### Independent Numerical Value
+
+::::tip Independent Numerical Value
+
+In the expression:
+
+$$
+\mathbb{P}(\mathbb{X}=x|\text{Context})
+$$
+
+$\mathbb{X}$ is the random variable, while $x$ is the **independent numerical value**, a specific number that $\mathbb{X}$ may take.
+
+::::
