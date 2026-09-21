@@ -11,16 +11,16 @@ sidebar_position: 1
 Properties of the operation "sum" and "product" of real number
 
 $$
-\begin{align}
-    &a+b=b+a \qquad \qquad \ \ \ \ \qquad ab=ba &\qquad \text{(Communicativity)}\\
+\begin{align*}
+    &a+b=b+a \qquad \qquad \ \ \ \ \qquad ab=ba &\qquad \text{(Communitativity)}\\
     &(a+b)+c=a+(b+c) \qquad (ab)c=a(bc) &\qquad \text{(Associativity)}\\
     &a(b+c)=ab+ac \qquad \qquad\ \ \ (a+b)c=(ac+bc) &\qquad \text{(Distributivity)}\\
-    & a+0=a=0+a\\
-    & a 1=a=1 a\\
-    & \forall a\in \mathbb{R}, \exists! x\in \mathbb{R}: a+x=0,\ x=-a\\
-    & a\ne 0 \implies \exists! x\in \mathbb{R}: ax=1,\ x=a^{-1}=\frac{1}{a}
+    & a+0=a=0+a &\qquad \text{(Zero)}\\
+    & a\times 1=a=1\times a &\qquad \text{(Unity)}\\
+    & \forall a\in \mathbb{R}, \exists! x\in \mathbb{R}: a+x=0,\ x=-a &\qquad \text{(Subtraction)}\\
+    & a\ne 0 \implies \exists! x\in \mathbb{R}: ax=1,\ x=a^{-1}=\frac{1}{a} &\qquad \text{(Division)}
 
-\end{align}
+\end{align*}
 $$
 
 Those are axioms, which means we just assume is true. 
@@ -30,15 +30,15 @@ Prove that if $a+x_1=a+x_2$, then $x_1=x_2$
 
 $$
 \begin{align*}
-    x_1&=x_1+0 &\qquad \text{(Property 4)}\\
-       &=x_1+\big(a+(-a) \big)  &\qquad \text{(Property 6)}\\
-       &=(x_1+a)+(-a) &\qquad \text{(Property 2)}\\
-       &=(a+x_1)+(-a) &\qquad \text{(Property 1)}\\
+    x_1&=x_1+0 &\qquad \text{(Zero)}\\
+       &=x_1+\big(a+(-a) \big)  &\qquad \text{(Subtraction)}\\
+       &=(x_1+a)+(-a) &\qquad \text{(Associativity)}\\
+       &=(a+x_1)+(-a) &\qquad \text{(Communitativity)}\\
        &=(a+x_2)+(-a) &\qquad \text{(Given)}\\
-       &=(x_2+a)+(-a) &\qquad \text{(Property 1)}\\
-       &=x_2+\big(a+(-a)\big) &\qquad \text{(Property 2)}\\
-       &=x_2+0 &\qquad \text{(Property 6)}\\
-       &=x_2 &\qquad \text{(Property 4)} \tag*{$\blacksquare$}
+       &=(x_2+a)+(-a) &\qquad \text{(Communitativity)}\\
+       &=x_2+\big(a+(-a)\big) &\qquad \text{(Associativity)}\\
+       &=x_2+0 &\qquad \text{(Subtraction)}\\
+       &=x_2 &\qquad \text{(Zero)} \tag*{$\blacksquare$}
 \end{align*}
 $$
 
@@ -128,27 +128,27 @@ Prove the following:
 :::
 ::::
 
-## Order Axioms
+## Axioms for the Order Relation
 
-::::tip Order Axioms
+::::tip Axioms for the Order Relation
 :::note 
 For thsoe axioms, we are assuming they are true. In future, we can define real number and prove those axioms.
 :::
-1. Law of Trichotomy: Let $a,b\in \mathbb{R}$, the one and the only one of the following three possibilities is true:
+1. **Law of Trichotomy**: Let $a,b\in \mathbb{R}$, the one and the only one of the following three possibilities is true:
 $$
  a < b  \qquad a=b \qquad a>b
 $$
 
 <hr/>
 
-2. For $a,b,c \in \mathbb{R}$: 
+2. **Addition Law**: For $a,b,c \in \mathbb{R}$: 
 
 $$
 a<b \iff a+c<b+c
 $$
 <hr/>
 
-3. For $a,b,c \in \mathbb{R}$: 
+3. **Multiplication law**: For $a,b,c \in \mathbb{R}$: 
 
 $$
 a<b
@@ -158,6 +158,15 @@ ac<bc &\quad c>0,\\
 ac>bc &\quad c<0.
 \end{cases}
 $$
+
+<hr/>
+
+4. **Transitive Law**: For $a,b,c\in \mathbb{R}$:
+
+$$
+a<b \land b<c \implies a<c
+$$
+
 ::::
 
 ## Absolute Value
@@ -190,13 +199,13 @@ Case 2:  if $a < 0$, then $|a|=-a$ by the definition of absolute value of $a$.
 
 $$
 \begin{align*}
-    a<0 \implies 2a&<2\cdot 0=0 &\qquad \text{(Order Axiom 3)}\\
+    a<0 \implies 2a&<2\cdot 0=0 &\qquad \text{(Multiplication law)}\\
                 2a&<0\\
                 (1+1)a&<0 \\
-                a+a&<0   &\qquad\text{(Sum and Product Property 3)}\\
-                a+a+(-a)&<0+(-a) &\qquad \text{(Order Axiom 2)}\\
-                a+a+(-a)&<-a  &\qquad\text{(Sum and Product Property 4)}\\
-                a+0&<-a  &\qquad\text{(Sum and Product Property 6)}\\
+                a+a&<0   &\qquad\text{(Distributivity)}\\
+                a+a+(-a)&<0+(-a) &\qquad \text{(Addition Law)}\\
+                a+a+(-a)&<-a  &\qquad\text{(Zero)}\\
+                a+0&<-a  &\qquad\text{(Subtraction)}\\
                 \implies a&<-a=|a|\\
                 \implies a&\le |a|
 \end{align*}
@@ -211,3 +220,41 @@ $$
 :::
 
 ::::
+
+## Practice
+
+:::warning Exercise
+
+Prove that for real numbers $a$ and $b$, if $a\ne b$, then:
+
+$$
+a^2+b^2>2ab
+$$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+The inequality can be written as:
+
+$$
+\begin{align*}
+    a^2+b^2>2ab &\iff a^2+b^2+(-2ab)> 2ab+(-2ab) &\qquad \text{(Addition Law)}\\
+                &\iff a^2+b^2-2ab> 0 &\qquad \text{(Subtraction)}\\
+                &\iff (a-b)^2> 0 &\qquad \text{(Distributivity)}\\
+\end{align*}
+$$
+Thus:
+$$
+\begin{align*}
+    a\ne b &\iff a-b\ne 0\\
+        &\implies (a-b)^2>0
+\end{align*}
+$$
+By the previous result: 
+
+$$
+a^2+b^2>2ab \tag*{$\blacksquare$}
+$$
+</details>
+
+:::
