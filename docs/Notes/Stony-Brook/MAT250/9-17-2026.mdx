@@ -4,9 +4,10 @@ sidebar_label: 9/17/2026
 sidebar_position: 3
 ---
 
-## (Check the course note)
+## Direct Proof
 
-::::tip Definition (fill with the course note)
+### Divisibility 
+::::tip Divisibility 
 
 Given two integers $a$ and $b$, we say that $b$ divides $a$ or $a$ is a multiple of $b$ to mean that there is an **unique** integer $q$ such that $a=bq$
 
@@ -58,7 +59,11 @@ Let $q$ be an integer
 - Case 2: $q = 50 \implies 2q=100 $
 - Case 4: $q > 50 \implies q \ge 51 \implies 2q \ge 102$
 
-Therefore: $101$ is not even $\implies $ $101$ is odd
+Therefore: $101$ is not even $\implies $ $101$ is odd 
+
+<div style={{ textAlign: 'right' }}>
+  $\blacksquare$
+</div>
 </details>
 ::::
 
@@ -93,6 +98,9 @@ You must mention the Contradiction
 :::
 
 Thus, there is no such integers. 
+<div style={{ textAlign: 'right' }}>
+  $\blacksquare$
+</div>
 </details>
 ::::
 :::::
@@ -110,7 +118,53 @@ Prove the following:
 
 <hr/>
 
-2. Let $a,b$ be real numbers such that $a^2+b^2>2ab$, then $a\ne b$
+2. If $a,b,c$ are real numbers such that $a>b$ and $ac\le bc$, then $c\le 0$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+The given and the goal are: 
+
+<div className="deriv2col">
+
+  <div>
+
+<div style={{ width: 'fit-content', margin: '0 auto' }}>
+
+| Given | Goal |
+|:---:|:---:|
+| $a>b$<br/>$ac\le bc$ | $c\le 0$ |
+
+</div>
+
+  </div>
+
+  <div>
+
+Assume $c>0$.
+
+Since $a>b$ and $ac\le bc$, according to [Multiplication Law](./9-15-2026.mdx#Order-Axioms):
+
+$$
+ac>bc
+$$
+
+This contradicts the given condition $ac\le bc$, therefore $c\le 0$.
+
+  </div>
+
+</div>
+
+<div style={{ textAlign: 'right' }}>
+  $\blacksquare$
+</div>
+
+
+</details>
+
+<hr/>
+
+3. Let $a,b$ be real numbers such that $a^2+b^2>2ab$, then $a\ne b$
 
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
@@ -129,8 +183,192 @@ $$
 $$
 As $a^2+b^2>2ab \iff \neg(a^2+b^2\le 2ab)$, this gives a contradiction.
 
-Thus $a\ne b$
+Thus $a\ne b $ 
+
+<div style={{ textAlign: 'right' }}>
+  $\blacksquare$
+</div>
 
 </details>
 
 :::
+
+
+## Proof by Contrapositive
+
+
+::::tip Proof by Contrapositive
+Recall that the [contrapositive](docs\Notes\Stony-Brook\MAT200\8-27-2026.mdx#Contrapositive) statement of $P\implies Q$ is:
+
+$$
+\neg Q\implies \neg P  
+$$
+More importantly: 
+
+$$
+ P\implies Q\equiv \neg Q\implies \neg P
+$$
+Therefore, to prove the statement $P\implies Q$, we can alternatively prove $\neg Q\implies \neg P$
+
+:::info Example
+
+Prove that if $a\le b$ and $a\ge b$, then $a=b$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+Let $P: a\le b \land a\ge b$ and $Q:a=b$
+
+Then, $\neg Q\equiv a\ne b$ and $\neg P \equiv a<b \lor  a>b$
+
+Assume $\neg P$ which $a\ne b$, then by [Law of Trichotomy](docs\Notes\Stony-Brook\MAT250\9-15-2026.mdx#Order-Axioms), either $a>b$ nor $a<b$, which is $\neg Q$.
+
+Therefore, by contrapositive:
+
+$$
+a\le b \land a\ge b \implies a=b \tag*{$\blacksquare$}
+$$
+
+
+</details>
+
+:::
+
+
+::::
+
+
+## Proving by "Or" Statement
+
+::::tip Proving by "Or" Statement
+
+Recall that:
+
+$$
+P\lor Q \equiv \neg P\implies Q
+$$
+
+This useful equivalence might be handy when proving conclusion including "or".
+
+:::info Example
+
+Let $a,b \in \mathbb{R}$, then $ab=0$ if and only if $a=0$ or $b=0$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+1. $\Longleftarrow $ Direction: If $a=0 \lor b=0$, then:
+
+$$
+ab=0\times b = 0 \quad \text{or} \quad ab=a\times 0 = 0
+$$
+Thus:
+
+$$
+a=0 \lor b=0 \implies ab=0
+$$
+
+<hr/>
+
+2. $\implies$ Direction: Suppose $ab=0$, then our goal is prving $a=0 \lor b=0$
+
+Using the equivalence $P\lor Q \equiv (\neg P \implies Q)$, assume $a\ne 0$, then $ax=1$ has a unique solution $\frac{1}{a}$ according to [unity](docs\Notes\Stony-Brook\MAT250\9-15-2026.mdx#Sum-and-Product), and from given:
+
+$$
+\begin{align*}
+    ab&=0\\
+    \frac{1}{a}\times (ab)&= \frac{1}{a}\times 0\\
+    (\frac{1}{a}\times a)\times b&= 0\\
+    1\times b&=0\\
+    b&=0
+\end{align*}
+$$
+
+Thus: 
+
+$$
+ab=0 \implies (a\ne 0 \implies b=0) \equiv ab=0\implies a=0 \lor b=0
+$$
+
+<hr/>
+
+Therefore: 
+
+$$
+ab=0 \iff a=0 \lor b=0 \tag*{$\blacksquare$}
+$$
+
+</details>
+
+:::
+
+::::
+
+
+:::warning Exercise
+
+Given the sign table for the product $ab$ from [Law of Trichotomy](./9-15-2026.mdx#Order-Axioms):
+
+<div className="sign-table-ab" style={{ width: 'fit-content', margin: '0 auto' }}>
+
+|  | $a>0$ | $a=0$ | $a<0$ |
+|:---:|:---:|:---:|:---:|
+| $b>0$ | $ab>0$ | $ab=0$ | $ab<0$ |
+| $b=0$ | $ab=0$ | $ab=0$ | $ab=0$ |
+| $b<0$ | $ab<0$ | $ab=0$ | $ab>0$ |
+
+</div>
+<style>{`
+.sign-table-ab table thead tr {
+  border-bottom: 1px solid var(--ifm-table-border-color);
+}
+`}</style>
+
+
+Prove the following: 
+
+1. If $a$ and $b$ are real numbers, then $ab>0$ if and only if they have same sign.
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+
+
+</details>
+
+<hr/>
+
+2. If $a$ and $b$ are real numbers, then $ab<0$ if and only if they have oppsite sign.
+
+
+:::
+
+## Mathematical Induction
+
+::::tip Induction Principle
+
+Let $P(n)$ be a statement involving a general positive integers $n$, then $P(n)$ is true for every positive $n$ provided that:
+
+1.  $P(n)$ is true
+
+2. For every positive integer $k$, the implication: 
+
+   $$
+   P(k) \implies P(k+1)
+   $$ 
+
+   is true.
+
+:::danger Natural Numbers Only
+
+Mathematical Induction involve natural numbers only.
+
+:::
+
+:::info Example
+
+
+
+:::
+
+::::
