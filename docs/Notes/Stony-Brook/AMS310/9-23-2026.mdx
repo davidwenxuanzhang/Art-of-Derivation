@@ -11,7 +11,7 @@ sidebar_position: 15
     -   Stochastic situation with numerical sample space
     -   Discrete vs. Continuous 
 
-- Today: Bernoulli trails and the binomial distribution (Start of Module 3)
+- Today: Bernoulli trials and the binomial distribution (Start of Module 3)
 
     - Examples of discrete random variable
     - Building toward a general formalism
@@ -20,14 +20,14 @@ sidebar_position: 15
 
 ### The Simplest Discrete Distribution
 
-::::tip Bernoulli Trail
+::::tip Bernoulli Trial
 
-The simplest distribution is the Bernoulli Trail.
+The simplest distribution is the Bernoulli Trial.
 
 - Each has $2$ outcomes: "success" (1) and "failure" (0)
 
 :::note
-"success" and "failure" are just lables.
+"success" and "failure" are just labels.
 :::
 
 :::info Example
@@ -49,7 +49,7 @@ $\mathbb{X}$ is the "score" on the question
 
 ::::
 
-:::tip Prametrization
+:::tip Parametrization
 
 What is the probability of observing either outcome? 
 
@@ -59,7 +59,7 @@ $$
 
 However, in general, it depends on the specific context, which we need to **Parametrize**!
 
-Suppose $p$ is the probability of observing "success" on the Bernoulli trail; by extension, the probability of "failure" is $1-p$.
+Suppose $p$ is the probability of observing "success" on the Bernoulli trial; by extension, the probability of "failure" is $1-p$.
 
 :::
 
@@ -76,7 +76,7 @@ $$
 
 Moreover, if we determine $\mathbb{P}(\mathbb{X}=k|C)=M(k)$ for all observable outcomes $k$, then this probability becomes a function of $k$
 
-For the Bernoulli trail:
+For the Bernoulli trial:
 
 $$
 M(k)=\mathbb{P}(\mathbb{X}=k|C)=
@@ -101,15 +101,15 @@ If $\mathbb{X}$ has a Bernoulli distribution, we write $\mathbb{X}\sim\operatorn
 
 ::::tip Binomial Distribution
 
-The **Binomial Distribution** considers what would happen after $N$ independent, identical Bernoulli trails
+The **Binomial Distribution** considers what would happen after $N$ independent, identical Bernoulli trials
 
-Specifically, the Binomial Distribution counts the number of "success" observed in $N$ trails
+Specifically, the Binomial Distribution counts the number of "successes" observed in $N$ trials
 
-- What are the ountcomes? $\underbrace{0,1,\dots, N-1,N}_{N+1\text{ outcomes}}$
+- What are the outcomes? $\underbrace{0,1,\dots, N-1,N}_{N+1\text{ outcomes}}$
 
 - What are the parameters? 
-    1. $p$, the probability of "success" on any one trail
-    2. $N$, the number of trails
+    1. $p$, the probability of "success" on any one trial
+    2. $N$, the number of trials
 
 - Examine the probabilities of observing each outcome; recall the context specifies $\mathbb{X}\sim \operatorname{Binomial}(N,p)$
 
@@ -117,7 +117,7 @@ $$
 \mathbb{P}(\mathbb{X}=k|C)=M(k)
 $$
 
-We're looking for the probability of $k$ "successes" in $N$ trails.
+We're looking for the probability of $k$ "successes" in $N$ trials.
 
 $$
 \underbrace{SS\cdots S}_{k \text{ successes}}\underbrace{FF\cdots F}_{N-k \text{ failures}}
