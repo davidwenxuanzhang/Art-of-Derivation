@@ -1,0 +1,161 @@
+---
+title: 9/23/2026 - Lecture 14
+sidebar_label: 9/23/2026
+sidebar_position: 15
+---
+
+## Lecture Overview
+
+- Last time: Random Variable
+
+    -   Stochastic situation with numerical sample space
+    -   Discrete vs. Continuous 
+
+- Today: Bernoulli trails and the binomial distribution (Start of Module 3)
+
+    - Examples of discrete random variable
+    - Building toward a general formalism
+
+## Lecture
+
+### The Simplest Discrete Distribution
+
+::::tip Bernoulli Trail
+
+The simplest distribution is the Bernoulli Trail.
+
+- Each has $2$ outcomes: "success" (1) and "failure" (0)
+
+:::note
+"success" and "failure" are just lables.
+:::
+
+:::info Example
+
+Guessing Game: $2$ outcomes on a particular question
+
+- Guess correctly: "Success"
+- Guess incorrectly: "Failure"
+
+$\mathbb{X}$ is the "score" on the question
+
+- $\mathbb{X}=1$: guess correctly
+- $\mathbb{X}=0$: guess incorrectly
+
+
+<hr/>
+
+:::
+
+::::
+
+:::tip Prametrization
+
+What is the probability of observing either outcome? 
+
+$$
+\mathbb{P}(\mathbb{X}=1|C)=\frac{1}{2}, \qquad \mathbb{P}(\mathbb{X}=0|C)=\frac{1}{2}
+$$
+
+However, in general, it depends on the specific context, which we need to **Parametrize**!
+
+Suppose $p$ is the probability of observing "success" on the Bernoulli trail; by extension, the probability of "failure" is $1-p$.
+
+:::
+
+:::tip Distribution
+
+For the distribution:
+
+$$
+\begin{align*}
+    \mathbb{P}(\text{"success"}|C)&=\mathbb{P}(\mathbb{X}=1|C)=p\\
+    \mathbb{P}(\text{"failure"}|C)&=\mathbb{P}(\mathbb{X}=0|C)=1-p
+\end{align*}
+$$
+
+Moreover, if we determine $\mathbb{P}(\mathbb{X}=k|C)=M(k)$ for all observable outcomes $k$, then this probability becomes a function of $k$
+
+For the Bernoulli trail:
+
+$$
+M(k)=\mathbb{P}(\mathbb{X}=k|C)=
+\begin{cases}
+1-p, & k=0\\
+p, & k=1\\
+0, & \text{otherwise}
+\end{cases}
+$$
+
+:::
+
+### Named Distribution
+
+:::tip 
+
+If $\mathbb{X}$ has a Bernoulli distribution, we write $\mathbb{X}\sim\operatorname{Bernoulli}(p)$
+
+:::
+
+### Binomial Distribution
+
+::::tip Binomial Distribution
+
+The **Binomial Distribution** considers what would happen after $N$ independent, identical Bernoulli trails
+
+Specifically, the Binomial Distribution counts the number of "success" observed in $N$ trails
+
+- What are the ountcomes? $\underbrace{0,1,\dots, N-1,N}_{N+1\text{ outcomes}}$
+
+- What are the parameters? 
+    1. $p$, the probability of "success" on any one trail
+    2. $N$, the number of trails
+
+- Examine the probabilities of observing each outcome; recall the context specifies $\mathbb{X}\sim \operatorname{Binomial}(N,p)$
+
+$$
+\mathbb{P}(\mathbb{X}=k|C)=M(k)
+$$
+
+We're looking for the probability of $k$ "successes" in $N$ trails.
+
+$$
+\underbrace{SS\cdots S}_{k \text{ successes}}\underbrace{FF\cdots F}_{N-k \text{ failures}}
+$$
+
+$$
+\therefore \text{There are } \binom{N}{k}\text{ such outcomes}
+$$
+
+$$
+\begin{align*}
+\mathbb{P}(S\cdots SF\cdots F)&=\mathbb{P}(S)\cdots \mathbb{P}(S)\mathbb{P}(F)\cdots \mathbb{P}(F)\\
+                                &=[\mathbb{P}(\text{"success"}|C)]^{k}[\mathbb{P}(\text{"failure"}|C)]^{N-k}\\
+                                &=p^{k}(1-p)^{N-k}
+\end{align*}
+$$
+
+$$
+\therefore \ \mathbb{P}(\mathbb{X}=k|\mathbb{X}\sim \operatorname{Binomial}(N,p))=M(k)=
+\begin{cases}
+\dbinom{N}{k}p^{k}(1-p)^{N-k}, & k=0,1,\dots, N\\[4pt]
+0, & \text{otherwise}
+\end{cases}
+$$
+
+:::info Example
+
+Back to our guessing game: 
+
+    Score: # of correct guesses 
+
+    $\mathbb{X}\sim \operatorname{Binomial}(N=10,p=\frac{1}{2})$
+
+$$
+\mathbb{P}(\mathbb{X}=10|C)=M(10)=\binom{10}{10}\left(\frac{1}{2} \right)^{10}\left(1-\frac{1}{2} \right)^{10-10}=\frac{1}{1024} 
+$$
+
+:::
+
+
+::::
