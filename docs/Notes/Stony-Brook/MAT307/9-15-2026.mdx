@@ -140,12 +140,12 @@ Given vector spaces $V$ and $W$, a map $\varphi: V\rightarrow W$ is a **linear m
 :::info Example
 
 $$
-\varphi: \mathbb{R}^2\rightarrow \mathbb{R}^2, \qquad (\mathbf{x}_1,\mathbf{x}_2)\mapsto(2\mathbf{x}_1+\mathbf{x}_2,\mathbf{x}_1)
+\varphi: \mathbb{R}^2\rightarrow \mathbb{R}^2, \qquad (x_1,x_2)\mapsto(2x_1+x_2,x_1)
 $$
 
 More generally, any map of the form: 
 $$
-(\mathbf{x}_1,\dots,\mathbf{x}_n)\mapsto (a_{11}\mathbf{x}_1+\dots+a_{1n}\mathbf{x}_n,\ a_{21}\mathbf{x}_1+\dots+a_{2n}\mathbf{x}_n,\ \dots,\ a_{m1}\mathbf{x}_1+\dots+a_{mn}\mathbf{x}_n)
+(x_1,\dots,x_n)\mapsto (a_{11}x_1+\dots+a_{1n}x_n,\ a_{21}x_1+\dots+a_{2n}x_n,\ \dots,\ a_{m1}x_1+\dots+a_{mn}x_n)
 $$
 is a linear map.
 
@@ -162,7 +162,7 @@ is a linear map.
 :::info Non-example
 
 $$
-\varphi: \mathbb{R}^2\rightarrow \mathbb{R}^2, \qquad (\mathbf{x}_1,\mathbf{x}_2)\mapsto(\mathbf{x}_1^2,\mathbf{x}_1-\mathbf{x}_2)
+\varphi: \mathbb{R}^2\rightarrow \mathbb{R}^2, \qquad (x_1,x_2)\mapsto(x_1^2,x_1-x_2)
 $$
 
 This is not a linear map because for $\mathbf{x}=(1,0)$:
@@ -178,7 +178,7 @@ $$
 - A rotation in $\mathbb{R}^2$ is a linear map:
 
 $$
-(\mathbf{x}_1,\mathbf{x}_2) \overset{\varphi}{\mapsto}\big(\cos{(\alpha)}\mathbf{x}_1+\sin{(\alpha)}\mathbf{x}_2,-\sin{(\alpha)}\mathbf{x}_1+\cos{(\alpha)}\mathbf{x}_2 \big)
+(x_1,x_2) \overset{\varphi}{\mapsto}\big(\cos{(\alpha)}x_1+\sin{(\alpha)}x_2,-\sin{(\alpha)}x_1+\cos{(\alpha)}x_2 \big)
 $$
 
 <svg viewBox="0 0 240 190" width="100%" style={{ maxWidth: '300px', height: 'auto', display: 'block', margin: '0.6rem auto' }} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" role="img" aria-label="A vector x and its image phi of x, obtained by rotating x through the angle alpha about the origin"><line x1="20" y1="150" x2="210" y2="150" strokeWidth="1.4" strokeOpacity="0.45"/><polyline points="202,146 210,150 202,154" strokeWidth="1.4" strokeOpacity="0.45"/><line x1="60" y1="172" x2="60" y2="20" strokeWidth="1.4" strokeOpacity="0.45"/><polyline points="56,28 60,20 64,28" strokeWidth="1.4" strokeOpacity="0.45"/><path d="M117.4,68.1 A100,100 0 0 1 156.6,124.1" strokeWidth="1.4" strokeOpacity="0.5" strokeDasharray="4 3"/><line x1="60" y1="150" x2="117.4" y2="68.1" strokeWidth="2.4"/><polyline points="115,78.6 117.4,68.1 108.4,74" strokeWidth="2.4"/><line x1="60" y1="150" x2="156.6" y2="124.1" strokeWidth="2.4"/><polyline points="147.9,130.6 156.6,124.1 145.9,122.8" strokeWidth="2.4"/><path d="M82.9,117.2 A40,40 0 0 1 98.6,139.7" strokeWidth="1.4" strokeOpacity="0.8"/><circle cx="60" cy="150" r="2.4" fill="currentColor" stroke="none"/><text x="214" y="154" fontSize="11" fontStyle="italic" fill="currentColor" stroke="none">x₁</text><text x="66" y="24" fontSize="11" fontStyle="italic" fill="currentColor" stroke="none">x₂</text><text x="100" y="64" fontSize="12" fontStyle="italic" fontWeight="700" fill="currentColor" stroke="none">x</text><text x="161" y="129" fontSize="12" fontStyle="italic" fontWeight="700" fill="currentColor" stroke="none">φ(x)</text><text x="103" y="124" fontSize="12" fontStyle="italic" fill="currentColor" stroke="none">α</text></svg>
@@ -403,7 +403,7 @@ A set of vectors $B=\{ \mathbf{v}_1,\dots,\mathbf{v}_k \}$ is linearly dependent
 is linearly dependent on $B-\{ \mathbf{v}_i\}$; that is to say:
 
 $$
-\mathbf{v}_i=c_1\mathbf{v}_1+\dots+c_{i-1}\mathbf{v}_{i-1}+c_{i+1}\mathbf{v}_{i+1}+\dots+c_{n}\mathbf{v}_{n} \text{ for some }c_j\in \mathbb{R}
+\mathbf{v}_i=c_1\mathbf{v}_1+\dots+c_{i-1}\mathbf{v}_{i-1}+c_{i+1}\mathbf{v}_{i+1}+\dots+c_{k}\mathbf{v}_{k} \text{ for some }c_j\in \mathbb{R}
 $$
 
 :::note Redundant Vector
