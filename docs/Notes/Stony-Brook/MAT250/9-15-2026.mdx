@@ -4,7 +4,7 @@ sidebar_label: 9/15/2026
 sidebar_position: 2
 ---
 
-## Sum and Product
+## Sum and Product {#Sum-and-Product}
 
 ::::tip Sum and Product
 
@@ -16,7 +16,7 @@ $$
     &(a+b)+c=a+(b+c) \qquad (ab)c=a(bc) &\qquad \text{(Associativity)}\\
     &a(b+c)=ab+ac \qquad \qquad\ \ \ (a+b)c=(ac+bc) &\qquad \text{(Distributivity)}\\
     & a+0=a=0+a &\qquad \text{(Zero)}\\
-    & a\times 1=a=1\times a &\qquad \text{(Unity)}\\
+    & a\cdot 1=a=1\cdot a &\qquad \text{(Unity)}\\
     & \forall a\in \mathbb{R}, \exists! x\in \mathbb{R}: a+x=0,\ x=-a &\qquad \text{(Subtraction)}\\
     & a\ne 0 \implies \exists! x\in \mathbb{R}: ax=1,\ x=a^{-1}=\frac{1}{a} &\qquad \text{(Division)}
 
@@ -49,7 +49,19 @@ Prove that if $a\ne 0,\ ax_1=ax_2$, then $x_1=x_2$
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
 
-
+$$
+\begin{align*}
+    x_1&=x_1\cdot 1 &\qquad \text{(Unity)}\\
+       &=x_1\cdot \big(a\cdot\frac{1}{a}\big)  &\qquad \text{(Division)}\\
+       &=(x_1 a)\cdot \frac{1}{a} &\qquad \text{(Associativity)}\\
+       &=(a x_1)\cdot \frac{1}{a} &\qquad \text{(Communitativity)}\\
+       &=(a x_2)\cdot \frac{1}{a} &\qquad \text{(Given)}\\
+       &=(x_2 a)\cdot \frac{1}{a} &\qquad \text{(Communitativity)}\\
+       &=x_2\cdot \big(a\cdot\frac{1}{a}\big) &\qquad \text{(Associativity)}\\
+       &=x_2\cdot 1 &\qquad \text{(Division)}\\
+       &=x_2 &\qquad \text{(Unity)} \tag*{$\blacksquare$}
+\end{align*}
+$$
 
 </details>
 
@@ -80,6 +92,26 @@ Prove the following:
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
 
+$$
+\begin{align*}
+    a\cdot 0&= a\cdot (0+0) &\qquad \text{(Zero)}\\
+    a\cdot 0 &=a\cdot 0+ a\cdot  0&\qquad \text{(Distributivity)}\\
+\end{align*}
+$$
+Let $a\cdot 0=x$, then from $0$:
+$$
+\begin{align*}
+    0&=x+(-x) &\qquad \text{(Subtraction)}\\
+     &=x+x+(-x)  0&\qquad \text{(From above)}\\
+     &=x+\big(x+(-x)\big) &\qquad \text{(Associativity)}\\
+     &=x+0&\qquad \text{(Subtraction)}\\
+     &=x &\qquad\text{(Zero)}
+\end{align*}
+$$
+Therefore, with Associativity:
+$$
+a\cdot 0=0 \cdot a=0
+$$
 
 
 </details>
@@ -91,28 +123,46 @@ Prove the following:
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
 
+From [Subtraction](#sum-and-product-sum-and-product):
 
+$$
+ab+\big(-(ab)\big)=0
+$$
+
+Additionally:
+
+$$
+ab+\big((-a)b\big)=\big(a+(-a)\big)b=0\cdot b=0
+$$
+Therefore, by previous practice:
+
+$$
+ab+\big(-(ab)\big)=ab+\big((-a)b\big)\implies (-a)b= -(ab)
+$$
 
 </details>
 <hr/>
 
-3. $a(-b)=-ab$
+
+3. $(-a)(-b)=ab $
 
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
 
+From the previous practice, we know $(-a) b=-(ab)$, then:
 
+$$
+ab+\big(-(ab)\big)=ab+\big((-a) b\big)0
+$$
+And
+$$
+(-a)(-b)+\big(-(a)b\big)=-(a)(-b+b)=-a\cdot 0=0
+$$
+Therefore:
 
-</details>
-<hr/>
-
-4. $(-a)(-b)=ab $
-
-<details>
-<summary><span className="math-keyword">Derivation</span></summary>
-
-
-
+$$
+(-a)(-b)+\big((-a) b\big)=ab+\big(-(a)b\big) \implies (-a)(-b)=ab
+$$
 </details>
 
 :::
