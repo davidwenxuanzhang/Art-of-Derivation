@@ -1,0 +1,666 @@
+---
+title: 9/17/2026 - Lecture 8
+sidebar_label: 9/17/2026
+sidebar_position: 9
+---
+
+## Solving Linear Systems
+
+::::tip Goal
+
+Recall from previous lecture that our **Goal** is to find a systematic way to solve a system of linear equations:
+
+$$
+A\mathbf{x}=\mathbf{b}
+$$
+
+that is to say, we want to find the vector $\mathbf{x}\in\mathbb{R}^n$ such that:
+
+$$
+\begin{cases}
+a_{11}x_1+\cdots+a_{1n}x_n=b_1,\\
+\qquad \vdots\\
+a_{m1}x_1+\cdots+a_{mn}x_n=b_m.
+\end{cases}
+$$
+
+
+:::info Example
+
+$$
+\begin{cases}
+x_1 + 3x_2 + x_3 = 1\\
+2x_1 + 4x_2 + 7x_3 = 2\\
+4x_1 + 10x_2 + 9x_3 = 4
+\end{cases}
+\implies
+A=
+\begin{bmatrix}
+1&3&1\\
+2&4&7\\
+4&10&9
+\end{bmatrix} \quad
+\mathbf{b}=
+\begin{bmatrix}
+1\\
+2\\
+4
+\end{bmatrix}
+$$
+
+:::
+
+::::
+
+:::note Procedure
+
+Our **General Idea** is to transform the system of equations into a simpler system of equations
+
+:::
+
+### Elementary Row Operations
+
+For the example: 
+
+:::info Example
+
+We will use **Gaussian Elimination** to simplify the following equations step by step:
+
+$$
+\begin{cases}
+x_1 + 3x_2 + x_3 = 1    &\qquad {(R_1)}\\
+2x_1 + 4x_2 + 7x_3 = 2  &\qquad {(R_2)}\\
+4x_1 + 10x_2 + 9x_3 = 4 &\qquad {(R_3)}
+\end{cases}
+$$
+
+1. We want to keep $x_1$ in only one equation.
+
+
+$$
+\begin{cases}
+x_1+3x_2+x_3=1\\
+-2x_2+5x_3=0 &\qquad {(R_2-2R_1)}\\
+-2x_2+5x_3=0 &\qquad {(R_3-4R_1)}
+\end{cases}
+$$
+
+2. We want to keep $x_2$ in only two equations (with coefficients)
+
+$$
+\begin{cases}
+x_1+3x_2+x_3=1 \\
+x_2-\frac{5}{2}x_3=0 & \qquad {(-\frac{1}{2}R_2)}\\
+0=0 &\qquad {(R_3-R_2)} 
+\end{cases}
+$$
+
+We are at a good position to write down the solutions: 
+
+$$
+x_2-\frac{5}{2}x_3=0 \implies x_2=\frac{5}{2}x_3
+$$
+$$
+x_1+3x_2+x_3=1\implies x_1=1-3x_2-x_3=1-\frac{15}{2}x_3-x_3=1-\frac{17}{2}x_3
+$$
+
+Now, if I use $x_3=t$ as the parameter for the solutions, I may obtain the solution set that has the following form:
+
+$$
+S=\{ \mathbf{x}\in \mathbb{R}^3 \text{ s.t. } \mathbf{x}=\left(1+\frac{17}{2}t,\frac{5}{2}t,t \right)  \text{ for some }t\in \mathbb{R}\}
+$$
+
+And we can parametrize in the equation of a line, as:
+
+$$
+\mathbf{x}=t\left(-\frac{17}{2}, \frac{5}{2}, 1 \right)+(1,0,0)
+$$
+
+:::
+
+:::note Observation
+
+I can do all these operations at the level of $(A\mid \mathbf{b})$ as a matrix; that is, I do not need to write down all those $x_i$s every time.
+
+:::
+
+:::tip Operations
+
+Below are some elementary operations that do not change the solution set of the matrix $(A\mid \mathbf{b})$.
+
+- We can exchange two rows.
+- We can take a row and add a multiple of another row.
+- We can take a row and multiply it by a non-zero coefficient.
+
+:::
+
+### Echelon Form
+
+With those operations, any matrix can be reduced to the following form.
+
+::::tip Echelon Form
+
+The **Echelon Form** of a matrix looks like the following:
+
+$$
+\begin{bmatrix}
+0 & \cdots & 0 & \boxed{1} & * & \cdots & * & * & \cdots & * \\
+0 & \cdots & 0 & 0 & 0 & \cdots & \boxed{1} & * & \cdots & * \\
+0 & \cdots & 0 & 0 & 0 & \cdots & 0 & 0 & \cdots & \boxed{1} \\
+0 & \cdots & 0 & 0 & 0 & \cdots & 0 & 0 & \cdots & 0
+\end{bmatrix}
+\quad
+\begin{aligned}
+\boxed{1}&: \text{pivot}\\
+*&: \text{any number}
+\end{aligned}
+$$
+
+:::info Properties
+
+1. It has a staircase shape.
+2. Below the stairs, we have only zeros.
+3. Moving down the rows, the pivot moves to the right.
+4. Columns containing pivots are called **pivot columns**.
+
+:::
+::::
+
+### Gauss–Jordan Elimination
+
+:::info Algorithms to Reduce a Matrix in Echelon Form
+
+We will use an example to explain:
+
+<div className="deriv2col">
+
+  <div>
+
+$$
+\left[
+\begin{array}{cccc|c}
+0 & 2 & 3 & 4 & 0 \\
+2 & 2 & 1 & 0 & 0 \\
+1 & 4 & 6 & 1 & 0 \\
+3 & 1 & 0 & 0 & 1
+\end{array}
+\right]
+$$   
+
+  </div>
+
+  <div style={{ alignSelf: 'center' }}>
+
+- If the first column has a non-zero entry, I exchange rows so that a non-zero entry is top left
+- If there are no non-zero entries, then you go to the second row
+
+</div>
+
+</div>
+
+
+<div className="deriv2col">
+
+  <div>
+
+$$
+\left[
+\begin{array}{cccc|c}
+1 & 4 & 6 & 1 & 0 \\
+2 & 2 & 1 & 0 & 0 \\
+0 & 2 & 3 & 4 & 0 \\
+3 & 1 & 0 & 0 & 1
+\end{array}
+\right]
+$$   
+
+  </div>
+
+  <div style={{ alignSelf: 'center' }}>
+
+Then, subtract a multiple of the first row from all other rows in order to have the first column of the shape $\begin{bmatrix}1\\0\\0\\0\end{bmatrix}$.
+
+</div>
+
+</div>
+
+<div className="deriv2col">
+
+  <div>
+
+$$
+\left[
+\begin{array}{cccc|c}
+1 & 4 & 6 & 1 & 0\\
+0 & -6 & -11 & -2 & 0\\
+0 & 2 & 3 & 4 & 0\\
+0 & -11 & -18 & -3 & 1
+\end{array}
+\right]
+$$   
+
+  </div>
+
+  <div style={{ alignSelf: 'center' }}>
+
+$$
+\begin{align*}
+R_2&\leftarrow R_2-2R_1\\
+R_4&\leftarrow R_4-3R_1
+\end{align*}
+$$
+
+Repeat for the next non-zero column.
+
+</div>
+
+</div>
+
+<div className="deriv2col">
+
+  <div>
+
+$$
+\left[
+\begin{array}{cccc|c}
+1 & 4 & 6 & 1 & 0\\
+0 & 2 & 3 & 4 & 0\\
+0 & -6 & -11 & -2 & 0\\
+0 & -11 & -18 & -3 & 1
+\end{array}
+\right]
+$$
+
+  </div>
+
+  <div style={{ alignSelf: 'center' }}>
+
+Switch $R_2$ and $R_3$, so the pivot column has a cleaner leading entry.
+
+</div>
+
+</div>
+
+<div className="deriv2col">
+
+  <div>
+
+$$
+\left[
+\begin{array}{cccc|c}
+1 & 0 & 0 & -7 & 0\\
+0 & 1 & \frac{3}{2} & 2 & 0\\
+0 & 0 & -2 & 10 & 0\\
+0 & 0 & -\frac{3}{2} & 19 & 1
+\end{array}
+\right]
+$$
+
+  </div>
+
+  <div style={{ alignSelf: 'center' }}>
+
+Clear the second column:
+
+$$
+\begin{align*}
+R_1&\leftarrow R_1-2R_2\\
+R_2&\leftarrow \tfrac{1}{2}R_2\\
+R_3&\leftarrow R_3+3R_2\\
+R_4&\leftarrow R_4+\tfrac{11}{2}R_2
+\end{align*}
+$$
+
+  </div>
+
+</div>
+
+<div className="deriv2col">
+
+  <div>
+
+$$
+\left[
+\begin{array}{cccc|c}
+1 & 0 & 0 & -7 & 0\\
+0 & 1 & 0 & \frac{19}{2} & 0\\
+0 & 0 & 1 & -5 & 0\\
+0 & 0 & 0 & \frac{23}{2} & 1
+\end{array}
+\right]
+$$
+
+  </div>
+
+  <div style={{ alignSelf: 'center' }}>
+
+We pass to the next column:
+
+$$
+\begin{align*}
+R_2&\leftarrow R_2+\tfrac{3}{4}R_3\\
+R_3&\leftarrow -\tfrac{1}{2}R_3\\
+R_4&\leftarrow R_4-\tfrac{3}{4}R_3
+\end{align*}
+$$
+
+  </div>
+
+</div>
+
+<div className="deriv2col">
+
+  <div>
+
+$$
+\left[
+\begin{array}{cccc|c}
+1 & 0 & 0 & -7 & 0\\
+0 & 1 & 0 & \frac{19}{2} & 0\\
+0 & 0 & 1 & -5 & 0\\
+0 & 0 & 0 & 1 & \frac{2}{23}
+\end{array}
+\right]
+$$
+
+  </div>
+
+  <div style={{ alignSelf: 'center' }}>
+
+Repeat for the last row: $R_4\leftarrow \dfrac{2}{23}R_4$.
+
+</div>
+
+</div>
+
+<div className="deriv2col">
+
+  <div>
+
+$$
+\left[
+\begin{array}{cccc|c}
+1 & 0 & 0 & 0 & \frac{14}{23}\\
+0 & 1 & 0 & 0 & -\frac{19}{23}\\
+0 & 0 & 1 & 0 & \frac{10}{23}\\
+0 & 0 & 0 & 1 & \frac{2}{23}
+\end{array}
+\right]
+$$
+
+  </div>
+
+  <div style={{ alignSelf: 'center' }}>
+
+Finally, eliminate the entries above the last pivot:
+
+$$
+\begin{align*}
+R_1&\leftarrow R_1+7R_4\\
+R_2&\leftarrow R_2-\tfrac{19}{2}R_4\\
+R_3&\leftarrow R_3+5R_4
+\end{align*}
+$$
+
+  </div>
+
+</div>
+
+Therefore, the solution is:
+
+$$
+x_1=\frac{14}{23}, \qquad x_2=-\frac{19}{23}, \qquad x_3=\frac{10}{23}, \qquad x_4=\frac{2}{23} \tag*{$\blacksquare$}
+$$
+
+:::
+
+## Dimension of Vector Spaces
+
+:::danger Leading Question     
+
+How do we quantify how big the solution set is?
+
+:::
+
+### Linear Independence
+
+::::tip Linear Independence
+
+Recall from last time that a set of vectors $B=\{\mathbf{v}_1,\dots,\mathbf{v}_k\}$ is linearly independent if:
+
+$$
+c_1\mathbf{v}_1+\dots +c_i\mathbf{v}_i+\dots+c_k\mathbf{v}_k=0 \implies c_i=0 \text{ for all } i
+$$
+
+:::info Non-Example
+<div className="deriv2col">
+
+  <div>
+
+<svg viewBox="0 0 176 112" width="100%" style={{ maxWidth: '220px', height: 'auto', display: 'block', margin: '0.5rem auto' }} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" role="img" aria-label="Vectors v1 and v3 from a common origin, with v2 as the diagonal of the parallelogram they span, showing v1 plus v3 equals v2"><line x1="100" y1="80" x2="125" y2="25" strokeWidth="1.5" strokeOpacity="0.5" strokeDasharray="4 3"/><line x1="50" y1="37" x2="125" y2="25" strokeWidth="1.5" strokeOpacity="0.5" strokeDasharray="4 3"/><line x1="25" y1="92" x2="100" y2="80"/><polyline points="91,86 100,80 90,78"/><line x1="25" y1="92" x2="50" y2="37"/><polyline points="50,48 50,37 42,44"/><line x1="25" y1="92" x2="125" y2="25" strokeWidth="2.5"/><polyline points="118,35 125,25 113,27" strokeWidth="2.5"/><text x="94" y="105" fontSize="12.5" fontStyle="italic" fill="currentColor" stroke="none">v₁</text><text x="17" y="60" fontSize="12.5" fontStyle="italic" fill="currentColor" stroke="none">v₃</text><text x="130" y="22" fontSize="12.5" fontStyle="italic" fill="currentColor" stroke="none">v₂</text></svg>
+
+  </div>
+
+  <div>
+    $\{ \mathbf{v}_1,\mathbf{v}_2,\mathbf{v}_3\}$ is not linearly independent since:
+
+    $$
+    \mathbf{v}_1+\mathbf{v}_3=\mathbf{v}_2
+    $$
+
+  </div>
+
+</div>
+:::
+
+::::
+
+### System of Generators
+
+::::tip System of Generators
+
+A set of vectors $\{\mathbf{v}_1,\dots,\mathbf{v}_k \}\subset V$ is a **System of Generators** if any vector $\mathbf{v}$ in $V$ can be written as:
+
+$$
+\mathbf{v}=c_1\mathbf{v}_1+\dots + c_k\mathbf{v}_k
+$$
+
+:::info Example
+
+
+<div className="deriv2col">
+
+  <div>
+
+<svg viewBox="0 0 300 150" width="100%" style={{ maxWidth: '340px', height: 'auto', display: 'block', margin: '0.3rem auto' }} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" role="img" aria-label="A plane Lambda in R3 with vectors v1 and v2, their scalar multiples c1 v1 and c2 v2 dashed along the same rays, and their sum v as the diagonal of the parallelogram they span"><polygon points="35,60 215,40 285,115 105,135" fill="currentColor" fillOpacity="0.06" strokeOpacity="0.55"/><g strokeWidth="1" strokeOpacity="0.22"><line x1="58.3" y1="85" x2="238.3" y2="65"/><line x1="81.7" y1="110" x2="261.7" y2="90"/><line x1="95" y1="53.3" x2="165" y2="128.3"/><line x1="155" y1="46.7" x2="225" y2="121.7"/></g><line x1="167.6" y1="50.9" x2="187.4" y2="81" strokeWidth="1.3" strokeOpacity="0.45" strokeDasharray="2 3"/><line x1="159.8" y1="125.1" x2="187.4" y2="81" strokeWidth="1.3" strokeOpacity="0.45" strokeDasharray="2 3"/><line x1="140" y1="95" x2="167.6" y2="50.9" strokeWidth="2.2" strokeDasharray="4 3"/><polyline points="165.7,61.5 167.6,50.9 158.9,57.3" strokeWidth="2.2"/><line x1="140" y1="95" x2="159.8" y2="125.1" strokeWidth="2.2" strokeDasharray="4 3"/><polyline points="151,118.9 159.8,125.1 157.6,114.5" strokeWidth="2.2"/><line x1="140" y1="95" x2="153.8" y2="73" strokeWidth="2"/><polyline points="152.5,81.6 153.8,73 146.6,77.9" strokeWidth="2"/><line x1="140" y1="95" x2="149.9" y2="110" strokeWidth="2"/><polyline points="142.6,105.3 149.9,110 148.4,101.4" strokeWidth="2"/><line x1="140" y1="95" x2="187.4" y2="81" strokeWidth="2.8"/><polyline points="178,88.2 187.4,81 175.7,80.1" strokeWidth="2.8"/><circle cx="140" cy="95" r="2.6" fill="currentColor" stroke="none"/><text x="220" y="36" fontSize="13" fontStyle="italic" fill="currentColor" stroke="none">Λ</text><text x="116" y="84" fontSize="11.5" fontStyle="italic" fill="currentColor" stroke="none">v₁</text><text x="172" y="42" fontSize="12.5" fontStyle="italic" fontWeight="700" fill="currentColor" stroke="none">c₁v₁</text><text x="128" y="112" fontSize="11.5" fontStyle="italic" fill="currentColor" stroke="none">v₂</text><text x="162" y="141" fontSize="12.5" fontStyle="italic" fontWeight="700" fill="currentColor" stroke="none">c₂v₂</text><text x="193" y="77" fontSize="13" fontStyle="italic" fontWeight="700" fill="currentColor" stroke="none">v</text></svg>
+
+  </div>
+
+  <div>
+    Any vector $\mathbf{v}\in \Lambda$ can be written as:
+    
+    $$
+    \mathbf{v}=c_1\mathbf{v}_1+c_2\mathbf{v}_2
+    $$
+    if and only if the set $\{\mathbf{v}_1, \mathbf{v}_2 \}$ is a system of generators for the plane
+  </div>
+
+</div>
+
+:::
+
+::::
+
+### Basis
+
+::::tip Basis
+
+A set of vectors $\{\mathbf{v}_1,\dots , \mathbf{v}_k \} \subset V$ is called a **basis** for $V$ if it is both [Linearly Independent](#linear-independence) and a [System of Generators](#system-of-generators)
+
+:::info Example
+
+In the above example, $\{\mathbf{v}_1, \mathbf{v}_2\}$ is a **basis** (check that they are linearly independent)
+
+:::
+
+::::
+
+:::tip Fact on Cardinality
+
+Given a vector space $V$, any two bases $B_1$ and $B_2$ have the same **Cardinality** (the number of elements)
+
+:::
+
+### Dimension
+
+::::tip Dimension
+
+We can define the **Dimension** of a vector space $V$ as the cardinality of a basis $B$ for $V$, denoted as:
+
+$$
+\operatorname{dim}{(V)}
+$$
+
+:::warning Question
+What is the dimension of $\mathbb{R}^n$?
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+It is $n$! (this is an exclamation mark, not factorial)
+
+Let $B=\{\mathbf{e}_1,\dots,\mathbf{e}_n \}$ be a basis:
+
+$$
+B=
+\left\{
+\begin{bmatrix}
+1\\
+0\\
+\vdots\\
+0
+\end{bmatrix},
+\ldots,
+\begin{bmatrix}
+0\\
+\vdots\\
+0\\
+1
+\end{bmatrix}
+\right\}
+$$
+
+Indeed that:
+
+- Given $\mathbf{x}=(x_1,\dots ,x_n)$
+
+$$
+\implies \mathbf{x}=x_1\mathbf{e}_1+\dots+x_n\mathbf{e}_n \implies B \text{ is a system of generators}
+$$
+
+
+- Suppose that $c_1\mathbf{e}_1+\dots + c_n\mathbf{e}_n=0$
+
+$$
+\implies (c_1,c_2,\dots ,c_n)=(0,0,\dots,0) \implies c_i=0 \text{ for any }i \implies B \text{ is linearly independent} \tag*{$\blacksquare$}
+$$
+
+</details>
+
+:::
+
+::::
+
+## Image and Rank
+
+### Matrix Associated to a Linear Map
+
+:::tip Matrix Associated to a Linear Map
+
+Recall that the linear map $\varphi:\mathbb{R}^n\rightarrow\mathbb{R}^m$ corresponds to its associated matrix:
+
+$$
+\varphi:\mathbb{R}^n\rightarrow\mathbb{R}^m
+\qquad\Longleftrightarrow\qquad
+A=
+\begin{bmatrix}
+a_{11} & \cdots & a_{1n}\\
+\vdots & \ddots & \vdots\\
+a_{m1} & \cdots & a_{mn}
+\end{bmatrix}
+=
+\big(
+\varphi(\mathbf{e}_1),
+\dots,
+\varphi(\mathbf{e}_n)
+\big)
+$$
+
+:::
+
+### Image
+
+:::tip Image of Linear Map
+
+The **Image** of a linear map is a vector space, and the column vectors of its associated matrix form a system of generators for the image, denoted as:
+
+$$
+\operatorname{Im}(\varphi)=\operatorname{span}\{\text{columns of }A\}
+$$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+Take $\mathbf{v}_1,\mathbf{v}_2\in \operatorname{Im}(\varphi)$ 
+
+- $\operatorname{Im}(\varphi)$ is a vector space:
+    $$
+    \implies \mathbf{v}_1=\varphi(\mathbf{x}_1)\qquad \mathbf{v}_2=\varphi(\mathbf{x}_2)
+    $$
+    $$
+    \implies \mathbf{v}_1+\mathbf{v}_2=\varphi(\mathbf{x}_1)+\varphi(\mathbf{x}_2)=\varphi(\mathbf{x}_1+\mathbf{x}_2)\in \operatorname{Im}(\varphi)
+    $$
+    Same for $c\mathbf{v}$:
+    $$
+    c\mathbf{v}_1=c\varphi(\mathbf{x}_1)=\varphi(c\mathbf{x}_1)\in \operatorname{Im}(\varphi)
+    $$
+
+- $\operatorname{Im}(\varphi)=\operatorname{span}\{\text{columns of }A\}$
+    $$
+    \mathbf{x}=x_1\mathbf{e}_1+\dots+x_n\mathbf{e}_n\implies \varphi(\mathbf{x})=x_1\varphi(\mathbf{e}_1)+\dots+x_n\varphi(\mathbf{e}_n)
+    $$
+    so any vector in the image can be written as a linear combination of the columns of $A$.
+Therefore: 
+$$
+\operatorname{Im}(\varphi)=\operatorname{span}\{\text{columns of }A\} \tag*{$\blacksquare$}
+$$
+
+
+</details>
+
+:::
+
+
+### Rank
+
+::::tip Rank
+
+The **Dimension** of an image $\operatorname{dim}\big(\operatorname{Im}(\varphi)\big)$ is equal to the maximum number of linearly independent columns. This is also called the **Rank** of $\varphi$, denoted as $\operatorname{rank}(\varphi)$, or the **Rank** of $A$, denoted as $\operatorname{rank}(A)$
+
+::::
+
+### Final Remark
+
+:::tip Final Remark
+
+A linear system $A\mathbf{x}=\mathbf{b}$ (equivalently, $\varphi(\mathbf{x})=\mathbf{b}$) has a solution if and only if $\mathbf{b}\in \operatorname{Im}(\varphi)$.
+
+Since $\operatorname{Im}(\varphi)=\operatorname{span}\{\text{columns of }A\}$, this means $\mathbf{b}$ must be a linear combination of the columns of $A$ — that is, adding $\mathbf{b}$ as a new column to $A$ should not increase the number of linearly independent columns. Hence:
+
+$$
+A\mathbf{x}=\mathbf{b} \text{ has a solution} \iff \operatorname{rank}([A\mid\mathbf{b}])=\operatorname{rank}(A)
+$$
+
+If $\operatorname{rank}([A\mid\mathbf{b}])>\operatorname{rank}(A)$, then $\mathbf{b}$ is not in the span of the columns of $A$, so the system has no solution.
+
+:::
