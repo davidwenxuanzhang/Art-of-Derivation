@@ -12,7 +12,7 @@ Giving a matrix $A_{m\times n}$ is the same as giving a linear map:
 
 $$
 \begin{align*}
-    \varphi_{A}:&\mathbb{R}^n\rightarrow \mathbb{R}^m\\
+    \varphi_{A}:\ &\mathbb{R}^n\rightarrow \mathbb{R}^m\\
                 &\mathbf{x}\mapsto A\mathbf{x}
 \end{align*}
 $$
@@ -26,13 +26,315 @@ $$
 ## Coordinates and Basis
 ### Unique Representation in a Basis
 
+:::tip Corollary
+
+Let $B\subseteq V$ be a basis, then every vector $\mathbf{v}\in V$ can be written uniquely as:
+
+$$
+\mathbf{v}=c_1\mathbf{v}_1+\dots +c_k\mathbf{v}_k
+$$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+We already know that $B$ is a system of generators, so we can write any $\mathbf{v}=c_1\mathbf{v}_1+\dots+c_k\mathbf{v}_k$. Thus, we only need to prove that the $c_i$s are uniquely determined.
+
+Suppose we can also write $\mathbf{v}=c_1^{\prime}\mathbf{v}_1+\dots +c_k^{\prime}\mathbf{v}_k$, and our goal is to show $c_i^{\prime}=c_i$ for any $i$. Then:
+
+$$
+\begin{align*}
+    c_1\mathbf{v}_1+\dots +c_k\mathbf{v}_k &= \mathbf{v} = c_1^{\prime}\mathbf{v}_1+\dots +c_k^{\prime}\mathbf{v}_k\\
+    \implies (c_1-c^{\prime}_1)\mathbf{v}_1+\dots +(c_k-c^{\prime}_k)\mathbf{v}_k&= \mathbf{0}
+\end{align*}
+$$
+
+As $B$ is linearly independent, then:
+
+$$
+c_i-c^{\prime}_i=0\implies c_i=c^{\prime}_i \quad\text{for all } i \tag*{$\blacksquare$}
+$$
+
+</details>
+
+:::
+
 ## Homogeneous Linear Systems
+
+Back to our originla problem $\mathbf{b}=\mathbf{0}$ that we are looking for the solution to $A\mathbf{x}=\mathbf{0}$
+
+
 ### Solution Space
-### Pivot and Free Variables
-### Basis and Dimension of the Solution Space
-### Rank–Nullity Relation
+
+:::tip Fact
+
+The solution set of $A\mathbf{x}=\mathbf{0}$ is a vector space.
+
+:::
+
+### Basis and Dimension of the Solution Set
+
+
+:::::tip  Basis and Dimension of the Solution Set
+
+:::warning Question
+What is the dimension of this vector space (the solution set of $A\mathbf{x}=\mathbf{0}$)? Can we write a basis?
+:::
+
+ Recall that the rank of a matrix $\operatorname{Rank}(A)$ is the maximum number of linearly dependent columns, and with Gaussian Elimination, every matrix can be reduced to the elementary row operations to one of the following echelon form:
+
+<div className="deriv2col">
+
+  <div>
+
+$$
+\begin{bmatrix}
+\boxed{1} & * & 0 & * & 0 & * \\
+0 & 0 & \boxed{1} & * & 0 & * \\
+0 & 0 & 0 & 0 & \boxed{1} & * \\
+0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0
+\end{bmatrix}
+$$
+
+  </div>
+
+  <div>
+    1. There is a stair seperating a part which is 0
+    2. The length of stair step occurs at columns that have only one non zero entry equal to $1$, and such colums are called the pivot.
+    3. In particularbe low the last pivot I only have zero rows.
+
+  </div>
+
+</div>
+
+Then, the rank of a matrix is equal to the number of pivots, which is how many steps my stair has, which is the number of total row minus number of zero rows. With those, we can find the basis, solution sets, and dimension.
+
+::::info Example
+
+$$
+A=\begin{bmatrix}
+1 & 3 & 4 & 2\\
+2 & 1 & 3 & -1\\
+3 & 2 & 5 & -1
+\end{bmatrix}
+$$
+
+<div className="deriv2col">
+
+  <div>
+
+$$
+\begin{bmatrix}
+1 & 3 & 4 & 2\\
+0 & -5 & -5 & -5\\
+0 & -7 & -7 & -7
+\end{bmatrix}
+$$
+
+  </div>
+
+  <div style={{ alignSelf: 'center' }}>
+
+Clear the first column:
+
+$$
+\begin{align*}
+R_2&\leftarrow R_2-2R_1\\
+R_3&\leftarrow R_3-3R_1
+\end{align*}
+$$
+
+  </div>
+
+</div>
+
+<div className="deriv2col">
+
+  <div>
+
+$$
+\begin{bmatrix}
+1 & 3 & 4 & 2\\
+0 & 1 & 1 & 1\\
+0 & 1 & 1 & 1
+\end{bmatrix}
+$$
+
+  </div>
+
+  <div style={{ alignSelf: 'center' }}>
+
+Scale the rows:
+
+$$
+\begin{align*}
+R_2&\leftarrow -\tfrac{1}{5}R_2\\
+R_3&\leftarrow -\tfrac{1}{7}R_3
+\end{align*}
+$$
+
+  </div>
+
+</div>
+
+<div className="deriv2col">
+
+  <div>
+
+$$
+\begin{bmatrix}
+\boxed{1} & 0 & 1 & -1\\
+0 & \boxed{1} & 1 & 1\\
+0 & 0 & 0 & 0
+\end{bmatrix}
+$$
+
+  </div>
+
+  <div style={{ alignSelf: 'center' }}>
+
+Clear the second column:
+
+$$
+\begin{align*}
+R_1&\leftarrow R_1-3R_2\\
+R_3&\leftarrow R_3-R_2
+\end{align*}
+$$
+
+  </div>
+
+</div>
+
+Therefore: 
+
+$$
+\operatorname{Rank}(A)=2 \tag*{$\blacksquare$}
+$$
+
+:::note
+The elementary row operations do not change the rank of a matrix, which implies that the rank of the orignal matrix is also $2$.
+
+:::
+
+Next, we want to parametrize the solution sets:
+
+<div className="deriv2col">
+
+  <div>
+    $$
+\begin{bmatrix}
+\boxed{1} & 0 & 1 & -1\\
+0 & \boxed{1} & 1 & 1\\
+0 & 0 & 0 & 0
+\end{bmatrix}
+$$
+  </div>
+
+  <div>
+    To parametrize the solution set I look at the colums that are not pivot columns, and let:
+
+    $$
+    x_3=t\qquad x_4=s
+    $$
+  </div>
+
+
+</div>
+
+$$
+\begin{cases}
+x_1+x_3-x_4=0\\
+x_2+x_3+x_4=0
+\end{cases}
+\implies 
+\begin{cases}
+x_1=x_4-x_3=s-t\\
+x_2=-x_4-x_3=-s-t
+\end{cases}
+$$
+So the solution set $S$ could be written in the following form:
+
+$$
+\begin{align*}
+S=\{x\in\mathbb{R}^4 \text{ such that } x&=(x-t,-s-t,t,s) \}\\
+    &=s(1,-1,0,1)+t(-1,-1,1,0) \text{ for some }t,s\in \mathbb{R} \}
+\end{align*}
+$$
+
+Thus, the dimension off this solution set is $2$, indeed that $\{(1,-1,0,1), (-1,-1,1,0) \}$ form a basis form a basis.
+(add ablack square, claude, and remove the blacksquare above)
+::::
+
+:::::
+
+### Rank Nullity Relation
+
+:::tip Rank Nullity Relation
+
+More generally, if $A$ has $\operatorname{Rank}(A)$, the dimension of the solution set of $A\mathbf{x}=\mathbf{0}$ is $n-\operatorname{Rank}(A)$, where $n$ is number of variables, which is the number of columns.
+
+More specifically, the solution set of $A\mathbf{x}=\mathbf{0}$ is also called the **Kernel** of $A$, and we have:
+
+$$
+\dim\ker (A)=n-\operatorname{rank}(A)
+$$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+We just gave a recipe to write a basis of the solution set.
+
+</details>
+
+:::
 
 ## Nonhomogeneous Linear Systems
+
+The form $A\mathbf{x}=\mathbf{0}$ is a nonhomogeneous linear systems, but what about the general case $A\mathbf{x}=\mathbf{b}$?
+
 ### General Solution
-### Translation of the Solution Space
-### Consistency and Rank
+
+:::tip General Solution
+
+The general structure of the solution set $S$ is a translation of a vector space, that is:
+
+$$
+S=\{x_0+\mathbf{v} \text{ where } \mathbf{v} \in S_0\}
+$$
+where x_0 is a special solution, and $S_0$ is the solution set of $A\mathbf{x}=\mathbf{0}$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+Let $\mathbf{x}_0\in S$, in which $\mathbf{x}_0$ is any solution of the linear system, if there is one, then $A\mathbf{x}_0=\mathbf{b}$
+
+- Now, let us verity that for any $\mathbf{v}\in S_0=\{\mathbf{v}\in \mathbb{R}^n \text{ such that } A\mathbf{v}=\mathbf{0} \}$, we have $A(\mathbf{x_0}+\mathbf{v})=\mathbf{b} $, indeed that:
+
+$$
+A(\mathbf{x}_0+\mathbf{v})=\mathbf{b}=A\mathbf{x}_0+A\mathbf{v}=\mathbf{b}+\mathbf{0}=\mathbf{b}
+$$
+
+- We have to check also that any $\mathbf{y}\in S$ can be written as $\mathbf{y}=\mathbf{x}_0+\mathbf{v}$ for some $\mathbf{v}\in S_0$ 
+
+$$
+A\mathbf{v}=A(\mathbf{y}-\mathbf{x}_0)=A\mathbf{y}-A\mathbf{x}_0=\mathbf{b}-\mathbf{b}=\mathbf{0}
+$$
+
+</details>
+
+
+:::
+
+### Existence of Solution
+
+:::tip Existence of Solution
+How can I decide if there is a solution?
+
+I just have to do Gaussian Elimination for the matrix $(A\mid \mathbf{b})$
+
+- If $\operatorname{rank}(A\mid \mathbf{b})=\operatorname{rank}(A) $, then there is a solution
+
+- If $\operatorname{rank}(A\mid \mathbf{b})>\operatorname{rank}(A) $, then there are no solution
+
+:::
