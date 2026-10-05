@@ -4,3 +4,136 @@ sidebar_label: 9/24/2026
 sidebar_position: 11
 ---
 
+## Recap
+
+### Linear Maps and Associated Matrix
+
+:::tip Linear Map
+Recall that a linear map $\varphi : V\rightarrow W$ is a function satisfying:
+
+$$
+\begin{align*}
+    \varphi(\mathbf{v}_1+\mathbf{v}_2)&=\varphi(\mathbf{v}_1)+\varphi(\mathbf{v}_2)\\
+    \varphi(c\mathbf{v})&=c\varphi(\mathbf{v})
+\end{align*}
+$$
+:::
+
+:::tip Associated Matrix
+If $V=\mathbb{R}^n$ and $W=\mathbb{R}^m$, then the transformation of $\varphi$ has an associated matrix $A$:
+
+$$
+A=\big(\varphi(\mathbf{e}_1)\mid\varphi(\mathbf{e}_2)\mid \dots \mid \varphi(\mathbf{e}_n ) \big)
+$$
+where $\mathbf{e}_i$ is the [standard basis](docs\Notes\Stony-Brook\MAT307\9-15-2026.mdx#Standard-Basis), and $\varphi(\mathbf{e}_i)$ is column vector.
+
+Therefore, the linear map could expressed as:
+
+$$
+\begin{align*}
+    \varphi(\mathbf{x}_1,\dots,\mathbf{x}_n)&=A\mathbf{x}\\
+                                            &=\begin{bmatrix}
+a_{11}\mathbf{x}_1+a_{12}\mathbf{x}_2+\cdots+a_{1n}\mathbf{x}_n\\
+a_{21}\mathbf{x}_1+a_{22}\mathbf{x}_2+\cdots+a_{2n}\mathbf{x}_n\\
+\vdots\\
+a_{m1}\mathbf{x}_1+a_{m2}\mathbf{x}_2+\cdots+a_{mn}\mathbf{x}_n
+\end{bmatrix}
+\end{align*}
+$$
+
+:::
+
+## Composition of Linear Maps and Matrix Multiplication
+
+::::tip Propositions
+
+- Consider linear maps $\varphi:V\rightarrow W$ and $\psi:W\rightarrow Z$, then:
+
+
+    $$
+    \psi \circ \varphi : V\rightarrow Z
+    $$
+    is also a linear map
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+Recall that for a valid [vector space](docs\Notes\Stony-Brook\MAT307\9-15-2026.mdx#Vector-Space), it has to satisfy both:
+
+- Addition
+
+$$
+\psi\big(\varphi(\mathbf{v}_1+\mathbf{v}_2) \big)= \psi(\varphi(\mathbf{v}_1)+\varphi(\mathbf{v}_2))= \psi (\varphi(\mathbf{v}_1))+\psi (\varphi(\mathbf{v}_2))
+$$
+
+- Scalar Multiplication
+
+$$
+\psi\big(\varphi(c\mathbf{v}) \big)= \psi\big(c\varphi(\mathbf{v}) \big)=c\psi\big(\varphi(\mathbf{v}) \big)
+$$
+
+claud: add blacksquare
+</details>
+
+- Let $V=\mathbb{R}^n$, $W=\mathbb{R}^m$, and $Z=\mathbb{R}^{\ell}$. If $A=[\mathbf{c}_1\mid \dots \mid \mathbf{c}_n]$ is the matrix associated to $\varphi$ and $B=
+\begin{bmatrix}
+\mathbf{r}_1\\
+\mathbf{r}_2\\
+\vdots\\
+\mathbf{r}_\ell
+\end{bmatrix}$ is the matrix associated to $\psi$, then the matrix associated with teh composition of $\psi \circ \varphi$ is the matrix:
+
+$$
+BA= \begin{pmatrix}
+\mathbf{r}_1\cdot \mathbf{c}_1 & \mathbf{r}_1\cdot \mathbf{c}_2 & \cdots & \mathbf{r}_1\cdot \mathbf{c}_n\\
+\mathbf{r}_2\cdot \mathbf{c}_1 & \mathbf{r}_2\cdot \mathbf{c}_2 & \cdots & \mathbf{r}_2\cdot \mathbf{c}_n\\
+\vdots & \vdots & \ddots & \vdots\\
+\mathbf{r}_\ell\cdot \mathbf{c}_1 & \mathbf{r}_\ell\cdot \mathbf{c}_2 & \cdots & \mathbf{r}_\ell\cdot \mathbf{c}_n
+\end{pmatrix}
+$$
+
+
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+We know that the matrix associated with $\psi \circ \varphi$ is:
+
+$$
+\begin{align*}
+    &\Bigl( \psi \big(\varphi (\mathbf{e}_1) \big) \mid \psi \big(\varphi (\mathbf{e}_2) \big) \mid \dots \mid \psi \big(\varphi (\mathbf{e}_n) \big)\Bigr)\\
+    &= \big(\psi (\mathbf{c}_1)\mid \psi(\mathbf{c}_2) \mid \dots \mid \psi(\mathbf{c}_n) \big)
+\end{align*}
+$$
+
+Now, as $\psi(\mathbf{c}_i) =
+\begin{pmatrix}
+\mathbf{r}_1\cdot\mathbf{c}_i\\
+\mathbf{r}_2\cdot\mathbf{c}_i\\
+\vdots\\
+\mathbf{r}_\ell\cdot\mathbf{c}_i
+\end{pmatrix} $, and so we get the formula successfully.
+
+claude: add a  blacksquare
+
+</details>
+
+:::note
+
+When you do composition of two linear maps you have to multiply the matrices in the opposite order, such that for the linear map $BA\mathbf{x}$, we first compute $A\mathbf{x}$, then apply $B$ to get $B(A\mathbf{x})$
+
+:::
+
+
+:::info Example 
+
+Ax
+
+:::
+
+
+:::info Geometric Example
+Bx
+:::
+
+::::
