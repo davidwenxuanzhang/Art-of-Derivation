@@ -10,17 +10,17 @@ sidebar_position: 6
 :::info Recap
 Recall from last time, given a set $x=\{1,2 \}$, then
 
-- The subset of $x$: $\emptyset$, $\{1,2\}$, $\{1\}$, $\{2\}$
+- The subsets of $x$ are: $\emptyset$, $\{1,2\}$, $\{1\}$, $\{2\}$
 - $\mathcal{P}(x)=\big\{\emptyset, \{1,2\}, \{1\},\{2\} \big\}$
 - $A\in \mathcal{P}(x)\iff A\subseteq x$
 
 :::
 
-### Exercise
+### Review Exercise
 
 :::warning Exercise
 
-- Q1: Find the sets that are [equivalent](docs\Notes\Stony-Brook\MAT250\9-24-2026.mdx#Equality-of-Sets) given $A:\{1,2,3\}$,  $B:\{1,2,3,1\}$,  $C:\big\{1,2,\{3\}\big\}$,  $D:\big\{\{1,2,3\}\big\}$
+- Q1: Find the sets that are [equivalent](docs/Notes/Stony-Brook/MAT250/9-24-2026.mdx#Equality-of-Sets) given $A:\{1,2,3\}$,  $B:\{1,2,3,1\}$,  $C:\big\{1,2,\{3\}\big\}$,  $D:\big\{\{1,2,3\}\big\}$
 
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
@@ -29,52 +29,107 @@ Recall from last time, given a set $x=\{1,2 \}$, then
 
 <hr/>
 
-- Q2: given a set $S=\big\{1,2,{3} \big\}$, state true or false for the following
-for this question, claude: form this in a better way, could be a chart or something you can figure it out
-$$
-\begin{align*}
-    1\in S\\
-    \{2\}\in S\\
-    3\in S\\
-    \{2,3\} \in S\\
-    \{2,3\}\subseteq S\\
-    \{2\} \subseteq S\\
-    \{3\}\subseteq S\\
-    \big\{1,\{3\}\big\} \in S\\
-    \big\{1,\{3\}\big\}\subseteq S\\
-    \{\emptyset\}\subseteq S\\
-    \emptyset \in S\\
-    \emptyset \subseteq S
-\end{align*}
-$$
+- Q2: Given a set $S=\big\{1,2,\{3\} \big\}$, state whether each of the following is true or false:
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.3rem 1rem', justifyContent: 'center', textAlign: 'center', maxWidth: '420px', margin: '0.5rem auto' }}>
+
+$1\in S$
+
+$\{2\}\in S$
+
+$3\in S$
+
+$\{2,3\} \in S$
+
+$\{2,3\}\subseteq S$
+
+$\{2\} \subseteq S$
+
+$\{3\}\subseteq S$
+
+$\big\{1,\{3\}\big\} \in S$
+
+$\big\{1,\{3\}\big\}\subseteq S$
+
+$\{\emptyset\}\subseteq S$
+
+$\emptyset \in S$
+
+$\emptyset \subseteq S$
+
+</div>
 
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
-TFFTFFTFFTFFT
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.3rem 1rem', justifyContent: 'center', textAlign: 'center', maxWidth: '420px', margin: '0.5rem auto' }}>
+
+$1\in S$: T
+
+$\{2\}\in S$: F
+
+$3\in S$: F
+
+$\{2,3\} \in S$: T
+
+$\{2,3\}\subseteq S$: F
+
+$\{2\} \subseteq S$: F
+
+$\{3\}\subseteq S$: T
+
+$\big\{1,\{3\}\big\} \in S$: F
+
+$\big\{1,\{3\}\big\}\subseteq S$: F
+
+$\{\emptyset\}\subseteq S$: T
+
+$\emptyset \in S$: F
+
+$\emptyset \subseteq S$: F
+
+</div>
+
 </details>
 
 <hr/>
 
-claude; did the same thing for this question also 
-- Q3: Given a set $E=\{1,2,\emptyset\}$, state true or false:
-    1. $\emptyset \subseteq E$ T
-    2. $\emptyset \in E$ T
-    3. $\{\emptyset\}\in E$ F
+- Q3: Given a set $E=\{1,2,\emptyset\}$, state whether each of the following is true or false:
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.3rem 1rem', justifyContent: 'center', textAlign: 'center', maxWidth: '420px', margin: '0.5rem auto' }}>
+
+$\emptyset \subseteq E$
+
+$\emptyset \in E$
+
+$\{\emptyset\}\in E$
+
+</div>
 
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.3rem 1rem', justifyContent: 'center', textAlign: 'center', maxWidth: '420px', margin: '0.5rem auto' }}>
+
+$\emptyset \subseteq E$: T
+
+$\emptyset \in E$: T
+
+$\{\emptyset\}\in E$: F
+
+</div>
 
 </details>
 
 :::
 
-## Complement
+### Complement
 
-Fix a set $U$ "universal", then:
+Fix a "universal" set $U$, then:
 
 ::::tip Complement
 
-For $A\subseteq U$. the **complement** of $A$, denoted by $A^{c}$ is defined by:
+For $A\subseteq U$, the **complement** of $A$, denoted by $A^{c}$, is defined by:
 
 $$
 A^{c}=U\setminus A=\{x\in U \mid x\notin A\}
@@ -84,13 +139,175 @@ $$
 Let $U=\mathbb{Z}$, and $E$ is the set of all even integers, then:
 
 $$
-E^{c}=\mathbb{Z}-E=\{n\in \mathbb{Z}\mid n\notin E\}=\{n\in Z \mid 2 \nmid n\}=\text{ the set of odd integers}
+E^{c}=\mathbb{Z}-E=\{n\in \mathbb{Z}\mid n\notin E\}=\{n\in \mathbb{Z} \mid 2 \nmid n\}=\text{ the set of odd integers}
 $$
 
 :::
 :::danger Remark
 
-The conclusion: "therefore, the complement of the set of all even integers is the set of all odd integers" is **WRONG** because it does not state the universal set $U$, which there is no matehmatical cause.
+The conclusion: "therefore, the complement of the set of all even integers is the set of all odd integers" is **WRONG** because it does not state the universal set $U$, without which the statement has no mathematical meaning.
 
 :::
+::::
+
+### Set Theorem
+
+Recall that:
+
+$$
+A\cap B = \{x\mid x\in A \land x\in B\}\qquad A\cup B=\{x\mid x\in A \lor x\in B \}
+$$
+
+With the universal set $U$:
+
+$$
+A^{c}=\{x\in U\mid x\notin A \}
+$$
+
+and this leads to the set theorem
+
+:::info Set Theorem
+Let $A,B,C\subseteq U$, then
+
+1. Associativity
+
+$$
+A\cup(B\cup C)=(A\cup B)\cup C, \qquad A\cap(B\cap C)=(A\cap B)\cap C 
+$$
+
+2. Commutativity
+
+$$
+A\cup B=B\cup A ,\qquad A\cap B=B\cap A
+$$
+
+3. Distributivity
+
+$$
+A\cup (B\cap C)=(A\cup B)\cap (A\cup C),\qquad A\cap (B\cup C)=(A\cap B)\cup (A\cap C)
+$$
+
+4. De Morgan's Law
+
+$$
+(A\cup B)^{c}=A^{c}\cap B^{c},\qquad (A\cap B)^{c}=A^{c}\cup B^{c}
+$$
+
+5. Complementation
+
+$$
+A\cup A^{c}=U,\qquad A\cap A^{c}=\emptyset
+$$
+
+6. Double Complement
+
+$$
+(A^{c})^{c}=A
+$$
+:::
+
+### Cartesian Product
+
+::::tip Cartesian Product
+
+Given nonempty sets $X$ and $Y$, the **Cartesian product** of $X$ and $Y$ is:
+
+$$
+X\times Y=\{(x,y)\mid x\in X, y\in Y \}
+$$
+
+Its elements are ordered pairs, that is to say, two ordered pairs are precisely equal when their corresponding coordinates are equal:
+
+$$
+(x_1,y_1)=(x_2,y_2) \iff x_1=x_2 \text{ and } y_1=y_2
+$$
+
+Moreover, the ordered pair $(x,y)$ has first coordinate $x$ and second coordinate $y$; when $X=Y$, we say:
+
+$$
+X\times Y=X\times X=X^2
+$$
+
+:::info Example
+
+Let $X=\{a,b,c\}$ and $Y=\{a,b\}$, then:
+
+$$
+\begin{align*}  
+    X\times Y=\{(a,a), (a,b),(b,a),(b,b),(c,a),(c,b)\}\\
+    Y\times X=\{(a,a), (a,b),(a,c),(b,a),(b,b),(b,c)\}
+\end{align*}
+$$
+
+Because, for example, $(c,a)\in X\times Y$ but $(c,a)\notin Y\times X$, therefore:
+
+
+$$
+X\times Y\ne Y\times X
+$$
+
+<svg viewBox="0 0 340 180" width="100%" style={{ maxWidth: '460px', height: 'auto', display: 'block', margin: '0.6rem auto' }} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" role="img" aria-label="Two grids in the first quadrant, both entirely off the axes, comparing X times Y and Y times X for X equal a, b, c and Y equal a, b. The left grid, X times Y, is a wide three by two rectangle of points with the point c, a highlighted. The right grid, Y times X, is a tall two by three rectangle of points"><line x1="18" y1="160" x2="140" y2="160"/><polyline points="132,156 140,160 132,164"/><line x1="18" y1="160" x2="18" y2="20"/><polyline points="14,28 18,20 22,28"/><rect x="47" y="67" width="86" height="51" strokeDasharray="4 3" strokeOpacity="0.6" fill="currentColor" fillOpacity="0.06"/><g fill="currentColor" stroke="none"><circle cx="55" cy="110" r="2.2"/><circle cx="55" cy="75" r="2.2"/><circle cx="90" cy="110" r="2.2"/><circle cx="90" cy="75" r="2.2"/><circle cx="125" cy="75" r="2.2"/><circle cx="125" cy="110" r="2.2"/></g><g fontSize="10" fill="currentColor" stroke="none"><text x="55" y="131" textAnchor="middle">a</text><text x="90" y="131" textAnchor="middle">b</text><text x="125" y="131" textAnchor="middle">c</text><text x="41" y="114" textAnchor="end">a</text><text x="41" y="79" textAnchor="end">b</text></g><text x="146" y="164" fontSize="11" fontStyle="italic" fill="currentColor" stroke="none">x</text><text x="18" y="13" textAnchor="middle" fontSize="11" fontStyle="italic" fill="currentColor" stroke="none">y</text><text x="90" y="14" fontSize="12" fontWeight="700" textAnchor="middle" fill="currentColor" stroke="none">X × Y</text><line x1="215" y1="160" x2="300" y2="160"/><polyline points="292,156 300,160 292,164"/><line x1="215" y1="160" x2="215" y2="20"/><polyline points="211,28 215,20 219,28"/><rect x="237" y="32" width="51" height="86" strokeDasharray="4 3" strokeOpacity="0.6" fill="currentColor" fillOpacity="0.06"/><g fill="currentColor" stroke="none"><circle cx="245" cy="110" r="2.2"/><circle cx="245" cy="75" r="2.2"/><circle cx="245" cy="40" r="2.2"/><circle cx="280" cy="110" r="2.2"/><circle cx="280" cy="75" r="2.2"/><circle cx="280" cy="40" r="2.2"/></g><g fontSize="10" fill="currentColor" stroke="none"><text x="245" y="131" textAnchor="middle">a</text><text x="280" y="131" textAnchor="middle">b</text><text x="231" y="114" textAnchor="end">a</text><text x="231" y="79" textAnchor="end">b</text><text x="231" y="44" textAnchor="end">c</text></g><text x="306" y="164" fontSize="11" fontStyle="italic" fill="currentColor" stroke="none">x</text><text x="215" y="13" textAnchor="middle" fontSize="11" fontStyle="italic" fill="currentColor" stroke="none">y</text><text x="262" y="14" fontSize="12" fontWeight="700" textAnchor="middle" fill="currentColor" stroke="none">Y × X</text></svg>
+
+:::
+
+::::
+
+### Propositions
+
+::::info Propositions
+
+For all sets $A$, $B$, $C$, and $D$:
+
+1. 
+$$
+A\times (B\cup C)=(A\times B)\cup (A\times C)
+$$
+
+<hr/>
+
+2. 
+
+$$
+A\times(B\cap C)=(A\times B)\cap (A\times C)
+$$
+
+<hr/>
+
+3. 
+
+$$
+(A\times B)\cap (C\cup D)=(A\cap C)\times (B\cap D)
+$$
+
+<hr/>
+
+4. 
+$$
+(A\times B)\cup (C\cup D)\subseteq (A\cup C)\times (B\cup D)
+$$
+
+:::danger Remark
+
+Equality cannot hold in proposition 4. Let:
+$$
+A=\{a\},\qquad B=\{b\},\qquad C=\{c\},\qquad D=\{d\}
+$$
+
+Then: 
+
+$$
+(A\times B)\cup (C\times D)=\{(a,b),(c,d)\}
+$$
+
+whereas
+
+$$
+\begin{align*}
+    (A\cup C)\times (B\cup D)&=\{a,c\}\times \{b,d\}\\
+    &=\{(a,b),(a,d),(b,c),(b,d) \}
+\end{align*}
+$$
+Therefore the inclusion is necessary.
+:::
+
 ::::
