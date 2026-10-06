@@ -1,0 +1,96 @@
+---
+title: 9/29/2026 - Lecture 5
+sidebar_label: 9/29/2026
+sidebar_position: 6
+---
+
+
+## Set Operations
+
+:::info Recap
+Recall from last time, given a set $x=\{1,2 \}$, then
+
+- The subset of $x$: $\emptyset$, $\{1,2\}$, $\{1\}$, $\{2\}$
+- $\mathcal{P}(x)=\big\{\emptyset, \{1,2\}, \{1\},\{2\} \big\}$
+- $A\in \mathcal{P}(x)\iff A\subseteq x$
+
+:::
+
+### Exercise
+
+:::warning Exercise
+
+- Q1: Find the sets that are [equivalent](docs\Notes\Stony-Brook\MAT250\9-24-2026.mdx#Equality-of-Sets) given $A:\{1,2,3\}$,  $B:\{1,2,3,1\}$,  $C:\big\{1,2,\{3\}\big\}$,  $D:\big\{\{1,2,3\}\big\}$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+<hr/>
+
+- Q2: given a set $S=\big\{1,2,{3} \big\}$, state true or false for the following
+for this question, claude: form this in a better way, could be a chart or something you can figure it out
+$$
+\begin{align*}
+    1\in S\\
+    \{2\}\in S\\
+    3\in S\\
+    \{2,3\} \in S\\
+    \{2,3\}\subseteq S\\
+    \{2\} \subseteq S\\
+    \{3\}\subseteq S\\
+    \big\{1,\{3\}\big\} \in S\\
+    \big\{1,\{3\}\big\}\subseteq S\\
+    \{\emptyset\}\subseteq S\\
+    \emptyset \in S\\
+    \emptyset \subseteq S
+\end{align*}
+$$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+TFFTFFTFFTFFT
+</details>
+
+<hr/>
+
+claude; did the same thing for this question also 
+- Q3: Given a set $E=\{1,2,\emptyset\}$, state true or false:
+    1. $\emptyset \subseteq E$ T
+    2. $\emptyset \in E$ T
+    3. $\{\emptyset\}\in E$ F
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+:::
+
+## Complement
+
+Fix a set $U$ "universal", then:
+
+::::tip Complement
+
+For $A\subseteq U$. the **complement** of $A$, denoted by $A^{c}$ is defined by:
+
+$$
+A^{c}=U\setminus A=\{x\in U \mid x\notin A\}
+$$
+
+:::info Example
+Let $U=\mathbb{Z}$, and $E$ is the set of all even integers, then:
+
+$$
+E^{c}=\mathbb{Z}-E=\{n\in \mathbb{Z}\mid n\notin E\}=\{n\in Z \mid 2 \nmid n\}=\text{ the set of odd integers}
+$$
+
+:::
+:::danger Remark
+
+The conclusion: "therefore, the complement of the set of all even integers is the set of all odd integers" is **WRONG** because it does not state the universal set $U$, which there is no matehmatical cause.
+
+:::
+::::
