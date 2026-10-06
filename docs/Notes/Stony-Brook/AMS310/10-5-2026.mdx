@@ -1,0 +1,62 @@
+---
+title: 10/5/2026 - Lecture 19
+sidebar_label: 10/5/2026
+sidebar_position: 20
+---
+
+## Lecture Overview
+
+Last time: Common Discrete Distributions:
+
+- Geometric Distribution: Count the number of trails to observe a "success"
+- Poisson Distribution: Count the number of events observed in a timeframe or interval
+- Hypergeometric Distribution: Count the number of "success" in $N$ trails **without** replacement
+
+Today: Continuous Random Vriables and their Formalism
+
+- Probability Mass vs. Probability Density
+- Cumulative Distribution Function and Survival Function
+
+## Continuous Distributions
+
+
+Given a continuous distributions PMF:
+$$
+M[x\mid \mathbb{X}]=\mathbb{P}(\mathbb{X}=x\mid C)
+$$
+it is a measure of **precision** because a critical issue for continuous random variables, but for continuous random variable, we do not know the exact, precise measure of it. 
+
+::::tip Probability Density Function
+Therefore, **intervals** make more sense for continuous distributions, that is to say, consider:
+
+$$
+\mathbb{P}[a\le \mathbb{X}\le b\mid C]
+$$
+
+    and we can recast it in:
+
+$$
+\mathbb{P}[x\le \mathbb{X}\le x+\Delta x\mid C]
+$$
+
+    scale by the interval size:
+
+$$
+\frac{\mathbb{P}[x\le \mathbb{X}\le x+\Delta x\mid C]}{\Delta x}
+$$
+
+make $\Delta x$ small:
+
+$$
+f[x\mid \mathbb{X}]=\lim_{\Delta x\rightarrow 0^{+}}\frac{\mathbb{P}[x\le \mathbb{X}\le x+\Delta x\mid C]}{\Delta x}
+$$
+
+and $f$ is the **probability density function**
+
+:::note 
+
+$f[x\mid \mathbb{X}]\mathrm{d}x=\mathrm{d}\mathbb{P}$ is an infinitestimal probability
+
+:::
+
+::::
