@@ -20,23 +20,23 @@ $$
 :::
 
 :::tip Associated Matrix
-If $V=\mathbb{R}^n$ and $W=\mathbb{R}^m$, then the transformation of $\varphi$ has an associated matrix $A$:
+If $V=\mathbb{R}^n$ and $W=\mathbb{R}^m$, then $\varphi$ has an associated matrix $A$:
 
 $$
 A=\big(\varphi(\mathbf{e}_1)\mid\varphi(\mathbf{e}_2)\mid \dots \mid \varphi(\mathbf{e}_n ) \big)
 $$
-where $\mathbf{e}_i$ is the [standard basis](docs\Notes\Stony-Brook\MAT307\9-15-2026.mdx#Standard-Basis), and $\varphi(\mathbf{e}_i)$ is column vector.
+where $\mathbf{e}_i$ is a vector of the [standard basis](docs\Notes\Stony-Brook\MAT307\9-15-2026.mdx#standard-basis), and $\varphi(\mathbf{e}_i)$ is a column vector.
 
-Therefore, the linear map could expressed as:
+Therefore, the linear map could be expressed as:
 
 $$
 \begin{align*}
-    \varphi(\mathbf{x}_1,\dots,\mathbf{x}_n)&=A\mathbf{x}\\
+    \varphi(x_1,\dots,x_n)&=A\mathbf{x}\\
                                             &=\begin{bmatrix}
-a_{11}\mathbf{x}_1+a_{12}\mathbf{x}_2+\cdots+a_{1n}\mathbf{x}_n\\
-a_{21}\mathbf{x}_1+a_{22}\mathbf{x}_2+\cdots+a_{2n}\mathbf{x}_n\\
+a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n\\
+a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n\\
 \vdots\\
-a_{m1}\mathbf{x}_1+a_{m2}\mathbf{x}_2+\cdots+a_{mn}\mathbf{x}_n
+a_{m1}x_1+a_{m2}x_2+\cdots+a_{mn}x_n
 \end{bmatrix}
 \end{align*}
 $$
@@ -58,21 +58,20 @@ $$
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
 
-Recall that for a valid [vector space](docs\Notes\Stony-Brook\MAT307\9-15-2026.mdx#Vector-Space), it has to satisfy both:
+Recall that for a map to be [linear](docs\Notes\Stony-Brook\MAT307\9-15-2026.mdx#linear-map), it has to satisfy both:
 
 - Addition
 
 $$
-\psi\big(\varphi(\mathbf{v}_1+\mathbf{v}_2) \big)= \psi(\varphi(\mathbf{v}_1)+\varphi(\mathbf{v}_2))= \psi (\varphi(\mathbf{v}_1))+\psi (\varphi(\mathbf{v}_2))
+\psi\big(\varphi(\mathbf{v}_1+\mathbf{v}_2) \big)= \psi(\varphi(\mathbf{v}_1)+\varphi(\mathbf{v}_2))= \psi(\varphi(\mathbf{v}_1))+\psi(\varphi(\mathbf{v}_2))
 $$
 
 - Scalar Multiplication
 
 $$
-\psi\big(\varphi(c\mathbf{v}) \big)= \psi\big(c\varphi(\mathbf{v}) \big)=c\psi\big(\varphi(\mathbf{v}) \big)
+\psi\big(\varphi(c\mathbf{v}) \big)= \psi\big(c\varphi(\mathbf{v}) \big)=c\psi\big(\varphi(\mathbf{v}) \big) \tag*{$\blacksquare$}
 $$
 
-claud: add blacksquare
 </details>
 
 - Let $V=\mathbb{R}^n$, $W=\mathbb{R}^m$, and $Z=\mathbb{R}^{\ell}$. If $A=[\mathbf{c}_1\mid \dots \mid \mathbf{c}_n]$ is the matrix associated to $\varphi$ and $B=
@@ -81,15 +80,15 @@ claud: add blacksquare
 \mathbf{r}_2\\
 \vdots\\
 \mathbf{r}_\ell
-\end{bmatrix}$ is the matrix associated to $\psi$, then the matrix associated with teh composition of $\psi \circ \varphi$ is the matrix:
+\end{bmatrix}$ is the matrix associated to $\psi$, then the matrix associated with the composition $\psi \circ \varphi$ is the matrix:
 
 $$
-BA= \begin{pmatrix}
+BA= \begin{bmatrix}
 \mathbf{r}_1\cdot \mathbf{c}_1 & \mathbf{r}_1\cdot \mathbf{c}_2 & \cdots & \mathbf{r}_1\cdot \mathbf{c}_n\\
 \mathbf{r}_2\cdot \mathbf{c}_1 & \mathbf{r}_2\cdot \mathbf{c}_2 & \cdots & \mathbf{r}_2\cdot \mathbf{c}_n\\
 \vdots & \vdots & \ddots & \vdots\\
 \mathbf{r}_\ell\cdot \mathbf{c}_1 & \mathbf{r}_\ell\cdot \mathbf{c}_2 & \cdots & \mathbf{r}_\ell\cdot \mathbf{c}_n
-\end{pmatrix}
+\end{bmatrix}
 $$
 
 
@@ -106,34 +105,498 @@ $$
 \end{align*}
 $$
 
-Now, as $\psi(\mathbf{c}_i) =
-\begin{pmatrix}
+Now, since $\psi(\mathbf{c}_i) =
+\begin{bmatrix}
 \mathbf{r}_1\cdot\mathbf{c}_i\\
 \mathbf{r}_2\cdot\mathbf{c}_i\\
 \vdots\\
 \mathbf{r}_\ell\cdot\mathbf{c}_i
-\end{pmatrix} $, and so we get the formula successfully.
-
-claude: add a  blacksquare
+\end{bmatrix}$, we obtain the formula. $\blacksquare$
 
 </details>
 
 :::note
 
-When you do composition of two linear maps you have to multiply the matrices in the opposite order, such that for the linear map $BA\mathbf{x}$, we first compute $A\mathbf{x}$, then apply $B$ to get $B(A\mathbf{x})$
+When you do composition of two linear maps you have to multiply the matrices in the opposite order, such that to compute $BA\mathbf{x}$, we first compute $A\mathbf{x}$, then apply $B$ to get $B(A\mathbf{x})$.
 
 :::
 
 
 :::info Example 
 
-Ax
+Given two matrices $A$ and $B$:
+
+$$
+A=
+\begin{bmatrix}
+1 & 2 & 3\\
+1 & 0 & 2\\
+1 & 1 & 3
+\end{bmatrix}
+\qquad 
+B= 
+\begin{bmatrix}
+-1 & -1 & 0\\
+2 & 0 & 1\\
+0 & 1 & 0
+\end{bmatrix}
+$$
+
+Their multiplication $BA$ is:
+
+$$
+BA=
+\begin{bmatrix}
+-1 & -1 & 0\\
+2 & 0 & 1\\
+0 & 1 & 0
+\end{bmatrix}
+\begin{bmatrix}
+1 & 2 & 3\\
+1 & 0 & 2\\
+1 & 1 & 3
+\end{bmatrix}
+=
+\begin{bmatrix}
+-2 & -2 & -5\\
+3 & 5 & 9\\
+1 & 0 & 2
+\end{bmatrix}
+$$
+
+Therefore, $(BA)_{ij}$ is the dot product of the $i$th row with the $j$th column, and it represents the linear map associated to $\psi_B \circ \varphi_A$.
 
 :::
 
 
 :::info Geometric Example
-Bx
+
+- Rotations in $\mathbb{R}^2$
+
+<div className="deriv2col">
+
+  <div>
+
+<svg viewBox="0 0 230 160" width="100%" style={{ maxWidth: '260px', height: 'auto', display: 'block', margin: '0.5rem auto' }} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" role="img" aria-label="Standard basis vectors e1 and e2 shown dashed before rotation, and their images under a counterclockwise rotation by angle alpha shown solid after rotation, with an arc indicating the rotation angle"><line x1="20" y1="120" x2="220" y2="120" strokeWidth="1" strokeOpacity="0.2"/><line x1="70" y1="15" x2="70" y2="150" strokeWidth="1" strokeOpacity="0.2"/><line x1="70" y1="120" x2="130" y2="120" strokeWidth="1.6" strokeOpacity="0.55" strokeDasharray="4 3"/><polyline points="122,123.5 130,120 122,116.5" strokeWidth="1.6" strokeOpacity="0.55"/><line x1="70" y1="120" x2="70" y2="60" strokeWidth="1.6" strokeOpacity="0.55" strokeDasharray="4 3"/><polyline points="73.5,68 70,60 66.5,68" strokeWidth="1.6" strokeOpacity="0.55"/><path d="M95,120 A25,25 0 0,0 89.15,103.92" strokeWidth="1.4" strokeOpacity="0.6"/><line x1="70" y1="120" x2="115.96" y2="81.43" strokeWidth="2.2"/><polyline points="110.87,90.92 115.96,81.43 105.73,84.80" strokeWidth="2.2"/><line x1="70" y1="120" x2="31.43" y2="74.04" strokeWidth="2.2"/><polyline points="40.92,79.13 31.43,74.04 34.80,84.27" strokeWidth="2.2"/><circle cx="70" cy="120" r="2.2" fill="currentColor" stroke="none"/><text x="134" y="124" fontSize="12" fontStyle="italic" fill="currentColor" stroke="none" opacity="0.7">e₁</text><text x="76" y="55" fontSize="12" fontStyle="italic" fill="currentColor" stroke="none" opacity="0.7">e₂</text><text x="120" y="68" fontSize="12" fontStyle="italic" fontWeight="700" fill="currentColor" stroke="none">φ(e₁)</text><text x="10" y="70" fontSize="12" fontStyle="italic" fontWeight="700" fill="currentColor" stroke="none">φ(e₂)</text><text x="100" y="112" fontSize="11" fontStyle="italic" fill="currentColor" stroke="none">α</text></svg>
+
+  </div>
+
+  <div>
+
+    Consider the map where $\varphi(\mathbf{v})$ is $\mathbf{v}$ rotated by $\alpha$ in counter clockwise direction, then the matrix of the standard basis is:
+    
+    $$
+    \begin{bmatrix}
+        \varphi(\mathbf{e}_1)\mid \varphi(\mathbf{e}_2)
+    \end{bmatrix}
+    =\begin{bmatrix}
+        \cos(\alpha) & -\sin(\alpha)\\
+        \sin(\alpha) & \cos(\alpha)
+    \end{bmatrix}
+    $$
+    Then, using this matrix, we can apply the transformation to a general vector $\mathbf{x}$:
+    $$
+    \begin{bmatrix}
+    \cos(\alpha) & -\sin(\alpha)\\
+    \sin(\alpha) & \cos(\alpha)
+    \end{bmatrix}
+    \begin{bmatrix}
+    x_1\\
+    x_2
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+    x_1\cos(\alpha)-x_2\sin(\alpha)\\
+    x_1\sin(\alpha)+x_2\cos(\alpha)
+    \end{bmatrix}
+    $$
+  </div>
+
+</div>
+
+<hr/>
+
+- Dilation
+
+    If I consider the transformation
+
+    $$
+    \begin{align*}
+    \varphi:\ &\mathbb{R}^3\rightarrow \mathbb{R}^3\\
+                &\mathbf{v}\mapsto \lambda\mathbf{v} \text{ where }\lambda \in \mathbb{R}
+    \end{align*}
+    $$
+    Then, the associated matrix is:
+
+    $$
+    \begin{bmatrix}
+    \lambda & 0 & 0\\
+    0 & \lambda & 0\\
+    0 & 0 & \lambda
+    \end{bmatrix}   
+    $$
 :::
+
+::::
+
+:::warning Exercise
+
+Compute the matrix associated with the orthogonal projection in $\mathbb{R}^3$ to a plane with normal direction $\mathbf{n}$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+:::
+
+### Relation to Gaussian Elimination
+
+::::tip Relation to Gaussian Elimination
+
+- Switching the $i$th row with $j$th row corresponds to multiplying one matrix $A$ on the left with the $m\times m$ identity matrix with its $i$th and $j$th rows swapped, for example (swapping rows $2$ and $4$):
+
+    $$
+    \begin{bmatrix}
+    1 & 0 & 0 & 0\\
+    0 & 0 & 0 & 1\\
+    0 & 0 & 1 & 0\\
+    0 & 1 & 0 & 0
+    \end{bmatrix}
+    $$
+
+:::info Example
+$$
+\begin{bmatrix}
+1 & 0 & 0\\
+0 & 0 & 1\\
+0 & 1 & 0
+\end{bmatrix}
+\begin{bmatrix}
+1 & 2 & 3\\
+0 & 1 & 2\\
+0 & 1 & 1
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 & 2 & 3\\
+0 & 1 & 1\\
+0 & 1 & 2
+\end{bmatrix}
+$$
+:::
+
+<hr/>
+
+- Substituting $\mathbf{r}_i$ with $c\mathbf{r}_i$ corresponds to multiplying on the left with
+
+$$
+\begin{bmatrix}
+1 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & c & 0\\
+0 & 0 & 0 & 1
+\end{bmatrix}
+$$
+
+:::info Example
+$$
+\begin{bmatrix}
+1 & 0 & 0\\
+0 & 2 & 0\\
+0 & 0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+1 & 2 & 3\\
+0 & 1 & 2\\
+0 & 1 & 1
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 & 2 & 3\\
+0 & 2 & 4\\
+0 & 1 & 1
+\end{bmatrix}
+$$
+:::
+
+<hr/>
+
+- Substituting $\mathbf{r}_i$ with $\mathbf{r}_i-c\mathbf{r}_j$ corresponds to multiplying on the left with
+
+$$
+\begin{bmatrix}
+1 & 0 & 0 & 0\\
+0 & 1 & 0 & -c\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1
+\end{bmatrix}
+$$
+
+:::info Example
+$$
+\begin{bmatrix}
+1 & 0 & -1\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+1 & 2 & 3\\
+0 & 1 & 2\\
+0 & 1 & 1
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 & 1 & 2\\
+0 & 1 & 2\\
+0 & 1 & 1
+\end{bmatrix}
+$$
+:::
+
+::::
+
+## Inverses
+
+::::tip Invertible
+
+A linear map $\varphi : V\rightarrow W$ is called **Invertible** if there exists $\varphi^{-1}: W\rightarrow V$ such that:
+
+$$
+\varphi \circ \varphi^{-1}=\operatorname{id}_W \qquad \varphi^{-1} \circ \varphi=\operatorname{id}_V
+$$ 
+
+:::info Propositions
+
+$\varphi^{-1}$ is linear because $\varphi$ is bijective (surjective and injective), which means for every $\mathbf{w}_i\in W$ there exists a unique $\mathbf{v}_i\in V$ with $\varphi(\mathbf{v}_i)=\mathbf{w}_i$ and $\varphi^{-1}(\mathbf{w}_i)=\mathbf{v}_i$.
+
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+- Additive
+
+    $$
+    \begin{align*}
+    \varphi^{-1}(\mathbf{w}_1+\mathbf{w}_2)&=\varphi^{-1}\big(\varphi(\mathbf{v}_1)+\varphi(\mathbf{v}_2) \big)\\
+    &=\varphi^{-1}\big(\varphi(\mathbf{v}_1+\mathbf{v}_2)\big)\\
+    &=\mathbf{v}_1+\mathbf{v}_2\\
+    &=\varphi^{-1}(\mathbf{w}_1)+\varphi^{-1}(\mathbf{w}_2)
+    \end{align*}
+    $$
+
+- Scalar Multiplication
+
+    $$
+    \begin{align*}
+    \varphi^{-1}(c\mathbf{w}_1)&=\varphi^{-1}\big(c\varphi(\mathbf{v}_1)\big)\\
+    &=\varphi^{-1}\big(\varphi(c\mathbf{v}_1) \big)\\
+    &=c\mathbf{v}_1\\
+    &=c\varphi^{-1}(\mathbf{w}_1) \tag*{$\blacksquare$}
+    \end{align*}
+    $$
+</details>
+
+:::
+
+::::
+
+:::warning Exercise
+
+An invertible linear map carries linearly independent vectors to linearly independent vectors, and a basis to a basis.
+
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+:::
+
+:::tip Corollary
+
+If there is an invertible linear map between $V$ and $W$, then the dimensions of $V$ and $W$ are the same
+
+:::
+
+## Determinants
+
+::::tip Determinants
+
+The **Determinant** is a number attached to an $n\times n$ matrix, or equivalently to a linear map $\varphi: \mathbb{R}^n\rightarrow \mathbb{R}^n$
+
+
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gap: "0",
+  }}
+>
+  <div
+    style={{
+      paddingRight: "2rem",
+      borderRight: "1px solid var(--ifm-color-emphasis-300)",
+    }}
+  >
+
+**Geometrically**
+
+The determinant is the signed volume of the parallelepiped generated by the column vectors of the matrix.
+
+<svg viewBox="0 0 220 170" width="100%" style={{ maxWidth: '260px', height: 'auto', display: 'block', margin: '0.5rem auto' }} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" role="img" aria-label="A parallelepiped in three dimensions spanned by three vectors v1, v2, v3 from a common origin, illustrating the determinant as a signed volume"><polygon points="55,140 135,140 135,70 55,70" fill="currentColor" fillOpacity="0.05" stroke="none"/><g strokeWidth="1" strokeOpacity="0.45"><line x1="55" y1="70" x2="135" y2="70"/><line x1="90" y1="115" x2="170" y2="115"/><line x1="90" y1="45" x2="170" y2="45"/><line x1="135" y1="140" x2="135" y2="70"/><line x1="90" y1="115" x2="90" y2="45"/><line x1="170" y1="115" x2="170" y2="45"/><line x1="135" y1="140" x2="170" y2="115"/><line x1="55" y1="70" x2="90" y2="45"/><line x1="135" y1="70" x2="170" y2="45"/></g><line x1="55" y1="140" x2="135" y2="140" strokeWidth="2.2"/><polyline points="125,144 135,140 125,136" strokeWidth="2.2"/><line x1="55" y1="140" x2="55" y2="70" strokeWidth="2.2"/><polyline points="59,80 55,70 51,80" strokeWidth="2.2"/><line x1="55" y1="140" x2="90" y2="115" strokeWidth="2.2"/><polyline points="84.18,124.06 90,115 79.54,117.56" strokeWidth="2.2"/><circle cx="55" cy="140" r="2.2" fill="currentColor" stroke="none"/><text x="138" y="146" fontSize="12" fontStyle="italic" fontWeight="700" fill="currentColor" stroke="none">v₁</text><text x="38" y="68" fontSize="12" fontStyle="italic" fontWeight="700" fill="currentColor" stroke="none">v₂</text><text x="94" y="110" fontSize="12" fontStyle="italic" fontWeight="700" fill="currentColor" stroke="none">v₃</text></svg>
+
+<hr/>
+
+If we take $\mathbf{v}_1,\mathbf{v}_2\in\mathbb{R}^2$ and put them in $\mathbb{R}^3$ by adding a third component $0$, we obtain $\bar{\mathbf{v}}_1,\bar{\mathbf{v}}_2\in\mathbb{R}^3$.
+
+<svg viewBox="0 0 220 170" width="100%" style={{ maxWidth: '260px', height: 'auto', display: 'block', margin: '0.5rem auto' }} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" role="img" aria-label="Vectors v1 and v2 lying in a plane, spanning a shaded parallelogram whose area equals the magnitude of their cross product, drawn as a vector perpendicular to the plane"><polygon points="20,110 170,95 195,140 45,155" fill="currentColor" fillOpacity="0.05" strokeOpacity="0.55"/><polygon points="90,125 150,110 115,135 55,150" fill="currentColor" fillOpacity="0.1" stroke="none"/><line x1="90" y1="125" x2="150" y2="110" strokeWidth="2.2"/><polyline points="142.12,115.58 150,110 140.42,108.78" strokeWidth="2.2"/><line x1="90" y1="125" x2="55" y2="150" strokeWidth="2.2"/><polyline points="60.29,141.92 55,150 64.35,147.62" strokeWidth="2.2"/><line x1="90" y1="125" x2="90" y2="75" strokeWidth="2.6"/><polyline points="94,85 90,75 86,85" strokeWidth="2.6"/><circle cx="90" cy="125" r="2.2" fill="currentColor" stroke="none"/><text x="155" y="107" fontSize="12" fontStyle="italic" fontWeight="700" fill="currentColor" stroke="none">v₁</text><text x="30" y="156" fontSize="12" fontStyle="italic" fontWeight="700" fill="currentColor" stroke="none">v₂</text><text x="95" y="72" fontSize="12" fontStyle="italic" fontWeight="700" fill="currentColor" stroke="none">v̄₁×v̄₂</text><text x="98" y="131" fontSize="10.5" fontStyle="italic" fill="currentColor" stroke="none">Area</text></svg>
+
+$$
+\begin{align*}
+\operatorname{det}(\mathbf{v}_1,\mathbf{v}_2)&=\pm\text{ Area of the parallelogram}\\
+&=\pm \| \bar{\mathbf{v}}_1\times \bar{\mathbf{v}}_2 \|
+\end{align*}
+$$
+
+$$
+\implies
+\operatorname{det}
+\begin{bmatrix}
+a_{11} & a_{12}\\
+a_{21} & a_{22}
+\end{bmatrix}
+=
+\pm
+\left\|
+\begin{matrix}
+0\\
+0\\
+a_{11}a_{22}-a_{21}a_{12}
+\end{matrix}
+\right\|
+$$
+  </div>
+
+  <div
+    style={{
+      paddingLeft: "2rem",
+    }}
+  >
+
+**Analytically**
+
+In $\mathbb{R}^2$:
+
+$$
+\operatorname{det}
+\begin{bmatrix}
+a_{11} & a_{12}\\
+a_{21} & a_{22}
+\end{bmatrix}=a_{11}a_{22}-a_{21}a_{12}
+$$
+
+In $\mathbb{R}^n$, we have a recursive formula:
+$$
+\det(A)
+=
+\sum_{i=1}^{n}
+(-1)^{i+j}a_{ji}\det(\widehat{A}_{ji})
+$$
+where $j$ is any fixed row index, and $\widehat{A}_{ji}$ is the matrix obtained by deleting row $j$ and column $i$ from $A$.
+
+In general, to form $\widehat{A}_{ij}$, cross out row $i$ with a horizontal line and column $j$ with a vertical line; the two lines meet exactly at the entry $a_{ij}$ being eliminated, and what remains is the $(n-1)\times(n-1)$ minor:
+
+<svg viewBox="0 0 260 170" width="100%" style={{ maxWidth: '280px', height: 'auto', display: 'block', margin: '0.5rem auto' }} fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" role="img" aria-label="A general n by n matrix with entries a sub ij, showing a horizontal line through row i and a vertical line through column j crossing at entry a sub ij, illustrating how deleting row i and column j produces the minor used in cofactor expansion"><path d="M46,20 L40,20 L40,150 L46,150"/><path d="M224,20 L230,20 L230,150 L224,150"/><line x1="40" y1="85" x2="230" y2="85" strokeWidth="2"/><line x1="135" y1="20" x2="135" y2="150" strokeWidth="2"/><text x="20" y="93" fontSize="12" fontStyle="italic" fill="currentColor" stroke="none">i</text><text x="135" y="14" fontSize="12" fontStyle="italic" fill="currentColor" stroke="none" textAnchor="middle">j</text><text x="59" y="37" fontSize="12" fill="currentColor" stroke="none" textAnchor="middle">a₁₁</text><text x="97" y="37" fontSize="12" fill="currentColor" stroke="none" textAnchor="middle">⋯</text><text x="135" y="37" fontSize="12" fill="currentColor" stroke="none" textAnchor="middle">a₁ⱼ</text><text x="173" y="37" fontSize="12" fill="currentColor" stroke="none" textAnchor="middle">⋯</text><text x="211" y="37" fontSize="12" fill="currentColor" stroke="none" textAnchor="middle">a₁ₙ</text><text x="59" y="63" fontSize="12" fill="currentColor" stroke="none" textAnchor="middle">⋮</text><text x="97" y="63" fontSize="12" fill="currentColor" stroke="none" textAnchor="middle">⋮</text><text x="135" y="63" fontSize="12" fill="currentColor" stroke="none" textAnchor="middle">⋮</text><text x="173" y="63" fontSize="12" fill="currentColor" stroke="none" textAnchor="middle">⋮</text><text x="211" y="63" fontSize="12" fill="currentColor" stroke="none" textAnchor="middle">⋮</text><text x="59" y="89" fontSize="12" fill="currentColor" stroke="none" textAnchor="middle">aᵢ₁</text><text x="97" y="89" fontSize="12" fill="currentColor" stroke="none" textAnchor="middle">⋯</text><text x="135" y="89" fontSize="12" fontWeight="700" fill="currentColor" stroke="none" textAnchor="middle">aᵢⱼ</text><text x="173" y="89" fontSize="12" fill="currentColor" stroke="none" textAnchor="middle">⋯</text><text x="211" y="89" fontSize="12" fill="currentColor" stroke="none" textAnchor="middle">aᵢₙ</text><text x="59" y="115" fontSize="12" fill="currentColor" stroke="none" textAnchor="middle">⋮</text><text x="97" y="115" fontSize="12" fill="currentColor" stroke="none" textAnchor="middle">⋮</text><text x="135" y="115" fontSize="12" fill="currentColor" stroke="none" textAnchor="middle">⋮</text><text x="173" y="115" fontSize="12" fill="currentColor" stroke="none" textAnchor="middle">⋮</text><text x="211" y="115" fontSize="12" fill="currentColor" stroke="none" textAnchor="middle">⋮</text><text x="59" y="141" fontSize="12" fill="currentColor" stroke="none" textAnchor="middle">aₙ₁</text><text x="97" y="141" fontSize="12" fill="currentColor" stroke="none" textAnchor="middle">⋯</text><text x="135" y="141" fontSize="12" fill="currentColor" stroke="none" textAnchor="middle">aₙⱼ</text><text x="173" y="141" fontSize="12" fill="currentColor" stroke="none" textAnchor="middle">⋯</text><text x="211" y="141" fontSize="12" fill="currentColor" stroke="none" textAnchor="middle">aₙₙ</text></svg>
+
+For example, to compute $\widehat{A}_{12}$ from the matrix in the example below, delete the first row and second column:
+
+$$
+\begin{bmatrix}
+\cancel{1} & \cancel{2} & \cancel{3}\\
+0 & \cancel{0} & 0\\
+1 & \cancel{0} & 0
+\end{bmatrix}
+\quad\implies\quad
+\widehat{A}_{12}=
+\begin{bmatrix}
+0 & 0\\
+1 & 0
+\end{bmatrix}
+$$
+
+  </div>
+</div>
+
+:::info Example 
+
+$$
+\begin{align*}
+\det
+\begin{bmatrix}
+1 & 2 & 3\\
+0 & 1 & 0\\
+1 & 0 & 0
+\end{bmatrix}
+&=
+1\det
+\begin{bmatrix}
+1 & 0\\
+0 & 0
+\end{bmatrix}
+-2\det
+\begin{bmatrix}
+0 & 0\\
+1 & 0
+\end{bmatrix}
++3\det
+\begin{bmatrix}
+0 & 1\\
+1 & 0
+\end{bmatrix}\\
+&=1(0)-2(0)+3(-1)=-3
+\end{align*}
+$$
+
+:::
+
+:::info Properties of Determinants
+
+The determinant satisfies the following properties, as a function of the column vectors of $A$:
+
+- **Multilinearity (additivity)**:
+
+    $$
+    \det(\mathbf{v}_1+\mathbf{w}_1 \mid \mathbf{v}_2 \mid \cdots \mid \mathbf{v}_n)
+    =
+    \det(\mathbf{v}_1 \mid \mathbf{v}_2 \mid \cdots \mid \mathbf{v}_n)
+    +
+    \det(\mathbf{w}_1 \mid \mathbf{v}_2 \mid \cdots \mid \mathbf{v}_n)
+    $$
+
+- **Alternating (antisymmetry)**:
+
+    $$
+    \det(\mathbf{v}_1 \mid \cdots \mid \mathbf{v}_i \mid \cdots \mid \mathbf{v}_j \mid \cdots \mid \mathbf{v}_n)
+    =
+    -\det(\mathbf{v}_1 \mid \cdots \mid \mathbf{v}_j \mid \cdots \mid \mathbf{v}_i \mid \cdots \mid \mathbf{v}_n)
+    $$
+
+- **Multilinearity (homogeneity)**:
+
+    $$
+    \det(c\mathbf{v}_1 \mid \mathbf{v}_2 \mid \cdots \mid \mathbf{v}_n)
+    =
+    c\,\det(\mathbf{v}_1 \mid \mathbf{v}_2 \mid \cdots \mid \mathbf{v}_n)
+    $$
+
+:::danger Alternating Multilinear Map
+A map satisfying these properties is called an **Alternating Multilinear Map**
+
+
+
+:::
+
 
 ::::
