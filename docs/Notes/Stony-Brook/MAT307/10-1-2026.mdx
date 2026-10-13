@@ -1,0 +1,345 @@
+---
+title: 10/1/2026 - Lecture 12
+sidebar_label: 10/1/2026
+sidebar_position: 13
+---
+
+## Taylor Approximation and Min/Max
+
+Here, we are discussing: 
+- Local min/max of functions of several variables
+- Local behavior of such functions
+
+### 1-D Calculus Review 
+
+:::tip 1-d Calculus Optimization
+
+Recall from 1-d calculus:
+
+$$
+\mathbb{R}\rightarrow \mathbb{R}
+$$
+
+- If $f$ has a local min/max at $x_0$, then $f^{\prime}(x_0)=0 $
+- If $f^{\prime}(x_0)=0$, then there is a second derivative test to check whether $x_0$ is a local min or local max.
+    - $f^{\prime\prime} (x_0)>0 \implies x_0$ is a local min, and $f$ is convex (concave up) there
+    - $f^{\prime\prime} (x_0)<0 \implies x_0$ is a local max, and $f$ is concave (concave down) there
+:::
+
+We want to generalize this picture!
+
+::::tip Taylor Approximation in 1-D Calculus
+
+For a function $f:\mathbb{R}\rightarrow \mathbb{R}$
+
+$$
+T_{f}^{(n)}(x_0+\varepsilon)= f(x_0)+\varepsilon f^{\prime}(x_0)+\frac{\varepsilon^2}{2}f^{\prime\prime}(x_0)+\cdots +\frac{\varepsilon^n}{n!}f^{(n)}(x_0) 
+$$
+
+is called the $n$-th Taylor Approximation. 
+
+More importantly, if $f$ is $(n+1)$ times differentiable, that is, $f^{(n+1)}$ exists and is continuous, then the following theorem holds:
+
+$$
+\left|f(x_0+\varepsilon)-T_{f}^{(n)}(x_0+\varepsilon) \right|\le C\varepsilon^{n+1}
+$$
+ 
+where $C$ is a constant, for $\varepsilon$ small enough.
+
+:::danger What are we expecting?
+
+$f(x_0+\varepsilon)-T_{f}^{(n)}(x_0+\varepsilon)$ is very close to zero, in fact:
+$$
+\frac{d^k}{d\varepsilon^k}\Big(f(x_0+\varepsilon)-T_{f}^{(n)}(x_0+\varepsilon)\Big)\bigg|_{\varepsilon=0}=0 \text{ for }0\le k \le n
+$$
+
+:::
+
+:::info Relation to Second Derivative Test
+
+This immediately implies the second derivative test:
+
+$$
+f(x_0+\varepsilon)\approx f(x_0)+\varepsilon f^{\prime}(x_0)+\frac{\varepsilon^2}{2}f^{\prime\prime}(x_0)
+$$
+
+- If $f^{\prime}(x_0)=0$, then $f(x_0+\varepsilon)\approx f(x_0)+\frac{\varepsilon^2}{2}f^{\prime\prime}(x_0)$ for $\varepsilon $ small enough
+    - $f(x_0+\varepsilon)> f(x_0)$ if $f^{\prime\prime}(x_0)>0 $ $\implies x_0$ is a local min
+    - $f(x_0+\varepsilon)< f(x_0)$ if $f^{\prime\prime}(x_0)<0 $ $\implies x_0$ is a local max
+
+
+:::
+
+::::
+
+### Taylor Approximation in Functions with Several Variables
+
+Then, what do we do for functions of several variables? 
+
+
+::::tip Taylor Approximation to Functions with Several Variables
+
+Given $f:\mathbb{R}^n\rightarrow \mathbb{R} $, the $n$-th Taylor Approximation of $f$ is:
+
+$$
+\begin{align*}
+    T_{f}^{(n)}(\mathbf{x}+\mathbf{\varepsilon})=\underbrace{f(\mathbf{x})}_{\text{order }0}+\underbrace{\nabla f(\mathbf{x})\cdot \mathbf{\varepsilon}}_{\text{linear}} &+\underbrace{\frac{1}{2}\left(\sum_{i,j}\partial_{x_i} \partial_{x_j}f(\mathbf{x})\varepsilon_i\varepsilon_j \right)}_{\text{quadratic}}\\
+    &+\cdots \\
+    &+\underbrace{\frac{1}{n!}\left(\sum_{i_1,\dots, i_n}\partial_{x_{i_1}}\dots\partial_{x_{i_n}} f(\mathbf{x})\varepsilon_{i_1}\dots\varepsilon_{i_n} \right)}_{\text{order }n}
+\end{align*}
+$$
+
+:::info Example
+
+Given $f(x,y)=e^{x+y^2}$, let us write the second-order Taylor approximation at $(x,y)=0$.
+
+$$
+\begin{align*}
+\partial_x f(x,y) &= e^{x+y^2} & \partial_y f(x,y) &= 2ye^{x+y^2}\\
+\partial_x\partial_x f(x,y) &= e^{x+y^2} & \partial_x\partial_y f(x,y) &= 2ye^{x+y^2}\\
+\partial_y\partial_x f(x,y) &= 2ye^{x+y^2} & \partial_y\partial_y f(x,y) &= (4y^2+2)e^{x+y^2}
+\end{align*}
+$$
+For $(x,y)=0$, $f(0)=1$, and:
+
+$$
+\begin{align*}
+\partial_x f(x,y) &= 1 & \partial_y f(x,y) &= 0\\
+\partial_x\partial_x f(x,y) &= 1 & \partial_x\partial_y f(x,y) &= 0\\
+\partial_y\partial_x f(x,y) &= 0 & \partial_y\partial_y f(x,y) &= 2
+\end{align*}
+$$
+Plugging this into the Taylor approximation form:
+$$
+\begin{align*}
+T^{(2)}f(0+\mathbf{\varepsilon})=1&+\partial_x f(0)\varepsilon_1+\partial_y f(0)\varepsilon_2\\
+&+\frac{1}{2}\partial_x\partial_x f(0)\varepsilon_1^2+\frac{1}{2}\partial_x\partial_y f(0)\varepsilon_1\varepsilon_2\\
+&+\frac{1}{2}\partial_y\partial_x f(0)\varepsilon_1\varepsilon_2+\frac{1}{2}\partial_y\partial_y f(0)\varepsilon_2^2\\
+&=1+\varepsilon_1+\frac{1}{2}\varepsilon_1^2+\frac{1}{2}2\varepsilon_2^2\\
+&=1+\varepsilon_1+\frac{1}{2}\varepsilon_1^2+\varepsilon_2^2
+\end{align*}
+$$
+:::note 
+In general, it is a polynomial of order $n$. It is the best polynomial of order $n$ approximating the function at the given point.
+
+:::
+
+::::
+
+## Gradient Test
+
+
+::::tip Gradient Test
+
+Recall from [last time](docs\Notes\Stony-Brook\MAT307\9-29-2026.mdx#linear-approximation-of-a-function-and-tangent-plane) that given a vector $\mathbf{v}=(x,y)$, the tangent plane is:
+
+$$
+    \big(\mathbf{v},f(\mathbf{v}) \big)+t_1\big(1,0,\partial_{x}f(\mathbf{v})\big)+t_2\big(0,1,\partial_{y}f(\mathbf{v})\big)
+$$
+
+
+If $\mathbf{v}$ is a local min or local max, we should expect that the tangent plane is parallel to the $x,y$ plane:
+
+$$
+\implies \partial_{x}f(\mathbf{v})=\partial_{y}f(\mathbf{v})\iff \nabla f(\mathbf{v})=0
+$$
+
+:::info Proposition
+
+If $\mathbf{v}$ is a local min or local max for $f$, then $\nabla f(\mathbf{v})=0$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+- Proof 1
+
+    When we do a local computation, we can always use a Taylor expansion instead of $t$
+
+    $$
+    f(\mathbf{v}+\mathbf{\varepsilon})\approx f(\mathbf{v})+\nabla{f}(\mathbf{v})\cdot \varepsilon
+    $$
+
+    If we want to prove "$\mathbf{v}\text{ is a local min or local max } \implies \nabla f(\mathbf{v})=0 $", we may prove the contrapositive that:
+
+    $$
+    \nabla f(\mathbf{v})\ne 0\implies \mathbf{v}\text{ is neither a local min nor a local max } 
+    $$
+
+    I can take $\varepsilon$ in the $\nabla f(\mathbf{v})$ direction:
+
+    $$
+    \mathbf{\varepsilon}=\varepsilon^{\prime}\nabla f(\mathbf{v})
+    $$
+
+    Plug in back to the Taylor expansion form
+
+    $$
+    \begin{align*}
+        f(\mathbf{v}+\mathbf{\varepsilon})&\approx f(\mathbf{v})+\nabla f(\mathbf{v})\cdot \mathbf{\varepsilon} \\
+        &=f(\mathbf{v})+\nabla f(\mathbf{v})\cdot \varepsilon^{\prime}\nabla f(\mathbf{v})\\
+        &=f(\mathbf{v})+\varepsilon^{\prime}\big( \nabla f(\mathbf{v})\cdot\nabla f(\mathbf{v})\big)\\
+        &=f(\mathbf{v})+\varepsilon^{\prime}\left\|\nabla f(\mathbf{v}) \right\|^2
+    \end{align*}
+    $$
+
+        - If $\varepsilon^{\prime} >0 $, then $f(\mathbf{v}+\mathbf{\varepsilon}) > f(\mathbf{v}) $
+        - If $\varepsilon^{\prime} < 0 $, then $f(\mathbf{v}+\mathbf{\varepsilon}) < f(\mathbf{v}) $
+    
+    Therefore, with proof by contrapositive, if $\mathbf{v}$ is a local min or local max for $f$, then $\nabla f(\mathbf{v})=0$ $\blacksquare$
+
+<hr/>
+
+- Proof 2 
+
+    I want to take a vertical slice along the $\nabla f$ direction, and the vertical slice could be written as:
+
+    $$
+    g(t)=f(\mathbf{v}+t\nabla f(\mathbf{v}))
+    $$
+    If $\mathbf{v} $ is a local min/max for $f$, then it is also a local min/max for $g$ at $t=0$
+
+    $$
+    g^{\prime}(t)=\nabla f\big(\mathbf{v}+t\nabla f(\mathbf{v}) \big)\cdot \nabla f(\mathbf{v})
+    $$
+
+    At $t=0$:
+    $$
+    \begin{align*}
+        g^{\prime}(0)&=\nabla f(\mathbf{v})\cdot \nabla f(\mathbf{v})\\
+        &=\| \nabla f(\mathbf{v})\|^2
+    \end{align*}
+    $$
+    As we know $g^{\prime}(0)=0$, thus:
+
+    $$
+    \| \nabla f(\mathbf{v})\|^2=0
+    $$
+    Therefore:
+
+    $$
+    \nabla f(\mathbf{v})=0 \tag*{$\blacksquare$}
+    $$
+</details>
+
+::: 
+
+::::
+
+::::tip Corollary
+
+For a function $f:D\rightarrow \mathbb{R}$, the condition $\nabla f(\mathbf{v})=0 $ could be used to find all possible candidates for local min/max.
+
+:::danger Remark
+
+If the domain has a boundary, we will need another criterion, that is to say, local min/max might exist where $\nabla f\ne 0$
+
+:::
+
+::::
+
+## Hessian Test
+
+From the previous part, if the gradient $\nabla f(\mathbf{v})=0$, then $\mathbf{v}$ is a candidate for local min/max, but how do I decide if $\mathbf{v}$ is a local min or local max exactly?
+
+:::tip Second-Order Taylor Approximation
+
+Recall the Second-Order Taylor Approximation: 
+$$
+\begin{align*}
+T_f^{(2)}((x,y)+\boldsymbol{\varepsilon})
+&= f(x,y)+\nabla f(x,y)\cdot\boldsymbol{\varepsilon}\\
+&\quad+\frac{1}{2}f_{xx}(x,y)\varepsilon_1^2\\
+&\quad+f_{xy}(x,y)\varepsilon_1\varepsilon_2\\
+&\quad+\frac{1}{2}f_{yy}(x,y)\varepsilon_2^2
+\end{align*}
+$$
+
+In order to understand the sign of $T_f^{(2)}((x,y)+\boldsymbol{\varepsilon})$, we need to understand the sign of the last three lines, and the Hessian Test is a good tool.
+
+:::
+
+::::tip Hessian Test
+
+**Hessian Test** is the second derivative test for functions of several variables.
+
+I can arrange the last three terms from the previous part into the matrix:
+
+$$
+H_f(x,y)=
+\begin{bmatrix}
+\partial_x^2 f(x,y) & \partial_x\partial_y f(x,y)\\
+\partial_y\partial_x f(x,y) & \partial_y^2 f(x,y)
+\end{bmatrix}
+$$
+
+Then, consider the following couple of quantities:
+
+$$
+d_1=\partial_x^{2}f(x,y)\qquad d_2=\operatorname{det}{H_f(x,y)}
+$$
+
+- Case 1: $d_1$, $d_2$ are both positive    
+    $\implies $ If $\nabla f(x,y)=0$, then $(x,y)$ is local min
+
+- Case 2: $d_1<0$ and $d_2>0$   
+    $\implies $ If $\nabla f(x,y)=0$, then $(x,y)$ is local max
+
+- Case 3: $d_1>0$ and $d_2<0$ or $d_1$, $d_2$ are both negative     
+    $\implies $ If $\nabla f(x,y)=0$, then $(x,y)$ is a saddle point 
+    (neither local min nor local max)
+
+- Case 4: $d_1=0$ or $d_2=0$    
+    $\implies $ cannot decide
+
+:::info Example
+
+Find and classify local min/max for $f(x,y)=xy+y^2+y^2x^4$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+First, find the critical points by solving $\nabla f=0$:
+
+$$
+f_x=y+4x^3y^2 \qquad f_y=x+2y+2x^4y
+$$
+
+$$
+\begin{cases}
+y+4x^3y^2=0\\
+x+2y+2x^4y=0
+\end{cases}
+$$
+
+From the first equation, $y(1+4x^3y)=0$, so either $y=0$, or $y=-\dfrac{1}{4x^3}$ (for $x\ne 0$).
+
+- If $y=0$: the second equation gives $x=0$. Critical point: $(0,0)$.
+- If $y=-\dfrac{1}{4x^3}$: the second equation gives $y=-\dfrac{x}{2(1+x^4)}$ (valid since $1+x^4>0$ always). Setting the two expressions for $y$ equal:
+
+    $$
+    -\frac{1}{4x^3}=-\frac{x}{2(1+x^4)} \implies 2(1+x^4)=4x^4 \implies x^4=1 \implies x=\pm 1
+    $$
+
+    giving critical points $\left(1,-\tfrac14\right)$ and $\left(-1,\tfrac14\right)$.
+
+Now compute the second partials:
+
+$$
+f_{xx}=12x^2y^2 \qquad f_{xy}=f_{yx}=1+8x^3y \qquad f_{yy}=2+2x^4
+$$
+
+$$
+d_1=f_{xx}=12x^2y^2 \qquad d_2=\det H_f=12x^2y^2(2+2x^4)-(1+8x^3y)^2
+$$
+
+- At $\left(1,-\tfrac14\right)$: $d_1=\tfrac34>0$, $d_2=2>0$ $\implies$ local min.
+- At $\left(-1,\tfrac14\right)$: $d_1=\tfrac34>0$, $d_2=2>0$ $\implies$ local min.
+- At $(0,0)$: $d_1=0$, so the test is inconclusive by itself; but $d_2=-1<0$, and checking directly, $f(0,y)=y^2>0$ while $f\left(x,-\tfrac{x}{2}\right)=\tfrac{x^2(x^4-1)}{4}<0$ for small $x\ne 0$, so $f$ takes both signs arbitrarily close to $(0,0)$ relative to $f(0,0)=0$ $\implies$ $(0,0)$ is a saddle point.
+
+Therefore, $f$ has local minima at $\left(1,-\tfrac14\right)$ and $\left(-1,\tfrac14\right)$ (both with value $-\tfrac18$), and a saddle point at $(0,0)$. $\blacksquare$
+
+</details>
+
+:::
+
+::::
