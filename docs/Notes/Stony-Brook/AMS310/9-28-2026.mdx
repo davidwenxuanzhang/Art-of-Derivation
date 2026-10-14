@@ -6,4 +6,165 @@ sidebar_position: 17
 
 ## Lecture Overview
 
-- Bernoulli trails: situation with 2 outcomes, "success" (1) and "failure" (0)
+Last time: 
+
+- Bernoulli trials: situation with 2 outcomes, "success" (1) and "failure" (0)
+- Binomial distribution: count the number of successes in $N$ identical, independent trials
+
+
+$$
+\mathbb{P}\big(\mathbb{X}=k\mid \mathbb{X}\sim \operatorname{binomial}(N,p)\big)=\binom{N}{k}p^{k}(1-p)^{N-k}
+$$
+
+Today: a formalism for working with discrete random variables
+- Probability mass function, $M[x\mid  \mathbb{X}]=\mathbb{P}(\mathbb{X}=x\mid \mathbb{X}\sim \operatorname{distribution}) $
+- Expectation, $\mathbb{E}[\mathbb{X}]=\sum_{(\text{all }x)} xM[x\mid \mathbb{X} ]$
+
+### Probability Mass Function
+
+
+::::tip Probability Mass Function
+
+We consider $\mathbb{P}(\mathbb{X}=x\mid C) $ as our central unit; then, with the shorthand: 
+
+$$
+M[x\mid \mathbb{X}]=\mathbb{P}(\mathbb{X}=x\mid C)
+$$
+
+$M$ is a **Probability Mass Function**.
+
+:::info Properties
+
+Combined with the axioms of probability, the probability mass function has several properties:
+
+1. $0\le M[x\mid \mathbb{X}]\le 1$
+2. $\sum_{(\text{all }x)}M[x\mid \mathbb{X}]=1$
+
+:::
+:::info Example 
+
+Can $f(x)=kx$ be a probability mass function for some $k$ when $x\in \{-1,0,1\}$? 
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+No, because $f(-1)=-k$ and $f(1)=k$, which implies $k=0$
+
+However, when $k=0$, $f(x)=0$, and $\sum_{x=-1}^{1}f(x)=0\neq 1$
+
+</details>
+
+<hr/>
+
+Verify that $M[x\mid \mathbb{X}]= \frac{(1+x)^2}{15} $ is a probability mass function for $x\in\{-2,0,1,2\}$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+- Verify $M[x\mid \mathbb{X}]\in [0,1]$
+
+$$
+M[-2\mid \mathbb{X}]=\frac{1}{15}\quad M[0\mid \mathbb{X}]=\frac{1}{15} \quad M[1\mid \mathbb{X}]=\frac{4}{15} \quad M[2\mid \mathbb{X}]=\frac{9}{15}
+$$
+
+- Verify $\sum_{(\text{all }x)}M[x\mid \mathbb{X}]=1$
+
+$$
+\frac{1}{15}+\frac{1}{15}+\frac{4}{15}+\frac{9}{15}=1
+$$
+
+</details>
+
+<hr/>
+
+Determine a value $k$ that makes $M[x\mid \mathbb{X}]=kx$ a probability mass function for $x\in \{1,2,\dots,n\}$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+Clearly $k>0$
+
+We need that:
+
+$$
+1=\sum_{x=1}^{n}M[x\mid \mathbb{X}]=\sum_{x=1}^{n}kx=k\sum_{x=1}^{n}x=\frac{kn(n+1)}{2}
+$$
+$$
+\implies k=\frac{2}{n(n+1)}\qquad M[x\mid \mathbb{X}]=\frac{2x}{n(n+1)}
+$$
+Here, $k$ is called a normalization constant, and the process of determining $k$ is called normalization.
+
+</details>
+
+
+:::
+
+::::
+
+:::info Binomial PMF
+
+The binomial distribution $\mathbb{X}\sim \operatorname{binomial}(N,p)$ has the probability mass function:
+
+$$
+\begin{align*}
+M[x\mid \operatorname{binomial}(N,p)]&=\mathbb{P}[\mathbb{X}=x\mid \mathbb{X}\sim \operatorname{binomial}(N,p)]\\
+&= \begin{cases}
+\binom{N}{x}p^{x}(1-p)^{N-x},\qquad &x=0,1,\dots,N\\
+0, &\text{else}
+\end{cases}
+\end{align*}
+$$
+
+Verify: $0\le M[x\mid \mathbb{X}]\le 1$ and $\sum_{x=0}^{N}M[x\mid \mathbb{X}]=1$
+
+:::
+
+## Expectation
+
+::::tip Expectation
+
+The **Mean** (or **Expectation**) of the discrete distribution $\mathbb{X}$ is:
+
+$$
+\mathbb{E}[\mathbb{X}]=\mu =\sum_{\text{all }x}xM[x\mid \mathbb{X}]
+$$
+
+and the mean is a measure of central tendency.
+
+:::note Notation
+
+If there are multiple distributions/random variables, the random variable is often added as a subscript to $\mu$, such as $\mu_{\mathbb{X}}$
+
+:::
+:::info Example
+
+Determine the expectation of rolling a fair, 6-sided die. All outcomes are equally likely: $\mathbb{P}(\mathbb{X}=x\mid \text{ELO})=\frac{1}{6}\text{ for }x\in\{ 1,2,3,4,5,6\}$
+
+$$
+\mu_{\mathbb{X}}=\mathbb{E}[\mathbb{X}]=\sum_{x=1}^{6}xM[x\mid \mathbb{X}]=\sum_{x=1}^{6}\frac{x}{6}=\frac{1}{6}\sum_{x=1}^{6}x=\frac{1}{6}\left[\frac{6(6+1)}{2} \right]=\frac{7}{2}=3.5
+$$
+
+The mean of $\mathbb{X}$ need not be an observable outcome for $\mathbb{X}$. Instead, think of $\mu_\mathbb{X}$ as a mean value over many observations.
+
+<hr/>
+
+:::
+
+::::
+
+:::tip Binomial Expectation
+
+For a binomial distribution: $\mathbb{X}\sim \operatorname{binomial}(N,p)$
+
+$$
+\mathbb{E}[\mathbb{X}]=\sum_{x=0}^{N}xM[x\mid \mathbb{X}]=\sum_{x=0}^{N}x\binom{N}{x}p^{x}(1-p)^{N-x}=Np
+$$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+See [Binomial Distribution](docs\Statistics\Probability-Theory\Discrete-Random-Variables\Common-Discrete-Distributions.mdx#binomial-distribution)
+
+</details>
+
+:::
