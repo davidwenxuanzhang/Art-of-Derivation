@@ -1,0 +1,100 @@
+---
+title: 10/14/2026 - Lecture 21
+sidebar_label: 10/14/2026
+sidebar_position: 22
+---
+
+## Lecture Overview
+
+Last time: 
+
+Today: Multiple random variable
+- Example: The multinomial distribution
+- Algebra with uncertainty
+    - What happens when we operate an distribution?
+    - Contrast statements about identical distribution with the event of identical value
+
+## Multinomial Distribtion
+
+
+- Generalize the binomial distribution such each trail has more than two possible outcomes
+- Enumerate $k$ outcomes by $i=1,2,\dots,k$ and let $\mathbb{P}_i$ be the probability of observing outcome $i$ in any one trail
+- Trails are identical and independent
+
+Parameters: 
+- $k$: the number of possible outcomes, $k\ge 2$
+- $\mathbb{P}_1,\mathbb{P}_2,\dots, \mathbb{P}_k $: probability of observing outcome $k$ on a trail
+- $N$: the number of trails
+
+Random variables: they are essentially $k$ discrete random variables, $\mathbb{X}_1,\mathbb{X}_2,\dots,\mathbb{X}_k$ that count the number of time each outcomes is observed in the $N$ trails.
+
+::::tip Joint Probability Mass Function
+
+Joint means we have multiple random variables, and:
+
+$$
+\begin{align*}
+M[n_1,n_2\dots,n_k\mid \mathbb{X}_1,\mathbb{X}_2,\dots,\mathbb{X}_k]&=\mathbb{P}[\mathbb{X}=n_1,\mathbb{X}_2=n_2,\dots \mathbb{X}_k=n_k\mid C]\\
+&=\frac{N!}{n_1!n_2!\dots n_k!}\mathbb{P}_1^{n_1}\mathbb{P}_2^{n_2}\dots \mathbb{P}_k^{n_k}
+\end{align*}
+$$
+and this is the general idea of a joint probability mass function
+
+$$
+\sum_{i=1}^{k}\mathbb{P}_i=1,\qquad \sum_{i=1}^{k}n_i=N
+$$
+
+:::info Example
+
+It is well-known that $40$% of students prefer coffee, $30$
+% prefer juice, $20$% prefer tea, and $10$% prefer water to get them through class.
+
+$20$ students are interviewed, what is the probability that $10$ prefer coffee, $5$ prefer juice, $3$ prefer tea, and $2$ prefer water.
+
+$$
+N=20,\quad k=4, \quad \underbrace{\mathbb{P}_1}_{\text{coffee}}=0.4, \quad\underbrace{\mathbb{P}_2}_{\text{juice}}=0.3,\quad \underbrace{\mathbb{P}_3}_{\text{tea}}=0.2,\quad\underbrace{\mathbb{P}_4}_{\text{water}}=0.1
+$$
+$$
+\begin{align*}
+    \mathbb{P}[\mathbb{X}_1&=10,\mathbb{X}_2=5,\mathbb{X}_3=3,\mathbb{X}_4=2\mid C]\\
+    &=M[10,5,3,2\mid \mathbb{X}_1,\mathbb{X}_2,\mathbb{X}_3,\mathbb{X}_4]\\
+    &=\frac{20!}{10!5!3!2!}(0.4)^10(0.3)^5(0.2)^3(0.1)^2\\
+    &=0.00949
+\end{align*}
+$$
+:::
+::::
+
+### Algebra of Random Varaibles/Distributions
+
+- $\mathbb{x_1}$ and $\mathbb{X}_2 $ are just number (with uncertainty)
+
+- $\mathbb{X}_1+\mathbb{X}_2$ is also just a number; it is itself a random variable
+
+- $\mathbb{X}_1+k$: translates the critical function (PMF or PDF) by $k$
+
+- $k\mathbb{X}_1$: scaling the critical function
+
+Look at the uncertianty: 
+
+- Suppose $\mathbb{X}_1$ has a outcome $x_1$, and likewise $\mathbb{X}_2$ has $x_2$
+
+- $\mathbb{Y}=\mathbb{X}_1+\mathbb{X}_2=$ an outcome is $x_1+x_2=y$
+
+Suppose $\mathbb{X}_1$ and $\mathbb{X}_2$ have the same distribution
+
+- Compare $\mathbb{X}_1+\mathbb{X}_2$ and $2\mathbb{X}_1=\mathbb{X}_1+\mathbb{X}_2$
+
+:::danger Warning
+
+Be careful talking about "same so"
+
+- $\mathbb{X}_1=\mathbb[X_2]$: the observed outcome of $\mathbb{X}_1$ and $\mathbb{X}_2$ are the same, this is an [event](missing note)
+
+$$
+\mathbb{P}[\mathbb{X}_1=\mathbb{X}_2\mid C]
+$$
+
+- $\mathbb{X}_1\sim \mathbb{X}_2$: the random variables have the same distribution
+
+:::
