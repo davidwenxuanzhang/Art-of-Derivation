@@ -1,0 +1,375 @@
+---
+title: 10/6/2026 - Lecture 13
+sidebar_label: 10/6/2026
+sidebar_position: 14
+---
+
+:::danger Review Sheet
+
+This is a review sheet for midterm
+
+:::
+
+## Curves
+
+A (parametrized) curve is a function: 
+
+$$
+\gamma: \mathbb{R}\rightarrow \mathbb{R}^3
+$$
+
+and our working assumptionis that we can take the derivative of $\gamma$.
+
+- A curve $\gamma{(s)}$ is arclength parametrized if $\|\gamma^{\prime}(s)\|=1$ for any $s$, that is, we are going along the curve at constant speed $1$.
+
+- How to compute the arclength parametrization? Set:
+
+    $$
+    s(t)=\int_{t_0}^{t}\|\gamma^{\prime}(u) \|\mathrm{d}u
+    $$
+    and invert the function to get $t(s)$
+
+:::info Important Case
+
+If $\gamma^{\prime}(t)=c$ as a constant, then $s(t)=ct$ and $t(s)=\frac{1}{c}s$ 
+
+:::
+
+<hr/>
+
+Now, assume $\gamma(s)$ is arclength parametrized curve:
+
+### Unit Tangent Vector
+:::tip Unit Tangent Vector
+$$
+\mathbf{T}(s)\coloneqq\gamma^{\prime}(s),\qquad \|\mathbf{T}(s) \|=\|\gamma^{\prime}(s) \|=1
+$$
+:::
+### Curvature
+:::tip Curvature
+$$
+\kappa(s)\coloneqq \left\|\frac{\mathrm{d}}{\mathrm{d}s} \mathbf{T}(s) \right\|
+$$
+
+it measures how much the curve is "curving"; $\kappa=0$ if and only if $\gamma(s)$ is a line; if $\gamma(s)$ is a circle of radius $R$, then $\kappa(s)=\frac{1}{R}$
+:::
+
+
+### Unit Normal Vector
+
+:::tip Unit Normal Vector
+If $\kappa(s)\ne 0$
+
+$$
+\mathbf{N}(s)\coloneqq \frac{\frac{\mathrm{d}}{\mathrm{d}s}\mathbf{T}(s)}{\kappa(s)},\qquad \|\mathbf{N}(s)\|=1
+$$
+:::
+
+### Unit Binormal Vector
+
+
+:::tip Unit Binormal Vector
+If $\kappa(s)\ne 0$
+
+$$
+\mathbf{B}(s)\coloneqq \mathbf{T}(s)\times\mathbf{N}(s)
+$$
+:::
+
+### Torsion
+
+:::tip Torsion
+
+
+$\frac{\mathrm{d}}{\mathrm{d}s}\mathbf{B}(s)$ is proportional to $\mathrm{N}(s)$
+
+$$
+\frac{\mathrm{d}}{\mathrm{d}s}\mathbf{B}(s)=-\tau(s) \mathrm{N}(s)
+$$
+$\tau(s)$ is called torsion, it s a scalar function measures how much the curve is "twisting", and $\tau(s)=-\left(\frac{\mathrm{d}}{\mathrm{d}s}\mathbf{B}(s)\cdot \mathbf{N}(s) \right)$
+:::
+
+### Frernet Formulas
+::::tip Frernet Formulas
+$$
+\begin{align*}
+    \frac{\mathrm{d}}{\mathrm{d}s}\mathbf{T}(s)&= \kappa(s)\mathbf{N}(s)\\
+    \frac{\mathrm{d}}{\mathrm{d}s}\mathbf{N}(s)&= -\kappa(s)\mathbf{T}(s)+\tau(s)\mathbf{B}(s)\\
+    \frac{\mathrm{d}}{\mathrm{d}s}\mathbf{B}(s)&= -\tau(s)\mathbf{N}(s)\\
+\end{align*}
+$$
+
+:::note Suggestion
+
+Do a full computation of $\mathbf{T},\mathbf{B},\mathbf{N},\kappa,\tau$ in the helix example of the sample midterm.
+
+:::
+::::
+## Linear Algebra
+
+### Vector Space
+
+:::tip Vector Space
+
+A vector space is a set together with 2 operations, addition $(V\times V\rightarrow V)$ and scalar multiplication $(\mathbb{R}\times V\rightarrow V)$ that satisfying a bunch of properties.
+
+:::
+
+### Linearly Independent Vectors
+
+:::tip Linearly Independent Vectors
+
+A set of vectors $\{\mathbf{v}_1,\dots ,\mathbf{v}_k \}$ is linearly independent if:
+
+$$
+c_1\mathbf{v}_1+ \dots+ c_k\mathbf{v}_k= 0 \implies c_i= 0\text{ for any } i
+$$
+
+:::
+
+### System fo Generator
+
+:::tip System fo Generator
+
+A set of vectors $\{\mathbf{v}_1,\dots ,\mathbf{v}_k \}$ is a system of generator if any vector $\mathbf{v}\in V$ can be writtten as:
+
+$$
+\mathbf{v}=c_1\mathbf{v}_1+ \dots+ c_k\mathbf{v}_k \text{ for some } c_i\in V
+$$
+:::
+
+### Basis
+
+::::tip Basis
+
+A set of vectors $\{\mathbf{v}_1,\dots ,\mathbf{v}_k \}$ is a basis for $V$ if it is both linearly independent and a system of generator
+
+:::note Fact
+
+All basis of a vector space have the same number of elements
+
+:::
+::::
+
+### Dimension
+
+::::tip Dimension
+
+The dimension of a vector space is the number of elements of a basis
+
+
+:::info Example
+
+$$
+\operatorname{dim} \mathbb{R}^n=n \text{ a basis is given by } \{\mathbf{e}_1,\dots, \mathbf{e}_n\}
+$$
+
+:::
+::::
+
+### Linear Systems
+
+:::tip Linear Systems
+
+Linear systems help us find the solution set to:
+
+$$
+\begin{cases}
+a_{11}{x_1}+\dots+ a_{1n}{x}_n=b_1\\
+\quad \qquad \vdots \quad \qquad \vdots\\
+a_{m1}{x_1}+\dots+ a_{mn}{x}_n=b_m\\
+\end{cases}
+$$
+
+the solution set is a vector space if and only if $\mathbf{b}=\mathbf{0}$ (a nonempty subset of a vector space is vector space if it is closed under addition and multiple by scalar), and we get the coefficient matrix:
+$$
+\left[
+\begin{array}{ccc|c}
+a_{11} & \cdots & a_{1n} & b_1 \\
+\vdots & \ddots & \vdots & \vdots \\
+a_{m1} & \cdots & a_{mn} & b_m
+\end{array}
+\right]
+$$
+
+by performing elementary [row operations](docs\Notes\Stony-Brook\MAT307\9-17-2026.mdx#elementary-row-operations), we can reduce the matrix to the echlon form:
+
+$$
+\left[
+\begin{array}{ccccccccc|c}
+0 & \boxed{1} & * & * & 0 & * & * & 0 & * & \\
+1 & 0 & * & * & \boxed{1} & * & * & 0 & * & \\
+1 & 1 & * & * & 0 & * & * & \boxed{1} & * & \mathbf{b} \\
+0 & 0 & \cdots & \cdots & 1 & \cdots & \cdots & 0 & \cdots & \\
+\vdots & \vdots & & & 0 & & & 0 & &
+\end{array}
+\right]
+$$
+
+where $\boxed{1}$ is the pivot.
+:::
+
+### Rank
+
+:::tip rank
+
+Rank of the matrix is the number of pivots
+
+:::
+
+### Solution Sets
+
+::::tip Solution Sets
+
+The solution set is non empty if and only if $\operatorname{rank}({A}\mid \mathbf{b})=\operatorname{rank}(A)$
+
+Additionally, the soulution set can be parametrized from the echelon forms setting as parameters $t_1=x_{k_i}$, where $k_1$ is a non-pivot solumn
+A
+
+Moreover, the dimension of the solution set:
+
+$$
+\operatorname{dim} S_0=n-\operatorname{rank}(A)
+$$
+which is quite intuitive because the number of variable in the solution set is the number of free column in the matrix $A$.
+
+::::
+
+## Functions of several variables
+
+$$
+f: \mathbb{R}^n\rightarrow \mathbb{R}
+$$
+
+### Pictures
+
+::::tip Pictures
+
+Graph is the set of points in $\mathbb{R}^n\times \mathbb{R}$ of the form $(\mathbf{x}, f(\mathbf{x}))$
+
+:::info Example
+
+For the function $f(x,y)=x^2+y^2$
+
+<div style={{ maxWidth: '720px', margin: '1rem auto' }}>
+
+<iframe scrolling="no" title="Paraboloid" src="https://www.geogebra.org/material/iframe/id/sranmfxh/width/720/height/357/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" width="100%" height="357" style={{ border: '0px' }}></iframe>
+
+</div>
+
+:::
+
+:::danger Remark
+
+For some conditions it might be useful to restrict the graph to some vertical slices, that is, take $x=0,x=k,y=0,y=k$, or more generally consider $\Bigl(t, f\big(\gamma(t) \big)\Bigr)$ for some $\gamma$ a suitable curve in $\mathbb{R}^n$
+
+:::
+
+::::
+
+### Level Set
+
+::::tip Level Set
+
+A level set $\ell_k$ is the set of points in $\mathbb{R}^n$ where $f$ takes value $k$, such as:
+
+$$
+\ell_k\coloneqq \{\mathbf{x}\in \mathbb{R}^n \text{ such that }f(\mathbf{x})=k \}
+$$
+:::info Example
+
+If $f(x,y,z)=x^2+y^2+z^2 $, then:
+
+$$
+\ell_k=\{x^2+y^@2z^2=k \}
+$$
+is a sphere of radius $\sqrt{k}$
+:::
+:::danger Remark
+
+To check whether a curve $\gamma$ lies on a level set for $f$, I need to check whether $f\big(\gamma(t) \big)$ is constant (or I can show a picture of the curve and of the ground level set and argue geometrically).
+
+:::
+::::
+
+### Gradient 
+
+::::tip Gradient 
+
+The gradient is a vector in every point of the domain $f$, and:
+$$
+\nabla f(x,y)=(\partial_{x}f,\partial_y{f})
+$$
+
+geometrocaly, it gives us the direction of maximal increase.
+
+::::
+
+### Taylor Expansion (2nd Case)
+
+:::tip Taylor Expansion (2nd Case)
+
+$$
+\begin{align*}
+f\big((x,y)+(\varepsilon_1,\varepsilon_2)\big)
+&= f(x,y)
++ \varepsilon_1 \partial_x f(x,y)
++ \varepsilon_2 \partial_y f(x,y) \\
+&\quad + \frac{\varepsilon_1^2}{2}\partial_x^2 f(x,y)
++ \varepsilon_1\varepsilon_2\partial_x\partial_y f(x,y) \\
+&\quad + \frac{\varepsilon_2^2}{2}\partial_y^2 f(x,y)
++ \text{terms of order } |\varepsilon|^3.
+\end{align*}
+$$
+
+I am thinking of this as a function of $\mathbf{\varepsilon}=\varepsilon_1,\varepsilon_2$ where $\mathbf{\varepsilon}$ is a small displacement vector around $(x,y)$
+- It gives us the best local polynomial of degree $n$ approximation of $f$, as all its derivatives agree with the ones of $f$ at $(x,y)$
+
+:::
+
+### Chain Rule
+
+:::tip Chain Rule
+
+If $\gamma:\mathbb{R}\rightarrow \mathbb{R}^n$ is a curve and $f:\mathbb{R}^n\rightarrow \mathbb{R}$ is a multivariable function, then:
+$$
+\frac{\mathrm{d}}{\mathrm{d}t}f\big(\gamma(t) \big)=\nabla f\big(f(\gamma(t))\big)\cdot \gamma(t)
+$$
+
+:::warning Exercise
+Try to prove the chain rule using taylor expansion for $f$ and for $\gamma$
+
+
+
+:::
+
+
+### Min and Max
+
+:::tip Min and Max
+
+$f:D\rightarrow \mathbb{R}$ is a function, then I have a small ball around each point, which means there is no boundary. Moreally, I wat to be able to move around each point in any possible direction. 
+
+- If $p_0\in D$ is local mind or local max, then $\nabla f(p_0)=0$
+
+- If $\nabla f(p_0)=0$, then the Hessian criterion may decide whether $p_0$ is local min/max.
+$$
+\operatorname{Hess}(f)=
+\begin{bmatrix}
+\partial_x^2 f(p) & \partial_x\partial_y f(p)\\
+\partial_x\partial_y f(p) & \partial_y^2 f(p)
+\end{bmatrix}
+$$
+
+$$
+\begin{array}{c|c|c}
+\text{Hessian determinant} & \text{Additional condition} & \text{Conclusion} \\ \hline
+\det(H)>0 & f_{xx}>0 & \text{Local minimum} \\
+\det(H)>0 & f_{xx}<0 & \text{Local maximum} \\
+\det(H)<0 & \text{None} & \text{Saddle point} \\
+\det(H)=0 & \text{None} & \text{Inconclusive}
+\end{array}
+$$
+
+
+:::
