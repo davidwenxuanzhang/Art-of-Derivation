@@ -5,3 +5,167 @@ sidebar_position: 19
 ---
 
 ## Overvew
+
+Last time: finishing the formalism for discrete random variables.
+
+- More generalized expectationsL $\mathbb{E}\left[h(\mathbb{X})\right] =\sum_{\text{all }x}h(x)M[x\mid \mathbb{X}] $
+- Variance, $\mathbb{E}\left[(\mathbb{X}-\mu_{\mathbb{X}})^2\right]=\sum_{\text{all }x}(x-\mu_{\mathbb{X}})^2M[x\mid \mathbb{X}]=\mathbb{E}[\mathbb{X}^2]-\mathbb{E}[\mathbb{X}]^2$
+
+Today: examples of the formalism
+
+- Geometric Distribution: count the number of trails to observe a "success"
+- Poisson Distribution: count the number of events observed in a timeframe/interval
+- Hypergeometric Distribution: count the number of "success" in $N$ trails without replacement
+
+## Process
+
+:::tip Process to Understand
+
+1. Determine what is being counted/quantified.
+2. Develop a discrete distribution's probability mass function
+3. Derive expectations/properties ($\mu,\sigma^2$)
+4. Application
+
+:::
+
+## Geometric Distribution
+
+::::tip Geometric Distribution
+
+Similar setup to the binomial, but instead of counting "success" in a fix number of trail, the **Geometric Distribution** counts the number of trails needed ot observe a "success".
+
+- Outcomes: $1,2,3,\dots \infty$
+    $$
+    \mathbb{X}\sim \operatorname{geometric}(p)
+    $$
+
+- Probability mass function:  
+
+    $$
+    \begin{align*}
+    M[x\mid \mathbb{X}]&= \mathbb{P}\left[\mathbb{X}=x\mid \mathbb{X}\sim \operatorname{geometric}(p) \right]\\
+    &=(1-p)^{x-1}p
+    \end{align*}
+    $$
+    
+    Veryfy: $1=\sum_{x=1}^{\infty}M[x\mid \mathbb{X}]=\sum_{x=1}^{\infty}(1-p)^{x-1}p=\frac{p}{1-(1-p)}$
+
+- Expectations:
+
+    $$
+    \mu =\mathbb{E}[\operatorname{geometric}(p)]=\sum_{x=1}^{\infty}xM[x\mid \mathbb{X}]=\sum_{x=1}^{\infty} x (1-p)^{x-1}p=\frac{1}{p}
+    $$
+
+- Variance
+
+    $$
+    \mathbb{E}[\mathbb{X}^2]=\sum_{x=1}^{\infty}x^2(1-p)^{x-1}p=\frac{2-p}{p^2}
+    $$
+
+    $$
+    \sigma^2=\mathbb{E}\left[(\mathbb{X}-\mu_{\mathbb{X}})^2\right]=\mathbb{E}[\mathbb{X}^2]-\mathbb{E}[\mathbb{X}]^2=\frac{2-p}{p^2}-\left( \frac{1}{p}\right)^2=\frac{1-p}{p^2}
+    $$
+
+:::info Example
+
+How many cards, with replacement, are needed to draw a 9 from a well-shuffled 52 card deck?
+
+$$
+\mathbb{X}\sim \operatorname{geometric(p=\frac{1}{13})}\qquad \mathbb{E}[\mathbb{X}]=\frac{1}{p}=\frac{1}{\frac{1}{13}}=13
+$$
+$$
+\mathbb{P}\left(\mathbb{X}\ge 10 \mid \mathbb{X}\sim \operatorname{geometric}(p=\frac{1}{13}) \right)=\sum_{x=10}^{\infty}M[x\mid \mathbb{X}]=\left(\frac{12}{13}\right)^9\approx 0.99
+$$
+
+
+:::
+
+::::
+
+## Poisson Distribution
+
+:::tip Poisson Distribution
+
+Discrete "success" to a continuous "frequency"
+
+A **Poisson Distribution** counts the number of events that occur in a specified timeframe/intercal
+
+- Assumptions: 
+    1. The rate of event occurence (events per interval/timeframe) in constant. It is often known.
+    2. The probability that two (or more) events happen simultaneously is negligible.
+    3. The events are independent
+
+- Result: 1 parameter: $\lambda$, the average number of events in the intercal/timeframe where $\lambda>0$
+
+    $$
+    \mathbb{X}\sim \operatorname{Poisson}(\lambda)
+    $$
+
+- Probability mass function
+    $$
+    Mpx\mid \mathbb{X}=\mathbb{P}[\mathbb{X}=x\mid \mathbb{X}\sim \operatorname{Poisson}(\lambda)]=\frac{\lambda^{x}e^{-\lambda}}{x!}
+    $$
+    Verify: $\sum_{x=1}^{\infty}M[x\mid \mathbb{X}]=1=\sum_{x=1}^{\infty} \frac{\lambda^{x}k}{x!}=k\sum_{x=1}^{\infty} \frac{\lambda^{x}}{x!}=ke^{\lambda}$
+
+- Expectations
+
+    $$
+    \mu=\mathbb{E}[\mathbb{X}]=\sum_{x=0}^{\infty}x\frac{\lambda^{x}e^{-\lambda}}{x!}=\lambda
+    $$
+
+- Variance
+
+    $$
+    \mathbb{E}[\mathbb{X}^2]=\lambda^2+\lambda
+    $$
+    $$
+    \sigma^2=\mathbb{E}[\mathbb{X}^2]-\mathbb{E}[\mathbb{X}]^2=\lambda^2+\lambda-\lambda^2=\lambda
+    $$
+
+:::
+
+## Hypergeometric Distribution
+
+::::tip Hypergeometric Distribution
+
+Similar to binomial (the number of "success" in $N$ trails) but no replacement
+
+- Parameters: 
+    - $N$: Number of total items/population
+    - $S$: Total number of "successes" in the population
+    - $n$: number of trails
+    $$
+    \mathbb{X}\sim \operatorname{hypergeometric}(N,S,n)
+    $$
+
+- Probability mass function:
+
+    $$
+    M[x\mid \mathbb{X}]=\mathbb{P}\left[\mathbb{X}=x\mid \mathbb{X}\sim \operatorname{hypergeometric}(N,S,n) \right]=\frac{\binom{S}{x}\binom{N-S}{n-x}}{\binom{N}{n}}
+    $$
+
+    Verify: $1=\sum_{x}M[x\mid \mathbb{X}]=\sum_{x}\frac{\binom{S}{x}\binom{N-S}{n-x}}{\binom{N}{n}}=\frac{\binom{N}{n}}{\binom{N}{n}}$
+
+- Expectations:
+
+    $$
+    \mu=\mathbb{E}[\mathbb{X}]=\sum_{x}x\frac{\binom{S}{x}\binom{N-S}{n-x}}{\binom{N}{n}}=\frac{nS}{N}
+    $$
+
+- Variance
+
+    $$
+    \mathbb{E}[\mathbb{X}(\mathbb{X}-1)]=\frac{S(S-1)n(n-1)}{N(N-1)} \implies \mathbb{E}[\mathbb{X}^2]=\frac{S(S-1)n(n-1)}{N(N-1)}+\frac{nS}{N}
+    $$
+
+    $$
+    \sigma^2=\mathbb{E}[\mathbb{X}^2]-\mathbb{E}[\mathbb{X}]^2=\frac{nS(N-S)(N-n)}{N^2(N-1)}
+    $$
+
+:::info Example
+
+
+
+:::
+
+::::
