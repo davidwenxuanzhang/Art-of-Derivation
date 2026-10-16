@@ -12,6 +12,123 @@ Last time: A formalism for working with discrete random variables
 
 Today: More on the formalism:
 
-- More generalized expectationsl: $\mathbb{E}\left[h(\mathbb{X}) \right]j=\sum_{\text{all }x}h(x)M[m\mid \mathbb{X}]$
-- Variance: $\mathbb{E}\left[(\mathbb{X}-\mu_{\mathbb{X}})^2 \right]=\sum_{\text{all }x}(x-\mu_\mathbb{X})M[m\mid \mathbb{X}]=\mathbb{E}[\mathbb{X}^2]-\mathbb{E}[X]^2$
-- The geometric distribution: count the number of trails needed to observe a "success"
+- More generalized expectations: $\mathbb{E}\left[h(\mathbb{X}) \right]=\sum_{\text{all }x}h(x)M[x\mid \mathbb{X}]$
+- Variance: $\mathbb{E}\left[(\mathbb{X}-\mu_{\mathbb{X}})^2 \right]=\sum_{\text{all }x}(x-\mu_{\mathbb{X}})^2M[x\mid \mathbb{X}]=\mathbb{E}[\mathbb{X}^2]-\mathbb{E}[\mathbb{X}]^2$
+- The geometric distribution: count the number of trials needed to observe a "success"
+
+## Recap
+
+- Expectation
+$$
+\mathbb{E}[\operatorname{binomial}(N,p)]=Np
+$$
+
+## Variance and Standard Deviation
+
+- Variance: The variance of a discrete distribution $\mathbb{X}$ is a measure of variation:
+
+$$
+\begin{align*}
+\mathbb{E}\left[(\mathbb{X}-\mu_{\mathbb{X}})^2\right]&=\operatorname{Var}(\mathbb{X})=\sigma_{\mathbb{X}}^{2}\\
+&=\sum_{\text{all }x}(x-\mu_{\mathbb{X}})^2M[x\mid \mathbb{X}]
+\end{align*}
+$$
+
+- Standard Deviation
+
+$$
+\operatorname{sd}(\mathbb{X})=\sigma_{\mathbb{X}}=\sqrt{\operatorname{Var}(\mathbb{X})}
+$$
+
+:::info Example
+
+Keeping the highest value of 2 dice rolls. Determine its variance:
+
+Recall:
+
+$$
+\mu_{\mathbb{X}}=\frac{161}{36}\quad M[1\mid \mathbb{X}]=\frac{1}{36}, M[2\mid \mathbb{X}]=\frac{3}{36},\dots,M[6\mid \mathbb{X}]=\frac{11}{36}
+$$
+Then: 
+$$
+\operatorname{Var}(\mathbb{X})=\sum_{\text{all }x}(x-\mu_{\mathbb{X}})^2M[x\mid \mathbb{X}]=\left(1-\frac{161}{36}\right)^2\left(\frac{1}{36}\right)+\cdots=\frac{2555}{1296}=1.971
+$$
+$$
+\operatorname{sd}(\mathbb{X})=\sqrt{1.971}=1.404
+$$
+
+:::
+
+## General Expectations and the Shortcut Formula
+
+More generally, we can think of expectations in terms of functions too:
+
+$$
+\mathbb{E}\left[h(\mathbb{X})\right]=\sum_{\text{all }x}h(x)M[x\mid \mathbb{X}]
+$$
+
+:::info Example
+
+From the previous example, $\mu $ has $h(x)=x$, $\sigma^{2}$ has $h(x)=(x-\mu)^2$
+:::
+
+
+Why this is cool?
+
+$$
+\begin{align*}
+    \operatorname{Var}(\mathbb{X})&=\mathbb{E}\left[(\mathbb{X}-\mu)^2 \right]=\sum_{\text{all }x}(x-\mu)^2M[x\mid \mathbb{X}]\\
+    &=\sum_{\text{all }x}(x^2-2\mu x+\mu^2)M[x\mid \mathbb{X}]\\
+    &=\left(\sum_{\text{all }x} x^2M[x\mid \mathbb{X}] \right)-2\mu \left(\sum_{\text{all }x }xM[x\mid \mathbb{X}] \right)+\mu^2\left(\sum_{\text{all }x }M[x\mid \mathbb{X}] \right)\\
+    &=\mathbb{E}[\mathbb{X}^2]-2 \mathbb{E}[\mathbb{X}]^2+\mathbb{E}[\mathbb{X}]^2\\
+    &=\mathbb{E}[\mathbb{X}^2]-\mathbb{E}[\mathbb{X}]^2\\
+\end{align*}
+$$
+
+:::info Example
+
+Suppose $\mathbb{X}$ is a discrete random variable with the following probability mass function. Determine $\mathbb{E}[\mathbb{X}],\mathbb{E}[\mathbb{X}^2],\mathbb{E}[\mathbb{X}^3-\mathbb{X}]$
+
+$$
+\begin{array}{c|c|c|c|c}
+x & M[x\mid \mathbb{X}] & x M[x\mid \mathbb{X}] & x^2 M[x\mid \mathbb{X}] & (x^3-x)M[x\mid \mathbb{X}]\\
+\hline
+0 & 0.2 & 0 & 0 & 0\\
+1 & 0.7 & 0.7 & 0.7 & 0\\
+2 & 0.1 & 0.2 & 0.4 & 0.6\\
+\hline
+\sum & 1 & \underbrace{0.9}_{\mathbb{E}[X]=\mu} & \underbrace{1.1}_{\mathbb{E}[X^2]} & \underbrace{0.6}_{\mathbb{E}[X^3-X]}
+\end{array}
+$$
+
+$$
+\operatorname{Var}(\mathbb{X})=\mathbb{E}[\mathbb{X}^2]-\mathbb{E}[\mathbb{X}]^2=1.1-0.9^2=1.1-0.81=0.29
+$$
+
+:::
+
+## Binomial Distribution
+
+:::info Binomial Distribution
+
+
+Recall that $\mathbb{E}[\operatorname{binomial}(N,p)]=Np$, and let $\mathbb{X}\sim \operatorname{binomial}(N,p)$:
+
+$$
+\begin{align*}
+\mathbb{E}[\mathbb{X}^2]&=\sum_{x=0}^{N}x^2M[x\mid \mathbb{X}]\\
+&=\sum_{x=0}^{N}x^2\binom{N}{x}p^{x}(1-p)^{N-x}\\
+&=N^2p^2-Np^2+Np
+\end{align*}
+$$
+
+$$
+\begin{align*}
+\operatorname{Var}(\mathbb{X})&=\mathbb{E}[\mathbb{X}^2]-\mathbb{E}[\mathbb{X}]^2\\
+&=N^2p^2-Np^2+Np-N^2p^2\\
+&=Np-Np^2\\
+&=Np(1-p)
+\end{align*}
+$$
+
+:::
