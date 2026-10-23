@@ -1,0 +1,110 @@
+---
+title: 10/21/2026 - Lecture 24
+sidebar_label: 10/21/2026
+sidebar_position: 25
+---
+
+Last time
+
+Today: 
+
+
+## Independence
+
+:::tip Independence
+If $\mathbb{X}$ and $\mathbb{Y}$ are independent, then $\mathbb{E}[\mathbb{X}\mathbb{Y}]=\mathbb{E}[\mathbb{X}]\mathbb{E}[\mathbb{Y}]$ such that: 
+$$
+\operatorname{cov}(\mathbb{X},\mathbb{Y})=\mathbb{E}[\mathbb{X}\mathbb{Y}]=\mathbb{E}[\mathbb{X}\mathbb{Y}]-\mu_{\mathbb{X}}\mu_{\mathbb{Y}}=0
+$$
+:::
+
+## Linear Combination of Random Variables
+
+::::tip Linear Combination of Random Variables
+
+Consider the linear combination: 
+
+$$
+\mathbb{Y}=a_1\mathbb{E}[\mathbb{X}]_1+a_2\mathbb{X}_2+\dots+a_n\mathbb{X}_n
+$$
+Let
+
+$$
+\mu_1=\mathbb{E}[\mathbb{X}_1],\quad \mu_2=\mathbb{E}[\mathbb{X}_2],\dots, \sigma^{2}_1=\operatorname{var}[\mathbb{X}_1],\quad \sigma^{2}_2=\operatorname{var}[\mathbb{X}2],\dots, \mathbb{E}{a\mathbb{X}+b}
+$$
+
+$$
+\begin{align*}
+\mathbb{E}[\mathbb{Y}]&=\mathbb{E}[a_1\mathbb{E}[\mathbb{X}]_1+a_2\mathbb{X}_2+\dots+a_n\mathbb{X}_n]\\
+&=a_1\mathbb{E}[\mathbb{X}_1]+a_2\mathbb{E}[\mathbb{X}_2]+\dots+a_n\mathbb{E}[\mathbb{X}_n]\\
+&=\sum_{i=1}^{n}a_i\mathbb{E}[\mathbb{X}_i]\\
+&=a_1\mathbb{E}\mu_{i}
+\end{align*}
+$$
+
+$$
+\begin{align*}
+\operatorname{var}[\mathbb{Y}]&=\operatorname{var}[a_1\mathbb{X}_1+a_2\mathbb{X}_2+\dots+a_n\mathbb{X}_n]\\
+\text{independence } &=a^2_1\operatorname{var}[\mathbb{X}_1]+a^2_2\operatorname{var}[\mathbb{X}_2]+\dots+a^2_n\operatorname{var}[\mathbb{X}_n]\\
+&=claudee: add a summation form
+\end{align*}
+$$
+
+:::info Example
+
+The battery of brand 1's cell phone holds a charge, on average, for 48 hours with a variance of $8\text{ hours}^2$. Batteries in brand 2's phone last $60$ hours (on average) with a variance of $24\text{ hours}^2$
+
+$$
+\mathbb{E}[{\mathbb{X}_1}]=48 \qquad \operatorname{var}[{\mathbb{X}_1}]=8 \qquad  \mathbb{E}[{\mathbb{X}_2}]=60 \qquad \operatorname{var}[{\mathbb{X}_2}]=24
+$$
+
+1. Determine and interpret $\mathbb{E}[\mathbb{X}_1-\mathbb{X}_2]$
+
+    $$
+    \mathbb{E}[\mathbb{X}_1-\mathbb{X}_2]=\mathbb{E}[{\mathbb{X}_1}]-\mathbb{E}[{\mathbb{X}_2}]=48-60=-12   
+    $$
+
+claude: fix the subnote right here and the code below
+
+2. Assuming ${\mathbb{X}_1}$ and ${\mathbb{X}_2}$ are independent, determine $ \operatorname{var}[\mathbb{X}_1-\mathbb{X}_2]$
+    
+    $$
+    \operatorname{var}[\mathbb{X}_1-\mathbb{X}_2]&=(1)^2\operatorname{var}[{\mathbb{X}_1}]+(-1)^2\operatorname{var}[{\mathbb{X}_2}]\\
+    &=\operatorname{var}[{\mathbb{X}_1}]+\operatorname{var}[{\mathbb{X}_2}]\\
+    &=8+24=32
+    $$
+
+:::
+
+::::
+
+## Statistics
+
+Consider how to make expectations for our data. The end goal is to get the model for data. This combination of data and probability is statistics. 
+
+### Data
+
+:::tip Data
+
+Each data can be regarded as a random variable, which means every data we put has a expectation, varaince, distribution, and so on with uncertainty.
+
+Critical dichotomy:
+
+- A population is a vast (infinite or inexhaustible) correlation of all potential observations. Colloquially, it is the distribution we **expect** for our data or is the "true" distribution for our data, etc.
+- A sample consists of the observation we obtain (or might obtain) through experiments; that is, as data set, a sample is finite.  
+
+:::
+
+### Properties
+
+:::tip Properties
+
+Properties of population are called **Parameters**. Analogous properties of samples are called **statistics**.
+
+:::
+
+Things to keep in mnd: 
+
+1. Sample always have what can be called **noise**, or **sampling error**.
+2. The sample distribution and the population distribution need not be the same. 
+3. 
