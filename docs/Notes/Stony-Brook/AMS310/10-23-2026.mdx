@@ -1,0 +1,87 @@
+---
+title: 10/23/2026 - Lecture 25
+sidebar_label: 10/23/2026
+sidebar_position: 26
+---
+
+## Lecture Overview
+
+Last time:
+
+- Independence and correlation (covariance)
+- Linear combination of random variables
+- Sampling, samples, and population (the return of data)
+
+Today:
+- Sample means and sample variances as random variables 
+- Random samples
+- Uncertainty in data
+- The normal distribution
+
+## Random Sample
+
+
+:::tip Random Sample
+
+Suupose we have $N$ data; that is, $N$ random variables $\mathbb{X}_1,\dots,\mathbb{X}_n$. Supppose the ${N}$ are independent and identically distributed (iid); that is, they all come form/sample the same population. This is called a **Random Sample**.
+
+:::
+
+### Mean of Random Sample
+
+:::tip Mean of Random Sample
+
+The mean of those random variables is itself a random variable 
+$$
+\mathbb{X}=\frac{1}{N}\sum_{i=1}^{N}{\mathbb{X}_i}
+$$ 
+will be important. This is the **Sample Mean**.
+
+$$
+\mathbb{E}[\mathbb{X}]=\mathbb{E}\left[\frac{1}{N}\sum_{i=1}^{N}{\mathbb{X}_i} \right]=\frac{1}{N}\sum_{i=1}^{N}\mathbb{E}[\mathbb{X}_i]=\frac{1}{N}\sum_{i=1}^{N}\mu=\mu
+$$
+
+$\mu=\mathbb{E}[\mathbb{X}_i]$ is the **Population Mean**
+
+$$
+\operatorname{var}[\mathbb{X}]=\operatorname{var}\left[\frac{1}{N}\sum_{i=1}^{N}{\mathbb{X}_1}\right]=\frac{1}{N^2}\operatorname{var}\left[\sum_{i=1}^{N}{\mathbb{X}_1}\right]=    \frac{1}{N^2}\operatorname{var}\left[\sum_{i=1}^{N}{\sigma^2}\right]=\frac{\sigma^2}{N}
+$$
+$\sigma^2=\operatorname{var}[\mathbb{X}_i]$ is the **Population Variance**
+
+:::
+
+### Variance of Random Sample
+
+
+:::tip Variance of Random Sample
+
+
+The sample variance is also a random variable:
+
+$$
+\mathbb{S}^2=\frac{1}{N-1}\sum_{i=1}^{N}(\mathbb{X}_i-\mathbb{X})^2\qquad \mathbb{E}[\mathbb{S}^2]=\sigma^2
+$$
+
+:::
+
+## Normal Distribution
+
+:::tip Normal Distribution
+
+The **Normal Distribution** is going to be useful
+
+- Parameters: 
+    - $\mu$: The mean
+    - $\sigma^2$: The variance
+
+    $$
+    \mathbb{X}\sim\operatorname{normal}\left(\mu, \sigma^2\right)
+    $$
+    $\mathbb{X}\sim\operatorname{normal}(0, 1)$ is the standard normal distribution
+
+- 
+    $$
+    f[x\mid \mathbb{X}]=\frac{1}{\sqrt{2\pi \sigma^2}}\operatorname{exp}\left[-\frac{(x-\mu )^2}{2\sigma^2} \right]
+    $$
+
+:::
