@@ -47,41 +47,73 @@ A function $f:X\rightarrow Y$ is bijective if and only if it is invertible.
     g:Y\longrightarrow X,\ y\in Y, \ g(y)=x
     $$
     $$
-    g\big(f(x)\big)=g(y)=x\text{ and }f\big(g(y)\big)=f(x)=y\implies  g\circ f=\operatorname{id}_X\text{ and }  f\circ g=\operatorname{id}_Y
+    g\big(f(x)\big)=g(y)=x\text{ and }f\big(g(y)\big)=f(x)=y\implies g\circ f=\operatorname{id}_X\text{ and }f\circ g=\operatorname{id}_Y
     $$
 2. $\Longleftarrow $ Direction: from invertible to bijection
 
     $$
-    \exists g:X\rightarrow Y \text{ such that } g\circ f=\operatorname{id}_X\text{ and }  f\circ g=\operatorname{id}_Y
+    \exists g:Y\rightarrow X \text{ such that } g\circ f=\operatorname{id}_X\text{ and }f\circ g=\operatorname{id}_Y
     $$ 
 
-claude: break this down to left and right two parts with what I did similarly to "geometrically" and "analytically" two parts:
+We show $f$ is both injective and surjective:
 
-Injective: prove the contrapositive $f(x_1)=f(x_2)\implies x_1=x_2$
-    $$
-    \begin{align*}
-    x_1,x_2\in X,\ f(x_1)&=f(x_2)\\
-    g\big(f(x_1) \big)&=g\big(f(x_2) \big)\\
-    (g \circ f)f(x_1)&=(g \circ f)f(x_2)\\
-    \operatorname{id}_{x_1}&=\operatorname{id}_{x_2}\\
-    x_1&=x_2
-    \end{align*}
-    $$
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gap: "0",
+  }}
+>
+  <div
+    style={{
+      paddingRight: "2rem",
+      borderRight: "1px solid var(--ifm-color-emphasis-300)",
+    }}
+  >
 
+**Injective**
 
-Surjective: for all $y\in Y$, let $x=g(y)$:
+Prove the contrapositive $f(x_1)=f(x_2)\implies x_1=x_2$:
 
-    $$
-    \begin{align*}
-        f(x)&=f\big(g(y)\big)\\
-        &=(f\circ g)(y)\\
-        &=\operatorname{id}_Y\\
-        &=y
-    \end{align*}
-    $$
+$$
+\begin{align*}
+x_1,x_2\in X,\ f(x_1)&=f(x_2)\\
+g\big(f(x_1) \big)&=g\big(f(x_2) \big)\\
+(g \circ f)(x_1)&=(g \circ f)(x_2)\\
+\operatorname{id}_X(x_1)&=\operatorname{id}_X(x_2)\\
+x_1&=x_2
+\end{align*}
+$$
 
-(end the left and right two parts)
-claude: add black square
+  </div>
+
+  <div
+    style={{
+      paddingLeft: "2rem",
+    }}
+  >
+
+**Surjective**
+
+For all $y\in Y$, let $x=g(y)$:
+
+$$
+\begin{align*}
+    f(x)&=f\big(g(y)\big)\\
+    &=(f\circ g)(y)\\
+    &=\operatorname{id}_Y(y)\\
+    &=y
+\end{align*}
+$$
+
+  </div>
+</div>
+
+Therefore, $g\circ f=\operatorname{id}_X$ and $f\circ g=\operatorname{id}_Y$, so $f$ is bijective.
+
+<div style={{ textAlign: 'right' }}>
+  $\blacksquare$
+</div>
 
 </details>
 
@@ -91,17 +123,17 @@ Moreover, if $f$ is invertible, then its inverse is unique.
 <details>
 <summary><span className="math-keyword">Derivation</span></summary> 
 
-Let $g_1: Y\rightarrow X$ and $g_2: Y\rightarrow X$
+Let $g_1: Y\rightarrow X$ and $g_2: Y\rightarrow X$.
 
 Here, we have:
 
 $$
-f\circ g_1=\operatorname{id}_{Y_1}\quad g_1\circ f=\operatorname{id}_{X_1}\quad f\circ g_2=\operatorname{id}_{Y_2}\quad g_2\circ f=\operatorname{id}_{X_2}
+f\circ g_1=\operatorname{id}_{Y}\quad g_1\circ f=\operatorname{id}_{X}\quad f\circ g_2=\operatorname{id}_{Y}\quad g_2\circ f=\operatorname{id}_{X}
 $$
 And we want to show:
 
 $$
-g_1(y)=g_2(y) \forall t\in Y
+g_1(y)=g_2(y) \quad \forall y\in Y
 $$
 
 Let $y\in Y$, then:
@@ -125,6 +157,11 @@ $$
 $$
 \implies x_1=x_2\implies g_1=g_2\implies g \text{ is unique }\implies g=f^{-1}
 $$
+
+<div style={{ textAlign: 'right' }}>
+  $\blacksquare$
+</div>
+
 </details>
 
 
@@ -139,19 +176,22 @@ Let
 $$
 f:\mathbb{R}_{\ge 0 }\longrightarrow \mathbb{R}_{\ge 0 },\qquad f(x)=x^2
 $$
-The function is injective, as we prove its countrapositive, with $f_1,x_2\in \mathbb{R}_{\ge 0}$, then:
+The function is injective, as we prove its contrapositive, with $x_1,x_2\in \mathbb{R}_{\ge 0}$, then:
 
 $$
 \begin{align*}
 f(x_1)=f(x_2)&\implies x_1^2=x_2^2\\
-&\impliesx_1^2-x_2^2=0\\
+&\implies x_1^2-x_2^2=0\\
 &\implies(x_1+x_2)(x_1-x_2)=0\\
-&=\implies (x_1+x_2)\text{ or }(x_1-x_2)=0\\
-&\implies x_1=x_2=0\text{ or }x_1=x_2 claude: add this is injective
+&\implies (x_1+x_2)=0\text{ or }(x_1-x_2)=0\\
+&\implies x_1=x_2=0\text{ or }x_1=x_2\\
+&\implies x_1=x_2
 \end{align*}
 $$
 
-The function is also surjective, as given $\mathbb{R}_{\ge 0}$, the number $\sqrt{y}\in \mathbb{R}_{\ge 0}$ satisfies:
+Therefore, $f$ is injective.
+
+The function is also surjective, as given $y\in \mathbb{R}_{\ge 0}$, the number $\sqrt{y}\in \mathbb{R}_{\ge 0}$ satisfies:
 
 $$
 f(\sqrt{y})=y
@@ -173,7 +213,7 @@ $$
 The function is injective because
 
 $$
-5x_1+11=5x_1+11\implies x_1=x_2
+5x_1+11=5x_2+11\implies x_1=x_2
 $$
 The function is also surjective because, for any $y\in \mathbb{R}$:
 
@@ -206,18 +246,18 @@ $$
 it is not surjective because:
 
 $$
-\sin{x}\in \[-1,1\]
+\sin{x}\in [-1,1]
 $$
 
 However,
 
 $$
-\sin: \left[-\frac{\pi}{2},\frac{\pi}{2}\right]\longrightarrow [-1.1] 
+\sin: \left[-\frac{\pi}{2},\frac{\pi}{2}\right]\longrightarrow [-1,1] 
 $$
 is bijective; consequently,
 
 $$
-sin^{-1}:[-1,1]\longrightarrow \left[-\frac{\pi}{2},\frac{\pi}{2}\right]
+\sin^{-1}:[-1,1]\longrightarrow \left[-\frac{\pi}{2},\frac{\pi}{2}\right]
 $$
 exists.
 
@@ -228,10 +268,10 @@ exists.
 The tangent function on its full natural domain
 
 $$
-\tan:\mathbb{R}\setminus \left{(2n+1)\frac{\pi}{2}\mid n\in \mathbb{Z} \right}\longrightarrow  \mathbb{R}
+\tan:\mathbb{R}\setminus \left\{(2n+1)\frac{\pi}{2}\mid n\in \mathbb{Z} \right\}\longrightarrow \mathbb{R}
 $$
 
-is surjective but not injective, because $\tan{0}=tan{\pi}$; but, its restriction
+is surjective but not injective, because $\tan{0}=\tan{\pi}$; but its restriction
 
 $$
 \tan: \left(-\frac{\pi}{2},\frac{\pi}{2} \right)\longrightarrow \mathbb{R}
@@ -244,7 +284,7 @@ $$
 exists.
 :::
 
-### Dependence on the domain and codomain
+### Dependence on the Domain and Codomain
 
 :::info Example
 
@@ -272,7 +312,7 @@ Now, consider:
 $$
 f_2:\mathbb{R}_{>0}\longrightarrow [1,\infty),\qquad f_2(x)=4x^2-4x+2
 $$
-For every $y\ge 1$, choose $f=\frac{1+\sqrt{y-1}}{2}$, then $f_2(x)=y$, so $f_2$ is surjective.
+For every $y\ge 1$, choose $x=\frac{1+\sqrt{y-1}}{2}$, then $f_2(x)=y$, so $f_2$ is surjective.
 
 $$
 f_2\left(\frac{3}{4} \right)=f_2\left(\frac{1}{4} \right)=\frac{5}{4}
