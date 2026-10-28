@@ -64,4 +64,137 @@ $$
 
 ## Functions
 
-post midterm stuff 
+
+::::tip Function
+
+Let $X$ and $Y$ be two sets. A **function** or **mapping** from $X$ to $Y$ assigns a unique element of $Y$ to each element of $X$, More specifically, the set of $X$ is called **domain**, and the set of $Y$ is called **codomain**.
+
+If $f$ is a function from $X$ to $Y$, then we write:
+
+$$
+f: X\longrightarrow Y
+$$
+
+The element of $Y$ assigned to $x\in X$ is denoted by $f(x)$, and thus we may write:
+
+$$
+x\longmapsto f(x)
+$$
+
+Additionally, the element  $f(x)$ is called the **value** of $f$ at $x$, or the **image** of $x$ under $f$.
+
+Two functions: $f:X\rightarrow Y$ and $g: X\rightarrow Y$ are equal, writted $f=g$, if:
+
+$$
+f(x)=g(x)
+$$
+for every $x\in X$
+
+:::info Example
+
+Let:
+
+$$
+X=\{x_1,x_2,x_3,x_4 \},\qquad Y=\{y_1,y_2,y_3\}
+$$
+
+and define $f:X\rightarrow Y$ by:
+
+
+
+:::
+
+::::
+
+### Constand Fcuntion
+
+:::tip Constand Function
+
+Given sets $X$ and $Y$ and an element $y_1\in Y$, the constand function
+
+$$
+c_{y0}:X\longrightarrow Y
+$$
+is defined by:
+
+$$
+c_{y_0}(x)=y_0
+$$
+
+for every $x\in X$
+:::
+
+### Identity Function
+
+:::tip Identity Function
+
+For any set $X$, the identity function:
+
+$$
+\operatorname{id}_X:X\longrightarrow X
+$$
+is defined by
+$$
+\operatorname{id}_X(x)=x        
+$$
+for every $x\in X$
+:::
+
+## Well-defined Functions and Restrictions
+
+:::tip Restriction
+
+Suppose $f:X\rightarrow Y$ is a function and $A\subseteq X$. The **Restriction** of $y$ to $A$ is the function
+
+$$
+f|_{A}:A\longrightarrow Y
+$$
+defined by 
+
+$$
+f|_{A}(x)=f(x)
+$$
+ for every $x\in A$
+
+:::
+
+:::info Example
+
+- The function $g: \mathbb{R}\rightarrow \mathbb{R}$ defined by:
+
+$$
+g(x)=
+\begin{cases}
+    \frac{1}{x}, &x\ne 0\\
+    0, &x=0
+\end{cases}
+$$
+
+<hr/>
+
+
+- The modulus function $x\mapsto |x|$ is defined on $\mathbb{R}$ by 
+$$
+|x|
+\begin{cases}
+x,&x>0\\
+-x,&x\le 0
+\end{cases}
+$$
+:::
+
+:::tip Inclusion Map
+
+If $A\subseteq X$, the inclusion of $A$ into $X$ is the function
+
+$$
+i_{A}:A\longrightarrow X,\qquad i_A(a)=a
+$$
+
+In other words:
+
+$$
+i_A(a)=\operatorname{id}_{X}|_A
+$$
+
+:::

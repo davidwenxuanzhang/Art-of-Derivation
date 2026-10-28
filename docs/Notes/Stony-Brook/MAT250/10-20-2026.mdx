@@ -1,0 +1,321 @@
+---
+title: 10/20/2026 - Lecture 8
+sidebar_label: 10/20/2026
+sidebar_position: 9
+---
+
+## Functions
+
+::::tip Recap
+
+- Injective
+    $$ 
+    x_1,x_2\in X, \ x_1\ne x_2\implies f(x_1)\ne f(x_2)
+    $$
+<hr/>
+
+- Surjective
+    $$
+    \forall y\in Y,\exists x\in X\text{ such that }f(x)=y
+    $$
+<hr/>
+
+- Bijective
+    $$
+    \forall y\in Y, \exists!x\in X\text{ such that }f(x)=y
+    $$
+<hr/>
+
+- Invertible
+    A function $f:X\rightarrow Y$ is invertible if $\exists g:Y\rightarrow X$ such that:
+
+    $$
+    f\circ g=\operatorname{id}_Y\qquad \text{and}\qquad g\circ f=\operatorname{id}_X
+    $$
+
+:::info Theorem
+
+A function $f:X\rightarrow Y$ is bijective if and only if it is invertible. 
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+1. $\implies $ Direction: from bijection to invertible
+
+    Define:
+    $$
+    g:Y\longrightarrow X,\ y\in Y, \ g(y)=x
+    $$
+    $$
+    g\big(f(x)\big)=g(y)=x\text{ and }f\big(g(y)\big)=f(x)=y\implies g\circ f=\operatorname{id}_X\text{ and }f\circ g=\operatorname{id}_Y
+    $$
+2. $\Longleftarrow $ Direction: from invertible to bijection
+
+    $$
+    \exists g:Y\rightarrow X \text{ such that } g\circ f=\operatorname{id}_X\text{ and }f\circ g=\operatorname{id}_Y
+    $$ 
+
+We show $f$ is both injective and surjective:
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gap: "0",
+  }}
+>
+  <div
+    style={{
+      paddingRight: "2rem",
+      borderRight: "1px solid var(--ifm-color-emphasis-300)",
+    }}
+  >
+
+**Injective**
+
+Prove the contrapositive $f(x_1)=f(x_2)\implies x_1=x_2$:
+
+$$
+\begin{align*}
+x_1,x_2\in X,\ f(x_1)&=f(x_2)\\
+g\big(f(x_1) \big)&=g\big(f(x_2) \big)\\
+(g \circ f)(x_1)&=(g \circ f)(x_2)\\
+\operatorname{id}_X(x_1)&=\operatorname{id}_X(x_2)\\
+x_1&=x_2
+\end{align*}
+$$
+
+  </div>
+
+  <div
+    style={{
+      paddingLeft: "2rem",
+    }}
+  >
+
+**Surjective**
+
+For all $y\in Y$, let $x=g(y)$:
+
+$$
+\begin{align*}
+    f(x)&=f\big(g(y)\big)\\
+    &=(f\circ g)(y)\\
+    &=\operatorname{id}_Y(y)\\
+    &=y
+\end{align*}
+$$
+
+  </div>
+</div>
+
+Therefore, $g\circ f=\operatorname{id}_X$ and $f\circ g=\operatorname{id}_Y$, so $f$ is bijective.
+
+<div style={{ textAlign: 'right' }}>
+  $\blacksquare$
+</div>
+
+</details>
+
+Moreover, if $f$ is invertible, then its inverse is unique.
+
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary> 
+
+Let $g_1: Y\rightarrow X$ and $g_2: Y\rightarrow X$.
+
+Here, we have:
+
+$$
+f\circ g_1=\operatorname{id}_{Y}\quad g_1\circ f=\operatorname{id}_{X}\quad f\circ g_2=\operatorname{id}_{Y}\quad g_2\circ f=\operatorname{id}_{X}
+$$
+And we want to show:
+
+$$
+g_1(y)=g_2(y) \quad \forall y\in Y
+$$
+
+Let $y\in Y$, then:
+$$
+\begin{cases}
+    g_1(y)=x_1\\
+    g_2(y)=x_2
+\end{cases}
+\implies 
+\begin{cases}
+    f\big(g_1(y) \big)=f(x_1)\\
+    f\big(g_2(y) \big)=f(x_2)
+\end{cases}
+\implies 
+\begin{cases}
+    \operatorname{id}_{Y}(y)=f(x_1)\\
+    \operatorname{id}_{Y}(y)=f(x_2)
+\end{cases}
+\implies f(x_1)=f(x_2)
+$$
+$$
+\implies x_1=x_2\implies g_1=g_2\implies g \text{ is unique }\implies g=f^{-1}
+$$
+
+<div style={{ textAlign: 'right' }}>
+  $\blacksquare$
+</div>
+
+</details>
+
+
+:::
+
+::::
+
+:::info Examples
+
+Let
+
+$$
+f:\mathbb{R}_{\ge 0 }\longrightarrow \mathbb{R}_{\ge 0 },\qquad f(x)=x^2
+$$
+The function is injective, as we prove its contrapositive, with $x_1,x_2\in \mathbb{R}_{\ge 0}$, then:
+
+$$
+\begin{align*}
+f(x_1)=f(x_2)&\implies x_1^2=x_2^2\\
+&\implies x_1^2-x_2^2=0\\
+&\implies(x_1+x_2)(x_1-x_2)=0\\
+&\implies (x_1+x_2)=0\text{ or }(x_1-x_2)=0\\
+&\implies x_1=x_2=0\text{ or }x_1=x_2\\
+&\implies x_1=x_2
+\end{align*}
+$$
+
+Therefore, $f$ is injective.
+
+The function is also surjective, as given $y\in \mathbb{R}_{\ge 0}$, the number $\sqrt{y}\in \mathbb{R}_{\ge 0}$ satisfies:
+
+$$
+f(\sqrt{y})=y
+$$
+
+Therefore, the function is bijective, with:
+
+$$
+f^{-1}(y)=\sqrt{y}
+$$
+
+<hr/>
+
+Let:
+
+$$
+f:\mathbb{R}\longrightarrow \mathbb{R},\qquad f(x)=5x+11
+$$
+The function is injective because
+
+$$
+5x_1+11=5x_2+11\implies x_1=x_2
+$$
+The function is also surjective because, for any $y\in \mathbb{R}$:
+
+$$
+f\left(\frac{y-11}{5} \right)=y
+$$
+
+Hence, the function is bijective, with:
+
+$$
+f^{-1}(y)=\frac{y-11}{5}
+$$
+:::
+
+### Trigonometric Examples
+
+:::info Sine Function
+
+The function:
+
+$$
+\sin : \mathbb{R}\longrightarrow \mathbb{R}
+$$
+is not injective because:
+
+$$
+\sin{0}=\sin{\pi}
+$$
+
+it is not surjective because:
+
+$$
+\sin{x}\in [-1,1]
+$$
+
+However,
+
+$$
+\sin: \left[-\frac{\pi}{2},\frac{\pi}{2}\right]\longrightarrow [-1,1] 
+$$
+is bijective; consequently,
+
+$$
+\sin^{-1}:[-1,1]\longrightarrow \left[-\frac{\pi}{2},\frac{\pi}{2}\right]
+$$
+exists.
+
+:::
+
+:::info Tangent Function
+
+The tangent function on its full natural domain
+
+$$
+\tan:\mathbb{R}\setminus \left\{(2n+1)\frac{\pi}{2}\mid n\in \mathbb{Z} \right\}\longrightarrow \mathbb{R}
+$$
+
+is surjective but not injective, because $\tan{0}=\tan{\pi}$; but its restriction
+
+$$
+\tan: \left(-\frac{\pi}{2},\frac{\pi}{2} \right)\longrightarrow \mathbb{R}
+$$
+is bijective, so
+
+$$
+\tan^{-1}:\mathbb{R}\longrightarrow \left(-\frac{\pi}{2},\frac{\pi}{2} \right)
+$$
+exists.
+:::
+
+### Dependence on the Domain and Codomain
+
+:::info Example
+
+Consider
+
+$$
+f_1:\mathbb{R}\longrightarrow \mathbb{R},\qquad f_1(x)=4x^2-4x+2
+$$
+Completing the square gives:
+
+$$
+f_1(x)=(2x-1)^2+1
+$$
+Therefore $f_1(x)\ge 1$ for all $x$, so no $y< 1$ lies in the image, and thus $f_1$ is not surjective.
+
+$$
+f_1(1)=f_1(0)=2
+$$
+Thus $f_1$ is also not injective, and hence not bijective.
+
+<hr/>
+
+Now, consider:
+
+$$
+f_2:\mathbb{R}_{>0}\longrightarrow [1,\infty),\qquad f_2(x)=4x^2-4x+2
+$$
+For every $y\ge 1$, choose $x=\frac{1+\sqrt{y-1}}{2}$, then $f_2(x)=y$, so $f_2$ is surjective.
+
+$$
+f_2\left(\frac{3}{4} \right)=f_2\left(\frac{1}{4} \right)=\frac{5}{4}
+$$
+Thus $f_2$ is not injective, and therefore not bijective.
+:::
