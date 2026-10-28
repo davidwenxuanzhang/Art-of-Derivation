@@ -1,0 +1,134 @@
+---
+title: 10/28/2026 - Lecture 21
+sidebar_label: 10/28/2026
+sidebar_position: 22
+---
+
+## Lecture Overview
+
+Last time: 
+- Notation for the normal distribution (briefly)
+    - CDF: $\Phi \left(\frac{x-\mu }{\sigma} \right)$
+    - Quantile: $z_p={Q}[1-p\mid \mathcal{N}(0,1)]$
+- The Central Limit Theorem
+    
+    $\mathbb{X}\sim \mathcal{N}\left(\mu, \frac{\sigma^2}{N} \right)$ for a large ($N\ge 30$) random sample with population mean $\mu=\mathbb{E}[\mathbb{X}_i]$ and population variance $\sigma^2=\operatorname{var}[\mathbb{X}_i]$
+
+Today: Uncertainty in data for other circumstances
+- Student $T$ distribution: uncertainty in $\mathbb{X}$ when $\sigma^2$ is unknown.
+- $\chi^2$ (chi square) distribution: uncertainty in $\mathbb{s}^2$ for large ($ N\ge 30 $) random samples.
+
+## Student T Distribution
+
+Assume a normal population 
+
+$$
+\mathbb{X}_1, \mathbb{X}_2,\dots ,\mathbb{X}_n \text{ are independent and identically distributed, with }\qquad \mathbb{X}_i \sim \mathcal{N}(0,1)
+$$
+
+::::tip Useful Properties
+
+Suppose $\mu$ and $\sigma^2$ are known. The Central Limit Theorem becomes exact for all $N$.
+
+:::info Example
+
+Take the IQ test as an example: IQ is defined to have a normal distribution with mean $100$ and variance $225$. Suppose $30$ people have their IQ tested.
+
+$$
+\mathbb{E}[\mathbb{X}]=100,\qquad \operatorname{var}[\mathbb{X}]=\frac{\sigma^2}{N}=\frac{225}{30}=7.5
+$$
+
+$$
+\mathbb{P}[\mathbb{X}\ge 120\mid \mathbb{X}\sim \mathcal{N}(100,7.5)]=1-\Phi\left(\frac{120-100}{\sqrt{7.5}}\right) \approx 0
+$$
+
+:::
+
+::::
+
+But what if the population variance $\sigma^2$ is missing? We can approximate the population variance $\sigma^2$ with our sample variance $\mathbb{S}^2$
+
+:::tip Student T Distribution
+
+Approximate the population variance $\sigma^2$ with our sample variance $\mathbb{S}^2$; however, this introduces more error, which results in more uncertainty, written as:
+
+$$
+\mathbb{X}\sim \mathcal{T}\left( \mu, \frac{\mathbb{S}^2}{N},N-1 \right)
+$$
+Above, we are taking the sample mean's error into account. By replacing the parameters:
+
+
+
+- Parameters:
+    - $\mu$: mean
+    - $\gamma^2$: scaled factor 
+    - $k$: degrees of freedom
+    $$
+    \mathbb{X}\sim \mathcal{T}(\mu,\gamma^2,k)
+    $$
+
+- Probability Density Function
+
+$$
+f[x\mid \mathbb{X}\sim \mathcal{T}(\mu,\gamma^2,k)]=\frac{\Gamma {\left(\frac{k+1}{2} \right)}}{\  \Gamma{\left(\frac{k}{2} \right)} \gamma\sqrt{\pi k}}\left[1+\frac{1}{k}\left(\frac{x-\mu}{\sigma}\right)^2 \right]
+$$
+
+For a large sample size:
+
+$$
+\mathcal{T}\left( \mu, \frac{\mathbb{S}^2}{N},N-1 \right)\underbrace{\longrightarrow}_{N\ge 30}\mathcal{N}\left(\mu,\frac{\mathbb{S}^2}{N}\right)
+$$
+
+:::
+
+## Chi Square Distribution
+
+Previously, we are focusing on sampling the mean; what will happen if we sample variance? In fact, it gives another distribution. 
+
+
+:::tip Chi Square Distribution
+
+Let $\mathbb{S}^2$ be our sample variance.
+(office hour)
+$$
+\mathbb{S}^2=\frac{1}{N-1}\sum_{i=1}^{N}(\mathbb{X}_i-\mathbb{X})^2
+$$
+$$
+\frac{N-1}{\sigma^2}\mathbb{S}^2\sim \chi^2(N-1)\quad \text{or}\quad \mathbb{S}^2\sim \frac{\sigma^2}{N-1} \chi^2(N-1)
+$$
+
+This is called the **Chi Square Distribution**
+
+- Parameter: 
+    - $k$: degrees of freedom 
+
+$$
+\mathbb{X}\sim \chi^2 (k)
+$$
+- Probability Density Function
+    
+    $$
+    f[x\mid \mathbb{X}\sim \chi^2 (k)]=\begin{cases}
+    \dfrac{x^{\frac{k}{2}-1}e^{-\frac{x}{2}}}{2^{\frac{k}{2}}\Gamma{\left(\frac{k}{2} \right)}}, & x> 0\\[6pt]
+    0, & \text{otherwise}
+    \end{cases}
+    $$
+
+For a large degree of freedom, this distribution (and hence its CDF) is well-approximated by a normal distribution:
+
+$$
+\chi^2(k)\underbrace{\longrightarrow}_{k\ge 30}\mathcal{N}(k,2k)
+$$
+
+- Expectation
+
+$$
+\mathbb{E}[\mathbb{X}]=k
+$$
+
+- Variance
+
+$$
+\operatorname{var}[\mathbb{X}]=2k
+$$
+:::
