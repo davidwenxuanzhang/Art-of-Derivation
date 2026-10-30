@@ -4,9 +4,22 @@ sidebar_label: 10/21/2026
 sidebar_position: 25
 ---
 
-Last time
+## Lecture Overview
 
+Last time: Formalism for multiple random variable
+- Joint probability mass function (discrete)
+- Independence of random variable: $\mathbb{X}=x$ and $\mathbb{Y}=y$ are independent event for all $x$ and $y$.
+- Expectations
+    $$
+    \mathbb{E}\big[ h(\mathbb{X},\mathbb{Y})\big]=\sum_{\text{all }x,y }h(x,y)M[x,y\mid \mathbb{X},\mathbb{Y}]
+    $$
+    - Mean and variance generalize.
+    - Covariance: $\operatorname{cov}[\mathbb{X}\mathbb{Y}]=\mathbb{E}[\mathbb{X}\mathbb{Y}]-\mu_{\mathbb{X}}\mu_{\mathbb{Y}}$ 
+    - Correlation: $\operatorname{corr}[\mathbb{X}\mathbb{Y}]=\frac{\operatorname{cov}[\mathbb{X}\mathbb{Y}]}{\sigma{\mathbb{X}}\sigma {\mathbb{Y}}}$
 Today: 
+- Independence and correlation (covariance)
+- Linear combinations of random variables
+- Sampling, samples, and populations. (The return of data)
 
 
 ## Independence
@@ -14,7 +27,7 @@ Today:
 :::tip Independence
 If $\mathbb{X}$ and $\mathbb{Y}$ are independent, then $\mathbb{E}[\mathbb{X}\mathbb{Y}]=\mathbb{E}[\mathbb{X}]\mathbb{E}[\mathbb{Y}]$ such that: 
 $$
-\operatorname{cov}(\mathbb{X},\mathbb{Y})=\mathbb{E}[\mathbb{X}\mathbb{Y}]=\mathbb{E}[\mathbb{X}\mathbb{Y}]-\mu_{\mathbb{X}}\mu_{\mathbb{Y}}=0
+\operatorname{cov}(\mathbb{X},\mathbb{Y})=\mathbb{E}[\mathbb{X}\mathbb{Y}]-\mu_{\mathbb{X}}\mu_{\mathbb{Y}}=\mathbb{E}[\mathbb{X}]\mathbb{E}[\mathbb{Y}]-\mu_{\mathbb{X}}\mu_{\mathbb{Y}}=0
 $$
 :::
 
@@ -25,53 +38,55 @@ $$
 Consider the linear combination: 
 
 $$
-\mathbb{Y}=a_1\mathbb{E}[\mathbb{X}]_1+a_2\mathbb{X}_2+\dots+a_n\mathbb{X}_n
+\mathbb{Y}=a_1\mathbb{X}_1+a_2\mathbb{X}_2+\dots+a_n\mathbb{X}_n
 $$
 Let
 
 $$
-\mu_1=\mathbb{E}[\mathbb{X}_1],\quad \mu_2=\mathbb{E}[\mathbb{X}_2],\dots, \sigma^{2}_1=\operatorname{var}[\mathbb{X}_1],\quad \sigma^{2}_2=\operatorname{var}[\mathbb{X}2],\dots, \mathbb{E}{a\mathbb{X}+b}
+\mu_1=\mathbb{E}[\mathbb{X}_1],\quad \mu_2=\mathbb{E}[\mathbb{X}_2],\dots, \quad \sigma^{2}_1=\operatorname{var}[\mathbb{X}_1],\quad \sigma^{2}_2=\operatorname{var}[\mathbb{X}_2],\dots
 $$
 
 $$
 \begin{align*}
-\mathbb{E}[\mathbb{Y}]&=\mathbb{E}[a_1\mathbb{E}[\mathbb{X}]_1+a_2\mathbb{X}_2+\dots+a_n\mathbb{X}_n]\\
+\mathbb{E}[\mathbb{Y}]&=\mathbb{E}[a_1\mathbb{X}_1+a_2\mathbb{X}_2+\dots+a_n\mathbb{X}_n]\\
 &=a_1\mathbb{E}[\mathbb{X}_1]+a_2\mathbb{E}[\mathbb{X}_2]+\dots+a_n\mathbb{E}[\mathbb{X}_n]\\
 &=\sum_{i=1}^{n}a_i\mathbb{E}[\mathbb{X}_i]\\
-&=a_1\mathbb{E}\mu_{i}
+&=\sum_{i=1}^{n}a_i\mu_{i}
 \end{align*}
 $$
 
 $$
 \begin{align*}
 \operatorname{var}[\mathbb{Y}]&=\operatorname{var}[a_1\mathbb{X}_1+a_2\mathbb{X}_2+\dots+a_n\mathbb{X}_n]\\
-\text{independence } &=a^2_1\operatorname{var}[\mathbb{X}_1]+a^2_2\operatorname{var}[\mathbb{X}_2]+\dots+a^2_n\operatorname{var}[\mathbb{X}_n]\\
-&=claudee: add a summation form
+&=a^2_1\operatorname{var}[\mathbb{X}_1]+a^2_2\operatorname{var}[\mathbb{X}_2]+\dots+a^2_n\operatorname{var}[\mathbb{X}_n] \qquad \text{(by independence)}\\
+&=\sum_{i=1}^{n}a_i^2\sigma_i^2
 \end{align*}
 $$
 
 :::info Example
 
-The battery of brand 1's cell phone holds a charge, on average, for 48 hours with a variance of $8\text{ hours}^2$. Batteries in brand 2's phone last $60$ hours (on average) with a variance of $24\text{ hours}^2$
+Brand 1's cell phone battery holds a charge, on average, for 48 hours, with a variance of $8\text{ hours}^2$. Brand 2's phone battery lasts $60$ hours (on average), with a variance of $24\text{ hours}^2$.
 
 $$
-\mathbb{E}[{\mathbb{X}_1}]=48 \qquad \operatorname{var}[{\mathbb{X}_1}]=8 \qquad  \mathbb{E}[{\mathbb{X}_2}]=60 \qquad \operatorname{var}[{\mathbb{X}_2}]=24
+\mathbb{E}[\mathbb{X}_1]=48 \qquad \operatorname{var}[\mathbb{X}_1]=8 \qquad \mathbb{E}[\mathbb{X}_2]=60 \qquad \operatorname{var}[\mathbb{X}_2]=24
 $$
 
 1. Determine and interpret $\mathbb{E}[\mathbb{X}_1-\mathbb{X}_2]$
 
     $$
-    \mathbb{E}[\mathbb{X}_1-\mathbb{X}_2]=\mathbb{E}[{\mathbb{X}_1}]-\mathbb{E}[{\mathbb{X}_2}]=48-60=-12   
+    \mathbb{E}[\mathbb{X}_1-\mathbb{X}_2]=\mathbb{E}[\mathbb{X}_1]-\mathbb{E}[\mathbb{X}_2]=48-60=-12
     $$
 
-claude: fix the subnote right here and the code below
+    On average, brand 1's battery lasts $12$ hours less than brand 2's battery.
 
-2. Assuming ${\mathbb{X}_1}$ and ${\mathbb{X}_2}$ are independent, determine $ \operatorname{var}[\mathbb{X}_1-\mathbb{X}_2]$
+2. Assuming $\mathbb{X}_1$ and $\mathbb{X}_2$ are independent, determine $\operatorname{var}[\mathbb{X}_1-\mathbb{X}_2]$
     
     $$
-    \operatorname{var}[\mathbb{X}_1-\mathbb{X}_2]&=(1)^2\operatorname{var}[{\mathbb{X}_1}]+(-1)^2\operatorname{var}[{\mathbb{X}_2}]\\
-    &=\operatorname{var}[{\mathbb{X}_1}]+\operatorname{var}[{\mathbb{X}_2}]\\
+    \begin{align*}
+    \operatorname{var}[\mathbb{X}_1-\mathbb{X}_2]&=(1)^2\operatorname{var}[\mathbb{X}_1]+(-1)^2\operatorname{var}[\mathbb{X}_2]\\
+    &=\operatorname{var}[\mathbb{X}_1]+\operatorname{var}[\mathbb{X}_2]\\
     &=8+24=32
+    \end{align*}
     $$
 
 :::
@@ -80,18 +95,18 @@ claude: fix the subnote right here and the code below
 
 ## Statistics
 
-Consider how to make expectations for our data. The end goal is to get the model for data. This combination of data and probability is statistics. 
+Consider how to make expectations about our data. The end goal is to get a model for the data. This combination of data and probability is statistics. 
 
 ### Data
 
 :::tip Data
 
-Each data can be regarded as a random variable, which means every data we put has a expectation, varaince, distribution, and so on with uncertainty.
+Each data point can be regarded as a random variable, which means every data point we collect has an expectation, variance, distribution, and so on, with uncertainty.
 
 Critical dichotomy:
 
-- A population is a vast (infinite or inexhaustible) correlation of all potential observations. Colloquially, it is the distribution we **expect** for our data or is the "true" distribution for our data, etc.
-- A sample consists of the observation we obtain (or might obtain) through experiments; that is, as data set, a sample is finite.  
+- A population is a vast (infinite or inexhaustible) collection of all potential observations. Colloquially, it is the distribution we **expect** for our data or is the "true" distribution for our data, etc.
+- A sample consists of the observations we obtain (or might obtain) through experiments; that is, as a data set, a sample is finite.  
 
 :::
 
@@ -99,12 +114,11 @@ Critical dichotomy:
 
 :::tip Properties
 
-Properties of population are called **Parameters**. Analogous properties of samples are called **statistics**.
+Properties of a population are called **Parameters**. Analogous properties of a sample are called **statistics**.
 
 :::
 
-Things to keep in mnd: 
+Things to keep in mind: 
 
-1. Sample always have what can be called **noise**, or **sampling error**.
+1. Samples always have what can be called **noise**, or **sampling error**.
 2. The sample distribution and the population distribution need not be the same. 
-3. 
