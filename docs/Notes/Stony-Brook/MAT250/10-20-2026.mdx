@@ -319,3 +319,85 @@ f_2\left(\frac{3}{4} \right)=f_2\left(\frac{1}{4} \right)=\frac{5}{4}
 $$
 Thus $f_2$ is not injective, and therefore not bijective.
 :::
+
+## Finite Sets and Counting Principles
+
+### Cardinality
+
+For a finite set $X$, its cardinality, or size, is the number of elements it contains, and is denoted by $\operatorname{card}(X)$ or simply $|X|$.
+
+For example, if $X=\{1,2,3\}$, then
+$$
+\mathcal{P}(X)=\big\{\emptyset, \{1\},\{2\},\{3\}, \{1,2\},\{2,3\},\{1,3\}, \{1,2,3\} \big\}
+$$
+so $|\mathcal{P}(X)|=8$
+
+:::note Notation
+
+For a positive integer $n$, we define $\mathbb{N}_n=\{1,2,\dots, n\}$
+
+:::
+
+:::tip Formal Definition of Cardinality
+
+A non-empty set $X$ has cardinality $n$ if there exists a bijection:
+$$
+f:\mathbb{N}_n\longrightarrow X
+$$
+Moreover, we write $|X|\coloneqq n$.
+:::
+
+### Finite Set and Infinite Set
+
+:::tip Finite Set and Infinite Set
+
+A set is finite if it has cardinality $n$ for some integer $n\ge 0$, otherwise it is infinite. 
+ 
+:::
+:::tip Lemma
+
+If there exists an injection
+
+$$
+f:\mathbb{N}_m\rightarrow \mathbb{N}_n
+$$
+then $m\le n$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+Here we will use proof by induction.
+
+- Base Case
+  For $n=1$, an injection $f:\mathbb{N}_m\rightarrow \mathbb{N}_1$ is possible only if $m\le 1$.
+
+- Inductive Step: Assume the result holds for $n=k$, and suppose:
+
+  $$
+  f:\mathbb{N}_m\longrightarrow \mathbb{N}_{k+1}
+  $$
+  is injective. 
+  - Case 1: If $k+1\notin \operatorname{Im}(f)$, then $f$ takes values in $\mathbb{N}_k$, so the induction hypothesis gives:
+    $$
+    m\le k <k+1
+    $$
+  - Case 2: If $k+1\in \operatorname{Im}(f)$, choose $t\in \mathbb{N}_m$ such that $f(t)=k+1$.
+    - If $m=1$, then obviously $1\le k+1$ satisfies the requirement.
+    - If $m>1$, then we can delete the element $t$ from the domain and $k+1$ from the codomain and get a function $g: \mathbb{N}_{m-1}\rightarrow \mathbb{N}_k$
+    $$
+    g=\begin{cases}
+    f(i) &i<t \\
+    f(i+1) &i\ge t
+    \end{cases}
+    $$
+  Therefore, $g$ is injective, and thus $m-1\le k$ holds according to our inductive assumption, so $m\le k+1$.
+
+Hence, by induction, for every $n$, if there exists an injection $f:\mathbb{N}_m\rightarrow \mathbb{N}_n$, then $m\le n$.
+
+<div style={{ textAlign: 'right' }}>
+  $\blacksquare$
+</div>
+
+</details>
+
+:::
