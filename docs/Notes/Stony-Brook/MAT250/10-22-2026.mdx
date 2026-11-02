@@ -3,3 +3,87 @@ title: 10/22/2026 - Lecture 9
 sidebar_label: 10/22/2026
 sidebar_position: 10
 ---
+
+## Review
+
+Recall from last time
+
+:::note Notation
+
+For a positive integer $n$, we deinfe $\mathbb{N}_n\coloneqq \{1,2,\dots,n\}$
+
+:::
+:::tip Definitions
+
+- Cardinality:
+
+    A non-empty set $X$ has cardinality $n$ if there exists a bijection 
+
+    $$
+    f:\mathbb{N}_n\longrightarrow X
+    $$
+
+    We then write the cardinality as $X$=x.
+
+<hr/>
+
+- Finite Set
+
+    A set is finite if it has cardinality $n$ for some integer $n>0$.
+
+<hr/>
+
+- Infinite Set
+
+    A set is said to be infinite if it is not finite.   
+<hr/>
+
+- Lemma
+
+    If there exists an injection $f:\mathbb{N}_m\rightarrow \mathbb{n}_m$, then $m\le n$
+:::
+
+### Continue Lecture
+
+:::tip Uniqueness of finite cardinality 
+
+Suppose
+
+$$
+f:\mathbb{N}_m\longrightarrow X\quad \text{ and }\quadg:\mathbb{N}_n\longrightarrow X
+$$
+
+is bijection, then $m=n$. 
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+Since $f$ and $g$ are bijections, their inverse exists, so the map:
+
+$$
+g^{-1}\circ f: \mathbb{N}_m\longrightarrow \mathbb{N}_n
+$$
+is injective, so the lemma(claude: gave a line to last page) gives $m\le n$. Similarly
+
+$$
+f^{-1}\circ g: \mathbb{N}_n\longrightarrow \mathbb{N}_m
+$$
+
+is injective, so by the lemma (claude:), $n\le m$
+
+Therefore, $m=n$.
+
+</details>
+
+:::
+
+:::tip Lemma
+
+Let $X$ and $Y$ be nonempty finite sets. If there exists an injection $X\rightarrow Y$, then $|X|\le |Y|$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+:::
