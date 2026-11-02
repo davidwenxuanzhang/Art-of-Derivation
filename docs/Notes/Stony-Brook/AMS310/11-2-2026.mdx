@@ -1,0 +1,158 @@
+---
+title: 11/2/2026 - Lecture 26
+sidebar_label: 11/2/2026
+sidebar_position: 29
+---
+
+## Lecture Overview
+
+Last time:
+
+Today: Hypothesis testing
+
+- Hypothesis, models, distributions, and data
+- Comparing distributions: raincloud and quantile-quantile plots
+- Hypothesis tests: acceptance and rejection
+
+## Hypothesis Test
+
+:::tip Hypothesis Test
+
+A hypothesis test compares observed data with a model.
+- We have data
+- We have a model for what could have been seen in the data:
+
+    In the guessing game example, where we count the number of correct guesses among people guessing on 10 T/F questions,
+    $$
+    \mathbb{X}\sim \mathcal{N}\left(\mu,\frac{\sigma^2}{N}\right), \mu=5, \sigma^2=\frac{5}{2}
+    $$
+- We make a hypothesis about the data ($\mu=5$)
+- Test: Are the data consistent with the hypothesis/model? 
+
+:::
+
+### Articulate Hypothesis
+
+
+::::tip Articulate Hypothesis
+
+- A hypothesis specifies a population parameter and/or other unknown/observable quantities
+    - The specification can be known, hypothetical, or counterfactual
+    - Write the parameter $\theta$ and the specified value as $\theta_0$
+    - The hypothesis states a relation between $\theta$ and $\theta_0$
+        1. $\theta=\theta_0$. This is called a two-sided hypothesis
+        2. $\theta<\theta_0 $ or $\theta>\theta_0 $. This is called a one-sided hypothesis
+    - $\theta$ is often the population mean $\mu$ or the population variance $\sigma^2$
+- A hypothesis generates a model $M(\theta_0)$ to describe uncertainty
+    - The value $\theta_0$ is needed, as is other context.
+    :::info Example
+    Let $\theta$ be the population mean; from the guessing game example, $\theta_0=5$. $M(\theta_0)$ needs to describe uncertainty in the sample mean:
+
+    $$
+    \mathbb{X}\sim \mathcal{N}\left(\mu,\frac{\sigma^2}{N}\right)\quad \text{or}\quad \mathbb{X}\sim\mathcal{T}\left(5,\frac{s^2}{N},N-1 \right)
+    $$
+
+    :::
+- The model has a distribution, which is the common link with the data
+::::
+
+### Comparing Distributions with Graphs
+
+:::tip Graphs
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gap: "0",
+  }}
+>
+  <div
+    style={{
+      paddingRight: "2rem",
+      borderRight: "1px solid var(--ifm-color-emphasis-300)",
+    }}
+  >
+
+**Raincloud Graph**
+
+<figure style={{ margin: 0, textAlign: 'center' }}>
+<svg viewBox="0 -18 220 168" width="100%" style={{ maxWidth: '260px', height: 'auto' }} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" role="img" aria-label="Raincloud plot: model distribution above the axis, data below, axis marks the sample mean">
+<line x1="15" y1="78" x2="205" y2="78" strokeOpacity="0.4"/>
+<line x1="110" y1="74" x2="110" y2="82" strokeOpacity="0.6"/>
+<path d="M20,78 C45,78 55,18 110,18 C165,18 175,78 200,78 Z" fill="currentColor" fillOpacity="0.15"/>
+<text x="110" y="-6" fontSize="11" textAnchor="middle" fill="currentColor" stroke="none">model distribution</text>
+<text x="110" y="68" fontSize="10" textAnchor="middle" fill="currentColor" stroke="none">sample mean</text>
+<g fill="currentColor" fillOpacity="0.7" stroke="none">
+<circle cx="95" cy="92" r="2"/>
+<circle cx="108" cy="98" r="2"/>
+<circle cx="120" cy="90" r="2"/>
+<circle cx="88" cy="104" r="2"/>
+<circle cx="130" cy="100" r="2"/>
+<circle cx="102" cy="112" r="2"/>
+<circle cx="115" cy="118" r="2"/>
+<circle cx="93" cy="122" r="2"/>
+<circle cx="125" cy="114" r="2"/>
+<circle cx="110" cy="128" r="2"/>
+<circle cx="138" cy="108" r="2"/>
+<circle cx="80" cy="96" r="2"/>
+<circle cx="145" cy="94" r="2"/>
+<circle cx="98" cy="134" r="2"/>
+<circle cx="118" cy="136" r="2"/>
+</g>
+<text x="110" y="148" fontSize="11" textAnchor="middle" fill="currentColor" stroke="none">data</text>
+</svg>
+</figure>
+
+The axis marks the sample mean $\mathbb{X}$: above it lies the model distribution, below it the data.
+
+  </div>
+
+  <div
+    style={{
+      paddingLeft: "2rem",
+    }}
+  >
+
+**Quantile-Quantile Graph**
+
+<figure style={{ margin: 0, textAlign: 'center' }}>
+<svg viewBox="0 0 220 150" width="100%" style={{ maxWidth: '260px', height: 'auto' }} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" role="img" aria-label="Quantile-quantile plot comparing data quantiles to model quantiles">
+<line x1="20" y1="15" x2="20" y2="130"/>
+<line x1="20" y1="130" x2="205" y2="130"/>
+<line x1="25" y1="125" x2="195" y2="20" strokeOpacity="0.4" strokeDasharray="3 2"/>
+<g fill="currentColor" stroke="none">
+<circle cx="30" cy="122" r="2"/>
+<circle cx="42" cy="112" r="2"/>
+<circle cx="55" cy="105" r="2"/>
+<circle cx="68" cy="94" r="2"/>
+<circle cx="82" cy="86" r="2"/>
+<circle cx="96" cy="76" r="2"/>
+<circle cx="110" cy="68" r="2"/>
+<circle cx="124" cy="58" r="2"/>
+<circle cx="138" cy="50" r="2"/>
+<circle cx="152" cy="40" r="2"/>
+<circle cx="166" cy="32" r="2"/>
+<circle cx="180" cy="24" r="2"/>
+</g>
+<text x="112" y="144" fontSize="11" textAnchor="middle" fill="currentColor" stroke="none">quantile of data</text>
+<text x="15" y="70" fontSize="11" textAnchor="middle" fill="currentColor" stroke="none" transform="rotate(-90 15 70)">quantile of model</text>
+</svg>
+</figure>
+
+Points lying along the diagonal indicate that the data's quantiles agree with the model's.
+
+  </div>
+</div>
+
+:::
+
+### Quantitative Comparisons
+
+- Hypothesis: $\mu=\mu_0$
+- Model: CLT $\mathbb{X}\sim \mathcal{N}\left(\mu_0,\frac{\sigma^2}{N}\right)$
+- Observation: $\bar{x}$
+
+$$
+\mathbb{P}(a\le \mathbb{X}\le b\mid C)\quad\text{and}\quad \bar{x}\in [a,b]
+$$
