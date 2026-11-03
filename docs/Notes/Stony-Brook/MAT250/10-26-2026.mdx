@@ -1,0 +1,324 @@
+---
+title: 10/26/2026 - Lecture 10
+sidebar_label: 10/26/2026
+sidebar_position: 11
+---
+
+## Review
+
+Recall from last time:
+
+:::tip Minimum and Maximum Elements
+
+Let $A\subseteq \mathbb{R}$ be a nonempty set. An element $b\in A$ is a **minimum element** of $A$, written $b=\operatorname{min}A$, if $b\le a$ for every $a\in A$
+
+Also, an element $c\in A$ is a **maximum element** of $A$, written $c=\operatorname{max}A$, if $c\ge a$ for every $a\in A$.
+
+:::
+
+:::info Theorem 
+
+Every nonempty finite subset of $\mathbb{R}$ has a minimum and a maximum element.
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+Let $A$ be a nonempty finite subset of $\mathbb{R}$ with $|A|=n$; we proceed by induction on $n$.
+
+- Base Case: when $n=1$, $A=\{a\}$, so by the definition of $\operatorname{min}A$, $\operatorname{min}A$ exists and $\operatorname{min}A=a$
+
+- Inductive Step: Assume the statement holds for $k$: every $k$-element subset of $\mathbb{R}$ has a minimum and a maximum element. Let
+
+    $$
+    A=\{a_1,\dots,a_{k+1} \},\qquad A^{\prime}=\{a_1,\dots, a_k\}
+    $$
+    By the induction hypothesis, $a=\operatorname{min}A^{\prime}$ exists. Then:
+    $$
+    \operatorname{min}A=
+    \begin{cases}
+        a_{k+1} , &a_{k+1}\le a\\
+        a  , &a_{k+1}>a
+    \end{cases}
+    $$
+    Thus $A$ has a minimum; similarly, $A$ also has a maximum.
+
+<div style={{ textAlign: 'right' }}>
+  $\blacksquare$
+</div>
+
+</details>
+
+:::
+
+## The Greatest Common Divisor
+
+Recall from [Divisibility](docs/Notes/Stony-Brook/MAT250/9-17-2026.mdx#divisibility), given $a,d\in \mathbb{Z}, d\ne 0$, if
+
+$$
+d\mid a \iff a=dq
+$$
+for some $q\in \mathbb{Z}$, then $d$ is a divisor of $a$.
+
+If $a\ne 0$ and $a=dq$, then $q\ne 0$, so $|q|\ge 1$, and
+
+$$
+|a|=|dq|=|d||q|\ge |d|
+$$
+
+Now, we define 
+
+$$
+D(a)\coloneqq \{n\in \mathbb{Z}\mid n \text{ divides } a \}
+$$
+is a finite set, as $D(a)\subseteq [-|a|,|a| ]$, and therefore:
+
+$$
+\operatorname{min}D(a)= -|a|,\qquad\operatorname{max}D(a)= |a|
+$$
+
+
+
+:::tip Greatest Common Divisor
+
+Let $a,b$ be non-zero integers; the set of their common divisors is $D(a)\cap D(b)$, and their greatest common divisor is defined as:
+
+$$
+\operatorname{gcd}(a,b)\coloneqq \operatorname{max}\big(D(a)\cap D(b) \big)
+$$
+
+:::
+
+## Counting Functions, Subsets, and Binomial Coefficients
+
+### Counting Functions
+
+
+Suppose $X$ and $Y$ are finite sets. To define a function $f:X\rightarrow Y$, we choose a value in $Y$ for every element in $X$.
+
+::::info Example
+
+If 
+
+$$
+X=\{a,b,c\},\qquad Y=\{d,e \} 
+$$
+
+then each $a,b,c$ has two choices; hence, there are $2\cdot 2\cdot 2=8$ total functions.
+
+
+::::
+
+:::info Proposition
+
+Let $X$ and $Y$ be nonempty sets with $|X|=m$ and $|Y|=n$, then the number of functions $f:X\rightarrow Y$ is $n^m$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+We write 
+
+$$
+X=\{x_1,\dots,x_m\},\qquad Y=\{y_1,\dots,y_n \}
+$$
+A function is determined by the list $f(x_1),\dots, f(x_m)$, and as each value has $n$ possible choices, independent of each other, the total number is $\underbrace{n\cdot n \cdots n}_{m \text{ factors}} =n^{m}$
+
+</details>
+
+:::
+
+:::note Notation
+
+For sets $X$ and $Y$, let $\operatorname{Fun}(X,Y)=\{f\mid f:X\rightarrow Y \}$
+
+Thus for finite sets, $|\operatorname{Fun}(X,Y)|= |Y|^{|X|}$
+
+:::
+
+::::tip Injective Function
+
+Let
+
+$$
+\operatorname{Inj}(X,Y)=\{f\mid f:X\rightarrow Y\text{ is injective} \}
+$$
+
+:::info Proposition
+
+Let $|X|=m$ and $|Y|=n$, with $m\le n$, then
+
+$$
+|\operatorname{Inj}(X,Y)|=n(n-1)\cdots (n-m+1)=\frac{n!}{(n-m)!}
+$$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+Building an injection amounts to assigning, to each element of $X$ in turn, a distinct element of $Y$ not yet used:
+
+<figure style={{ margin: '0.5rem 0', textAlign: 'center' }}>
+<svg viewBox="0 0 260 190" width="100%" style={{ maxWidth: '300px', height: 'auto' }} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" role="img" aria-label="Two columns of dots, X on the left and Y on the right, with lines showing an injective assignment from X into distinct elements of Y">
+<g strokeOpacity="0.6">
+<line x1="50" y1="30" x2="210" y2="42"/>
+<line x1="50" y1="70" x2="210" y2="138"/>
+<line x1="50" y1="110" x2="210" y2="10"/>
+<line x1="50" y1="150" x2="210" y2="106"/>
+</g>
+<g fill="currentColor" stroke="none" fontSize="11">
+<circle cx="50" cy="30" r="4"/><text x="34" y="34" textAnchor="end">x1</text>
+<circle cx="50" cy="70" r="4"/><text x="34" y="74" textAnchor="end">x2</text>
+<circle cx="50" cy="110" r="4"/><text x="34" y="114" textAnchor="end">x3</text>
+<circle cx="50" cy="150" r="4"/><text x="34" y="154" textAnchor="end">x4</text>
+<circle cx="210" cy="10" r="4"/><text x="226" y="14" textAnchor="start">y1</text>
+<circle cx="210" cy="42" r="4"/><text x="226" y="46" textAnchor="start">y2</text>
+<circle cx="210" cy="74" r="4"/><text x="226" y="78" textAnchor="start">y3</text>
+<circle cx="210" cy="106" r="4"/><text x="226" y="110" textAnchor="start">y4</text>
+<circle cx="210" cy="138" r="4"/><text x="226" y="142" textAnchor="start">y5</text>
+<circle cx="210" cy="170" r="4"/><text x="226" y="174" textAnchor="start">y6</text>
+</g>
+<text x="50" y="186" fontSize="10" textAnchor="middle" fill="currentColor" stroke="none" fillOpacity="0.8">X</text>
+<text x="210" y="186" fontSize="10" textAnchor="middle" fill="currentColor" stroke="none" fillOpacity="0.8">Y</text>
+</svg>
+</figure>
+
+The first element of $X$ may be sent to any of the $n$ elements of $Y$; since the map must stay injective, the second element has only $n-1$ remaining choices, the third has $n-2$, and so on, until the $m$-th element, which has $n-m+1$ choices left. Multiplying these counts over all $m$ elements gives:
+
+$$
+|\operatorname{Inj}(X,Y)|=n(n-1)\cdots (n-m+1)=\frac{n!}{(n-m)!}\tag*{$\blacksquare$}
+$$
+
+</details>
+
+:::
+
+:::danger Remark
+
+If $m>n$, then $|\operatorname{Inj}(X,Y)|=0$
+
+:::
+
+::::
+
+:::tip Permutation
+
+A bijection $f:X\rightarrow X$ is called a **Permutation** of $X$
+
+Moreover, if $X$ is a finite set with $|X|=n$, then the number of permutations of $X$ is $n!$
+
+:::
+
+### Counting Subsets
+
+::::tip Characteristic Function
+
+For each $A\subseteq X$, its **Characteristic Function**
+
+$$
+\chi_A:X\longrightarrow \{0,1\}
+$$
+is defined by 
+$$
+\chi_A(x)=\begin{cases}
+1\quad &\text{if }x\in A\\
+0\quad &\text{if }x\notin A
+\end{cases}
+$$
+
+:::info Proposition 
+If $X$ is a finite set, then the cardinality of the power set is
+
+$$
+|\mathcal{P}(X)|=2^{|X|}
+$$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+:::
+
+::::
+
+### Binomial Coefficient
+
+::::tip Binomial Coefficient
+
+Let $X$ be a set and $r$ be a non-negative integer, then an $r$-subset of $X$ is a subset $A\subseteq X$ with $|A|=r$, written as:
+
+$$
+\mathcal{P}_{r}(X)=\{A\subseteq X\mid |A|=r \}\subseteq \mathcal{P}(X)
+$$
+
+If $|X|=n$, then we define the **Binomial Coefficient**:
+
+$$
+\binom{n}{r}\coloneqq|\mathcal{P}_{r}(X)|
+$$
+
+:::info Propositions
+
+1. If $r>n$, then 
+$$
+    \binom{n}{r}=0
+$$
+<hr/>
+
+2. 
+$$
+    \binom{n}{0}=1,\quad \binom{n}{1}=n,\quad \binom{n}{n}=1
+$$
+<hr/>
+
+3. For $0\le r\le n$:
+$$
+    \binom{n}{r}=\binom{n}{n-r}
+$$
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+:::
+
+::::
+
+:::tip Corollary
+
+For every non-negative integer $n$:
+
+$$
+\sum_{r=0}^{n}\binom{n}{r}=2^{n}
+$$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+:::
+:::tip Pascal's Identity
+
+For positive integers $n,r$ with $1\le r\le n$,
+
+$$
+\binom{n}{r}=\binom{n-1}{r-1}+\binom{n-1}{r}
+$$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+:::
+
+:::info Proposition
+
+For $0\le r\le n$:
+
+$$
+\binom{n}{r}=\frac{n!}{(n-r)!r!}
+$$
+
+:::
+
+
