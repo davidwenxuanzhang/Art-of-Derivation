@@ -10,7 +10,7 @@ Recall from last time
 
 :::note Notation
 
-For a positive integer $n$, we deinfe $\mathbb{N}_n\coloneqq \{1,2,\dots,n\}$
+For a positive integer $n$, we define $\mathbb{N}_n\coloneqq \{1,2,\dots,n\}$
 
 :::
 :::tip Definitions
@@ -23,13 +23,13 @@ For a positive integer $n$, we deinfe $\mathbb{N}_n\coloneqq \{1,2,\dots,n\}$
     f:\mathbb{N}_n\longrightarrow X
     $$
 
-    We then write the cardinality as $X$=x.
+    We then write the cardinality as $|X|\coloneqq n$.
 
 <hr/>
 
 - Finite Set
 
-    A set is finite if it has cardinality $n$ for some integer $n>0$.
+    A set is finite if it has cardinality $n$ for some integer $n\ge 0$.
 
 <hr/>
 
@@ -40,36 +40,38 @@ For a positive integer $n$, we deinfe $\mathbb{N}_n\coloneqq \{1,2,\dots,n\}$
 
 - Lemma
 
-    If there exists an injection $f:\mathbb{N}_m\rightarrow \mathbb{n}_m$, then $m\le n$
+    If there exists an injection $f:\mathbb{N}_m\rightarrow \mathbb{N}_n$, then $m\le n$
 :::
 
-### Continue Lecture
+## Continue Lecture
 
-:::tip Uniqueness of finite cardinality 
+### Uniqueness of Finite Cardinality
+
+:::tip Uniqueness of Finite Cardinality
 
 Suppose
 
 $$
-f:\mathbb{N}_m\longrightarrow X\quad \text{ and }\quadg:\mathbb{N}_n\longrightarrow X
+f:\mathbb{N}_m\longrightarrow X\quad \text{ and }\quad g:\mathbb{N}_n\longrightarrow X
 $$
 
-is bijection, then $m=n$. 
+is a bijection, then $m=n$. 
 
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
 
-Since $f$ and $g$ are bijections, their inverse exists, so the map:
+Since $f$ and $g$ are bijections, their inverses exist, so the map:
 
 $$
 g^{-1}\circ f: \mathbb{N}_m\longrightarrow \mathbb{N}_n
 $$
-is injective, so the lemma(claude: gave a line to last page) gives $m\le n$. Similarly
+is injective, so the [Lemma](docs/Notes/Stony-Brook/MAT250/10-20-2026.mdx#finite-set-and-infinite-set) gives $m\le n$. Similarly
 
 $$
 f^{-1}\circ g: \mathbb{N}_n\longrightarrow \mathbb{N}_m
 $$
 
-is injective, so by the lemma (claude:), $n\le m$
+is injective, so by the [Lemma](docs/Notes/Stony-Brook/MAT250/10-20-2026.mdx#finite-set-and-infinite-set), $n\le m$
 
 Therefore, $m=n$.
 
@@ -84,6 +86,300 @@ Let $X$ and $Y$ be nonempty finite sets. If there exists an injection $X\rightar
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
 
+We write $|X|=m$ and $|Y|=n$, and choose bijection:
+
+$$
+g:\mathbb{N}_m\longrightarrow X,\qquad h:\mathbb{N}_n\longrightarrow Y
+$$
+
+Then, 
+
+$$
+h^{-1}\circ f\circ g:\mathbb{N}_m\longrightarrow \mathbb{N}_n
+$$
+is injective, and by the [Lemma](docs/Notes/Stony-Brook/MAT250/10-20-2026.mdx#finite-set-and-infinite-set), we get $m\le n$.
+
+<div style={{ textAlign: 'right' }}>
+  $\blacksquare$
+</div>
+
 </details>
+
+:::
+
+### The Pigeonhole Principle
+
+:::tip The Pigeonhole Principle
+
+Let $f:X\rightarrow Y$ be a function between nonempty finite sets. If
+$$
+|X|>|Y|
+$$
+then $f$ is not injective. Equivalently, there exist distinct elements $x_1,x_2\in X$ such that $f(x_1)=f(x_2)$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+This is the contrapositive of the previous lemma.
+
+<div style={{ textAlign: 'right' }}>
+  $\blacksquare$
+</div>
+
+</details>
+
+:::
+
+:::tip Theorem 
+
+Let $f:X\rightarrow Y$ be a function between nonempty finite sets; if 
+
+$$
+|X|<|Y|
+$$
+then $f$ is not surjective.
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+Missing proof, wait for office hours.
+
+</details>
+
+:::
+
+:::tip Corollary
+
+If $f:X\rightarrow Y$ is a surjection between finite sets, then:
+
+$$
+|Y|\le |X|
+$$
+
+:::
+
+## The Addition Principle
+
+:::tip Addition Principle
+
+If $X$ and $Y$ are disjoint finite sets, then $X\cup Y$ is finite and 
+
+$$
+|X\cup Y|=|X|+|Y|
+$$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+Let $|X|=n$ and $|Y|=m$, and choose bijection
+$$
+f:\mathbb{N}_n\longrightarrow X, \qquad g:\mathbb{N}_m\longrightarrow Y
+$$
+Define 
+$$
+h:\mathbb{N}_{n+m}\longrightarrow X\cup Y
+$$
+Now, we just need to show that $h$ is bijective, which is both surjective and injective. 
+
+- Surjective:
+    as notice that
+    $$
+    h(t)=\begin{cases}
+    f(t), &1\le t\le n\\
+    g(t-n), &n+1\le t\le n+m
+    \end{cases}
+    $$
+    Thus, $h$ is surjective because both $f$ and $g$ are surjective.
+- Injective: recall that for an injective function, given $x_1,x_2\in X$, if $f$ is injective and $f(x_1)=f(x_2)$, then $x_1=x_2$.
+    Similarly, suppose $h(i)=h(j)$ where $i,j\in \mathbb{N}_{n+m}$
+    - Case 1: If $i,j\le n$, then $h(i)=h(j)\implies f(i)=f(j)$, and the injectivity of $f$ gives $i=j$
+    - Case 2: If $i,j\ge n+1$, then $h(i)=h(j)\implies g(i-n)=g(j-n)$, and the injectivity of $g$ gives $i-n=j-n\implies i=j$
+    - Case 3: If one of the $i,j$ is at most $n$ and the other is greater than $n$, then assume $i\le n$ and $j> n $, we have $h(i)=f(i)\in X$ and $h(j)=g(j-n)\in Y$; since $X\cap Y= \emptyset$, this case cannot happen.
+    Thus, $h$ is injective.
+Therefore, $h$ is bijective, and according to the [definition of Cardinality](docs/Notes/Stony-Brook/MAT250/10-20-2026.mdx#cardinality):
+
+$$
+|X\cup Y|=n+m=|X|+|Y|\tag*{$\blacksquare$}
+$$
+</details>
+
+:::
+
+:::tip Theorem
+
+Let $X_1,\dots, X_n$ be pairwise disjoint finite sets, then $\cup_{i=1}^{n}X_i$ is finite, and:
+
+$$
+\left|\bigcup_{i=1}^{n}X_i \right|= \sum_{i=1}^{n}|X_i|
+$$
+
+:::
+
+## The Multiplication Principle
+
+::::tip Multiplication Principle
+
+If $X$ and $Y$ are finite sets, then their [Cartesian Product](docs/Notes/Stony-Brook/MAT250/9-29-2026.mdx#cartesian-product) $X\times Y$ is finite and $|X\times Y|=|X||Y|$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+If $X$ or $Y$ is empty, then $X\times Y$ is empty, and the result follows. 
+
+Otherwise, we write: 
+
+$$
+X=\{x_1,\dots,x_n\}
+$$
+
+Then from the [Proposition](docs/Notes/Stony-Brook/MAT250/10-1-2026.mdx#set-operations) we learned previously, 
+$$
+X\times Y=\big(\{x_1\}\times Y\big)\cup \dots\cup \big(\{x_n\}\times Y\big)
+$$
+These sets are pairwise disjoint, and each has $|Y|$ elements, therefore by [Addition Principle](#the-addition-principle)
+
+$$
+\begin{align*}
+|X\times Y|&=\sum_{i=1}^{n}\big|\{x_i \}\times Y \big|\\
+&=\underbrace{|Y|+\dots+|Y|}_{n \text{ terms}}\\
+&=n|Y|\\
+&= |X||Y| \tag*{$\blacksquare$}
+\end{align*} 
+$$
+
+</details>
+
+:::info Example
+
+Let 
+$$
+X=\{(x,y)\in \mathbb{N}_9\times\mathbb{N}_9\mid x\ne y \}
+$$
+
+The product $\mathbb{N}_9\times\mathbb{N}_9$ is the disjoint union of $X$ and the diagonal 
+
+$$
+\{(x,y)\in \mathbb{N}_9\times\mathbb{N}_9\mid x= y \}
+$$
+which has 9 elements, hence:
+$$
+81=|X|+9\implies |X|=72
+$$
+
+:::
+
+::::
+
+## Inclusion-Exclusion 
+
+### Inclusion-Exclusion for Two Sets
+
+:::tip Inclusion-Exclusion for Two Sets
+
+If $X$ and $Y$ are finite sets, then 
+
+$$
+|X\cup Y|=|X|+|Y|-|X\cap Y|
+$$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+Recall from the [Pairwise-Disjoint Decomposition](docs/Notes/Stony-Brook/MAT250/9-24-2026.mdx#set-proposition):
+
+$$
+X\cup Y= (X\setminus Y)\cup  (Y\setminus X)\cup (X\cap Y)
+$$
+
+Therefore, by the [Addition Principle](#the-addition-principle):
+
+$$
+|X\cup Y|= |X\setminus Y|+|Y\setminus X|+|X\cap Y|
+$$
+
+Also, because
+$$
+X=(X\setminus Y)\cup (X\cap Y)
+$$
+is a disjoint union, so 
+$$
+|X\setminus Y|= |X|-|X\cap Y|
+$$
+
+Similarly, we can have:
+
+$$
+|Y\setminus X|= |Y|-|X\cap Y|
+$$
+
+Plug in those back:
+
+$$
+\begin{align*}
+    |X\cup Y|&=\big( |X|-|X\cap Y|\big)+\big( |Y|-|X\cap Y|\big)+|X\cap Y|\\
+    &=|X|+|Y|-|X\cap Y| \tag*{$\blacksquare$}
+\end{align*}
+$$
+
+</details>
+
+:::
+
+### Inclusion-Exclusion for Three Sets
+
+:::tip Inclusion-Exclusion for Three Sets
+
+If $X,Y,Z$ are finite sets, then
+
+$$
+|X\cup Y\cup Z|=|X|+|Y|+|Z|-|X\cap Y|-|Y\cap Z|-|X\cap Z|+|X\cap Y\cap Z |
+$$
+
+:::
+
+## Finite Sets for the Real Numbers
+
+::::tip Maximum and Minimum Element
+
+Let $A\subseteq \mathbb{R}$. An element $b\in A$ is a **minimum element** of $A$, written $b=\operatorname{min}A$, if $b\le a$ for every $a\in A$
+
+An element $c\in A$ is a **maximum element** of $A$, written $c=\operatorname{max}A$, if $c\ge a$ for every $a\in A$
+
+:::info Example
+
+For 
+$$
+A=\{-1,17,12,-78,8 \}
+$$
+we have:
+
+$$
+\operatorname{min}A=-78\quad \text{and}\quad \operatorname{max}A=17
+$$
+
+:::
+
+:::danger Well-Ordering Principle
+
+Every nonempty set of positive integers has a minimum element. This is the **Well-Ordering Principle**, which is equivalent to the [Induction Principle](docs/Notes/Stony-Brook/MAT250/9-17-2026.mdx#mathematical-induction).
+
+:::
+
+:::info Example
+
+The set $\mathbb{R}_{>0}$ has neither a minimum nor maximum element. Given $a\in \mathbb{R}_{>0}$
+
+$$
+\frac{a}{2}\in \mathbb{R}_{>0}\quad \text{and}\quad \frac{a}{2}<a
+$$
+so $a$ cannot be a minimum. Similarly, $2a>a $, so $a$ cannot be a maximum.
+:::
+
+
+::::
+
+:::info Theorem
+
+Every nonempty finite subset of $\mathbb{R}$ has a minimum and maximum element.
 
 :::
