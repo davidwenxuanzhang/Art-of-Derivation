@@ -1,0 +1,174 @@
+---
+title: 10/28/2026 - Lecture 11
+sidebar_label: 10/28/2026
+sidebar_position: 12
+---
+
+## Review
+
+### Binomial Coefficient
+
+:::tip Binomial Coefficient
+
+Let $X$ be a set and $r$ a non-negative integer. An $r$-subset of $X$ is a subset $A\subseteq X$ with $|A|=r$, and we denote the set of all $r$-subsets by:
+
+$$
+\mathcal{P}_r(X)=\{A\subseteq X\mid |A|=r \}
+$$
+
+If $|X|=n$, then we define the **Binomial Coefficient** as:
+
+$$
+\binom{n}{r}\coloneqq \left|\mathcal{P}_r(X)\right|
+$$
+
+:::
+
+:::info Proposition
+
+For $0\le r\le n$,
+
+$$
+\binom{n}{r}=\frac{n!}{(n-r)!r!}
+$$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+
+
+</details>
+
+:::
+
+
+
+### Binomial Theorem
+
+::::tip Binomial Theorem
+
+For any $a,b\in \mathbb{R}$ and every positive integer $n\in \mathbb{N}$,
+
+$$
+(a+b)^n=\sum_{i=0}^{n}\binom{n}{i}a^{n-i}b^i
+$$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+
+
+</details>
+
+:::warning Example
+
+For $(x-3y)^5$, what is the coefficient of $x^2y^3$?
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+By the Binomial Theorem
+
+$$
+(x-3y)^5=\sum_{i=0}^{5}\binom{5}{i}x^{5-i}(-3y)^i
+$$
+
+The term containing $x^2y^3$ corresponds to $i=3$, and its coefficient is:
+
+$$
+\binom{5}{3}(-3)^3=10(-27)=-270
+$$
+
+</details>
+
+:::
+
+::::
+
+## Countably Infinite Sets
+
+### Equipotence and Denumerability
+
+::::tip Definitions
+
+1. Two sets $X$ and $Y$ are **Equipotent** if there exists a bijection $f:X\rightarrow Y$.
+
+
+2. A set $X$ is **Denumerable** or **Enumerable** if there exists a bijection $g:\mathbb{Z}^{+}\rightarrow X$.
+
+
+3. A set is **Countable** if it is finite or denumerable.
+
+
+4. A set is **Uncountable** if it is not countable.
+
+<hr/>
+
+A denumerable set is said to have cardinality $\aleph_0$, pronounced "Aleph-null", written $|X|= \aleph_0$. 
+
+If $f:\mathbb{Z}^{+}\rightarrow X$ is a bijection and $x_n=f(n)$, then the elements of $X$ can be listed as:
+
+$$
+X=\{x_1,x_2,\dots,x_n,\dots \}
+$$
+
+:::info Example for Denumerable Set
+
+1. The set $\mathbb{Z}^{+}$ is denumerable by the identity map, as it can also be listed as:
+
+$$
+\mathbb{Z}^{+}=\{1,2,\dots, n ,\dots\}
+$$
+
+<hr/>
+
+2. The set of non-negative integers $\mathbb{Z}_{\ge 0}$ is denumerable, as the map
+
+$$
+\mathbb{Z}^{+}\longrightarrow \mathbb{Z}_{\ge 0}, \qquad n\longmapsto n-1
+$$
+is a bijection, and it can be listed as:
+
+$$
+\mathbb{Z}_{\ge 0}=\{0,1,\dots,n-1,n,\dots \}
+$$
+
+<hr/>
+
+3. The set $\mathbb{Z}$ is denumerable, as the map
+
+$$
+\mathbb{Z}^{+}\longrightarrow \mathbb{Z},\qquad n\longmapsto\begin{cases}
+-\frac{n-1}{2}, &n\text{ is odd}\\
+\frac{n}{2} &n\text{ is even}
+\end{cases}
+$$
+
+is a bijection, and it can be listed as:
+
+$$
+\mathbb{Z}=\{0,1,-1,2,-2,\dots,n,-n,\dots\}
+$$
+
+:::
+
+:::danger Remark
+
+We have seen that there is a bijection between $\mathbb{Z}$ and one of its proper subsets $\mathbb{Z}^{+}$. A set $X$ is infinite if and only if it is equipotent to a proper subset of itself. 
+
+:::
+
+::::
+
+:::info Proposition
+
+Let $X$ be denumerable, then a set $Y$ is denumerable if and only if it is equipotent to $X$.
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+:::
+
+### Operations on Denumerable Sets
