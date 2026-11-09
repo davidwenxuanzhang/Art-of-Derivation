@@ -1,0 +1,177 @@
+---
+title: 11/4/2026 - Lecture 29
+sidebar_label: 11/4/2026
+sidebar_position: 30
+---
+
+## Lecture Overview
+
+Last time: Hypothesis testing
+- Hypothesis, models, distributions, and data
+- Comparing distributions: raincloud and quantile-quantile plots
+- Hypothesis tests: acceptance and rejection regions
+
+Today: Hypothesis tests
+- Errors: False positive and false negative
+- Error rates
+- Test Design
+
+## Hypothesis Tests
+ 
+:::info Rough idea of Hypothesis Tests
+
+- Hypothesis: $\theta=\theta_0$; we also call this $\mathbb{M}(\theta_0)$
+- Observed data: $m$
+
+- Target: $\mathbb{P}[a\le \mathbb{M}(\theta_0)\le b \mid C ],\quad m\in [a,b]$
+    In this situation, $[a,b]$ is called the acceptance region: we accept the hypothesis if our observed data land in this interval.
+    - This is the definition of a test
+    - If $m\in [a,b]$, we accept the hypothesis $\theta=\theta_0$
+    - If $m\notin [a,b]$, we reject the hypothesis:
+    $$
+    (-\infty ,a)\cup (b,\infty)\text{ is the rejection region}
+    $$
+Below is a better definition.
+
+:::
+
+::::tip Hypothesis Tests
+
+A **Hypothesis Test** is a rule that tells us whether to accept or reject the hypothesis
+- It will involve a test statistic, also known as the summary statistic of the data.
+- $\mathbb{M}(\theta_0)$ is a model for uncertainty in the test statistic.
+
+:::info Example
+
+Back to our guessing game example where the class of people randomly guess 10 T/F questions and count the number of correct guesses.
+- Test statistic: sample mean $m=\mathbb{X}$
+- Hypothesis: $\mu=5,\sigma^2=\frac{5}{2}, N=100\rightarrow \mathbb{M}(\theta_0)\rightarrow \mathbb{X}\sim \mathcal{N}\left(\mu_0,\frac{\sigma^2}{N}\right)=\mathcal{N}(5,0.025)$
+- Our test has the acceptance region $[4.6,5.2]$
+
+<figure style={{ margin: '0.75rem 0', textAlign: 'center' }}>
+<svg viewBox="0 0 300 160" width="100%" style={{ maxWidth: '360px', height: 'auto' }} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" role="img" aria-label="Normal distribution with the acceptance region shaded in the middle and the rejection region shaded in the two tails">
+<g stroke="none">
+<path d="M20,130 C55,130 75,70 110,55 L110,130 Z" fill="currentColor" fillOpacity="0.12"/>
+<path d="M190,55 C205,70 225,130 280,130 L190,130 Z" fill="currentColor" fillOpacity="0.12"/>
+<path d="M110,130 L110,55 C125,48 138,20 150,20 C162,20 175,48 190,55 L190,130 Z" fill="currentColor" fillOpacity="0.3"/>
+</g>
+<path d="M20,130 C55,130 75,70 110,55 C125,48 138,20 150,20 C162,20 175,48 190,55 C205,70 225,130 280,130"/>
+<line x1="10" y1="130" x2="290" y2="130" strokeOpacity="0.4"/>
+<line x1="110" y1="130" x2="110" y2="138" strokeOpacity="0.6"/>
+<line x1="190" y1="130" x2="190" y2="138" strokeOpacity="0.6"/>
+<line x1="150" y1="130" x2="150" y2="138" strokeOpacity="0.6"/>
+<g fill="currentColor" stroke="none" fontSize="10">
+<text x="110" y="150" textAnchor="middle">a = 4.6</text>
+<text x="150" y="150" textAnchor="middle">&#956; = 5</text>
+<text x="190" y="150" textAnchor="middle">b = 5.2</text>
+<text x="150" y="100" textAnchor="middle">accept</text>
+<text x="65" y="118" textAnchor="middle">reject</text>
+<text x="235" y="118" textAnchor="middle">reject</text>
+</g>
+</svg>
+</figure>
+
+:::
+
+::::
+
+### Error
+
+:::tip Error
+
+**Error** occurs when the test gives the wrong result, and there are two types of error:
+
+1. Accept the hypothesis when it is false (false positive)
+2. Reject the hypothesis when it is true (false negative)
+
+<div style={{ margin: '0.75rem 0', overflowX: 'auto' }}>
+<div style={{ display: 'grid', gridTemplateColumns: '120px repeat(2, minmax(100px, 1fr))', gridTemplateRows: 'repeat(3, 60px)', border: '1px solid var(--ifm-color-emphasis-300)', fontSize: '0.85rem', textAlign: 'center' }}>
+
+  <div style={{ position: 'relative', borderRight: '1px solid var(--ifm-color-emphasis-300)', borderBottom: '1px solid var(--ifm-color-emphasis-300)' }}>
+    <svg viewBox="0 0 120 60" width="100%" height="100%" style={{ position: 'absolute', inset: 0 }} fill="none" stroke="currentColor" strokeOpacity="0.4" strokeWidth="1">
+      <line x1="0" y1="0" x2="120" y2="60"/>
+    </svg>
+    <div style={{ position: 'absolute', left: '6px', bottom: '4px', fontSize: '0.7rem', opacity: 0.75 }}>Test Result</div>
+    <div style={{ position: 'absolute', right: '6px', top: '4px', fontSize: '0.7rem', opacity: 0.75 }}>Reality</div>
+  </div>
+  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', borderRight: '1px solid var(--ifm-color-emphasis-300)', borderBottom: '1px solid var(--ifm-color-emphasis-300)', fontWeight: 700 }}>Hypothesis True</div>
+  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', borderBottom: '1px solid var(--ifm-color-emphasis-300)', fontWeight: 700 }}>Hypothesis False</div>
+
+  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', borderRight: '1px solid var(--ifm-color-emphasis-300)', borderBottom: '1px solid var(--ifm-color-emphasis-300)', fontWeight: 700 }}>Reject</div>
+  <div style={{ borderRight: '1px solid var(--ifm-color-emphasis-300)', borderBottom: '1px solid var(--ifm-color-emphasis-300)' }}></div>
+  <div style={{ borderBottom: '1px solid var(--ifm-color-emphasis-300)' }}></div>
+
+  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', borderRight: '1px solid var(--ifm-color-emphasis-300)', fontWeight: 700 }}>Accept</div>
+  <div style={{ borderRight: '1px solid var(--ifm-color-emphasis-300)' }}></div>
+  <div></div>
+
+</div>
+</div>
+
+:::note Complementarity
+
+The complement is every column (office hours)
+
+
+:::
+
+### Quantifying Error
+
+:::tip Quantifying Error
+
+- False Negative:
+
+$$
+\begin{align*}
+
+\varepsilon_{-}&=\mathbb{P}[\text{reject }\theta=\theta_0\mid \theta=\theta_0\text{ is true} ]\\
+&=1-\mathbb{P}[\text{accept }\theta=\theta_0\mid \theta=\theta_0\text{ is true} ]\\
+&=1-\mathbb{P}[a\le \mathbb{M}(\theta_0)\le b\mid C]\\
+&=1-F[b\mid \mathbb{M}(\theta_0)]+F[a\mid \mathbb{M}(\theta_0)]
+\end{align*}
+$$
+
+
+- False Positive:
+
+$$
+\begin{align*}
+\varepsilon_{+}&=\mathbb{P}[\text{accept }\theta=\theta_0\mid \theta=\theta_0\text{ is false} ]\\
+&=\mathbb{P}[a\le \mathbb{M}(\theta_{\text{alt}})\le b\mid C]
+\end{align*}
+$$
+
+    Notice that here we use $\theta_{\text{alt}}$ instead of $\theta_0$ because our hypothesis is false, which means we need an alternative model.
+
+:::
+
+:::info Example
+
+Back to our guessing game where $\mu=5, N=100, \sigma^2=\frac{5}{2}$
+
+$$
+\mathbb{M}(\theta_0)\longrightarrow \mathbb{X}\sim \mathcal{N}\left(5,\frac{\frac{5}{2}}{100} \right)=\mathcal{N}(5,0.025)
+$$
+
+- Test: Acceptance region as $[4.75,5.25]$
+- False negative rate:
+    $$
+    \begin{align*}
+    \epsilon_{-}&=\mathbb{P}(\text{reject }\mu=5\mid \mu=5\text{ is true})\\
+    &= 1- \mathbb{P}[4.75\le \mathbb{X}\le 5.25\mid \mathbb{X}\sim \mathcal{N}(5,0.025)]\\
+    &=0.114
+    \end{align*}
+    $$
+- False positive rate: since $\mu=5$ is wrong, we use an alternative model
+    $$
+    \longrightarrow \mathbb{X}\sim \mathcal{N}(5.1,0.02)
+    $$
+    $$
+    \begin{align*}
+    \epsilon_{+}&=\mathbb{P}(\text{accept }\mu=5\mid \mu=5\text{ is wrong})\\
+    &=\mathbb{P}[4.75\le \mathbb{X}\le 5.25\mid \mathbb{X}\sim \mathcal{N}(5.1,0.02)]\\
+    &=0.414
+    \end{align*}
+    $$
+
+:::
