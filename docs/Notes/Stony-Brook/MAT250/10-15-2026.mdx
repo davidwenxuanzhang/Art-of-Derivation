@@ -10,13 +10,13 @@ sidebar_position: 8
 
 :::tip Sequences
 
-A function $f:\mathbb{Z}\rightarrow A$ is called a sequence in the set $A$.
+A function $f:\mathbb{Z}^{+}\rightarrow A$ is called a sequence in the set $A$.
 
 :::
 
-### Image
+### Intro about Image
 
-:::tip Image
+:::tip Intro about Image
 
 Let $f:X\rightarrow Y$. The **image** of $f$ is the subset of the codomain consisting of all values of $f$: 
 
@@ -50,7 +50,7 @@ The graph of $f:X\rightarrow Y$ is a particular subset of $X\times Y$, determine
 Given functions:
 
 $$
-f:X\longrightarrow Y,\qquad g:Y\rightarrow Z 
+f:X\longrightarrow Y,\qquad g:Y\longrightarrow Z
 $$
 
 the **composition** of $f$ and $g$ is: 
@@ -81,7 +81,7 @@ $$
 \end{align*}
 $$
 
-As $f\circ g \ne g\circ f$, the composition is not commutative in general. $\blacksquare$
+As $f\circ g \ne g\circ f$, the composition is not commutative in general.
 
 :::
 
@@ -115,24 +115,36 @@ $$
 
 ### Images and Preimages of Sets
 
+#### Image
+
 :::tip Image
 
-Let $f:X\rightarrow Y$, for $A\subseteq X$, the image of $A$ under $f$ is:
+Let $f:X\rightarrow Y$. For $A\subseteq X$, the image of $A$ under $f$ is:
 
 $$
-f(A)=\{x\in X\mid f(x)\in A\}\subseteq Y
+f(A)=\{f(x)\mid x\in A\}\subseteq Y
 $$
+Or in a more favorable form:
 
+$$
+y\in f(A)\iff \exists x\in A \text{ such that }f(x)=y
+$$
 :::
+
+#### Preimage
 
 :::tip Preimage
 
-Let $f:X\rightarrow Y$, for $B\subseteq Y$, the preimage of $B$ under $f$ is:
+Let $f:X\rightarrow Y$. For $B\subseteq Y$, the preimage of $B$ under $f$ is:
 
 $$
 f^{-1}(B)=\{x\in X\mid f(x)\in B \}\subseteq X
 $$
+Or in a more favorable form:
 
+$$
+x\in f^{-1}(B)\iff f(x)\in B
+$$
 :::
 
 :::danger Remark
@@ -143,7 +155,7 @@ $$
 
 :::
 
-:::info Proposition
+:::info Propositions
 
 Let $A, B\subseteq X$ and $C,D\subseteq Y$, then:
 
@@ -154,6 +166,38 @@ Let $A, B\subseteq X$ and $C,D\subseteq Y$, then:
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
 
+- $\subseteq$ direction: 
+
+    Take $y\in f(A\cup B)$, according to the definition of [image](#image):
+
+    $$
+    \begin{align*}
+        y\in f(A\cup B)
+        &\iff \exists x\in A\cup B,\ y=f(x)\\
+        &\iff \exists x\,[(x\in A\lor x\in B)\land y=f(x)]\\
+        &\iff (\exists a\in A,\ y=f(a))
+        \lor(\exists b\in B,\ y=f(b))\\
+        &\iff (y\in f(A))\lor(y\in f(B))\\
+        &\iff y\in f(A)\cup f(B)
+    \end{align*}
+    $$
+    Therefore, as $y\in f(A\cup B)\implies y\in f(A)\cup f(B)$
+    $$
+    f(A\cup B)\subseteq f(A)\cup f(B)
+    $$
+
+- $\supseteq$ direction:
+
+    Following the chain in the opposite direction, $y \in f(A)\cup f(B)\implies y\in f(A\cup B)$, so
+
+    $$
+    f(A)\cup f(B)\subseteq f(A\cup B)
+    $$
+Therefore:
+
+$$
+f(A\cup B)=f(A)\cup f(B) \tag*{$\blacksquare$}
+$$
 </details>
 <hr/>
 
@@ -163,6 +207,37 @@ Let $A, B\subseteq X$ and $C,D\subseteq Y$, then:
     $$
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
+
+- $\subseteq$ direction: 
+
+    Take $x\in f^{-1}(C\cup D)$, according to the definition of [preimage](#preimage):
+
+    $$
+    \begin{align*}
+        x\in f^{-1}(C\cup D)
+        &\iff  f(x)\in C\cup D\\
+        &\iff f(x)\in C \lor f(x)\in D\\
+        &\iff x\in f^{-1}(C)\lor x\in f^{-1}(D)\\
+        &\iff x\in f^{-1}(C)\cup f^{-1}(D)
+    \end{align*}
+    $$
+    Therefore, as $x\in f^{-1}(C\cup D)\implies x\in f^{-1}(C)\cup f^{-1}(D)$
+    $$
+    f^{-1}(C\cup D)\subseteq f^{-1}(C)\cup f^{-1}(D)
+    $$
+
+- $\supseteq$ direction:
+
+    Following the chain in the opposite direction, $x \in f^{-1}(C)\cup f^{-1}(D)\implies x\in f^{-1}(C\cup D)$, so
+
+    $$
+    f^{-1}(C)\cup f^{-1}(D)\subseteq f^{-1}(C\cup D)
+    $$
+Therefore:
+
+$$
+f^{-1}(C\cup D)= f^{-1}(C)\cup f^{-1}(D) \tag*{$\blacksquare$}
+$$
 
 </details>
 <hr/>
@@ -174,15 +249,64 @@ Let $A, B\subseteq X$ and $C,D\subseteq Y$, then:
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
 
+Take $y\in f(A\cap B)$, according to the definition of [image](#image):
+
+$$
+\begin{align*}
+        y\in f(A\cap B)
+        &\iff \exists x\in A\cap B,\ y=f(x)\\
+        &\iff \exists x\,[(x\in A\land x\in B)\land y=f(x)]\\
+        &\implies (\exists a\in A,\ y=f(a))
+        \land (\exists b\in B,\ y=f(b))\\
+        &\iff (y\in f(A))\land (y\in f(B))\\
+        &\iff y\in f(A)\cap f(B)
+\end{align*}
+$$
+Therefore, as $y\in f(A\cap B)\implies y\in f(A)\cap f(B)$
+$$
+    f(A\cap B)\subseteq f(A)\cap f(B) \tag*{$\blacksquare$}
+$$
+
 </details>
 <hr/>
 
 4. 
     $$
-    f^{-1}(C\cap D)\subseteq f^{-1}(C)\cap f^{-1}(D)
+    f^{-1}(C\cap D)= f^{-1}(C)\cap f^{-1}(D)
     $$
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
+
+- $\subseteq$ direction: 
+
+    Take $x\in f^{-1}(C\cap D)$, according to the definition of [preimage](#preimage):
+
+    $$
+    \begin{align*}
+        x\in f^{-1}(C\cap D)
+        &\iff  f(x)\in C\cap D\\
+        &\iff f(x)\in C \land f(x)\in D\\
+        &\iff x\in f^{-1}(C)\land x\in f^{-1}(D)\\
+        &\iff x\in f^{-1}(C)\cap f^{-1}(D)
+    \end{align*}
+    $$
+    Therefore, as $x\in f^{-1}(C\cap D)\implies x\in f^{-1}(C)\cap f^{-1}(D)$
+    $$
+    f^{-1}(C\cap D)\subseteq f^{-1}(C)\cap f^{-1}(D)
+    $$
+
+- $\supseteq$ direction:
+
+    Following the chain in the opposite direction, $x \in f^{-1}(C)\cap f^{-1}(D)\implies x\in f^{-1}(C\cap D)$, so
+
+    $$
+    f^{-1}(C)\cap f^{-1}(D)\subseteq f^{-1}(C\cap D)
+    $$
+Therefore:
+
+$$
+f^{-1}(C\cap D)= f^{-1}(C)\cap f^{-1}(D) \tag*{$\blacksquare$}
+$$
 
 </details>
 :::
@@ -199,7 +323,7 @@ $$
 for all $x_1,x_2\in X$, or, contrapositively
 
 $$
-f(x_1)\ne f(x_2) \implies x_1= x_2
+f(x_1)= f(x_2) \implies x_1= x_2
 $$
 
 :::danger Remark
@@ -221,7 +345,7 @@ is injective.
 Indeed, if $f(x_1)=f(x_2)$, then
 
 $$
-2x_1+1=2x_2+1\implies x_1=x_2 \tag*{$\blacksquare$}
+2x_1+1=2x_2+1\implies x_1=x_2
 $$
 :::
 
@@ -233,7 +357,7 @@ f(x)=x^2
 $$
 is not injective because
 $$
-f(-1)=f(1)=1\text{ while }1\ne -1 \tag*{$\blacksquare$}
+f(-1)=f(1)=1\text{ while }1\ne -1
 $$
 
 :::
@@ -245,7 +369,7 @@ $$
 ::::tip Surjective Functions
 A function $f:X\rightarrow Y$ is **surjective**, or **onto**, if every $y\in Y$ has at least one preimage under $f$. Equivalently,
 $$
-\forall y\in Y \exists x\in X\text{ such that }f(x)=y
+\forall y\in Y,\ \exists x\in X\text{ such that }f(x)=y
 $$
 
 :::danger Remark
@@ -273,7 +397,7 @@ $$
 then 
 
 $$
-f(x)=3\left(\frac{y-1}{3}\right)+1=y \tag*{$\blacksquare$}
+f(x)=3\left(\frac{y-1}{3}\right)+1=y
 $$
 :::
 
@@ -282,7 +406,7 @@ The function $f:\mathbb{R}\rightarrow \mathbb{R}$ defined by
 $$
 f(x)=x^2
 $$
-is not surjective, because, for example, $-1$ has no preimage because the equation $x^2=-1$ has no real solution. $\blacksquare$
+is not surjective. For example, $-1$ has no preimage, since the equation $x^2=-1$ has no real solution.
 
 :::
 
@@ -295,7 +419,7 @@ is not surjective, because, for example, $-1$ has no preimage because the equati
 A function $f:X\rightarrow Y$ is **bijective** if it is both injective and surjective. Equivalently:
 
 $$
-\forall y\in Y \exists !x\in X\text{ such that }f(x)=y
+\forall y\in Y,\ \exists !x\in X\text{ such that }f(x)=y
 $$
 Thus, a bijection gives a one-to-one correspondence between $X$ and $Y$.
 :::
