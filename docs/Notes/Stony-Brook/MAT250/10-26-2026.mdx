@@ -233,6 +233,28 @@ $$
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
 
+Consider the function 
+
+$$
+F:\mathcal{P}(X)\longrightarrow \operatorname{Fun}\{X,(0,1)\}
+$$
+$$
+F(A)=\chi_{A}
+$$
+$$
+\chi_{A}(x)=
+\begin{cases}
+0, &x\notin A\\
+1, &x\in A
+\end{cases}
+$$
+
+Therefore, $F$ is bijection, and by previous [Proposition](#counting-functions):
+
+$$
+|\mathcal{P}(X)|=|\operatorname{Fun}\{X,(0,1)\}|=2^{|X|}
+$$
+
 </details>
 
 :::
@@ -261,12 +283,38 @@ $$
 $$
     \binom{n}{r}=0
 $$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+
+Since $r>n$, there are no subset of $X$ with more than $n$ elements, therefore:
+
+$$
+r>n\implies \mathcal{P}_r(X)=\emptyset\implies \binom{n}{r}=0
+$$
+
+
+</details>
+
 <hr/>
 
 2. 
 $$
     \binom{n}{0}=1,\quad \binom{n}{1}=n,\quad \binom{n}{n}=1
 $$
+
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+- $\mathcal{P}_0(X)=\{\emptyset\}\implies \mathcal{P}_0(X)=|\mathcal{P}_0(X)|=1$ 
+- $\mathcal{P}_1(X)=\{\underbrace{x,x,\dots, x}_{n \ x\text{'s}}\}\implies \mathcal{P}_1(X)=|\mathcal{P}_1(X)|=n$
+- $\mathcal{P}_n(X)=\{X\}\implies \mathcal{P}_n(X)=|\mathcal{P}_n(X)|=1$
+
+
+</details>
+
 <hr/>
 
 3. For $0\le r\le n$:
@@ -275,6 +323,31 @@ $$
 $$
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
+
+Consider the function 
+
+$$
+f:\mathcal{P}_r(X)\longrightarrow \mathcal{P}_{n-r}(X),\quad A\longmapsto X\setminus A
+$$
+
+We want to prove that this is bijective. Construct its inverse function:
+
+$$
+g:\mathcal{P}_{n-r}(X)\longrightarrow\mathcal{P}_r(X),\quad X\setminus A\longmapsto A
+$$
+
+Then, the composition:
+
+$$
+(g\circ f)(A)=g(X\setminus A)=X\setminus (X\setminus A)=A=\operatorname{id}_{\mathcal{P}_X}
+$$
+Similarly, we can also ge $(f\circ g)(B)=B$, where $B=X\setminus A$
+
+Therefore, $f$ is bijective, and thus these two have same definition:
+
+$$
+|\mathcal{P}_r(X)|=|\mathcal{P}_{n-r}(X)|\implies \binom{n}{r}=\binom{n}{n-r}
+$$
 
 </details>
 
@@ -293,6 +366,12 @@ $$
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
 
+Let $x$ be a finite set with $|X|=n$, then:
+
+$$
+2^{n}=|\mathcal{P}(X)|=\left|\bigcup_{r=0}^{n}\mathcal{P}_r{(X)} \right|=\sum_{r=0}^n\left|\mathcal{P}_r{(X)}\right|=\sum_{r=0}^n\binom{n}{r}
+$$
+
 </details>
 
 :::
@@ -306,6 +385,35 @@ $$
 
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
+
+Let $X$ be a non-empty set with $|X|=n$ and $x_1\in X$, consider
+
+$$
+A\in \mathcal{P}_r(X)\implies A \subseteq X \text{and} |A|=r
+$$
+
+We can divide $x$ into two parts:
+- $x_1\in A$
+- $x_1\notin A$
+Then, contruct the function
+
+$$
+F:\mathcal{P}_r(X)\longrightarrow \mathcal{P}_{r-1}(X\setminus \{x_1\})\cup\mathcal{P}_{r}(X\setminus \{x_1\}) 
+$$
+$$
+F(A)=\begin{cases}
+A\setminus \{x_1\}&\text{if }x_1\in A\\
+A&\text{if }x_1\notin A
+\end{cases}
+$$
+
+This is bijective, as you can contruct another function $G$ that is inverse of $F$ and find the identity function.
+
+As $\mathcal{P}_{r-1}(X\setminus \{x_1\})$ and $\mathcal{P}_{r}(X\setminus \{x_1\})$ are also disjoint sets,
+
+$$
+|\mathcal{P}_r(X)|= |\mathcal{P}_{r-1}(X\setminus \{x_1\})|+|\mathcal{P}_{r}(X\setminus \{x_1\})|\implies \binom{n}{r}=\binom{n-1}{r-1}+\binom{n-1}{r}
+$$
 
 </details>
 
