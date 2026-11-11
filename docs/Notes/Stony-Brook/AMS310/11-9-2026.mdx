@@ -4,3 +4,154 @@ sidebar_label: 11/9/2026
 sidebar_position: 32
 ---
 
+## Lecture Overview
+
+Last time: Test Design
+
+Today: 
+
+- Experimental design and detectability (briefly)
+- Interpret one-sided hypotheses in terms of two-sided hypotheses
+- Specialization for common sampling situations: $z$ test, $t$ test, $\chi^2$ test
+- Statistical significance testing
+    - p-value and extreme data!
+    - meta-hypothesis test
+
+## Experimental Design
+
+<div style={{ display: 'flex', justifyContent: 'center' }}>
+
+| Hypothesis | Acceptance Region |
+| :---: | :---: |
+| $\theta=\theta_0$ | $\big[Q[\frac{\varepsilon_{-}}{2}\mid \mathbb{M}(\theta_0)],\ Q[1-\frac{\varepsilon_{-}}{2}\mid \mathbb{M}(\theta_0)]\big]$ |
+| $\theta<\theta_0$ | $\big(-\infty,\ Q[\varepsilon_{-}\mid \mathbb{M}(\theta_0)]\big]$ |
+| $\theta>\theta_0$ | $\big[Q[1-\varepsilon_{-}\mid \mathbb{M}(\theta_0)],\ \infty\big)$ |
+
+</div>
+
+1. Observed test statistic $m$
+2. False negative rate $\varepsilon_{-}$
+3. If sampling, the sample size $N$
+
+::::tip Experimental Design
+
+Can we constrain the experimental parameters to obtain particular objectives? 
+
+Consider the sample mean as the test statistic:
+
+$$
+\text{large sample},\ \sigma^2\text{ known}\implies \mathbb{X}\sim \mathcal{N}\left( \mu_0,\frac{\sigma^2}{N}\right)
+$$
+
+For a fixed false negative rate $\varepsilon_{-}$, the acceptance region is:
+
+$$
+\left[\mu_0-z_{\frac{\varepsilon_{-}}{2}}\frac{\sigma}{{\sqrt{N}}},\mu_0+z_{\frac{\varepsilon_{-}}{2}}\frac{\sigma}{{\sqrt{N}}} \right]
+$$
+
+If we want $\bar{x}$ to be detectable, that is: 
+
+$$
+\bar{x}<\mu_0-z_{\frac{\varepsilon_{-}}{2}}\frac{\sigma}{{\sqrt{N}}} \text{ or } \bar{x}>\mu_0+z_{\frac{\varepsilon_{-}}{2}}\frac{\sigma}{{\sqrt{N}}}
+$$
+then the sample size must satisfy:
+$$
+|\bar{x}-\mu_0|>z_{\frac{\varepsilon_{-}}{2}}\frac{\sigma}{{\sqrt{N}}}\implies \sqrt{N}> \frac{\sigma z_{\frac{\varepsilon_{-}}{2}}}{|\bar{x}-\mu_0|}\implies N>\left(\frac{\sigma z_{\frac{\varepsilon_{-}}{2}}}{|\bar{x}-\mu_0|}\right)^2
+$$
+
+:::warning Example
+
+For IQ, the population mean is $\mu=100$ and the population standard deviation is $\sigma=15$. Suppose we want our test to detect $\bar{x}=105$; what is $N$? Suppose $\varepsilon_{-}=0.01$, then $z_{0.005}=2.57$:
+
+$$
+N> \left(\frac{15(2.57)}{5} \right)^2=59.4
+$$
+
+Therefore, the minimum sample size is $N=60$.
+
+:::
+
+::::
+
+## Boundary of Acceptance and Rejection
+
+Consider the question: when does $m$ cross from the acceptance region to the rejection region?
+
+### Two-sided Scenario
+
+$$
+\theta=\theta_0,\qquad m<\text{median of }\mathbb{M}(\theta_0): m<Q[\frac{1}{2}\mid \mathbb{M}(\theta_0)]
+$$
+$$
+m=Q[\frac{\varepsilon_{-}}{2}\mid \mathbb{M}(\theta_0)]\implies \frac{\varepsilon_{-}}{2}=F[m\mid \mathbb{M}(\theta_0)]
+$$
+$$
+p=\varepsilon_{-}=2F[m\mid \mathbb{M}(\theta_0)]
+$$
+
+This value $p$ is called the $p$-value.
+
+Similarly, if
+
+$$
+m>\text{median of }\mathbb{M}(\theta_0): m>Q[\frac{1}{2}\mid \mathbb{M}(\theta_0)]
+$$
+$$
+m=Q[1-\frac{\varepsilon_{-}}{2}\mid \mathbb{M}(\theta_0)]\implies 1-\frac{\varepsilon_{-}}{2}=F[m\mid \mathbb{M}(\theta_0)]
+$$
+$$
+\begin{align*}
+p=\varepsilon_{-}&=2(1-F[m\mid \mathbb{M}(\theta_0)])\\
+&=2S[m\mid \mathbb{M}(\theta_0)]
+\end{align*}
+$$
+
+Combining these two:
+
+$$
+p=2\operatorname{min}\{F[m\mid \mathbb{M}(\theta_0)],S[m\mid \mathbb{M}(\theta_0)] \}
+$$
+
+### One-sided Scenario
+
+- $\theta<\theta_0$
+    $$
+    m=Q[\varepsilon_{-}\mid \mathbb{M}{(\theta_0)}]
+    $$
+    $$
+    p=\varepsilon_{-}=F[m\mid \mathbb{M}(\theta_0)]
+    $$
+- $\theta>\theta_0$
+    $$
+    m=Q[1-\varepsilon_{-}\mid \mathbb{M}{(\theta_0)}]
+    $$
+    $$
+    p=\varepsilon_{-}=1- F[m\mid \mathbb{M}(\theta_0)]=S[m\mid \mathbb{M}(\theta_0)]
+    $$
+
+:::danger Remark
+
+The $p$-value is the probability of observing something at least as extreme as our data if we repeat the experiment, assuming the hypothesis is true.
+
+:::
+
+## Statistical Significance Test
+
+:::tip Statistical Significance Test
+
+- Test statistic: $p$-value
+    - High $p$: data consistent with the hypothesis
+    - Low $p$: data inconsistent with the hypothesis
+
+- Meta-hypothesis: the data are consistent with the original hypothesis.
+    - Acceptance region: $(\alpha,1]$
+    - Rejection region: $[0,\alpha)$
+
+Typically, $\alpha=0.05$, and
+
+- $p<0.05$: the result is statistically significant
+- $p>0.05$: the result is not statistically significant
+
+
+
+:::
