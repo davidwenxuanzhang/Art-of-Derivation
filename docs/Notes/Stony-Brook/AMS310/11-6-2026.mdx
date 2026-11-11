@@ -6,41 +6,131 @@ sidebar_position: 31
 
 ## Lecture Overview
 
-Last time: Hypothesis tests
+Last time: Hypothesis Tests
 
 - Errors: false positive and false negative
 - Error rates
 
 Today: Test Design
 
-- Set an error (false negative) rate and derive an accept region
-- Interpret one-sided hypothesis in terms of two-sided hypothesis
-- Specialization for common sampling situation: $z$ test, $t$ text, $\chi^{2}$ test
+- Set an error (false negative) rate and derive an acceptance region
+- Interpret one-sided hypotheses in terms of two-sided hypotheses
+- Specialization for common sampling situations: $z$ test, $t$ test, $\chi^{2}$ test
 
 ## Acceptance Interval
 
-Set up: suppose $\mathbb{M}(\theta_0) $ is the model for test statistics with a two-sided hypothesis $\theta=\theta_0$, and we saquire our data abd observe a test statistics $m$.
+Setup: suppose $\mathbb{M}(\theta_0)$ is the model for the test statistic under a two-sided hypothesis $\theta=\theta_0$, and we acquire our data and observe a test statistic $m$.
 
 :::danger Goal
 
-Here, we want to determine a interval $\[a,b\]$ such that the probability of observing a false negative is $\varepsilon_{-}$, and this false negative rate varies based on our goal.
+Here, we want to determine an interval $[a,b]$ such that the probability of a false negative is $\varepsilon_{-}$, where the false negative rate $\varepsilon_{-}$ is chosen based on our goal.
 
 :::
 
-Recall that from quantifying error, a [False Negative](claude: give a link) rate is:
-(claude fix the code below)
+Recall from [Quantifying Error](./11-4-2026.mdx#quantifying-error) that the false negative rate is:
+
 $$
 \begin{align*}
-    \varepsilon_{-}&=\mathbb{P}\[\text[reject ]\theta=\theta_0\mid \theta=\theta_0\text{ is true} ]\\
-    &=1-\mathbb{P}\[\text{accept } \theta=\theta_0\mid \theta=\theta_0\text{ is true} \]\\
-    &=1-\mathbb{P}\[a\le \mathbb{M}(\theta_0)\le b\mid C \]
+    \varepsilon_{-}&=\mathbb{P}[\text{reject }\theta=\theta_0\mid \theta=\theta_0\text{ is true} ]\\
+    &=1-\mathbb{P}[\text{accept } \theta=\theta_0\mid \theta=\theta_0\text{ is true} ]\\
+    &=1-\mathbb{P}[a\le \mathbb{M}(\theta_0)\le b\mid C ]
 \end{align*}
 $$
 
-We want to determine $a$ and $b$ as function, and we want to put $\varepsilon_{-}$ equally both left and right
+We want to determine $a$ and $b$ as functions of $\varepsilon_{-}$, splitting $\varepsilon_{-}$ equally between the left and right tails.
 
 :::danger Remark
 
-Putting $\varepsilon_{-}$ equally both left and right is just a most accessable approach; there are other methods, but we will not discuss here. 
+Splitting $\varepsilon_{-}$ equally between the left and right tails is just the most accessible approach; there are other methods, but we will not discuss them here.
 
-;::
+:::
+
+$$
+\begin{align*}
+\frac{\varepsilon_{-}}{2}&=\mathbb{P}[\mathbb{M}(\theta_0)\le a\mid C]=F[a\mid \mathbb{M}(\theta_0)]\\
+&\implies a=Q\left[\frac{\varepsilon_{-}}{2}\mid \mathbb{M}(\theta_0)\right]\\[6pt]
+\frac{\varepsilon_{-}}{2}&=\mathbb{P}[\mathbb{M}(\theta_0)\ge b\mid C]=1-F[b\mid \mathbb{M}(\theta_0)]\\
+&\implies b=Q\left[1-\frac{\varepsilon_{-}}{2}\mid \mathbb{M}(\theta_0)\right]
+\end{align*}
+$$
+
+:::info Example
+
+The test statistic is the sample mean and the random sample is sufficiently large to invoke the Central Limit Theorem.
+
+- Hypothesis: $\mu=\mu_0$, assume $\sigma^2$ is known, and
+
+$$
+\mathbb{M}(\mu_0)\longrightarrow \mathbb{X}\sim \mathcal{N}\left(\mu_0,\frac{\sigma^2}{N}\right)
+$$
+
+- Fix $\varepsilon_{-}$; the acceptance region for our test is $[a(\varepsilon_{-}), b(\varepsilon_{-})]$
+
+$$
+\begin{align*}
+    a&=Q\left[\frac{\varepsilon_{-}}{2}\mid \mathcal{N}\left(\mu_0,\frac{\sigma^2}{N}\right) \right]=\mu_0-z_{\frac{\varepsilon_{-}}{2}}\frac{\sigma }{\sqrt{N}}\\
+    b&=Q\left[1-\frac{\varepsilon_{-}}{2}\mid \mathcal{N}\left(\mu_0,\frac{\sigma^2}{N}\right) \right]=\mu_0+z_{\frac{\varepsilon_{-}}{2}}\frac{\sigma }{\sqrt{N}}
+\end{align*}
+$$
+
+This is also called a $z$ test. 
+
+:::
+
+:::tip Quantitative Example
+
+IQ has a population mean $\mu=100$ and $\sigma^2=225$. If 30 people have their IQ measured, producing a sample mean of $\bar{x}=110$, are these 30 people representative of humanity?
+
+- Hypothesis: $\mu=100$
+
+    $$
+    \mathbb{X}\sim \mathcal{N}\left(100,\frac{225}{30} \right)
+    $$
+
+- Tolerance of error: $\varepsilon_{-}=0.1$
+
+- Acceptance region:
+
+    $$
+    \mu_0 \pm z_{\frac{\varepsilon_{-}}{2}}\frac{\sigma}{\sqrt{N}}=100\pm 1.65 \sqrt{\frac{225}{30}}=[95.48, 104.52]
+    $$
+
+    Or
+
+    $$
+    \begin{align*}
+    a&=Q\left[\frac{\varepsilon_{-}}{2}\mid \mathcal{N}\left(\mu_0,\frac{\sigma^2}{N}\right) \right]= Q\left[\frac{0.1}{2}\mid \mathcal{N}\left(100,\frac{225}{30}\right) \right]=95.48\\
+    b&=Q\left[1-\frac{\varepsilon_{-}}{2}\mid \mathcal{N}\left(\mu_0,\frac{\sigma^2}{N}\right) \right]=
+    Q\left[1-\frac{0.1}{2}\mid \mathcal{N}\left(100,\frac{225}{30}\right) \right]=104.52
+    \end{align*}
+    $$
+
+:::
+
+## One-sided Test
+
+One-sided hypothesis: $\theta<\theta_0 \quad\text{or}\quad \theta>\theta_0$
+
+For $\theta<\theta_0$:
+
+$$
+\text{Acceptance}: (-\infty,a]\qquad \text{Rejection}: (a,\infty)
+$$
+
+Although $\theta=\theta_0$ is no longer the hypothesis being tested, we can still use the model $\mathbb{M}(\theta_0)$ when doing a one-sided test.
+
+True positive for $\theta<\theta_0$:
+
+$$
+\begin{align*}
+    &\mathbb{P}(\text{accept }\theta<\theta_0\mid \theta<\theta_0\text{ is true})\\
+    =&\mathbb{P}(\text{reject }\theta=\theta_0 \text{ to the left}\mid \theta=\theta_0 \text{ is true})\\
+    =&\varepsilon_{-}\\
+    =&\mathbb{P}[\mathbb{M}(\theta_0)< a \mid C]\\
+    =&F[a\mid \mathbb{M}(\theta_0)]\\
+    \implies &a=Q[\varepsilon_{-}\mid \mathbb{M}(\theta_0)]
+\end{align*}
+$$
+
+- For $\theta<\theta_0$: the acceptance region is $(-\infty , Q[\varepsilon_{-}\mid \mathbb{M}(\theta_0)]]$
+- For $\theta>\theta_0$: the acceptance region is $[Q[1-\varepsilon_{-}\mid \mathbb{M}(\theta_0)],\infty)$
