@@ -1,0 +1,46 @@
+---
+title: 11/6/2026 - Lecture 30
+sidebar_label: 11/6/2026
+sidebar_position: 31
+---
+
+## Lecture Overview
+
+Last time: Hypothesis tests
+
+- Errors: false positive and false negative
+- Error rates
+
+Today: Test Design
+
+- Set an error (false negative) rate and derive an accept region
+- Interpret one-sided hypothesis in terms of two-sided hypothesis
+- Specialization for common sampling situation: $z$ test, $t$ text, $\chi^{2}$ test
+
+## Acceptance Interval
+
+Set up: suppose $\mathbb{M}(\theta_0) $ is the model for test statistics with a two-sided hypothesis $\theta=\theta_0$, and we saquire our data abd observe a test statistics $m$.
+
+:::danger Goal
+
+Here, we want to determine a interval $\[a,b\]$ such that the probability of observing a false negative is $\varepsilon_{-}$, and this false negative rate varies based on our goal.
+
+:::
+
+Recall that from quantifying error, a [False Negative](claude: give a link) rate is:
+(claude fix the code below)
+$$
+\begin{align*}
+    \varepsilon_{-}&=\mathbb{P}\[\text[reject ]\theta=\theta_0\mid \theta=\theta_0\text{ is true} ]\\
+    &=1-\mathbb{P}\[\text{accept } \theta=\theta_0\mid \theta=\theta_0\text{ is true} \]\\
+    &=1-\mathbb{P}\[a\le \mathbb{M}(\theta_0)\le b\mid C \]
+\end{align*}
+$$
+
+We want to determine $a$ and $b$ as function, and we want to put $\varepsilon_{-}$ equally both left and right
+
+:::danger Remark
+
+Putting $\varepsilon_{-}$ equally both left and right is just a most accessable approach; there are other methods, but we will not discuss here. 
+
+;::
