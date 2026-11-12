@@ -98,19 +98,21 @@ Back to our guessing game example where the class of people randomly guess 10 T/
   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', borderBottom: '1px solid var(--ifm-color-emphasis-300)', fontWeight: 700 }}>Hypothesis False</div>
 
   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', borderRight: '1px solid var(--ifm-color-emphasis-300)', borderBottom: '1px solid var(--ifm-color-emphasis-300)', fontWeight: 700 }}>Reject</div>
-  <div style={{ borderRight: '1px solid var(--ifm-color-emphasis-300)', borderBottom: '1px solid var(--ifm-color-emphasis-300)' }}></div>
-  <div style={{ borderBottom: '1px solid var(--ifm-color-emphasis-300)' }}></div>
+  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', borderRight: '1px solid var(--ifm-color-emphasis-300)', borderBottom: '1px solid var(--ifm-color-emphasis-300)' }}>False Negative</div>
+  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', borderBottom: '1px solid var(--ifm-color-emphasis-300)' }}>True Negative (Specificity)</div>
 
   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', borderRight: '1px solid var(--ifm-color-emphasis-300)', fontWeight: 700 }}>Accept</div>
-  <div style={{ borderRight: '1px solid var(--ifm-color-emphasis-300)' }}></div>
-  <div></div>
+  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', borderRight: '1px solid var(--ifm-color-emphasis-300)' }}>True Positive (Sensitivity)</div>
+  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>False Positive</div>
 
 </div>
 </div>
 
-:::note Complementarity
+:::note Explanation
 
-The complement is every column (office hours)
+- A result is "false" when there is a contradiction between reality and the test result.
+- We map the test result "reject" to "negative", and "accept" to "positive".
+- The complement is every column
 
 
 :::
