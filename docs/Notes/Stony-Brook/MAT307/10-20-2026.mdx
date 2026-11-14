@@ -8,9 +8,9 @@ sidebar_position: 15
 
 ::::tip General Hessian Criterion
 
-For a function $f: \mathbb{R}^n\rightarrow \mathbb{R}$, we take $p\in \mathbb{R}^n$ such that $\nabla {f(p)}=0$, and this is the necessary condition for being local max/min.
+For a function $f: \mathbb{R}^n\rightarrow \mathbb{R}$, we take $p\in \mathbb{R}^n$ such that $\nabla {f(p)}=0$, and this is a necessary condition for being a local max/min.
 
-At any point in $\mathbb{R}^n$ you can construct a Hessian Matrix, as:
+At any point in $\mathbb{R}^n$, we can construct the Hessian matrix:
 
 $$
 \operatorname{Hess}(f)(p)=
@@ -20,50 +20,49 @@ $$
 \partial_{x_1}\partial_{x_n}f(p) & \cdots & \partial_{x_n}^2 f(p)
 \end{bmatrix}
 $$
-We can look at $\mathbf{d}=(d_1,d_2,\dots,d_n)$, where $d_i$ is called **Leading Principle Minors** that gives the determinant of top-left matrix with $i$ row/column.
+We can look at $\mathbf{d}=(d_1,d_2,\dots,d_n)$, where $d_i$, called the $i$-th **leading principal minor**, is the determinant of the top-left $i\times i$ submatrix.
 
 $$
-d_1=\partial_{x_1}^{2}f(p)\qquad d_2=\operatorname{det}
+d_1=\partial_{x_1}^{2}f(p)\qquad d_2=\det
 \begin{bmatrix}
 \partial_{x_1}^2 f(p) & \partial_{x_1}\partial_{x_2}f(p)\\
 \partial_{x_2}\partial_{x_1}f(p) & \partial_{x_2}^2 f(p)
 \end{bmatrix}
-
 $$
 
 $$
-d_i=\operatorname{det}\begin{bmatrix}
+d_i=\det\begin{bmatrix}
 \partial_{x_1}^2 f(p) & \cdots & \partial_{x_i}\partial_{x_1}f(p)\\
 \vdots & \ddots & \vdots\\
 \partial_{x_1}\partial_{x_i}f(p) & \cdots & \partial_{x_i}^2 f(p)
 \end{bmatrix}
 $$
 
--  If $d_i>0$ for any $i$, then $p$ is a local minimum
+-  If $d_i>0$ for all $i$, then $p$ is a local minimum.
 
--  If $d_1<0, d_2>0,\dots,d_n $ has opposite sign with respect to $d_{n-1}$ for any $i$, then $p$ is a local maximum 
+-  If the signs alternate starting with $d_1<0$, that is, $d_1<0,\ d_2>0,\ d_3<0,\dots$ (equivalently $(-1)^i d_i>0$ for all $i$), then $p$ is a local maximum.
 
--  If $d_n\ne 0$ and neither the above hold, then $p$ is a saddle point.
--  If $d_n=0$, then the Hessian Criterion is inconclusive
+-  If $d_n\ne 0$ and neither of the above holds, then $p$ is a saddle point.
+-  If $d_n=0$, then the Hessian criterion is inconclusive.
 
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
 
-The $3$ conditions above control the sign of the degree $2$ polynomial:
+Since $\nabla f(p)=0$, the first-order terms of the Taylor expansion vanish, and the conditions above control the sign of the degree $2$ polynomial:
 
 $$
-T_f^{(2)} (p)(\varepsilon_1,\dots,\varepsilon_n)-f(p)=\sum_{i,j}\partial_{x_i}\partial_{x_j}f(p)\varepsilon_i \varepsilon_j
+T_f^{(2)} (p)(\varepsilon_1,\dots,\varepsilon_n)-f(p)=\frac{1}{2}\sum_{i,j}\partial_{x_i}\partial_{x_j}f(p)\varepsilon_i \varepsilon_j
 $$
 
 </details>
 
-:::info Example
+:::warning Example
 Given a function, we are looking for its local extrema:
 $$
 f(x,y,z)=x^2+y^2+z^2+xy+yz
 $$
 
-Find the critical point:
+Find the critical points:
 $$
 \nabla f(x,y,z)=(2x+y,x+2y+z,2z+y)=0\iff (x,y,z)=(0,0,0)
 $$
@@ -78,32 +77,32 @@ $$
 $$
 Use the General Hessian Criterion:
 $$
-d_1=2\qquad d_2=\operatorname{det} 
+d_1=2\qquad d_2=\det
 \begin{bmatrix}
 2 & 1\\
 1 & 2
 \end{bmatrix}
-= 4 - 1 = 3 
+= 4 - 1 = 3
 $$
 
 $$
 \begin{align*}
-d_3 = \operatorname{det}  \begin{bmatrix}
+d_3 = \det\begin{bmatrix}
 2 & 1 & 0\\
 1 & 2 & 1\\
 0 & 1 & 2
 \end{bmatrix}
-&= 2\operatorname{det} 
+&= 2\det
 \begin{bmatrix}
 2 & 1\\
 1 & 2
 \end{bmatrix}
-- 1\operatorname{det} 
+- 1\det
 \begin{bmatrix}
 1 & 1\\
 0 & 2
 \end{bmatrix}
-- 0\\
++ 0\\
 &=2\cdot 3-1\cdot 2=4
 \end{align*}
 $$
@@ -111,25 +110,23 @@ $$
 \mathbf{d}=(2,3,4)\implies d_i \text{'s are positive}
 $$
 
-$\implies (0,0,0)$ is a local minimum (in this case is also global minimum).
+$\implies (0,0,0)$ is a local minimum (in this case, it is also the global minimum).
 
 :::
 
 :::danger Remark
 
-Why Hessian Test is inconclusive if $d_n=0$
+Why is the Hessian test inconclusive if $d_n=0$?
 
-Morally, if $d_n=0$, then the sign of $f(x)-f(p)$ is not controlled by $\sum_{i,j}\partial_{x_i}\partial_{x_j}f(p)\varepsilon_i \varepsilon_j$
+Morally, if $d_n=0$, then the sign of $f(x)-f(p)$ is not controlled by $\sum_{i,j}\partial_{x_i}\partial_{x_j}f(p)\varepsilon_i \varepsilon_j$.
 
-:::info Example
-
-$$
-f(x,y,z)=x^2+y^2+xy+z\implies d_3=0 \text{ and } (0,0,0)\text{ is a local min}
-$$
-
+:::warning Example
 
 $$
-g(x,y,z)=x^2+y^2+xy-z\implies d_3=0 \text{ and } (0,0,0)\text{ is not a local min}
+\begin{align*}
+f(x,y,z)&=x^2+y^2+xy+z^4\implies d_3=0 \text{ and } (0,0,0)\text{ is a local min}\\
+g(x,y,z)&=x^2+y^2+xy-z^4\implies d_3=0 \text{ and } (0,0,0)\text{ is not a local min}
+\end{align*}
 $$
 
 :::
@@ -138,7 +135,7 @@ $$
 
 :::warning Exercise
 
-If $d_n\ne 0 $ and $p$ is a local minimum, then $\partial_{x_i}^2f(P)\ge 0$ for all $i$.
+If $d_n\ne 0$ and $p$ is a local minimum, then $\partial_{x_i}^2f(p)\ge 0$ for all $i$.
 
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
@@ -147,7 +144,7 @@ If $d_n\ne 0 $ and $p$ is a local minimum, then $\partial_{x_i}^2f(P)\ge 0$ for 
 
 <hr/>
 
-Its inverse is not true.
+Its converse, that if $\partial_{x_i}^2f(p)\ge 0$ for all $i$, then $d_n\ne 0$ and $p$ is a local minimum, is not true.
 
 <details>
 <summary><span className="math-keyword">Derivation</span></summary>
@@ -158,44 +155,95 @@ Its inverse is not true.
 
 ## Considered Domain
 
-So far we always supposed that $f:\mathbb{R}^n\rightarrow \mathbb{R}$ was defined over some open $D$.
+So far, we have always supposed that $f:\mathbb{R}^n\rightarrow \mathbb{R}$ was defined over some open set $D$.
 
-More precisely, we are only looking for min/max over an **open subset** $D\subseteq \mathbb{R}^n$
+More precisely, we are only looking for min/max over an **open subset** $D\subseteq \mathbb{R}^n$.
 
 ::::tip Open Set 
 
-$D\subseteq \mathbb{R}^n$ is open if for every point $p\in D$ there is a small ball $B_p(\varepsilon)=\{x\in\mathbb{R}^n\|x-p \|<\varepsilon  \}\subseteq D$ for $\varepsilon > 0$
+$D\subseteq \mathbb{R}^n$ is open if for every point $p\in D$ there is a small ball $B_p(\varepsilon)=\{x\in\mathbb{R}^n: \|x-p \|<\varepsilon  \}\subseteq D$ for some $\varepsilon > 0$.
 
-:::info Non-Example
+:::warning Non-Example
+
+$$
+B_1=\{ (x,y,z) \text{ such that } x^2+y^2+z^2\le 1  \}
+$$
+
+is not open, because if $p\in B_1$ with $\|p\|=1$, then there is no $B_p(\varepsilon)\subseteq B_1$.
 
 :::
 
-:::info Example
+:::warning Example
+
+$$
+B_1=\{ (x,y,z) \text{ such that } x^2+y^2+z^2< 1  \}
+$$
+
+is open.
+
+In practice, we are often interested in finding the min/max of a function over a domain that is not open, where we cannot just use derivatives to find local extrema.
 
 :::
 
 ::::
+
+### Case 0
+
+:::warning Case 0
+
+The domain is of the form $D=\{g=0 \}$ for some function $g: \mathbb{R}^n\rightarrow \mathbb{R}$; in other words, given $f:\mathbb{R}^n\rightarrow \mathbb{R}$, we want to find the min/max of $f$ along a level set of $g$. For example, if
+
+$$
+g(x,y,z)=x^2+y^2+z^2-1
+$$
+
+we need to look for the min/max of $f$ along the unit sphere.
+
+:::
 
 :::danger General Remark
 
-
+By a local min/max on a domain $D\subseteq \mathbb{R}^n$, we mean a point which is the minimum/maximum of the function in a small neighborhood in $D$.
 
 :::
 
-## Lagrangian Multiples
+### Lagrange Multipliers
 
 
-::::tip Lagrangian Multiples
+::::tip Lagrange Multipliers
 
-Let $f:\mathbb{R}^n\rightarrow \mathbb{R}$ be a function and the domain as $D$, which is the level set of a function $g$, that is, $D=\{\mathbf{x}\in \mathbb{R}^n\text{ with }g(\mathbf{x})=k \}$
+Let $f:\mathbb{R}^n\rightarrow \mathbb{R}$ be a function and let the domain $D$ be a [level set](./9-29-2026.mdx#level-sets) of a function $g$, that is, $D=\{\mathbf{x}\in \mathbb{R}^n\text{ with }g(\mathbf{x})=k \}$.
 
-Suppose that $\nabla g(\mathbf{x})\ne 0 \text{ for all } \mathbf{x}\in D $
+Suppose that $\nabla g(\mathbf{x})\ne 0 \text{ for all } \mathbf{x}\in D$.
 
-If $p\in D$ is a local min/max for $f$ over $D$, then $\nabla f(p)$ is parallel to $\nabla g(p)$, that is to say, $\nabla f(p)= \lambda \nabla g(p)$ for some $\lambda \in \mathbb{R}$
+If $p\in D$ is a local min/max for $f$ over $D$, then $\nabla f(p)$ is parallel to $\nabla g(p)$, that is to say, $\nabla f(p)= \lambda \nabla g(p)$ for some $\lambda \in \mathbb{R}$.
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+We will prove the contrapositive: if $\nabla f(p)\ne \lambda \nabla g(p)$ for every $\lambda\in\mathbb{R}$, then $p$ is neither a local min nor a local max.
+
+If $\nabla f(p)$ and $\nabla g(p)$ are not parallel, then we can consider $v$, the projection of $\nabla f(p)$ onto $T_p D$:
+
+$$
+v=\operatorname{proj}_{T_p D}\nabla f(p)\ne 0
+$$
+
+Now, consider a curve $\gamma: \mathbb{R}\rightarrow D$ such that $\gamma(0)=p$ and $\gamma^{\prime}(0)=v$.
+
+If $p$ is a local minimum for $f$, then $0$ is a local minimum for $f\circ \gamma$, so its derivative at $0$ must vanish. However:
+
+$$
+\left.\frac{\mathrm{d}}{\mathrm{d}t}f\big( \gamma(t)\big)\right|_{t=0}= \nabla f\big( \gamma(0)\big)\cdot \gamma^{\prime}(0)=\nabla f(p)\cdot v =\|v\|^2\ne 0
+$$
+
+The same argument works for a local maximum. Therefore, the assumption that $\nabla f(p)$ and $\nabla g(p)$ are not parallel is wrong, and we get:
+
+$$
+\nabla f(p)= \lambda \nabla g(p)
+$$
+By the contrapositive of what we proved, if $p$ is a local min/max, then $\nabla f(p)$ is parallel to $\nabla g(p)$, as we wanted.
+</details>
+
+
 ::::
-
-### Application
-
-:::tip Usage of Lagrangian Multiples
-
-:::
