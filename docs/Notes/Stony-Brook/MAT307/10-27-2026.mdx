@@ -3,3 +3,166 @@ title: 10/27/2026 - Lecture 17
 sidebar_label: 10/27/2026
 sidebar_position: 17
 ---
+
+## Vector Fields
+
+::::note Notation 
+
+$$
+\mathbf{u}: \mathbb{R}^n\longrightarrow \mathbb{R}^n \text{ or }\mathbf{F}: \mathbb{R}^n\longrightarrow \mathbb{R}^n 
+$$
+
+:::warning Example
+
+- Physical Example: force field is a vector field, the same as a magnetic field. 
+
+<hr/>
+
+- Important Example: the gradient of a function $\nabla f=\mathbf{u}$ is a vector field.
+
+<hr/>
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gap: "0",
+  }}
+>
+  <div
+    style={{
+      paddingRight: "2rem",
+      borderRight: "1px solid var(--ifm-color-emphasis-300)",
+    }}
+  >
+
+- Gravitational Field: gravitational field can be expressed as:
+
+$$
+\mathbf{F}(\mathbf{r})=\frac{-G\mathbf{r}}{\|\mathbf{r} \|^3}
+$$
+
+  </div>
+
+  <div
+    style={{
+      paddingLeft: "2rem",
+    }}
+  >
+
+<figure style={{ margin: 0, textAlign: 'center' }}>
+<svg viewBox="0 0 200 200" width="100%" style={{ maxWidth: '240px', height: 'auto' }} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" role="img" aria-label="Vector field pointing radially inward toward a central point, representing a gravitational field, with more and smaller arrows filling in the directions between the main ones">
+<g transform="rotate(0 100 100)"><line x1="185" y1="100" x2="135" y2="100"/><polyline points="143,93 135,100 143,107"/></g>
+<g transform="rotate(45 100 100)"><line x1="185" y1="100" x2="135" y2="100"/><polyline points="143,93 135,100 143,107"/></g>
+<g transform="rotate(90 100 100)"><line x1="185" y1="100" x2="135" y2="100"/><polyline points="143,93 135,100 143,107"/></g>
+<g transform="rotate(135 100 100)"><line x1="185" y1="100" x2="135" y2="100"/><polyline points="143,93 135,100 143,107"/></g>
+<g transform="rotate(180 100 100)"><line x1="185" y1="100" x2="135" y2="100"/><polyline points="143,93 135,100 143,107"/></g>
+<g transform="rotate(225 100 100)"><line x1="185" y1="100" x2="135" y2="100"/><polyline points="143,93 135,100 143,107"/></g>
+<g transform="rotate(270 100 100)"><line x1="185" y1="100" x2="135" y2="100"/><polyline points="143,93 135,100 143,107"/></g>
+<g transform="rotate(315 100 100)"><line x1="185" y1="100" x2="135" y2="100"/><polyline points="143,93 135,100 143,107"/></g>
+<g strokeWidth="1.1" strokeOpacity="0.8">
+<g transform="rotate(22.5 100 100)"><line x1="170" y1="100" x2="145" y2="100"/><polyline points="151,96.5 145,100 151,103.5"/></g>
+<g transform="rotate(67.5 100 100)"><line x1="170" y1="100" x2="145" y2="100"/><polyline points="151,96.5 145,100 151,103.5"/></g>
+<g transform="rotate(112.5 100 100)"><line x1="170" y1="100" x2="145" y2="100"/><polyline points="151,96.5 145,100 151,103.5"/></g>
+<g transform="rotate(157.5 100 100)"><line x1="170" y1="100" x2="145" y2="100"/><polyline points="151,96.5 145,100 151,103.5"/></g>
+<g transform="rotate(202.5 100 100)"><line x1="170" y1="100" x2="145" y2="100"/><polyline points="151,96.5 145,100 151,103.5"/></g>
+<g transform="rotate(247.5 100 100)"><line x1="170" y1="100" x2="145" y2="100"/><polyline points="151,96.5 145,100 151,103.5"/></g>
+<g transform="rotate(292.5 100 100)"><line x1="170" y1="100" x2="145" y2="100"/><polyline points="151,96.5 145,100 151,103.5"/></g>
+<g transform="rotate(337.5 100 100)"><line x1="170" y1="100" x2="145" y2="100"/><polyline points="151,96.5 145,100 151,103.5"/></g>
+</g>
+<circle cx="100" cy="100" r="5" fill="currentColor" stroke="none"/>
+</svg>
+<figcaption style={{ marginTop: '0.3rem', fontSize: '0.8rem' }}>Vectors point inward toward the mass at the center</figcaption>
+</figure>
+
+  </div>
+</div>
+
+:::
+
+::::
+
+### Integral of a Vector Field Along a Curve
+
+::::tip Integral of a Vector Field Along a Curve (Flow)
+
+Given a curve $\gamma$:
+
+$$
+\gamma : [a,b]\longrightarrow \mathbb{R}^n
+$$
+
+Let $C$ be the image of the curve in $\mathbb{R}^n$ (forgetting the parametrization), then the integral of a vector field along a curve, also known as flow, is defined as:
+
+$$
+\int_{C}\mathbf{F}\cdot \mathrm{d}r \coloneqq \int_{a}^{b}\mathbf{F}\big(\gamma (t) \big)\cdot \gamma^{\prime}(t)\ \mathrm{d}t
+$$
+
+:::danger Remark
+
+It does not depend on the choice of a parametrization (we saw it [last time](docs/Notes/Stony-Brook/MAT307/10-22-2026.mdx#flow)) provided that we choose a parametrization going through the curve once from $A=\gamma(a)$ and $B=\gamma(b)$
+
+:::
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gap: "0",
+  }}
+>
+  <div
+    style={{
+      paddingRight: "2rem",
+      borderRight: "1px solid var(--ifm-color-emphasis-300)",
+    }}
+  >
+
+<figure style={{ margin: 0, textAlign: 'center' }}>
+<svg viewBox="0 0 200 140" width="100%" style={{ maxWidth: '240px', height: 'auto' }} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" role="img" aria-label="A curve from point A to point B with an arrow showing the direction of travel">
+<path d="M30,110 Q100,20 170,30"/>
+<g transform="translate(100 45) rotate(-30)"><polyline points="-8,-5 0,0 -8,5"/></g>
+<circle cx="30" cy="110" r="3" fill="currentColor" stroke="none"/>
+<circle cx="170" cy="30" r="3" fill="currentColor" stroke="none"/>
+<text x="16" y="124" fontSize="12" fill="currentColor" stroke="none">A</text>
+<text x="176" y="26" fontSize="12" fill="currentColor" stroke="none">B</text>
+</svg>
+</figure>
+
+  </div>
+
+  <div
+    style={{
+      paddingLeft: "2rem",
+    }}
+  >
+
+In general, choosing $t=t(s)$ for an increasing differentiable function $t(s)$ works.
+
+  </div>
+</div>
+
+
+:::note Note
+When writing $C\subseteq \mathbb{R}^n$, I am thinking of a curve together with a direction of travel (we will refer to it as an oriented curve)
+:::
+
+:::danger Side Remark
+
+If $\mathbf{F}$ is a force vector field, then $\int_{C}\mathbf{F}\cdot \mathrm{d}r$ is the work that the force $\mathbf{F}$ does on a particle traveling through $C$.
+
+:::
+
+::::
+
+::::warning Question
+
+Given a vector field $\mathbf{u}$, when can we write $\mathbf{u}=\nabla g$? 
+
+:::tip Potential
+
+If such $g$ exists, it is called a **Potential** of $\mathbf{u}$. 
+
+:::
+
+::::
