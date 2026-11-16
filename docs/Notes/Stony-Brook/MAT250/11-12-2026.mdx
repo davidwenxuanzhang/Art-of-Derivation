@@ -1,0 +1,81 @@
+---
+title: 11/12/2026 - Lecture 13
+sidebar_label: 11/12/2026
+sidebar_position: 14
+---
+
+## Division Theorem
+
+::::tip Division Theorem
+
+Given $a,b\in \mathbb{Z}$; if $b>0$, then exists unique $q$ and $r$ such that:
+
+$$
+a=bq+r, \qquad 0\le r <b
+$$
+
+:::danger Quotient and Remainder
+
+The integer $q$ is called the **Quotient**, and the integer $r$ is called the **Remainder**
+
+:::
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+We will do this <span className="math-keyword">Derivation</span> step by step: we prove the existence of $q$ and $r$ first, and then prove the uniqueness of them.
+
+- Existence of $q$ and $r$
+
+    There are two cases:
+    - Case 1: $a\ge 0$
+        
+        Consider the set:
+        $$
+        A=\{k\in \mathbb{Z}:k\ge 0 \text{ and }bk\le a \}
+        $$
+
+        First, $A$ is non-empty, as 
+        $$
+        a \in A\qquad b\cdot 0=0\subseteq a
+        $$
+
+        If $m$ is anything from $a$ ($m\in A$), then
+        $$
+        0\le m \text{ and }bm\le a\underbrace{\implies}_{b\ge 1} m\le mb\le a\implies m\le a
+        $$
+        Thus, $A$ is a finite set, and therefore a maximum element: $\operatorname{max}A=q$ exists. Moreover, let
+
+        $$
+        r=a-bq
+        $$
+
+        Since $q\in A$, we have:
+
+        $$
+        bq\le a \implies r=a-bq \ge 0
+        $$
+
+        Now, set up a contradiction (claude: add a link to contradiction): if $r\ge b$, then
+
+        $$
+        r=a-bq\ge b \ge b \implies a\ge b+bq= (1+q)b\implies q+1\in A
+        $$
+
+        This contradict with the fact that $q=\operatorname{max}A$, so $r\ge b$ is false, and thus $r<b$. Consequently:
+
+        $$
+        a=bq+r,\qquad 0\le r<b
+        $$
+    - Case 2: $a<0$
+
+
+</details>
+
+::::
+
+
+
+## Euclidean Algorithm
+
+## Consequences of the Euclidean Algorithm
