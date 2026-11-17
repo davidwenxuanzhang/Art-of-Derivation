@@ -165,4 +165,85 @@ If such $g$ exists, it is called a **Potential** of $\mathbf{u}$.
 
 :::
 
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+Let's try to find some conditions that $\mathbf{u}$ must satisfy in order to admit a potential.
+
+- Suppose that $\mathbf{u}=\nabla g$ for some $g:\mathbb{R}^n \rightarrow \mathbb{R}$
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gap: "0",
+  }}
+>
+  <div
+    style={{
+      paddingRight: "2rem",
+      borderRight: "1px solid var(--ifm-color-emphasis-300)",
+    }}
+  >
+
+<figure style={{ margin: 0, textAlign: 'center' }}>
+<svg viewBox="0 0 200 160" width="100%" style={{ maxWidth: '240px', height: 'auto' }} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" role="img" aria-label="A curve from point A to point B with an arrow showing the direction of travel">
+<path d="M20,130 C60,60 140,160 180,30"/>
+<g transform="translate(100 102.5)"><polyline points="-8,-5 0,0 -8,5"/></g>
+<circle cx="20" cy="130" r="3" fill="currentColor" stroke="none"/>
+<circle cx="180" cy="30" r="3" fill="currentColor" stroke="none"/>
+<text x="10" y="144" fontSize="12" fill="currentColor" stroke="none">A</text>
+<text x="184" y="26" fontSize="12" fill="currentColor" stroke="none">B</text>
+</svg>
+</figure>
+
+  </div>
+
+  <div
+    style={{
+      paddingLeft: "2rem",
+    }}
+  >
+
+Consider a curve $C$ with a parametrization $\gamma$, what can I say about
+
+$$
+\begin{align*}
+\int_{C}\mathbf{u}\cdot \mathrm{d}r &= \int_{a}^{b}\mathbf{u}\big(\gamma(t) \big)\cdot \gamma^{\prime}(t)\ \mathrm{d}t\\
+&=\int_{a}^{b}\nabla g\big(\gamma(t) \big)\cdot \gamma^{\prime}(t)\ \mathrm{d}t
+
+\end{align*}
+$$
+
+  </div>
+</div>
+
+<div style={{ marginLeft: '2rem' }}>
+
+Notice that, by the [Chain Rule](docs/Notes/Stony-Brook/MAT307/10-6-2026.mdx#chain-rule), $\nabla g (t) \cdot \gamma^{\prime}(t)=g^{\prime}\big(\gamma(t) \big)=\frac{\mathrm{d}}{\mathrm{d}t} g\big(\gamma(t) \big) $; by the Fundamental Theorem of Calculus:
+
+$$
+\int_{a}^{b}\nabla g\big(\gamma(t) \big)\cdot \gamma^{\prime}(t)\ \mathrm{d}t=g\big(\gamma(t)\big)\Big|_{a}^{b}=g\big(\gamma(b)\big)-g\big(\gamma(a)\big)=g(B)-g(A)
+$$
+
+</div>
+
+</details>
+
+:::info Corollary 1
+
+$\mathbf{u}=\nabla g\implies \int_{C}\mathbf{u}\cdot \mathrm{d}r=g(B)-g(A)$ depends only on the start and end point of the curve!
+
+:::
+
+:::info Corollary 2
+
+$\mathrm{u}=\nabla g\implies \int_{C}\mathbf{u}\cdot \mathrm{d}r=0$ for any closed curve $C$, that is to say, $A=B$.
+
+More importantly, by taking the contrapositive of this corollary: if I can find a closed curve $C$ such that $\int_{C}\mathbf{F}\cdot \mathrm{d}r\ne 0 $, then $F$ is not a gradient (does not admit a potential).
+
+:::
+
+
 ::::
