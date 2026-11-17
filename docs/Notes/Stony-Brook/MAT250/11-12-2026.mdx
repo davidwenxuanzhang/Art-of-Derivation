@@ -191,4 +191,39 @@ $$
 
 ::::
 
+### The Euclidean Algorithm
+
+:::tip The Euclidean Algorithm
+
+Suppose $a$ annd $b$ are positive integers; set $a_0=a$ and $a_1=b$
+
+We define the Euclidean Algorithm recursive ly as below:
+
+- Step $k$: for $k\ge 1$, suppose that $a_0,\dots, a_{k-1},a_k$ has been defined, then using the [devision theorem](#division-theorem):
+
+$$
+a_k-1=a_kq_k+r_k,\qquad 0\le r_k< a_k
+$$
+
+    If $r_k=0$, then stop.
+
+    Otherwise, put $a_{k+1}=r_k$ and continue with the step $k+1$.
+
+:::
+
 ## Consequences of the Euclidean Algorithm
+
+:::tip Bézout’s Identity
+
+Let $a$ and $b$ be integers. Set $a_0=a$ and at least one of which is non-zero. Then, exists integer $m$ and $n$ sch that 
+
+$$
+\operatorname{gcd}(a,b)=am+bn
+$$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+:::
