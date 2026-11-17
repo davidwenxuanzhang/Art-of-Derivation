@@ -69,13 +69,126 @@ We will do this <span className="math-keyword">Derivation</span> step by step: w
         $$
     - Case 2: $a<0$
 
+        When $a<0$, then $-a>0$, and by case 1 we know there exist integer $q_1$ and $r_1$ such that:
+
+        $$
+        -a=bq_1+r_1, \qquad 0\le r_1 <b
+        $$
+        $$
+        \begin{align*}
+            \implies a &= b(-q_1)-r_1\\
+            &=b(-q_1-1)+b-r_1\\
+            &=b(-q_1-1)+(b-r_1)
+        \end{align*}
+        $$
+        $$
+        q=-q_1=1,\qquad r=b-r_1
+        $$
+        $$
+        \begin{align*}
+            -b&<-r_1\le 0\\
+            -b+b&<-r_1+b \le b \\
+            0&<-r_1+b\le b\\
+        \end{align*}
+        $$
+
+        - Subcase $r_1=0$:
+            $$
+            \begin{align*}
+                -a&=bq_1\\
+                a&=b(-q_1)\\
+                \text{let }q&=-q_1 \text{ and }r=0\\
+                0&\le r < b
+            \end{align*}
+            $$
+        - Subcase $r_1>0$
+            $$
+            \begin{align*}
+                0&<r_1<b\\
+                -b&<-r_1<0\\
+                0&<b-r_1<b
+            \end{align*}
+            $$
+    Thus, in both cases, there exist integer $q$ and $r$ satisfying
+
+    $$
+    a=bq+r,\qquad 0\le r<b
+    $$
+
+    So the existence proved.
+
+<hr/>
+
+- Uniqueness of $q$ and $r$
+
+    Assume there are integers $q_1$, $r_1$, $q_2$, $r_1$ such that 
+
+    $$
+    \begin{align*}
+    a+bq_1+r_1,\qquad 0\le r_1<b\\
+    a+bq_2+r_2,\qquad 0\le r_2<b
+    \end{align*}
+    $$
+    $$
+    \begin{align*}
+    \text{assume }q_1\ge  q_2&\implies bq_1\ge bq_2\\
+    &\implies -bq_1\le -bq_2\\
+    &\implies a-bq_1\le a-bq_2\\
+    &\implies r_q\le r_2\\
+    &\implies 0\le r_2-r_1<b\\
+    &\implies 0\le (a-bq_1)-(a-bq_2)<b\\
+    &\implies 0\le -bq_1+bq_2<b\\
+    &\implies 0\le b(q_2-q_1)<b\\
+    &\implies 0\le q_2-q_1<1\\
+    &\implies q_2-q_1=0\\
+    &\implies q_2=q_1
+    \end{align*}
+    $$
+    Without lost of generality,
+    $$
+    r_1=a-bq_1=a-bq_2=r_2
+    $$
+
+Therefore, both the quotient and the remainder are unique, and with the existence of quotient and the remainder, the prove for division theorem is done. (claude: add a black square)
 
 </details>
 
 ::::
 
-
-
 ## Euclidean Algorithm
+
+
+### Greatest Common Divisor
+
+::::tip Greatest Common Divisor
+
+Let $a$ and $b$ be two integers, at elast one of which is non-zero. The **Greatest Common Divisor** of $a$ and $b$ is the unique positive integer $d$ such that:
+1. $d$ is a common divisor of $a$ and $b$:
+
+$$
+d\mid a,\qquad d\mid b
+$$
+
+2. If $c\mid a$ and $c\mid d$, then $c\le d$
+
+
+:::note Notation
+
+The Greatest Common Divisor of $a$ and $b$ is denoted by:
+$$
+(a,b)=\operatorname{gcd}(a,b)
+$$
+:::
+:::info Lemma
+
+For non-zero integer $a$ and $b$, if $b>0$ and $a=bq+r$ where $q,r\in \mathbb{Z}$, then:
+
+$$
+\operatorname{gcd}(a,b)=\operatorname{gcd}(b,r)
+$$
+
+:::
+
+::::
 
 ## Consequences of the Euclidean Algorithm
