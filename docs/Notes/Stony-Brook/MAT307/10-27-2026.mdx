@@ -247,3 +247,141 @@ More importantly, by taking the contrapositive of this corollary: if I can find 
 
 
 ::::
+
+### Conservative Vector Field
+
+:::info Theorem
+
+Given a vector field $\mathbf{u}$, the following are equivalent:
+1. $\int_{C}\mathbf{u}\cdot \mathrm{d}r=0$ for any closed curve $C$
+2. $\mathbf{u}$ admits a potential $g$.
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+We already saw that $2\implies 1$, so let's see how to do $1\implies 2$. 
+
+We need to guess what $g$ is, so let's say $g(\mathbf{0})=0$, and we define
+
+$$
+g(p)\coloneqq \int_{C_p}\mathbf{u}\cdot \mathrm{d}r
+$$
+
+where $C_p$ is any curve joining $\mathbf{0}$ and $p$, and we need to check that this does not depend on the curve $C_p$
+
+$$
+\int_{C_p^{\prime}}\mathbf{u}\cdot \mathrm{d}r=\int_{\underbrace{C_p^{\prime}-C_p}_{=0}}\mathbf{u}\cdot \mathrm{d}r+\int_{C_p}\mathbf{u}\cdot \mathrm{d}r
+$$
+
+This tells us the value of $g(p)$ does not depend on the choice of the curve $C_p$
+
+Now we have a good candidate for the potential, but we still need to check
+
+$$
+\nabla g=\mathbf{u},\qquad \mathbf{u}=(u_1,\dots,u_n)
+$$
+I will do the $2$-dimensional case, $\mathbf{u}=(u_1,u_2)$. For the scalar components $u_1$ and $u_2$, we need to check
+
+$$
+\partial_{x}g=u_1,\qquad \partial_{y}(g)=u_2
+$$
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gap: "0",
+  }}
+>
+  <div
+    style={{
+      paddingRight: "2rem",
+      borderRight: "1px solid var(--ifm-color-emphasis-300)",
+    }}
+  >
+
+<div style={{ textAlign: 'center' }}>
+<svg viewBox="0 0 280 180" width="100%" style={{ maxWidth: '320px', height: 'auto' }} fill="none" strokeLinecap="round" strokeLinejoin="round" role="img" aria-label="A coordinate plane showing a smooth curve C sub p from the origin 0 to a point p, and a short horizontal segment from p to p plus epsilon e 1, highlighted in green">
+<line x1="30" y1="150" x2="260" y2="150" stroke="currentColor" strokeOpacity="0.35" strokeWidth="1.2"/>
+<polyline points="252,146 260,150 252,154" stroke="currentColor" strokeOpacity="0.35" strokeWidth="1.2"/>
+<line x1="30" y1="150" x2="30" y2="20" stroke="currentColor" strokeOpacity="0.35" strokeWidth="1.2"/>
+<polyline points="26,28 30,20 34,28" stroke="currentColor" strokeOpacity="0.35" strokeWidth="1.2"/>
+<text x="264" y="154" fontSize="11" fontStyle="italic" fill="currentColor" stroke="none">x</text>
+<text x="30" y="14" textAnchor="middle" fontSize="11" fontStyle="italic" fill="currentColor" stroke="none">y</text>
+<path d="M30,150 C70,130 110,40 160,70" stroke="#3b82f6" strokeWidth="2"/>
+<g transform="translate(152,64) rotate(31)" stroke="#3b82f6" strokeWidth="2"><polyline points="-6,-4 0,0 -6,4"/></g>
+<line x1="160" y1="70" x2="230" y2="70" stroke="#22c55e" strokeWidth="3"/>
+<g transform="translate(222,70)" stroke="#22c55e" strokeWidth="3"><polyline points="-6,-4 0,0 -6,4"/></g>
+<circle cx="30" cy="150" r="3" fill="currentColor" stroke="none"/>
+<circle cx="160" cy="70" r="3" fill="currentColor" stroke="none"/>
+<circle cx="230" cy="70" r="3" fill="currentColor" stroke="none"/>
+<text x="16" y="166" fontSize="12" fill="currentColor" stroke="none">0</text>
+<text x="170" y="46" fontSize="12" fill="currentColor" stroke="none">p ∈ ℝ²</text>
+<text x="234" y="56" fontSize="12" fill="currentColor" stroke="none">p + εe₁</text>
+<text x="52" y="104" fontSize="13" fontStyle="italic" fill="#3b82f6" stroke="none">C<tspan fontSize="9" dy="3">p</tspan></text>
+<text x="188" y="90" fontSize="13" fontStyle="italic" fill="#22c55e" stroke="none">C<tspan fontSize="9" dy="3">εe₁</tspan></text>
+</svg>
+</div>
+
+  </div>
+
+  <div
+    style={{
+      paddingLeft: "2rem",
+    }}
+  >
+
+$$
+\begin{align*}
+    \partial_{x}g(p)=\lim_{\varepsilon\rightarrow 0}\frac{g(p+\varepsilon \mathbf{e}_1)-g(p)}{\varepsilon}\\
+    \partial_{y}g(p)=\lim_{\varepsilon\rightarrow 0}\frac{g(p+\varepsilon \mathbf{e}_2)-g(p)}{\varepsilon}
+\end{align*}
+$$
+
+where $\mathbf{e}_i$ is a vector of the [standard basis](docs/Notes/Stony-Brook/MAT307/9-15-2026.mdx#standard-basis)
+
+  </div>
+</div>
+
+$C_p$ is any curve joining from $\mathbf{0}$ to $p$, and $C_{\varepsilon_1}$ is the straight segment joining $p$ to $p+\varepsilon\mathbf{e}_1$
+
+$$
+g(p+\varepsilon\mathbf{e}_1)=\int_{C_p\cup C_{\varepsilon_{1}}}\mathbf{u}\cdot \mathrm{d}r\qquad g(p)=\int_{C_p}\mathbf{u}\cdot \mathrm{d}r
+$$
+$$
+\implies g(p+\varepsilon \mathbf{e}_1)-g(p)=\int_{C_{\varepsilon_{1}}}\mathbf{u}\cdot \mathrm{d}r
+$$
+
+Now I can choose the parametrization $\gamma:[0,\varepsilon]\rightarrow C_{\varepsilon_{1}}$, $t\mapsto p+t\mathbf{e}_1$
+
+$$
+\begin{align*}
+    \implies \int_{C_{\varepsilon_{1}}}\mathbf{u}\cdot \mathrm{d}r&=\int_{0}^{\varepsilon} \mathbf{u}(p+t\mathbf{e}_1)\cdot \mathbf{e}_1 \ \mathrm{d}t\\
+    &=\int_{0}^{\varepsilon}\big(u_1(p+t\mathbf{e}_1), u_2(p+t\mathbf{e}_1) \big)\cdot (1,0)\ \mathrm{d}t\\
+    &=\int_{0}^{\varepsilon} u_1(p+t\mathbf{e}_1)\ \mathrm{d}t
+\end{align*}
+$$
+Now, we get
+
+$$
+\partial_{x}g(p)=\lim_{\varepsilon\rightarrow 0}\frac{g(p+\varepsilon \mathbf{e}_1)-g(p)}{\varepsilon}=\lim_{\varepsilon\rightarrow 0}\frac{\int_{0}^{\varepsilon} u_1(p+t\mathbf{e}_1)\ \mathrm{d}t}{\varepsilon}
+$$
+
+Notice that, letting $G(\varepsilon)\coloneqq \int_{0}^{\varepsilon} u_1(p+t\mathbf{e}_1)\ \mathrm{d}t$, by the Fundamental Theorem of Calculus:
+
+$$
+\frac{\mathrm{d}}{\mathrm{d}\varepsilon }G(\varepsilon)=u_1(p+\varepsilon \mathbf{e}_1)
+$$
+
+Since $G(0)=0$, $\partial_{x}g(p)=\lim\limits_{\varepsilon\rightarrow 0}\frac{G(\varepsilon)}{\varepsilon}=G^{\prime}(0)=u_1(p)$
+
+Analogously we can also get:
+
+$$
+\partial_{y}g(p)=u_2(p) \tag*{$\blacksquare$}
+$$
+
+
+</details>
+
+:::
