@@ -1,0 +1,219 @@
+---
+title: 11/17/2026 - Lecture 14
+sidebar_label: 11/17/2026
+sidebar_position: 15
+---
+
+## Consequences of the Euclidean Algorithm
+
+Recall from last time about Bézout’s Identity (claude: give a link)
+
+:::tip Bézout’s Identity
+
+For $a,b\in \mathbb{Z}$, where $a$ and $b$ not both zero, if $\operatorname{gcd}(a,b)=d$, then exists $m,n\in \mathbb{Z}$ such that:
+
+$$
+am+bn=d
+$$
+
+:::
+
+If $\operatorname{gcd}(a,b)=d$ is proposition $P$ and $\exists\ m,n \in \mathbb{Z}: am+bn=d$ is $Q$, then Bézout’s Identity gives $P \implies Q$.
+
+However, its converse $Q\implies P$ is generally not true, and it is only true for $d=1$
+
+::::tip Coprime
+
+Two integers $a,b$, not both zero, are **Coprime** if $\operatorname{gcd}(a,b)=1$
+
+:::danger Remark 
+
+If $a$ and $b$ coprime, then exist integer $m$, $n$ such that:
+
+$$
+am+bn=1
+$$
+
+:::
+
+::::
+
+
+
+::::info Theorem
+
+Two integers $a$ and $b$ are coprime if and only if there exist integers $m,n$ such that $am+bn=1$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+- $\implies $ direction:
+    
+    Shown in the previous remark. 
+
+- $$ direction
+
+</details>
+
+::::
+
+
+:::tip Theorem 
+
+If there are three positive integers $a,b,c\in \mathbb{Z}^{+}$ and $\operatorname{gcd}(a,b)=1$, then
+
+$$
+a\mid bc\implies a\mid c
+$$
+
+:::
+
+
+## Equivalence Relations and Partitions
+
+
+### Partition
+ 
+::::tip Partition
+
+Let $X$ be non-empty set. A **Partition** of $X$ is a collection $\Pi\subseteq \mathcal{P}(x)$ such that:
+
+1. every member of $\Pi$ is non-empty
+    $$
+    A\in \Pi\implies A\ne \emptyset
+    $$
+2. distinct elements of $\Pi$ are disjoint
+    $$
+    A_1, A_2\in \Pi\text{ and }A_1\ne A_2 \implies A_1\cap A_2=\emptyset
+    $$
+3. the members of $\Pi$ covers $X$:
+    $$
+    \forall x\in X, \ \exists A\in \Pi\text{ such that }x\in A
+    $$
+
+:::warning Example
+
+
+
+:::
+
+::::
+
+### Relation
+
+::::tip Relation
+
+A **Relation** $R$ on a nonempty set $X$ is a subset of $X\times X=X^{2}$
+
+$$
+R\coloneqq \{(x,y): x,y\in X \}
+$$
+
+:::note Notation
+
+$$
+\begin{align*}
+    &(x,y)\in R\iff xRy\ \iff x \sim y\\
+    &(x,y)\notin R\iff x
+    \not{R}y\ \iff x \nsim y
+\end{align*}
+$$
+
+:::
+
+:::warning Examples
+
+
+
+:::
+
+::::
+
+::::tip Definitions
+
+1. A relation $\sim$ on $X$ is **Reflexive** if
+
+    $$
+    \forall a\in X,\ a\sim a
+    $$
+
+2. A relation $\sim $ on $X$ is **Symmetric**  if 
+    $$
+    \forall a,b \in X,\ a\sim b\implies b\sim a
+    $$
+
+3. A relation $\sim$ on $X$ is **Transitive** if
+    $$
+    \forall a,b,c \in X, \ a\sim b\text{ and }b\sim c\implies a\sim c
+    $$
+4. An **Equivalence Relation** on $X$ is a relation that s reflexive, symmetric, and transitive
+
+:::danger Condition
+
+:::
+
+::::
+
+::::tip Congurence Modulo
+
+Fix a positive integer $m$; for $x,y\in \mathbb{Z}$, define
+
+$$
+x\equiv y \pmod {m}\iff m\mid (x-y)
+$$
+
+and $x$ and $y$ are said to be **Congurent Modulo $m$**
+
+:::info Proposition
+
+Congurence modulo $m$ is an equivalence relation on $\mathbb{Z}$
+
+<details>
+<summary><span className="math-keyword">Derivation</span></summary>
+
+</details>
+
+:::
+
+::::
+
+
+:::tip
+
+Let $\Pi$ be a partition on a non-empty set $X$, we define $\sim \Pi$ on $X$ as follows:
+
+$$
+a\sim \Pi b\iff a\text{ and }b \text{belongs to some member in } \Pi
+$$
+
+:::
+
+:::tip Equivalence Class
+
+Let $\sim $ be an equivalence relation on a non-empty set $X$. For $a\in X$, the **Equivalence Class** of $a$ is:
+
+$$
+[a]=\{x\in X\mid x\sim a \} \subseteq X,\quad [a] \in \mathcal{P}(x)
+$$
+
+:::
+
+:::tip Quotient Set
+
+The set of all equivalence classes, also known as **Quotient Set**, is denoted by:
+
+$$
+X/ \sim =\{[a]\mid a\in X \}\subseteq \mathcal{P}(x)
+$$
+
+:::
+
+:::info Theorem
+
+Suppose $\sim $ is an equivalent relation on $X$, then
+
+$$
+[a]=[b] \text{ or } [a]\cap [b]=\emptyset
+$$
+
+:::
