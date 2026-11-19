@@ -1,0 +1,81 @@
+---
+title: 11/18/2026 - Lecture 35
+sidebar_label: 11/18/2026
+sidebar_position: 36
+---
+
+## Lecture Overview
+
+Last time: Statistics in contest
+- Goodhart's Law and Simpson's Paradonx
+- Data manipulation: cherrry picking, data dredging, capricious outliers, stopping conditions
+- Examples: The dead salmon experiment, pharmaceutical testing
+
+Today: 
+- Practical and statistical significance
+- The philosophy of science
+- Null hypothesis statistical testing
+
+From Monday: Climnical trails.
+
+Suppose drugs $A$ and $B$ are being tested for FDA approval.They're designed as anti-inflamatories and are equally effective in htat regard. Current tests are examining side effects. To analyze clinical trails, data is quantized.
+- Positive numbers say drug $A$ is better for a side effect
+- Negative numbers say drug $B$
+- Larger magnitudes indicate strength of preference (either way)
+
+$4000$ people are studies for side effect $1$
+- Sample mean is $0.1$; standard deviation is $3$. Test $\mu=0$
+
+    $$
+    \mathbb{P}=2\Phi\left(\frac{-|\bar{x}-\mu_{0}|}{\frac{s}{\sqrt{N}}} \right)=2\Phi\left(\frac{-0.1}{\frac{3}{\sqrt{4000}}} \right)=0.035<0.05
+    $$
+    Thus we reject the hypothesis $\mu=0$
+
+An unexpected second side effect is also observed.
+- Sample mean is $-10$; standard devaition is $400$. Test $\mu=0$
+
+    $$
+    \mathbb{P}=2\Phi\left(\frac{-|\bar{x}-\mu_{0}|}{\frac{s}{\sqrt{N}}} \right)=2\Phi\left(\frac{-10}{\frac{400}{\sqrt{4000}}} \right)=0.114>0.05
+    $$
+    Thus we accept the hypothesis $\mu=0$
+
+We notice a statistical significance in drug $A$, so we might choose it as teh drug.
+
+However, this a real case where $A$ is Rofecoxib/Vioxx and $B$ is Naproxen. Side effect $1$ is GI problem, but the second side effect is heardattack causes death. FDA approved Vioxx because it is statistical significant on side effect $1$, and consequently it kills a lot of people. In fact, in the trail, $79$ of $4000$ patients detected heart attack; but because it was not statisticaly significant, it was ignored. Moreover, the drug company uses the data manipulation on changing data collection methods that stop collecting new data to get FDA approval.
+
+
+In this case, death is a false positive.
+
+:::danger False Positive
+
+False positive is a really slippery thing. People started to realize
+
+:::
+
+## False Negative vs. False Positive
+
+So why are we focus on false negative over false positive?
+
+The early statistian cannot do anything about false postiive, and the practical computation is expensive. But years later, we can do much better.
+
+:::tip Phylosophy of Science
+
+- Renaissance: Make a hypothesis $H$,gatherdata D$ to test it.
+    - Data never prove a hypothesis is true of false
+    - Instead, science estimate the probability of the hypothesis is true give our data $\mathbb{P}(H\mid D)$
+
+- $p$-value:
+    - Assume hypothesis is true, we use it to assess data. 
+    - $p$-value is essentially $\mathbb{P}(\var{D}\mid H)$, that is the probability our data is true given the hypothesis.
+
+- 20th Century Philosophy
+    - $\mathbb{P}(D\mid H)$ is easy to compute 
+    - Goal of science is **Falsification**
+    - Consider the contrapositive:
+
+    $$
+    \mathbb{P}=\mathbb{P}(\var{D}\mid {\bar{H}})
+    $$
+
+    
+:::
